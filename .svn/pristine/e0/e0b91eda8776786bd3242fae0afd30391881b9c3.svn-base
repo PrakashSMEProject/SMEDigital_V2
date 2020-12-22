@@ -1,0 +1,188 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>passervices</groupId>
+	<artifactId>passervices</artifactId>
+	<name>passervices</name>
+	<version>1.0</version>
+	<packaging>jar</packaging>
+	<url>http://maven.apache.org</url>
+
+	<properties>
+		<mpowerID>ITS-004404</mpowerID>
+		<sonar.importSources>true</sonar.importSources>
+	</properties>
+
+	<dependencies>
+
+		<dependency>
+			<groupId>pascommon</groupId>
+			<artifactId>pascommon</artifactId>
+			<version>1.0</version>
+		</dependency>
+
+		<dependency>
+			<groupId>pasvo</groupId>
+			<artifactId>pasvo</artifactId>
+			<version>1.0</version>
+		</dependency>
+
+		<dependency>
+			<groupId>pasgenerated</groupId>
+			<artifactId>pasgenerated</artifactId>
+			<version>1.0</version>
+		</dependency>
+
+		<dependency>
+			<groupId>mtcommon</groupId>
+			<artifactId>mtcommon</artifactId>
+			<scope>provided</scope>
+			<version>1.0</version>
+		</dependency>
+
+		<dependency>
+			<groupId>amecommon</groupId>
+			<artifactId>amecommon</artifactId>
+			<scope>provided</scope>
+			<version>1.0</version>
+		</dependency>
+
+		<dependency>
+			<groupId>ameservices</groupId>
+			<artifactId>ameservices</artifactId>
+			<scope>provided</scope>
+			<version>1.0</version>
+		</dependency>
+
+		<dependency>
+			<groupId>ratingengineclient</groupId>
+			<artifactId>ratingengineclient</artifactId>
+			<scope>provided</scope>
+			<version>1.0</version>
+		</dependency>
+
+		<dependency>
+			<groupId>ruleserviceclient</groupId>
+			<artifactId>ruleserviceclient</artifactId>
+			<scope>provided</scope>
+			<version>1.0</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>commons-io</groupId>
+			<artifactId>commons-io</artifactId>
+			<version>1.4</version>
+			<scope>provided</scope>
+		</dependency>
+		
+		<dependency>
+			<groupId>restfulrulesclient</groupId>
+			<artifactId>restfulrulesclient</artifactId>
+			<scope>provided</scope>
+			<version>1.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.web</groupId>
+			<artifactId>org.springframework.web</artifactId>
+			<scope>provided</scope>
+			<version>3.0.6</version>
+		</dependency>
+
+		<dependency>
+			<groupId>reportgen</groupId>
+			<artifactId>reportgen</artifactId>
+			<scope>provided</scope>
+			<version>1.0</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate</artifactId>
+			<version>3.2.3.ga</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-orm</artifactId>
+			<version>3.0.6.RELEASE</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context-support</artifactId>
+			<version>3.0.6.RELEASE</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>com.oracle</groupId>
+			<artifactId>ojdbc14</artifactId>
+			<version>10.2.0.2.0</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>1.2.11</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>commons-beanutils</groupId>
+			<artifactId>commons-beanutils</artifactId>
+			<version>1.8.3</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>axis</groupId>
+			<artifactId>axis</artifactId>
+			<version>1.4</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.ow2.easybeans</groupId>
+			<artifactId>easybeans-core</artifactId>
+			<version>1.1.0</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.acegisecurity</groupId>
+			<artifactId>acegi-security</artifactId>
+			<version>1.0.3</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>PDFRenderer</groupId>
+			<artifactId>PDFRenderer</artifactId>
+			<version>0.9.1</version>
+			<scope>provided</scope>
+		</dependency>
+	</dependencies>
+	<build>
+	<resources>
+			<resource>
+				<directory>src</directory>
+			</resource>
+		</resources>
+
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                </configuration>
+			</plugin>
+		</plugins>
+		<sourceDirectory>src</sourceDirectory>
+		<outputDirectory>target\classes</outputDirectory>
+	</build>
+
+</project>

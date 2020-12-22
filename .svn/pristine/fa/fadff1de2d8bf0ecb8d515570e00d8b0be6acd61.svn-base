@@ -1,0 +1,120 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>pasgenerated</groupId>
+	<artifactId>pasgenerated</artifactId>
+	<name>pasgenerated</name>
+	<version>1.0</version>
+	<packaging>jar</packaging>
+	<url>http://maven.apache.org</url>
+
+    <properties>
+		<mpowerID>ITS-004404</mpowerID>
+		<sonar.importSources>true</sonar.importSources>
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<artifactId>pascommon</artifactId>
+			<groupId>pascommon</groupId>
+			<version>1.0</version>
+
+		</dependency>
+
+		<dependency>
+			<artifactId>pasvo</artifactId>
+			<groupId>pasvo</groupId>
+			<version>1.0</version>
+		</dependency>
+
+		<dependency>
+			<artifactId>amecommon</artifactId>
+			<groupId>amecommon</groupId>
+			<scope>provided</scope>
+			<version>1.0</version>
+		</dependency>
+		
+		<dependency>
+			<artifactId>mtcommon</artifactId>
+			<groupId>mtcommon</groupId>
+			<scope>provided</scope>
+			<version>1.0</version>
+		</dependency>
+
+		<dependency>
+			<artifactId>ameconfig</artifactId>
+			<groupId>ameconfig</groupId>
+			<scope>provided</scope>
+			<version>1.0</version>
+		</dependency>
+
+
+		<dependency>
+			<artifactId>businessprocessengine</artifactId>
+			<groupId>businessprocessengine</groupId>
+			<scope>provided</scope>
+			<version>1.0</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.acegisecurity</groupId>
+			<artifactId>acegi-security</artifactId>
+			<version>1.0.3</version>
+			<scope>provided</scope>
+		</dependency>
+
+
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate</artifactId>
+			<version>3.2.3.ga</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>javax.transaction</groupId>
+			<artifactId>jta</artifactId>
+			<version>1.1</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>j2ee</groupId>
+			<artifactId>j2ee</artifactId>
+			<version>1.0</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>1_paskaizenoverrides</groupId>
+			<artifactId>1_paskaizenoverrides</artifactId>
+			<version>1.0</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>ameservices</groupId>
+			<artifactId>ameservices</artifactId>
+			<version>1.0</version>
+			<scope>provided</scope>
+		</dependency>
+	</dependencies>
+
+	<build>
+	<resources>
+			<resource>
+				<directory>src</directory>
+			</resource>
+		</resources>
+
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>2.3.1</version>
+			</plugin>
+		</plugins>
+		<sourceDirectory>src</sourceDirectory>
+		<outputDirectory>target\classes</outputDirectory>
+	</build>
+
+</project>

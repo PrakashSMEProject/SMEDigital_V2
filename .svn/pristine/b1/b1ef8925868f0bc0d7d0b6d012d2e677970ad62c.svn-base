@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+xmlns="http://com/rsaame/pas/b2c/ws" 
+targetNamespace="http://com/rsaame/pas/b2c/ws"
+xmlns:Q1="http://com/rsaame/pas/b2c/ws/travelInsuranceDetails"
+xmlns:Q2="http://com/rsaame/pas/b2c/ws/homeInsuranceDetails" >
+<xs:import schemaLocation="TravelInsuranceDetails.xsd" namespace="http://com/rsaame/pas/b2c/ws/travelInsuranceDetails"></xs:import>
+<xs:import schemaLocation="HomeInsuranceDetails.xsd" namespace="http://com/rsaame/pas/b2c/ws/homeInsuranceDetails"></xs:import>
+
+  <xs:element name="SearchQuotePolicyRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="searchType" type="xs:string" form="qualified">
+        	<xs:annotation>
+        		<xs:documentation>Select Home or Travel</xs:documentation>
+        	</xs:annotation></xs:element>
+        <xs:element name="emailId" type="xs:string" form="qualified"/>
+        <xs:element name="idNumber" type="xs:long" form="qualified"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  
+  <xs:element name="SearchQuotePolicyResponse">
+  <xs:complexType>
+    <xs:sequence>
+      <xs:element name="homeInsuranceDetails" type="Q2:homeInsuranceDetails" minOccurs="0" form="qualified"/>
+      <xs:element name="travelInsuranceDetails" type="Q1:travelInsuranceDetails" minOccurs="0" form="qualified"/>
+    </xs:sequence>
+  </xs:complexType>
+  </xs:element>
+  
+</xs:schema>
+

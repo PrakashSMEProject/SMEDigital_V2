@@ -1,0 +1,156 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Mar 5, 2012 10:41:02 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.rsaame.pas.dao.model.TTrnWctplUnnamedPersonQuo" table="T_TRN_WCTPL_UNNAMED_PERSON_QUO">
+        <composite-id name="id" class="com.rsaame.pas.dao.model.TTrnWctplUnnamedPersonQuoId">
+            <key-property name="wupValidityStartDate" type="java.sql.Timestamp">
+                <column name="WUP_VALIDITY_START_DATE" length="7" />
+            </key-property>
+            <key-property name="wupId" type="long">
+                <column name="WUP_ID" precision="16" scale="0" />
+            </key-property>
+        </composite-id>
+        <property name="wupPolicyId" type="java.lang.Long">
+            <column name="WUP_POLICY_ID" precision="16" scale="0">
+                <comment>WUP_POLICY_ID</comment>
+            </column>
+        </property>
+        <property name="wupBasicRiskId" type="java.lang.Long">
+            <column name="WUP_BASIC_RISK_ID" precision="16" scale="0">
+                <comment>WUP_BASIC_RISK_ID</comment>
+            </column>
+        </property>
+        <property name="wupRskCode" type="java.lang.Long">
+            <column name="WUP_RSK_CODE" precision="16" scale="0">
+                <comment>WUP_RSK_CODE</comment>
+            </column>
+        </property>
+        <property name="wupRtCode" type="java.lang.Short">
+            <column name="WUP_RT_CODE" precision="4" scale="0">
+                <comment>WUP_RT_CODE</comment>
+            </column>
+        </property>
+        <property name="wupRcCode" type="java.lang.Short">
+            <column name="WUP_RC_CODE" precision="4" scale="0">
+                <comment>WUP_RC_CODE</comment>
+            </column>
+        </property>
+        <property name="wupNoOfPerson" type="java.lang.Long">
+            <column name="WUP_NO_OF_PERSON" precision="16" scale="0">
+                <comment>WUP_NO_OF_PERSON</comment>
+            </column>
+        </property>
+        <property name="wupSumInsured" type="big_decimal">
+            <column name="WUP_SUM_INSURED" precision="16" scale="3">
+                <comment>WUP_SUM_INSURED</comment>
+            </column>
+        </property>
+        <property name="wupStatus" type="java.lang.Byte">
+            <column name="WUP_STATUS" precision="2" scale="0">
+                <comment>WUP_STATUS</comment>
+            </column>
+        </property>
+        <property name="wupEmploymentType" type="java.lang.Short">
+            <column name="WUP_EMPLOYMENT_TYPE" precision="3" scale="0">
+                <comment>WUP_EMPLOYMENT_TYPE</comment>
+            </column>
+        </property>
+        <property name="wupEmployerEName" type="string">
+            <column name="WUP_EMPLOYER_E_NAME" length="60">
+                <comment>WUP_EMPLOYER_E_NAME</comment>
+            </column>
+        </property>
+        <property name="wupEmployerAName" type="string">
+            <column name="WUP_EMPLOYER_A_NAME" length="60">
+                <comment>WUP_EMPLOYER_A_NAME</comment>
+            </column>
+        </property>
+        <property name="wupValidityExpiryDate" type="java.sql.Timestamp">
+            <column name="WUP_VALIDITY_EXPIRY_DATE" length="7" not-null="true">
+                <comment>WUP_VALIDITY_EXPIRY_DATE</comment>
+            </column>
+        </property>
+        <property name="wupEndtId" type="java.lang.Long">
+            <column name="WUP_ENDT_ID" precision="16" scale="0">
+                <comment>WUP_ENDT_ID</comment>
+            </column>
+        </property>
+        <property name="wupRiRskCode" type="java.lang.Integer">
+            <column name="WUP_RI_RSK_CODE" precision="5" scale="0">
+                <comment>WUP_RI_RSK_CODE</comment>
+            </column>
+        </property>
+        <property name="wupBasicRskCode" type="java.lang.Integer">
+            <column name="WUP_BASIC_RSK_CODE" precision="5" scale="0">
+                <comment>WUP_BASIC_RSK_CODE</comment>
+            </column>
+        </property>
+        <property name="wupPlaceOfWork" type="string">
+            <column name="WUP_PLACE_OF_WORK" length="100">
+                <comment>WUP_PLACE_OF_WORK</comment>
+            </column>
+        </property>
+        <property name="wupSalary" type="big_decimal">
+            <column name="WUP_SALARY" precision="16" scale="3">
+                <comment>WUP_SALARY</comment>
+            </column>
+        </property>
+        <property name="wupPreparedBy" type="java.lang.Integer">
+            <column name="WUP_PREPARED_BY" precision="8" scale="0">
+                <comment>WUP_PREPARED_BY</comment>
+            </column>
+        </property>
+        <property name="wupPreparedDt" type="java.sql.Timestamp">
+            <column name="WUP_PREPARED_DT" length="7">
+                <comment>WUP_PREPARED_DT</comment>
+            </column>
+        </property>
+        <property name="wupModifiedBy" type="java.lang.Integer">
+            <column name="WUP_MODIFIED_BY" precision="8" scale="0">
+                <comment>WUP_MODIFIED_BY</comment>
+            </column>
+        </property>
+        <property name="wupModifiedDt" type="java.sql.Timestamp">
+            <column name="WUP_MODIFIED_DT" length="7">
+                <comment>WUP_MODIFIED_DT</comment>
+            </column>
+        </property>
+        <property name="wupStartDate" type="java.sql.Timestamp">
+            <column name="WUP_START_DATE" length="7" />
+        </property>
+        <property name="wupEndDate" type="java.sql.Timestamp">
+            <column name="WUP_END_DATE" length="7" />
+        </property>
+        <property name="wupHazard" type="java.lang.Long">
+            <column name="WUP_HAZARD" precision="16" scale="0" />
+        </property>
+        <property name="wupTradeGroup" type="java.lang.Long">
+            <column name="WUP_TRADE_GROUP" precision="16" scale="0" />
+        </property>
+        <property name="wupBldId" type="java.lang.Long">
+            <column name="WUP_BLD_ID" precision="10" scale="0" />
+        </property>
+        <property name="wupTerCode" type="java.lang.Short">
+            <column name="WUP_TER_CODE" precision="4" scale="0" />
+        </property>
+        <property name="wupJurCode" type="java.lang.Short">
+            <column name="WUP_JUR_CODE" precision="4" scale="0" />
+        </property>
+        <property name="wupFreeZone" type="string">
+            <column name="WUP_FREE_ZONE" length="50" />
+        </property>
+        <property name="wupIndemnityDesc" type="string">
+            <column name="WUP_INDEMNITY_DESC" length="60" />
+        </property>
+        <property name="wupJurDesc" type="string">
+            <column name="WUP_JUR_DESC" length="600" />
+        </property>
+        <property name="wupEmpLiabLmt" type="big_decimal">
+            <column name="WUP_EMP_LIAB_LMT" precision="16" scale="3">
+                <comment>Employer s Liability Limit</comment>
+            </column>
+        </property>
+    </class>
+</hibernate-mapping>

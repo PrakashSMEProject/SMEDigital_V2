@@ -1,0 +1,124 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 2, 2013 3:53:14 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.rsaame.pas.dao.model.VRenewalStatusEmailReportPas" table="V_RENEWAL_STAT_EMAIL_REP_PAS">
+        <composite-id name="id" class="com.rsaame.pas.dao.model.VRenewalStatusEmailReportPasId">
+         	
+           <key-property name="policyNo" type="java.lang.Long">
+                <column name="POLICY_NO" precision="22" scale="0" />
+			</key-property>
+		   <key-property name="polClassCode" type="java.lang.Integer">
+                <column name="POL_CLASS_CODE" precision="22" scale="0" />
+            </key-property>
+                     
+        </composite-id>
+			<property name="quotationNo" type="java.lang.Long">
+                <column name="QUOTATION_NO" precision="16" scale="0" />
+            </property>
+            <property name="polPolicyType" type="java.lang.Integer">
+                <column name="POL_POLICY_TYPE" precision="22" scale="0" />
+            </property>
+            <property name="ptEDesc" type="string">
+                <column name="PT_E_DESC" length="100" />
+            </property>
+            <property name="polLocationCode" type="java.lang.Integer">
+                <column name="POL_LOCATION_CODE" precision="22" scale="0" />
+            </property>           
+                  
+            <property name="insuredName" type="string">
+                <column name="INSURED_NAME" length="305" />
+            </property>
+            <property name="brCode" type="java.lang.Integer">
+                <column name="BR_CODE" precision="22" scale="0" />
+            </property>
+            <property name="quoExpiryDate" type="date">
+                <column name="POLICY_EXPIRY_DATE" length="7" />
+            </property>
+           <property name="totalPremium" type="big_decimal">
+                <column name="PREVIOUS_PREMIUM" precision="22" scale="0" />
+            </property>         
+            <property name="effectiveDate" type="date">
+                <column name="POLICY_START_DATE" length="7" />
+            </property>
+            <property name="newTotalPremium" type="big_decimal">
+                <column name="NEW_TOTAL_PREMIUM" precision="22" scale="0" />
+            </property>
+            <property name="brName" type="string">
+                <column name="BROKER" length="60" />
+            </property>
+            <property name="licensedBy" type="string">
+                <column name="LICENSED_BY" length="60" />
+            </property>
+         
+            <property name="polRenTermTxt" type="string">
+                <column name="POL_REN_TERM_TXT" length="250" />
+            </property>
+ 			<property name="polSchemeCode" type="java.lang.Integer">
+                <column name="POL_SCHEME_CODE" precision="22" scale="0" />
+
+            </property>
+            <property name="polStatus" type="string">
+                <column name="POL_STATUS_ID" length="60" />
+            </property>
+            <property name="polStatusDesc" type="string">
+                <column name="RENEWAL_STATUS" length="60" />
+            </property>
+            <property name="polDistributionChnl" type="java.lang.Integer">
+                <column name="POL_DISTRIBUTION_CHNL" precision="22" scale="0" />
+            </property>
+            <property name="scheme" type="string">
+                <column name="SCHEME" length="60" />
+            </property>
+			 <property name="osAmt" type="big_decimal">
+                <column name="OUTSTANDING_PREMIUM" precision="22" scale="0" />
+            </property>
+            <property name="reason" type="string">
+                <column name="REASON" length="250" />
+            </property>
+            
+            <property name="locEDesc" type="string">
+                <column name="LOC_E_DESC" length="60" />
+            </property>
+			 <property name="clEDesc" type="string">
+                <column name="CL_E_DESC" length="60" />
+            </property>
+            <property name="polInsuredId" type="java.lang.Long">
+                <column name="POL_INSURED_ID" precision="16" scale="0" />
+            </property>
+            <property name="brEmail" type="string">
+                <column name="BROKER_E_EMAIL" length="250"/>
+            </property>
+             <property name="custEmailId" type="string">
+                <column name="CUSTOMER_EMAIL_ID" length="250"/>
+            </property>
+             <property name="brAccountExeEmail" type="string">
+                <column name="BR_ACCOUNT_EXE_EMAIL" length="250"/>
+            </property>
+             <property name="cuEInterests" type="string">
+                <column name="CU_E_INTERESTS" length="50"/>
+            </property>
+              <property name="polLinkingId" type="java.lang.Long">
+                <column name="POL_LINKING_ID" precision="16" scale="0" />
+            </property>
+             <property name="endtId" type="java.lang.Long">
+                <column name="POL_ENDT_ID" precision="16" scale="0" />
+            </property>
+             <property name="policyId" type="java.lang.Long">
+                <column name="POL_POLICY_ID" precision="16" scale="0" />
+            </property>
+             <property name="polVSD" type="date">
+                <column name="POL_VSD" length="7" />
+            </property>
+            <property name="brRemarks" type="string">
+                <column name="BR_REMARKS" length="200" />
+            </property>
+            <property name="brAccountKeyManagerName" type="string">
+                <column name="BR_ACCOUNT_EXE_NAME" length="60" />
+            </property>
+            <property name="brAccountKeyManagerNum" type="string">
+                <column name="BR_ACCOUNT_EXE_MOB_NUM" length="16" />
+            </property>
+    </class>
+</hibernate-mapping>

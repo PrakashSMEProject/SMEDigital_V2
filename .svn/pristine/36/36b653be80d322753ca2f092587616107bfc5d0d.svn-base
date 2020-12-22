@@ -1,0 +1,118 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Jun 26, 2012 3:09:02 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.rsaame.pas.dao.model.TTrnGaccUnnamedPersonQuo" table="T_TRN_GACC_UNNAMED_PERSON">
+        <composite-id name="id" class="com.rsaame.pas.dao.model.TTrnGaccUnnamedPersonQuoId">
+            <key-property name="gupId" type="long">
+                <column name="GUP_ID" precision="16" scale="0" />
+            </key-property>
+            <key-property name="gupValidityStartDate" type="java.sql.Timestamp">
+                <column name="GUP_VALIDITY_START_DATE" length="7" />
+            </key-property>
+        </composite-id>
+        <property name="gupPolicyId" type="java.lang.Long">
+            <column name="GUP_POLICY_ID" precision="16" scale="0">
+                <comment>GUP_POLICY_ID</comment>
+            </column>
+        </property>
+        <property name="gupBasicRiskId" type="java.lang.Long">
+            <column name="GUP_BASIC_RISK_ID" precision="16" scale="0">
+                <comment>GUP_BASIC_RISK_ID</comment>
+            </column>
+        </property>
+        <property name="gupRskCode" type="java.lang.Integer">
+            <column name="GUP_RSK_CODE" precision="6" scale="0">
+                <comment>GUP_RSK_CODE</comment>
+            </column>
+        </property>
+        <property name="gupOcCode" type="java.lang.Integer">
+            <column name="GUP_OC_CODE" precision="6" scale="0">
+                <comment>GUP_OC_CODE</comment>
+            </column>
+        </property>
+        <property name="gupRcCode" type="java.lang.Integer">
+            <column name="GUP_RC_CODE" precision="6" scale="0">
+                <comment>GUP_RC_CODE</comment>
+            </column>
+        </property>
+        <property name="gupNoOfPerson" type="java.lang.Integer">
+            <column name="GUP_NO_OF_PERSON" precision="6" scale="0">
+                <comment>GUP_NO_OF_PERSON</comment>
+            </column>
+        </property>
+        <property name="gupSumInsured" type="big_decimal">
+            <column name="GUP_SUM_INSURED" precision="16" scale="3">
+                <comment>GUP_SUM_INSURED</comment>
+            </column>
+        </property>
+        <property name="gupStatus" type="java.lang.Byte">
+            <column name="GUP_STATUS" precision="2" scale="0">
+                <comment>GUP_STATUS</comment>
+            </column>
+        </property>
+        <property name="gupValidityExpiryDate" type="java.sql.Timestamp">
+            <column name="GUP_VALIDITY_EXPIRY_DATE" length="7" not-null="true">
+                <comment>GUP_VALIDITY_EXPIRY_DATE</comment>
+            </column>
+        </property>
+        <property name="gupEndtId" type="java.lang.Long">
+            <column name="GUP_ENDT_ID" precision="16" scale="0">
+                <comment>GUP_ENDT_ID</comment>
+            </column>
+        </property>
+        <property name="gupRiRskCode" type="java.lang.Integer">
+            <column name="GUP_RI_RSK_CODE" precision="5" scale="0">
+                <comment>GUP_RI_RSK_CODE</comment>
+            </column>
+        </property>
+        <property name="gupBasicRskCode" type="java.lang.Integer">
+            <column name="GUP_BASIC_RSK_CODE" precision="5" scale="0">
+                <comment>GUP_BASIC_RSK_CODE</comment>
+            </column>
+        </property>
+        <property name="gupSalary" type="big_decimal">
+            <column name="GUP_SALARY" precision="16" scale="3">
+                <comment>GUP_SALARY</comment>
+            </column>
+        </property>
+        <property name="gupPreparedBy" type="java.lang.Integer">
+            <column name="GUP_PREPARED_BY" precision="8" scale="0">
+                <comment>GUP_PREPARED_BY</comment>
+            </column>
+        </property>
+        <property name="gupPreparedDt" type="java.sql.Timestamp">
+            <column name="GUP_PREPARED_DT" length="7">
+                <comment>GUP_PREPARED_DT</comment>
+            </column>
+        </property>
+        <property name="gupModifiedBy" type="java.lang.Integer">
+            <column name="GUP_MODIFIED_BY" precision="8" scale="0">
+                <comment>GUP_MODIFIED_BY</comment>
+            </column>
+        </property>
+        <property name="gupModifiedDt" type="java.sql.Timestamp">
+            <column name="GUP_MODIFIED_DT" length="7">
+                <comment>GUP_MODIFIED_DT</comment>
+            </column>
+        </property>
+        <property name="gupStartDate" type="date">
+            <column name="GUP_START_DATE" length="7" />
+        </property>
+        <property name="gupEndDate" type="date">
+            <column name="GUP_END_DATE" length="7" />
+        </property>
+        <property name="gupDescription" type="string">
+            <column name="GUP_DESCRIPTION" length="200" />
+        </property>
+        <property name="gupBldId" type="java.lang.Long">
+            <column name="GUP_BLD_ID" precision="10" scale="0" />
+        </property>
+        <property name="gupAgrLmt" type="big_decimal">
+            <column name="GUP_AGR_LMT" precision="16" scale="3">
+                <comment>Aggregate Limit</comment>
+            </column>
+        </property>
+    </class>
+</hibernate-mapping>

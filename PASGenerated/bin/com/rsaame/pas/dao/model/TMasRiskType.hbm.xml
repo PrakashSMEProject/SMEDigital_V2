@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Feb 3, 2012 12:22:56 AM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+ <class name="com.rsaame.pas.dao.model.TMasRiskType" table="T_MAS_RISK_TYPE">
+  <composite-id class="com.rsaame.pas.dao.model.TMasRiskTypeId"
+   mapped="false" name="id" unsaved-value="undefined">
+   <key-property name="rtRskCode" type="int">
+    <column name="RT_RSK_CODE" precision="5" scale="0"/>
+   </key-property>
+   <key-property name="rtCode" type="int">
+    <column name="RT_CODE" precision="5" scale="0"/>
+   </key-property>
+  </composite-id>
+  <property generated="never" lazy="false" name="rtADesc" type="string">
+   <column length="100" name="RT_A_DESC"/>
+  </property>
+  <property generated="never" lazy="false" name="rtEDesc" type="string">
+   <column length="100" name="RT_E_DESC"/>
+  </property>
+  <property generated="never" lazy="false" name="rtUserCode" type="java.lang.Integer">
+   <column name="RT_USER_CODE" precision="5" scale="0"/>
+  </property>
+  <property generated="never" lazy="false" name="rtPreparedBy" type="java.lang.Integer">
+   <column name="RT_PREPARED_BY" precision="8" scale="0"/>
+  </property>
+  <property generated="never" lazy="false" name="rtPreparedDt" type="date">
+   <column length="7" name="RT_PREPARED_DT"/>
+  </property>
+  <property generated="never" lazy="false" name="rtModifiedBy" type="java.lang.Integer">
+   <column name="RT_MODIFIED_BY" precision="8" scale="0"/>
+  </property>
+  <property generated="never" lazy="false" name="rtModifiedDt" type="date">
+   <column length="7" name="RT_MODIFIED_DT"/>
+  </property>
+ </class>
+ <query name="getRiskType">
+ 	from TMasRiskType riskType where riskType.id.rtRskCode =:riskCode
+ </query>
+</hibernate-mapping>

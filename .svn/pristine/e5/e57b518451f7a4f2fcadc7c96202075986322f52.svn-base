@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Feb 15, 2012 3:19:17 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.rsaame.pas.dao.model.TMasUwMapping" table="T_MAS_UW_MAPPING">
+        <composite-id name="id" class="com.rsaame.pas.dao.model.TMasUwMappingId">
+            <key-property name="uwmUwqCode" type="short">
+                <column name="UWM_UWQ_CODE" precision="4" scale="0" />
+            </key-property>
+            <key-property name="uwmTarCode" type="short">
+                <column name="UWM_TAR_CODE" precision="3" scale="0" />
+            </key-property>
+        </composite-id>
+        <property name="uwmPreparedBy" type="java.lang.Integer">
+            <column name="UWM_PREPARED_BY" precision="8" scale="0" />
+        </property>
+        <property name="uwmPreparedDt" type="date">
+            <column name="UWM_PREPARED_DT" length="7" />
+        </property>
+        <property name="uwmModifiedBy" type="java.lang.Integer">
+            <column name="UWM_MODIFIED_BY" precision="8" scale="0" />
+        </property>
+        <property name="uwmModifiedDt" type="date">
+            <column name="UWM_MODIFIED_DT" length="7" />
+        </property>
+    </class>
+</hibernate-mapping>

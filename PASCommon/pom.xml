@@ -1,0 +1,50 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>pascommon</groupId>
+	<artifactId>pascommon</artifactId>
+	<name>pascommon</name>
+	<version>1.0</version>
+	<packaging>jar</packaging>
+	<url>http://maven.apache.org</url>
+	
+	<properties>
+		<mpowerID>ITS-004404</mpowerID>
+		<sonar.importSources>true</sonar.importSources>
+	</properties>
+	
+	<dependencies>
+		<dependency>
+			<artifactId>mtcommon</artifactId>
+			<groupId>mtcommon</groupId>
+			<scope>provided</scope>
+			<version>1.0</version>
+		</dependency>
+		<dependency>
+  <groupId>j2ee</groupId> 
+  <artifactId>j2ee</artifactId> 
+  <version>1.0</version> 
+  <scope>provided</scope> 
+  </dependency>
+
+	</dependencies>
+
+	<build>
+	<resources>
+			<resource>
+				<directory>src</directory>
+			</resource>
+		</resources>
+
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>2.3.1</version>
+			</plugin>
+		</plugins>
+		<sourceDirectory>src</sourceDirectory>
+		<outputDirectory>target\classes</outputDirectory>
+	</build>
+
+</project>

@@ -1,0 +1,31 @@
+package com;
+public class Constant{
+	public static final String CONST_CTYCODE = "ctyCode";
+	public static final String CONST_GLI_CTY_CODE_END = ",gli_cty_code) = ";
+	public static final String CONST_GLCODE = "glCode";
+	public static final String CONST_SELECT_COUNT_1_FROM_END = "SELECT COUNT(1) FROM(";
+	public static final String CONST_AND_END = " AND ( ";
+	public static final String CONST_METHOD_ENTERED = "Method Entered";
+	public static final String CONST_ENDTID = "endtId";
+	public static final String CONST_LOCCODE = "locCode";
+	public static final String CONST_COMP_ID_ENDTID = "comp_id.endtId";
+	public static final String CONST_TRANSACTION = "Transaction";
+	public static final String CONST_AND_DECODE_GLI_LOC_CODE_1_END = " AND decode(gli_loc_code,-1,";
+	public static final String CONST_POLICYID = "policyId";
+	public static final String CONST_OBJECT_NOT_FOUND_EXCEPTION = "Object not found exception";
+	public static final String CONST_GLI_LOC_CODE_END = ",gli_loc_code) =";
+	public static final String CONST_NEXTCOUNT = "nextcount";
+	public static final String CONST_QUERY_END = "Query: ";
+	public static final String CONST_AND_DECODE_GLI_REG_CODE_1_END = "AND decode(gli_reg_code,-1,";
+	public static final String CONST_UNION_ALL = " UNION ALL";
+	public static final String CONST_GLI_REG_CODE_END = ",gli_reg_code) = ";
+	public static final String CONST_QUOTE = "Quote";
+	public static final String CONST_METHOD_EXITED = "Method Exited";
+	public static final String CONST_FROM_GLACCINTERFACE_GLACCINTERFACE_WHERE_GLACCINTERFACE_GLACCTYPE_END = " from GlAccInterface glAccInterface where glAccInterface.glAccType = ";
+	public static final String CONST_AND_DECODE_GLI_CTY_CODE_1_END = " AND decode(gli_cty_code,-1,";
+	public static final String CONST_COMP_ID_POLICYID = "comp_id.policyId";
+	public static final String CONST_REGCODE = "regCode";
+	public static final String CONST_UPPER_CSH_COMPANY_NAME_LIKE_UPPER_PERC_END = "UPPER(CSH_COMPANY_NAME) like UPPER('%";
+	public static final String CONST_TOKEN = "token";
+	public static final String CONST_INSUREDID = "insuredId";
+}

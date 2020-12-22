@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<taglib version="2.1" xmlns="http://java.sun.com/xml/ns/javaee"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-jsptaglibrary_2_1.xsd">
+ <tlib-version>1.0</tlib-version>
+ <short-name>authTag</short-name>
+ <uri>http://www.rsa.com/acl</uri>
+ <tag>
+  <description>Tag to get the Access Control Level</description>
+  <name>ACLTag</name>
+  <tag-class>com.rsaame.pas.access.handler.ACLTagHandler</tag-class>
+  <body-content>JSP</body-content>
+  <attribute>
+   <description>JS function to be called</description>
+   <name>event</name>
+  </attribute>
+  <attribute>
+   <description>Css class to be included</description>
+   <name>cssClass</name>
+  </attribute>
+  <attribute>
+   <description>Styles if any</description>
+   <name>style</name>
+  </attribute>
+  <attribute>
+   <description>Page Mode</description>
+   <name>mode</name>
+  </attribute>
+  <attribute>
+   <description>Function</description>
+   <name>function</name>
+  </attribute>
+  <attribute>
+   <description>Screen Name</description>
+   <name>screen</name>
+  </attribute>
+  <attribute>
+   <description>Section Name</description>
+   <name>sectionName</name>
+   <rtexprvalue>true</rtexprvalue>
+  </attribute>
+  <attribute>
+   <description>Privilege type</description>
+   <name>privType</name>
+   <rtexprvalue>true</rtexprvalue>
+  </attribute>
+  <attribute>
+   <description>Styles if any</description>
+   <name>accessLevel</name>
+  </attribute>
+ </tag>
+</taglib>

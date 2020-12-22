@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Feb 1, 2012 11:52:36 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.rsaame.pas.dao.model.TMasCoverType" table="T_MAS_COVER_TYPE" >
+        <composite-id name="id" class="com.rsaame.pas.dao.model.TMasCoverTypeId">
+            <key-property name="ctClCode" type="short">
+                <column name="CT_CL_CODE" precision="4" scale="0" />
+            </key-property>
+            <key-property name="ctPtCode" type="short">
+                <column name="CT_PT_CODE" precision="4" scale="0" />
+            </key-property>
+            <key-property name="ctCovCode" type="short">
+                <column name="CT_COV_CODE" precision="4" scale="0" />
+            </key-property>
+            <key-property name="ctCode" type="short">
+                <column name="CT_CODE" precision="4" scale="0" />
+            </key-property>
+        </composite-id>
+        <property name="ctADesc" type="string">
+            <column name="CT_A_DESC" length="200" />
+        </property>
+        <property name="ctEDesc" type="string">
+            <column name="CT_E_DESC" length="200" />
+        </property>
+        <property name="ctUserCode" type="java.lang.Short">
+            <column name="CT_USER_CODE" precision="4" scale="0" />
+        </property>
+        <property name="ctPreparedBy" type="java.lang.Integer">
+            <column name="CT_PREPARED_BY" precision="8" scale="0" />
+        </property>
+        <property name="ctPreparedDt" type="date">
+            <column name="CT_PREPARED_DT" length="7" />
+        </property>
+        <property name="ctModifiedBy" type="java.lang.Integer">
+            <column name="CT_MODIFIED_BY" precision="8" scale="0" />
+        </property>
+        <property name="ctModifiedDt" type="date">
+            <column name="CT_MODIFIED_DT" length="7" />
+        </property>
+        <set name="TMasCoverSubTypes" table="T_MAS_COVER_SUB_TYPE" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="CST_CL_CODE" precision="4" scale="0" not-null="true" />
+                <column name="CST_PT_CODE" precision="4" scale="0" not-null="true" />
+                <column name="CST_COV_CODE" precision="4" scale="0" not-null="true" />
+                <column name="CST_CT_CODE" precision="4" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="com.rsaame.pas.dao.model.TMasCoverSubType" />
+        </set>
+    </class>
+</hibernate-mapping>

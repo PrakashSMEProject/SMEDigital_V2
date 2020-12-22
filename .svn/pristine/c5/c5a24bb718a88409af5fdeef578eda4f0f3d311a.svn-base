@@ -1,0 +1,73 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Jun 29, 2012 4:20:05 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.rsaame.pas.dao.model.TTrnConsequentialLossQuo" table="T_TRN_CONSEQUENTIAL_LOSS_QUO">
+        <composite-id name="id" class="com.rsaame.pas.dao.model.TTrnConsequentialLossQuoId">
+            <key-property name="colPolicyId" type="long">
+                <column name="COL_POLICY_ID" precision="16" scale="0" />
+            </key-property>
+            <key-property name="colEndtId" type="long">
+                <column name="COL_ENDT_ID" precision="16" scale="0" />
+            </key-property>
+            <key-property name="colValidityStartDate" type="java.sql.Timestamp">
+                <column name="COL_VALIDITY_START_DATE" length="7" />
+            </key-property>
+        </composite-id>
+        <property name="colGpSumInsured" type="long">
+            <column name="COL_GP_SUM_INSURED" precision="12" scale="0" not-null="true" />
+        </property>
+        <property name="colHazardCategory" type="short">
+            <column name="COL_HAZARD_CATEGORY" precision="3" scale="0" not-null="true" />
+        </property>
+        <property name="colRiskClass" type="short">
+            <column name="COL_RISK_CLASS" precision="3" scale="0" not-null="true" />
+        </property>
+        <property name="colIndemnityPeriod" type="byte">
+            <column name="COL_INDEMNITY_PERIOD" precision="2" scale="0" not-null="true" />
+        </property>
+        <property name="colValidityExpiryDate" type="date">
+            <column name="COL_VALIDITY_EXPIRY_DATE" length="7" not-null="true" />
+        </property>
+        <property name="colStatus" type="java.lang.Byte">
+            <column name="COL_STATUS" precision="2" scale="0" />
+        </property>
+        <property name="colPreparedBy" type="java.lang.Integer">
+            <column name="COL_PREPARED_BY" precision="8" scale="0" />
+        </property>
+        <property name="colPreparedDt" type="java.sql.Timestamp">
+            <column name="COL_PREPARED_DT" length="7" />
+        </property>
+        <property name="colModifiedBy" type="java.lang.Integer">
+            <column name="COL_MODIFIED_BY" precision="8" scale="0" />
+        </property>
+        <property name="colModifiedDt" type="java.sql.Timestamp">
+            <column name="COL_MODIFIED_DT" length="7" />
+        </property>
+        <property name="colDescription" type="string">
+            <column name="COL_DESCRIPTION" length="100" />
+        </property>
+        <property name="colPremiseDesc" type="string">
+            <column name="COL_PREMISE_DESC" length="200" />
+        </property>
+        <property name="colPremiseADesc" type="string">
+            <column name="COL_PREMISE_A_DESC" length="500" />
+        </property>
+        <property name="colBldId" type="java.lang.Long">
+            <column name="COL_BLD_ID" precision="10" scale="0">
+                <comment>'To store section1 Building ID'</comment>
+            </column>
+        </property>
+        <property name="colEmlPerc" type="big_decimal">
+            <column name="COL_EML_PERC" precision="5">
+                <comment>'EML %'</comment>
+            </column>
+        </property>
+        <property name="colEmlSi" type="java.lang.Long">
+            <column name="COL_EML_SI" precision="12" scale="0">
+                <comment>'EML Sum insured'</comment>
+            </column>
+        </property>
+    </class>
+</hibernate-mapping>

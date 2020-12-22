@@ -1,0 +1,862 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.2
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class
+    name="com.rsaame.kaizen.quote.model.PolicyQuo" 
+    table="T_TRN_POLICY_QUO" 
+>
+
+    <composite-id name="comp_id" class="com.rsaame.kaizen.quote.model.PolicyPKQuo">
+        <key-property 
+            name="policyId" 
+            column="POL_POLICY_ID" 
+            type="java.lang.Long"
+            length="16"
+        />
+        <key-property 
+            name="endtId" 
+            column="POL_ENDT_ID" 
+            type="java.lang.Long"
+            length="16"
+        />      
+    </composite-id>    
+
+   <property
+        name="policyNo"
+        type="java.lang.Long"
+        column="POL_POLICY_NO"
+        length="16"
+        update="true"
+    />
+	
+    <property
+        name="policyYear"
+        type="java.lang.Integer"
+        column="POL_POLICY_YEAR"
+        length="4"
+		update="false"
+    />
+    <property
+        name="refPolicyNo"
+        type="java.lang.Long"
+        column="POL_REF_POLICY_NO"
+        update="false"
+        length="16"
+    />
+    <property
+        name="refPolicyYear"
+        type="java.lang.Integer"
+        column="POL_REF_POLICY_YEAR"
+        length="4"
+        update="false"
+    />
+	
+    <property
+        name="proposalNo"
+        type="java.lang.Long"
+        column="POL_PROPOSAL_NO"
+        length="10"
+        
+    />
+    <property
+        name="proposalDate"
+        type="java.sql.Date"
+        column="POL_PROPOSAL_DATE"
+        length="7"
+        
+    />
+    <property
+        name="issueDate"
+        type="java.sql.Timestamp"
+        column="POL_ISSUE_DATE"
+        length="7"
+    />
+<!-- ADM 25.08.2009 CR35 Transaction Details Release 2.5-->	
+    <property
+        name="expiryDate"
+        type="java.sql.Date"
+        column="POL_EXPIRY_DATE"
+        not-null="false"
+		update="true"
+        length="7"
+    />
+    <property	
+        name="customerId"
+        type="java.lang.Long"
+        column="POL_CUSTOMER_ID"
+        not-null="false"
+        length="12"
+        update="true"
+    /> 
+    <property
+        name="sourceOfBusiness"
+        type="java.lang.Integer"
+        column="POL_SOURCE_OF_BUSINESS"
+        not-null="true"
+        length="2"
+    />
+
+   <property
+        name="commisionId"
+        type="java.math.BigDecimal"
+        column="POL_COMMISION_ID"
+        length="8"
+    />
+    <property
+        name="coinsuranceIndicator"
+        type="int"
+        column="POL_COINSURANCE_INDICATOR"
+        not-null="true"
+        length="1"
+    />
+    <property
+        name="coinsuranceType"
+        type="java.lang.Integer"
+        column="POL_COINSURANCE_TYPE"
+        not-null="true"
+        length="1"
+    />
+    <property
+        name="coverNoteNo"
+        type="java.lang.Long"
+        column="POL_COVER_NOTE_NO"
+        length="12"
+    />
+    <property
+        name="coverNoteDate"
+        type="java.sql.Date"
+        column="POL_COVER_NOTE_DATE"
+        length="7"
+    />
+    <property
+        name="premium"
+        type="java.math.BigDecimal"
+        column="POL_PREMIUM"
+        length="16"
+    />
+    <property
+        name="governmentTax"
+        type="java.math.BigDecimal"
+        column="POL_GOVERNMENT_TAX"
+        length="10"
+    />
+    <property
+        name="policyFees"
+        type="java.math.BigDecimal"
+        column="POL_POLICY_FEES"
+        length="10"
+    />
+   
+    <property
+        name="exchangeRate"
+        type="java.math.BigDecimal"
+        column="POL_EXCHANGE_RATE"
+        not-null="true"
+        length="12"
+    />
+    <property
+        name="processedDate"
+        type="java.sql.Timestamp"
+        column="POL_PROCESSED_DATE"
+        not-null="true"
+        length="7"
+    />
+   
+    <property
+        name="financialIntInd"
+        type="java.lang.Integer"
+        column="POL_FINANCIAL_INT_IND"
+        not-null="true"
+        length="2"
+    />
+    <property
+        name="approvedBy"
+        type="java.lang.Integer"
+        column="POL_APPROVED_BY"
+        length="6"
+    />
+    <property
+        name="userId"
+        type="java.lang.Integer"
+        column="POL_USER_ID"
+        not-null="true"
+        length="6"
+    />
+    <property
+        name="effectiveDate"
+        type="java.sql.Timestamp"
+        column="POL_EFFECTIVE_DATE"
+        not-null="false"
+        length="7"
+    />
+    <property
+        name="printDate"
+        type="java.sql.Timestamp"
+        column="POL_PRINT_DATE"
+        length="7"
+    />
+
+    <property
+        name="specialType"
+        type="java.lang.Integer"
+        column="POL_SPECIAL_TYPE"
+        length="3"
+	/>
+    <property
+        name="coverNoteHour"
+        type="java.lang.Integer"
+        column="POL_COVER_NOTE_HOUR"
+        length="2"
+		update="true"
+	/>
+    <property
+        name="coverNoteMin"
+        type="java.lang.Integer"
+        column="POL_COVER_NOTE_MIN"
+        length="2"
+    />
+
+    <property
+        name="issueMin"
+        type="java.math.BigDecimal"
+        column="POL_ISSUE_MIN"
+        length="16"
+    />
+    <property
+        name="effectiveHour"
+        type="java.lang.Integer"
+        column="POL_EFFECTIVE_HOUR"
+        length="2"
+    />
+    <property
+        name="effectiveMin"
+        type="java.lang.String"
+        column="POL_EFFECTIVE_MIN"
+        length="30"
+    />
+    <property
+        name="expiryHour"
+        type="java.lang.Long"
+        column="POL_EXPIRY_HOUR"
+        length="16"
+    />
+    <property
+        name="expiryMin"
+        type="java.lang.Long"
+        column="POL_EXPIRY_MIN"
+        length="16"
+    />
+    <property
+        name="certificateNo"
+        type="java.lang.Integer"
+        column="POL_CERTIFICATE_NO"
+        length="8"
+        
+    />
+    <property
+        name="certificateDate"
+        type="java.sql.Date"
+        column="POL_CERTIFICATE_DATE"
+        length="7"
+        
+    />
+    <property
+        name="validityStartDate"
+        type="java.sql.Timestamp"
+        column="POL_VALIDITY_START_DATE"
+        not-null="true"
+        length="7"
+    />
+	<!-- ADM 26.08.2009 CR04 QuoteVersioning :Changed the Date to Timestamp Release 2.5-->	
+    <property
+        name="validityExpiryDate"
+        type="java.sql.Timestamp"
+        column="POL_VALIDITY_EXPIRY_DATE"
+        not-null="true"
+        length="7"
+    />
+    <property
+        name="endtEffectiveDate"
+        type="java.sql.Timestamp"
+        column="POL_ENDT_EFFECTIVE_DATE"
+        length="7"
+    />
+    <property
+        name="endtExpiryDate"
+        type="java.sql.Date"
+        column="POL_ENDT_EXPIRY_DATE"
+        length="7"
+    />
+    <property
+        name="ratingType"
+        type="java.lang.Integer"
+        column="POL_RATING_TYPE"
+        length="2"
+    />
+   
+    <property
+        name="endtNo"
+        type="java.lang.Long"
+        column="POL_ENDT_NO"
+        length="16"
+        update="false"
+    />
+    
+    <property	
+        name="policyTerm"
+        type="java.lang.Integer"
+        not-null="false"
+		column="POL_POLICY_TERM"
+        length="5"
+    />
+        
+    <property
+        name="refPolicyId"
+        type="java.lang.Long"
+        column="POL_REF_POLICY_ID"
+        length="16"
+        update="false"
+    />
+	<property
+        name="accexecCode"
+        type="java.lang.Integer"
+        column="POL_ACCEXEC_CODE"
+        length="5"
+    /> 
+    <property
+        name="insuredId"
+        type="java.lang.Long"
+        column="POL_INSURED_CODE"
+        length="16"
+        update="true"
+    />
+
+	<property
+        name="insuredCode"
+        type="java.lang.Long"
+        column="POL_INSURED_ID"
+        length="16"
+		update="false"
+    />
+
+    <property
+        name="quotationNo"
+        type="java.lang.Long"
+        column="POL_QUOTATION_NO"
+        length="16"
+        update="true"
+    />
+    <property
+        name="quotationDate"
+        type="java.sql.Timestamp"
+        column="POL_QUOTATION_DATE"
+        length="7"
+		update="false"
+    />
+    <property
+        name="brCode"
+        type="java.lang.Integer"
+        column="POL_BR_CODE"
+        length="4"
+    />
+     <property
+        name="businessType"
+        type="java.lang.Integer"
+        column="POL_BUSINESS_TYPE"
+        length="3"
+    />
+	 <property
+        name="tarCode"
+        type="java.lang.Integer"
+        column="POL_TAR_CODE"
+        length="3"
+		update="true"
+    />
+
+   
+    <property
+        name="preparedBy"
+		update="false"
+        type="java.lang.Integer"
+        column="POL_PREPARED_BY"
+        length="8"
+        
+    /> 
+    <property
+        name="preparedDt"
+		update="false"
+        type="java.sql.Timestamp"
+        column="POL_PREPARED_DT"
+        length="7"
+    />
+    <property
+        name="modifiedBy"
+        type="java.lang.Integer"
+        column="POL_MODIFIED_BY"
+        length="8"
+    />
+    <property
+        name="modifiedDt"
+        type="java.sql.Timestamp"
+        column="POL_MODIFIED_DT"
+        length="7"
+    />
+    <property
+        name="postedDate"
+        type="java.sql.Date"
+        column="POL_POSTED_DATE"
+        length="7"
+    />
+    <property
+        name="refreshDate"
+        type="java.sql.Timestamp"
+        column="POL_REFRESH_DATE"
+        length="7"
+    />
+	
+	<property
+        name="concPolicyNo"
+        type="java.lang.String"
+        column="POL_CONC_POLICY_NO"
+        length="30"
+        
+    />
+
+	<property
+        name="polRenTermTxt"
+        type="java.lang.String"
+        column="POL_REN_TERM_TXT"
+        length="250"
+    />
+    <property
+        name="polApprovalDate"
+        type="java.sql.Timestamp"
+        column="POL_APPROVAL_DATE"
+        length="7"
+    />
+    <property
+        name="polSuspendTransaction"
+        type="java.lang.String"
+        column="POL_SUSPEND_TRANSACTION"
+        length="1"
+    />
+
+    <!-- bi-directional one-to-many association to PolicyImage -->
+    <set
+        name="policyImages"
+        lazy="true"
+        inverse="true"
+		cascade="all"
+    >
+        <key>
+            <column name="PIM_POLICY_ID" />
+            <column name="PIM_ENDT_ID" />
+        </key>
+        <one-to-many 
+            class="com.rsaame.kaizen.policy.model.PolicyImage"
+        />
+    </set>
+
+	<bag name="motorPersonalDetailsForAcc" cascade="all" inverse="true" lazy="true">
+           <key>
+            <column name="PER_POLICY_ID" />
+            <column name="PER_ENDT_ID"/>
+        </key>
+            
+            <one-to-many class="com.rsaame.kaizen.quote.model.TTrnPersonQuo"/>
+    </bag>
+	<bag name="motorPersonalEffectDetailsForAcc" cascade="all" inverse="true" lazy="true">
+           <key>
+            <column name="PEF_POLICY_ID" />
+            <column name="PEF_ENDT_ID"/>
+        </key>
+         
+            <one-to-many class="com.rsaame.kaizen.quote.model.PersonalEffectQuo"/>
+    </bag>
+	<bag name="policyComments" cascade="all" inverse="true" lazy="false" >
+           <key>
+            <column name="POC_POLICY_ID" />
+            <column name="POC_ENDT_ID"/>
+        </key>
+         
+            <one-to-many class="com.rsaame.kaizen.quote.model.PolicyComment"/>
+     </bag>
+	<!-- bi-directional one-to-many association to CardDetails -->
+    <bag name="vehicleCards" lazy="false" inverse="true" cascade="all">
+        <key>
+            <column name="CRD_POLICY_ID" />
+            <column name="CRD_ENDT_ID" />
+        </key>
+        <one-to-many 
+            class="com.rsaame.kaizen.quote.model.VehicleCardDetailsQuo"
+        />
+    </bag>
+	<!-- bi-directional one-to-many association to Country Card Details -->
+    <bag name="cardsCty" lazy="false" inverse="true" cascade="all">
+        <key>
+            <column name="CCD_POLICY_ID" />
+            <column name="CCD_ENDT_ID" />
+        </key>
+        <one-to-many 
+            class="com.rsaame.kaizen.quote.model.CardCtyDetailsQuo"
+        />
+    </bag>
+	<bag name="vehicles" cascade="all" inverse="true" lazy="false" >
+           <key>
+            <column name="VEH_POLICY_ID" />
+            <column name="VEH_ENDT_ID"/>
+        </key>
+            
+            <one-to-many class="com.rsaame.kaizen.quote.model.VehicleQuo"/>
+     </bag>
+
+	<bag name="drivers" cascade="all" inverse="true" lazy="false" >
+           <key>
+            <column name="DRV_POLICY_ID" />
+            <column name="DRV_ENDT_ID" />
+        </key>
+        
+            <one-to-many class="com.rsaame.kaizen.quote.model.DriverQuo"/>
+     </bag>
+
+	<bag name="premiums" cascade="all" inverse="true" lazy="false" fetch="join"> 
+           <key>
+            <column name="PRM_POLICY_ID" />
+            <column name="PRM_ENDT_ID"/>
+        </key>
+          
+            <one-to-many class="com.rsaame.kaizen.quote.model.PremiumQuo"/>
+     </bag>
+
+
+
+	<bag
+		name="conditions" 
+		inverse="true" 
+		lazy="false" 
+		
+    >
+        <key>
+            <column name="TPC_POLICY_ID" />
+            <column name="TPC_ENDT_ID" />
+        </key>
+    
+        <one-to-many 
+            class="com.rsaame.kaizen.quote.model.PolicyConditionTrnQuo"
+         />
+
+    </bag>
+
+
+  
+
+ <!-- bi-directional one-to-many association to Warranties -->
+
+<bag
+        name="warranties" inverse="true" lazy="false"  
+    >
+        <key>
+            <column name="TPW_POLICY_ID" />
+            <column name="TPW_ENDT_ID" />
+        </key>
+  
+        <one-to-many 
+            class="com.rsaame.kaizen.quote.model.PolicyWarrantyTrnQuo"
+         />
+
+    </bag>
+
+
+ <!-- bi-directional one-to-many association to Exclusions-->
+<bag
+        name="exclusions" inverse="true" lazy="false" 
+    >
+        <key>
+            <column name="TPE_POLICY_ID" />
+            <column name="TPE_ENDT_ID" />
+        </key>
+  
+        <one-to-many 
+            class="com.rsaame.kaizen.quote.model.PolicyExclusionTrnQuo"
+         />
+
+    </bag>
+
+<bag
+        name="coinsurances"  cascade="all" inverse="true" lazy="false" 
+    >
+        <key>
+            <column name="COI_POLICY_ID" />
+            <column name="COI_ENDT_ID" />
+        </key>
+ 
+        <one-to-many 
+            class="com.rsaame.kaizen.quote.model.CoinsuranceQuo"
+         />
+
+    </bag>
+    
+    <!-- bi-directional one-to-many association to PolicyText -->
+    <bag
+        name="policyTexts"
+        lazy="true"
+        inverse="true"
+		cascade="all"
+    >
+        <key>
+            <column name="PTX_POLICY_ID" />
+            <column name="PTX_ENDT_ID" />
+        </key>
+  
+        <one-to-many 
+            class="com.rsaame.kaizen.policy.model.PolicyText"
+        />
+    </bag>
+<!-- bi-directional one-to-many association to NonStdText -->
+    <bag
+        name="nonStdTexts"
+        lazy="true"
+        inverse="true"
+		cascade="all"
+    >
+        <key>
+            <column name="NST_POLICY_ID" />
+            <column name="NST_ENDT_ID" />
+        </key>
+
+        <one-to-many 
+            class="com.rsaame.kaizen.quote.model.NonStdTextQuo"
+        />
+    </bag>
+     <set
+        name="endorsementDetails"
+        lazy="true"
+        inverse="true"
+		cascade="all"
+    >
+        <key>
+            <column name="EDL_POLICY_ID" />
+            <column name="EDL_ENDORSEMENT_ID" />
+        </key>
+        <one-to-many 
+            class="com.rsaame.kaizen.policy.model.EndorsementDetail"
+        />
+    </set>
+		
+	<!-- Added for Reason Codes --><!--
+	<many-to-one 
+		name="reasonCode"
+		class="com.rsaame.kaizen.quote.model.ReasonCode" 
+		not-null="true"
+		lazy="false"
+	>
+		<column name="POL_REASON_CODE" />
+	</many-to-one>
+
+	--><many-to-one	
+        name="otherInsurerCode"
+        class="com.rsaame.kaizen.admin.model.Company"
+        not-null="false"
+		lazy="false"
+    >
+        <column name="POL_OTHER_INSURER_CODE" />
+    </many-to-one>	
+	<many-to-one
+        name="cashCustomerQuo"
+        class="com.rsaame.kaizen.quote.model.CashCustomerQuo"
+		insert="false"
+		update="false"
+        lazy="false"
+		fetch="join"
+		>
+		 <column name="POL_POLICY_ID" />
+		 <column name="POL_VALIDITY_START_DATE" />
+    </many-to-one>	
+
+<!--  PRFFIXSTRT -->
+<!-- 	<many-to-one	
+        name="policyType"
+        class="com.rsaame.kaizen.policy.model.PolicyType"
+        not-null="true"
+	>
+	<column name="POL_POLICY_TYPE"/>
+	<column name="POL_CLASS_CODE"/>    
+		
+    </many-to-one>
+	 -->
+   <property
+        name="policyTypeCode"
+        type="java.lang.Integer"
+        column="POL_POLICY_TYPE"
+        length="4"
+		update="true"
+    />
+  <property
+        name="classCode"
+        type="java.lang.Integer"
+        column="POL_CLASS_CODE"
+        length="4"
+    />
+  <property
+        name="renewalCount"
+        type="java.lang.Integer"
+        column="POL_RENEWAL_COUNT"
+        length="4"
+    /> 
+<!-- ADM 18.08.2009 CR63 Referral (Release 2.5) : Added Approved Indicator -->
+  <property
+        name="approvedInd"
+        type="java.lang.String"
+        column="POL_APPROVED_IND"
+        length="1"
+    />
+
+<!--  PRFFIXEND -->
+
+	<!--<many-to-one	
+        name="commisionType"
+        class="com.rsaame.kaizen.admin.model.CommisionType"
+        not-null="true"
+		insert="false"
+		update="false"
+		lazy="false"
+    >
+        <column name="POL_COMMISION_ID" />
+		<column name="POL_CLASS_CODE" />
+        
+    </many-to-one>	
+	--><many-to-one
+        name="location"
+        class="com.rsaame.kaizen.admin.model.Location"
+        not-null="true"
+        lazy="false"
+        update="true"
+    >
+        <column name="POL_LOCATION_CODE" />
+        <column name="POL_CTY_CODE" />
+        <column name="POL_REG_CODE" />
+        
+    </many-to-one>
+	
+	<many-to-one
+        name="document"
+        class="com.rsaame.kaizen.admin.model.Document"
+        not-null="true"
+		lazy="false"
+		fetch="join"
+    >
+        <column name="POL_DOCUMENT_CODE" />
+	    
+    </many-to-one>
+	<many-to-one	
+        name="currency"
+        class="com.rsaame.kaizen.admin.model.Currency"
+        not-null="true"
+        lazy="false"
+		update="false"
+		fetch="join"
+    >
+        <column name="POL_CURRENCY_CODE" />
+    </many-to-one>
+	<many-to-one	
+        name="status"
+        class="com.rsaame.kaizen.admin.model.Status"
+        not-null="true"
+		lazy="false"
+		fetch="join"
+    >
+        <column name="POL_STATUS" />
+        
+    </many-to-one>	
+	<many-to-one	
+        name="distributionChannel"
+        class="com.rsaame.kaizen.customer.model.DistributionChannel"
+		lazy="false"
+		fetch="join"
+    >
+        <column name="POL_DISTRIBUTION_CHNL" />
+        
+    </many-to-one>	
+	<many-to-one	
+        name="customerSource"
+        class="com.rsaame.kaizen.customer.model.CustomerSource"
+		fetch="join"
+		outer-join="true"
+    >
+		<column name="POL_SOC_CODE"/>
+    </many-to-one>
+	<many-to-one	
+        name="company"
+        class="com.rsaame.kaizen.admin.model.Company"
+        not-null="false"
+    >
+        <column name="POL_ISSUE_HOUR" />
+    </many-to-one>
+	<many-to-one	
+        name="declarationType"
+        class="com.rsaame.kaizen.policy.model.DeclarationType"
+		fetch="join"
+		outer-join="true"
+		update="false"
+	>
+        <column name="POL_DCT_CODE" />
+        
+    </many-to-one>	
+	<many-to-one	
+        name="customerCategory"
+        class="com.rsaame.kaizen.customer.model.CustomerCategory"
+		fetch="join"
+    >
+        <column name="POL_CCG_CODE" />
+        
+    </many-to-one>	
+	<many-to-one	
+        name="agent"
+        class="com.rsaame.kaizen.admin.model.Agent"
+        
+    >
+        <column name="POL_AGENT_ID" />
+    </many-to-one>	
+	<many-to-one	
+        name="customerType"
+        class="com.rsaame.kaizen.customer.model.CustomerType"
+        not-null="true"
+		fetch="join"
+		outer-join="true"
+		update="false"
+    >
+        <column name="POL_CUT_CODE" />
+
+    </many-to-one>
+  <!-- ADM 10.03.2010 CR16203 Grossup field for gross up CR -->
+<!--   <property
+        name="rsaGrossup"
+        type="java.math.BigDecimal"
+        column="POL_RSA_GROSSUP"
+        length="10"
+    />-->
+<!-- ADM 05.08.2010 CR14673 Claims after Renewal Process -->
+<property
+        name="policyClaimCount"
+        type="java.lang.Long"
+        column="POL_REN_CLM_COUNT"
+        length="4"
+        />
+<property
+        name="policyBranchCode"
+        type="java.lang.Integer"
+        column="POL_PROC_LOC_CODE"
+        length="4"
+        />
+</class>
+</hibernate-mapping>

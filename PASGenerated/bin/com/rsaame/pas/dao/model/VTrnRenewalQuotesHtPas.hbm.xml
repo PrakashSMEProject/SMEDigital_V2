@@ -1,0 +1,99 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated May 22, 2013 3:30:33 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.rsaame.pas.dao.model.VTrnRenewalQuotesHtPas" table="V_TRN_RENEWAL_QUOTES_HT_PAS">
+        <composite-id name="id" class="com.rsaame.pas.dao.model.VTrnRenewalQuotesHtPasId">
+            <key-property name="polPolicyId" type="long">
+                <column name="pol_policy_id" precision="16" scale="0" />
+            </key-property>
+            <key-property name="polEndtId" type="big_decimal">
+                <column name="POL_ENDT_ID" precision="22" scale="0" />
+            </key-property>
+        </composite-id>
+            <property name="polEndtNo" type="big_decimal">
+                <column name="POL_ENDT_NO" precision="22" scale="0" />
+            </property>
+            <property name="polLocationCode" type="big_decimal">
+                <column name="POL_LOCATION_CODE" precision="22" scale="0" />
+            </property>
+            <property name="cshEEmailId" type="string">
+                <column name="CSH_E_EMAIL_ID" length="40" />
+            </property>
+            
+            <property name="polQuotationNo" type="big_decimal">
+                <column name="POL_QUOTATION_NO" precision="22" scale="0" />
+            </property>
+            <property name="polPolicyNo" type="big_decimal">
+                <column name="POL_POLICY_NO" precision="22" scale="0" />
+            </property>
+            
+            <property name="polClassCode" type="big_decimal">
+                <column name="POL_CLASS_CODE" precision="22" scale="0" />
+            </property>
+            <property name="polEffectiveDate" type="date">
+                <column name="POL_EFFECTIVE_DATE" length="7" />
+            </property>
+            <property name="polEffectiveDate1" type="string">
+                <column name="POL_EFFECTIVE_DATE1" length="10" />
+            </property>
+            <property name="polExpiryDate" type="date">
+                <column name="POL_EXPIRY_DATE" length="7" />
+            </property>
+            <property name="polExpiryDate1" type="string">
+                <column name="POL_EXPIRY_DATE1" length="10" />
+            </property>
+            <property name="polValidityStartDate" type="string">
+                <column name="POL_VALIDITY_START_DATE" length="11" />
+            </property>
+            <property name="polConcPolicyNo" type="string">
+                <column name="POL_CONC_POLICY_NO" length="30" />
+            </property>
+            <property name="polDctCode" type="big_decimal">
+                <column name="POL_DCT_CODE" precision="22" scale="0" />
+            </property>
+            <property name="polPolicyYear" type="big_decimal">
+                <column name="POL_POLICY_YEAR" precision="22" scale="0" />
+            </property>
+            <property name="polBrCode" type="big_decimal">
+                <column name="POL_BR_CODE" precision="22" scale="0" />
+            </property>
+            <property name="polDistributionChnl" type="big_decimal">
+                <column name="POL_DISTRIBUTION_CHNL" precision="22" scale="0" />
+            </property>
+            <property name="polCoverNoteHour" type="big_decimal">
+                <column name="POL_COVER_NOTE_HOUR" precision="22" scale="0" />
+            </property>
+            <property name="polInsuredCode" type="big_decimal">
+                <column name="POL_INSURED_CODE" precision="22" scale="0" />
+            </property>
+            <property name="polCcgCode" type="big_decimal">
+                <column name="POL_CCG_CODE" precision="22" scale="0" />
+            </property>
+            <property name="polAgentId" type="big_decimal">
+                <column name="POL_AGENT_ID" precision="22" scale="0" />
+            </property>
+            <property name="polPrintDate" type="date">
+                <column name="POL_PRINT_DATE" length="7" />
+            </property>
+            <property name="polPolicyType" type="big_decimal">
+                <column name="POL_POLICY_TYPE" precision="22" scale="0" />
+            </property>
+            <property name="nationality" type="big_decimal">
+                <column name="Nationality" precision="22" scale="0" />
+            </property>
+            <property name="trnSmsMode" type="string">
+                <column name="Trn_Sms_Mode" length="1" />
+            </property>
+            <property name="trnSmsLevel" type="big_decimal">
+                <column name="Trn_Sms_Level" precision="22" scale="0" />
+            </property>
+            <property name="trnSmsStatus" type="big_decimal">
+                <column name="trn_sms_status" precision="22" scale="0" />
+            </property>
+            <property name="polStatusId" type="string">
+                <column name="POL_STATUS" length="20" />
+            </property> 
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,77 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>ePlatformEar</groupId>
+	<artifactId>ePlatformEar</artifactId>
+	<version>1.0</version>
+	<packaging>ear</packaging>
+
+	<properties>
+		<mpowerID>ITS-004404</mpowerID>
+		<sonar.importSources>true</sonar.importSources>
+	</properties>
+	
+	<build>
+		<resources>
+			<resource>
+				<directory>src</directory>
+			</resource>
+		</resources>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-ear-plugin</artifactId>
+				<version>2.4</version>
+				<configuration>
+					<modules>
+						<webModule>
+							<groupId>pas</groupId>
+							<artifactId>pas</artifactId>
+							<bundleFileName>pas.war</bundleFileName>
+							<contextRoot>/pas</contextRoot>
+						</webModule>
+						<webModule>
+							<groupId>pasreport</groupId>
+							<artifactId>pasreport</artifactId>
+							<bundleFileName>pasreport.war</bundleFileName>
+							<contextRoot>/pasreport</contextRoot>
+						</webModule>
+						<webModule>
+							<groupId>pasb2c</groupId>
+							<artifactId>QuoteAndBuy</artifactId>
+							<bundleFileName>QuoteAndBuy.war</bundleFileName>
+							<contextRoot>/QuoteAndBuy</contextRoot>
+						</webModule>
+
+
+
+					</modules>
+
+				</configuration>
+			</plugin>
+		</plugins>
+		<sourceDirectory>src</sourceDirectory>
+		<outputDirectory>target\classes</outputDirectory>
+	</build>
+
+	<dependencies>
+		<dependency>
+			<groupId>pas</groupId>
+			<artifactId>pas</artifactId>
+			<version>1.0</version>
+			<type>war</type>
+		</dependency>
+		<dependency>
+			<groupId>pasb2c</groupId>
+			<artifactId>QuoteAndBuy</artifactId>
+			<version>1.0</version>
+			<type>war</type>
+		</dependency>
+		<dependency>
+			<groupId>pasreport</groupId>
+			<artifactId>pasreport</artifactId>
+			<version>1.0</version>
+			<type>war</type>
+		</dependency>
+	</dependencies>
+</project>

@@ -1,0 +1,31 @@
+<taglib>
+	<tlib-version>1.0</tlib-version>
+	<jsp-version>1.2</jsp-version>
+	<short-name>Optional Cover Tag</short-name>
+	<!-- Tag specifies how you are going to reference the tag library from the JSP page -->
+	<uri>http://www.rsa.com/optionalCoverTag</uri>
+	<tag>
+		<description>Optional Cover Tag is used to fetch optional covers for a scheme.</description>
+		<name>OptionalCoverTag</name>
+		<tag-class>com.rsaame.pas.b2c.productComparison.ui.OptionalCoverTagHandler</tag-class>
+			<body-content>empty</body-content>
+			<attribute>
+				<name>type</name>
+				<required>true</required>
+				<description>Describes type of field to be displayed on JSP.</description>
+				<rtexprvalue>false</rtexprvalue>
+			</attribute>
+			<attribute>
+				<name>noOfCols</name>
+				<required>false</required>
+				<description>Describes how many products need to be displayed on JSP.</description>
+				<rtexprvalue>false</rtexprvalue>
+			</attribute>
+			<attribute>
+				<name>disabledFlag</name>
+				<required>false</required>
+				<description>Determines whether to render as read-only or not.</description>
+				<rtexprvalue>true</rtexprvalue>
+			</attribute>
+	</tag>
+</taglib>

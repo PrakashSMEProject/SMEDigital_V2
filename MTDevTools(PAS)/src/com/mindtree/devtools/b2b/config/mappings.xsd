@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+	<xsd:element name="mappings">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="mapping" type="mappingType"
+					minOccurs="0" maxOccurs="unbounded" />
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:complexType name="mappingType">
+		<xsd:sequence>
+			<xsd:element name="class-a" type="class-aType" />
+			<xsd:element name="class-b" type="class-bType" />
+			<xsd:element name="field" type="fieldType" minOccurs="1"
+				maxOccurs="unbounded" />
+		</xsd:sequence>
+		<xsd:attribute name="id" type="xsd:ID" use="required" />
+		<xsd:attribute name="package" type="xsd:string" use="optional" />
+		<xsd:attribute name="genReverse" type="xsd:boolean" default="true" use="optional"/>
+	</xsd:complexType>
+
+	<xsd:complexType name="class-aType">
+		<xsd:attribute name="class" type="xsd:string" use="required" />
+	</xsd:complexType>
+
+	<xsd:complexType name="class-bType">
+		<xsd:attribute name="class" type="xsd:string" use="required" />
+	</xsd:complexType>
+
+	<xsd:complexType name="fieldType">
+		<xsd:sequence>
+			<xsd:element name="a" type="fieldInstanceType" />
+			<xsd:element name="b" type="fieldInstanceType" />
+		</xsd:sequence>
+		<xsd:attribute name="ref" type="xsd:IDREF" />
+		<xsd:attribute name="mapper-type" type="xsd:string" />
+		<xsd:attribute name="srcAccessorMethod" type="xsd:string" />
+		<xsd:attribute name="srcMutatorMethod" type="xsd:string" />
+		<xsd:attribute name="destAccessorMethod" type="xsd:string" />
+		<xsd:attribute name="destMutatorMethod" type="xsd:string" />
+		<xsd:attribute name="converter" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>
+					The fully qualified name of a class that extends BaseConverter class. The value set to the "properties" attribute of 
+					the sub-tags "a" and "b" will be passed to the handle() methods's map parameters.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="converterDefaultDir" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>
+					Takes only 2 values "a-b" and "b-a".
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+	</xsd:complexType>
+	
+	<xsd:complexType name="fieldInstanceType">
+		<xsd:simpleContent>
+			<xsd:extension base="xsd:string">
+				<xsd:attribute name="properties" type="xsd:string">
+					<xsd:annotation>
+						<xsd:documentation>
+						A comma separated list of name-value pairs. Eg., "format=dd/MM/yyyy,reverse=false". The values are passed to the class
+						set in the "handler" attribute of "field" tag. If the "handler" is not set, then setting these properties are of no use
+						as of now.
+						</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+			<xsd:attribute name="type" type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation>
+						Indicates the type of the field. This may be useful in cases of boolean where the accessor method will become "isXXX()"
+						instead of "getXXX()". Also, in the case of certain heterogeneous types, it may be possible in future to bring in 
+						in-built support. In the case of boolean types, this MUST be set to "boolean". The field value is case-sensitive.
+						
+						Java simple types and custom types as fully qualified names, and Java primitive types can be mentioned here. For collection
+						types, mention the type in the collection. However, this may not be used if the &lt;field&gt; tag has a "ref" attribute
+						mentioned. 
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:attribute>
+			<xsd:attribute name="http-attr" type="xsd:boolean" default="false" use="optional">
+				<xsd:annotation>
+					<xsd:documentation>
+						This is useful only in the case of mapping a VO to HttpServletRequest parameters or attributes. If this is set to true,
+						the generator will generate getAttribute( "field" ) instead of the default getParameter( "field" ). 
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:attribute>
+			<xsd:attribute name="collType" type="xsd:string" use="optional">
+				<xsd:annotation>
+					<xsd:documentation>
+						This indicates the type of collection (if any) that the first array or collection component in the field chain is of. Eg,
+						if the configuration is "a.b[].c", this value represents the type of "b".
+						
+						The allowed values are "ARRAY", "LIST", "MAP" and "SET". Any other value will be ignored. Please note that this value is used
+						only during Velocity template execution. In BeanUtils, the type is reflected and found or based on the presence of "[]".  
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:attribute>
+			</xsd:extension>
+		</xsd:simpleContent>
+	</xsd:complexType>
+
+</xsd:schema>

@@ -1,0 +1,85 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated May 17, 2012 9:15:39 AM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.rsaame.pas.dao.model.TTrnPolicyExclusion" table="T_TRN_POLICY_EXCLUSION">
+        <comment>Policy exclusion details</comment>
+        <composite-id name="id" class="com.rsaame.pas.dao.model.TTrnPolicyExclusionId">
+            <key-property name="tpePolicyId" type="long">
+                <column name="TPE_POLICY_ID" precision="16" scale="0" />
+            </key-property>
+            <key-property name="tpeEndtId" type="long">
+                <column name="TPE_ENDT_ID" precision="16" scale="0" />
+            </key-property>
+            <key-property name="tpeClCode" type="int">
+                <column name="TPE_CL_CODE" precision="5" scale="0" />
+            </key-property>
+            <key-property name="tpePtCode" type="int">
+                <column name="TPE_PT_CODE" precision="5" scale="0" />
+            </key-property>
+            <key-property name="tpeCode" type="int">
+                <column name="TPE_CODE" precision="5" scale="0" />
+            </key-property>
+            <key-property name="tpeRskId" type="long">
+                <column name="TPE_RSK_ID" precision="16" scale="0" />
+            </key-property>
+        </composite-id>
+        <property name="tpeCovCode" type="java.lang.Integer">
+            <column name="TPE_COV_CODE" precision="5" scale="0">
+                <comment>TPE_COV_CODE</comment>
+            </column>
+        </property>
+        <property name="tpeCtCode" type="java.lang.Integer">
+            <column name="TPE_CT_CODE" precision="5" scale="0">
+                <comment>TPE_CT_CODE</comment>
+            </column>
+        </property>
+        <property name="tpeCstCode" type="java.lang.Integer">
+            <column name="TPE_CST_CODE" precision="5" scale="0">
+                <comment>TPE_CST_CODE</comment>
+            </column>
+        </property>
+        <property name="tpeValidityStartDate" type="java.sql.Timestamp">
+            <column name="TPE_VALIDITY_START_DATE" length="7">
+                <comment>TPE_VALIDITY_START_DATE</comment>
+            </column>
+        </property>
+        <property name="tpeValidityEndDate" type="java.sql.Timestamp">
+            <column name="TPE_VALIDITY_END_DATE" length="7">
+                <comment>TPE_VALIDITY_END_DATE</comment>
+            </column>
+        </property>
+        <property name="tpeStatus" type="java.lang.Byte">
+            <column name="TPE_STATUS" precision="2" scale="0">
+                <comment>TPE_STATUS</comment>
+            </column>
+        </property>
+        <property name="tpePreparedBy" type="java.lang.Integer">
+            <column name="TPE_PREPARED_BY" precision="8" scale="0">
+                <comment>TPE_PREPARED_BY</comment>
+            </column>
+        </property>
+        <property name="tpePreparedDt" type="date">
+            <column name="TPE_PREPARED_DT" length="7">
+                <comment>TPE_PREPARED_DT</comment>
+            </column>
+        </property>
+        <property name="tpeModifiedBy" type="java.lang.Integer">
+            <column name="TPE_MODIFIED_BY" precision="8" scale="0">
+                <comment>TPE_MODIFIED_BY</comment>
+            </column>
+        </property>
+        <property name="tpeModifiedDt" type="date">
+            <column name="TPE_MODIFIED_DT" length="7">
+                <comment>TPE_MODIFIED_DT</comment>
+            </column>
+        </property>
+        <property name="tpeAmount" type="string">
+            <column name="TPE_AMOUNT" length="100" />
+        </property>
+        <property name="tpePrintFlag" type="java.lang.Boolean">
+            <column name="TPE_PRINT_FLAG" precision="1" scale="0" />
+        </property>
+    </class>
+</hibernate-mapping>

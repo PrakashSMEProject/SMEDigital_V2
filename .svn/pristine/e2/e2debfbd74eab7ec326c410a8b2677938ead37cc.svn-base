@@ -1,0 +1,3096 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:task="http://www.springframework.org/schema/task" 
+	 xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	 	http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+	 	http://www.springframework.org/schema/aop
+     	http://www.springframework.org/schema/aop/spring-aop-2.5.xsd
+     http://www.springframework.org/schema/task
+     http://www.springframework.org/schema/task/spring-task-3.0.xsd">
+
+	<bean id="hibernateProperties"
+		class="org.springframework.beans.factory.config.PropertiesFactoryBean">
+		<property name="properties">
+			<props>
+				<!-- <prop> key="hibernate.transaction.factory_class"> org.hibernate.transaction.JTATransactionFactory 
+					</prop> <prop key="hibernate.transaction.manager_lookup_class"> org.hibernate.transaction.WeblogicTransactionManagerLookup 
+					</prop> <prop key="jta.UserTransaction"> java:comp/UserTransaction </prop> -->
+				<prop key="hibernate.connection.isolation">1</prop>
+				<!-- <prop key="hibernate.query.factory_class"> org.hibernate.hql.classic.ClassicQueryTranslatorFactory 
+					org.hibernate.hql.ast.ASTQueryTranslatorFactory </prop> -->
+				<prop key="hibernate.dialect">
+					org.hibernate.dialect.Oracle9Dialect
+				</prop>
+				<!-- For MySQL database usage -->
+				<!-- <prop key="hibernate.dialect"> org.hibernate.dialect.MySQL5Dialect 
+					</prop> -->
+				<!-- <prop key="hibernate.query.substitutions"> true 'Y', false 'N' </prop> -->
+				<prop key="hibernate.show_sql">true</prop>
+				<!-- <prop key="hibernate.c3p0.minPoolSize">5</prop> <prop key="hibernate.c3p0.maxPoolSize">20</prop> 
+					<prop key="hibernate.c3p0.timeout">600</prop> <prop key="hibernate.c3p0.max_statement">50</prop> 
+					<prop key="hibernate.c3p0.testConnectionOnCheckout"> false </prop> -->
+			</props>
+		</property>
+	</bean>
+
+	<!-- Sample Hibernate SessionFactory configuration -->
+	<bean id="sessionFactory_POL"
+		class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
+		<property name="dataSource">
+			<ref local="pasDS" />
+		</property>
+
+		<property name="mappingResources">
+			<list>
+				<value>com/rsaame/pas/dao/model/LookUpView.hbm.xml</value>
+				<value>com/rsaame/pas/dao/model/TTrnRoleFunScrSecPriv.hbm.xml</value>
+				<value>com/rsaame/kaizen/admin/model/TMasCodeMaster.hbm.xml</value>
+				<value>com/rsaame/pas/dao/model/VMasUwQuestions.hbm.xml</value>
+				<value>com/rsaame/pas/dao/model/TMasRiskType.hbm.xml</value>
+				<value>com/rsaame/pas/dao/model/TMasProductCriteria.hbm.xml</value>
+				<value>com/rsaame/pas/dao/model/TMasPolicyRating.hbm.xml</value>
+				<value>com/rsaame/pas/dao/model/TMasCommisionType.hbm.xml</value>
+				<value>com/rsaame/pas/gen/domain/TMasCashCustomer.hbm.xml</value>
+				<value>com/rsaame/pas/dao/model/TTrnBuilding.hbm.xml</value>
+				<value>com/rsaame/pas/dao/model/TTrnContent.hbm.xml</value>
+				<value>com/rsaame/pas/dao/model/TTrnSectionDetails.hbm.xml</value>
+				<value>com/rsaame/pas/dao/model/TMasOccupancy.hbm.xml</value>
+				<value>com/rsaame/pas/dao/model/TTrnPremium.hbm.xml</value>
+				<value>com/rsaame/pas/dao/model/VParCntDeductibles.hbm.xml</value>
+				<value>com/rsaame/pas/dao/model/VParBldDeductibles.hbm.xml</value>
+				<value>com/rsaame/pas/dao/model/TMasUwMapping.hbm.xml</value>
+				<value>com/rsaame/pas/dao/model/TMasTariff.hbm.xml</value>
+				<value>com/rsaame/pas/gen/domain/TMasInsured.hbm.xml</value>
+				<value>com/rsaame/pas/dao/model/TTrnUwQuestions.hbm.xml</value>
+				<value>com/rsaame/pas/dao/model/TTrnPolicy.hbm.xml</value>
+				<value>com/rsaame/pas/dao/model/TTrnGaccBuilding.hbm.xml</value>
+				<value>com/rsaame/pas/dao/model/TTrnGaccCashDetails.hbm.xml</value>
+				<value>com/rsaame/pas/dao/model/TTrnGaccCash.hbm.xml</value>
+				<value>com/rsaame/pas/dao/model/TTrnWctplPremise.hbm.xml</value>
+				<value>com/rsaame/pas/dao/model/TTrnWctplUnnamedPerson.hbm.xml</value>
+				<value>com/rsaame/pas/dao/model/VTrnTask.hbm.xml</value>
+				<value>com/rsaame/pas/dao/model/SsVMasLookup.hbm.xml</value>
+				<value>com/rsaame/pas/dao/model/TTrnTask.hbm.xml</value>
+				<value>com/rsaame/pas/dao/model/TMasUser.hbm.xml</value>
+				<value>com/rsaame/pas/dao/model/TTrnTempPasReferral.hbm.xml</value>
+				<!-- <value>com/rsaame/pas/dao/model/TTrnPolicyComments.hbm.xml</value> -->
+				<value>com/rsaame/pas/dao/model/VTrnBldWbdQuo.hbm.xml</value>
+				<value>com/rsaame/pas/dao/model/VMasPasFetchAddlDtls.hbm.xml</value>
+				<value>com/rsaame/pas/dao/model/VMasPasFetchBasicDtls.hbm.xml</value>
+				<value>com/rsaame/pas/dao/model/VMasPasFetchBasicInfo.hbm.xml</value>
+				<value>com/rsaame/pas/dao/model/VTrnPasPremiumSummary.hbm.xml</value>
+				<value>com/rsaame/pas/dao/model/TTrnEndorsementDetail.hbm.xml</value>
+			    <value>com/rsaame/pas/dao/model/TTrnEndorsement.hbm.xml</value>
+			    <value>com/rsaame/pas/dao/model/VTrnPasGetEndtText.hbm.xml</value>
+			    <value>com/rsaame/pas/dao/model/TMasCriteria.hbm.xml</value>
+			    <value>com/rsaame/pas/dao/model/TTrnGaccPerson.hbm.xml</value>
+			    <value>com/rsaame/pas/dao/model/TTrnNonStdText.hbm.xml</value>
+			    <value>com/rsaame/pas/dao/model/VTrnPasPremSumLoc.hbm.xml</value>
+			    <value>com/rsaame/pas/dao/model/TTrnSectionLocation.hbm.xml</value>
+			    <value>com/rsaame/pas/dao/model/TMasBroadcastMsg.hbm.xml</value>
+			    <value>com/rsaame/pas/dao/model/TTrnConsequentialLoss.hbm.xml</value>
+			    <value>com/rsaame/pas/dao/model/TTrnColWorkSheet.hbm.xml</value>
+			    <value>com/rsaame/pas/dao/model/TTrnGaccUnnamedPerson.hbm.xml</value>
+			    <!-- GIT -->
+			 	<value>com/rsaame/pas/dao/model/TTrnMarineDetail.hbm.xml</value>
+			    <value>com/rsaame/pas/dao/model/TTrnMarineHeader.hbm.xml</value>
+			    <value>com/rsaame/pas/dao/model/TTrnMarineTransit.hbm.xml</value>
+			    <!-- Renewal -->
+			    <value>com/rsaame/pas/dao/model/VTrnRenewalPoliciesSbs.hbm.xml</value>
+			    <value>com/rsaame/pas/dao/model/VTrnRenewalQuotationsSbs.hbm.xml</value>
+			    <value>com/rsaame/pas/dao/model/TTrnRenewalBatchEplatform.hbm.xml</value> 
+			    <value>com/rsaame/pas/dao/model/TTrnPasReferralDetails.hbm.xml</value>
+			    <value>com/rsaame/pas/dao/model/TTrnPrintBatchPas.hbm.xml</value>
+			    <value>com/rsaame/pas/dao/model/TMasUwQuestions.hbm.xml</value>
+			    
+			    <value>com/rsaame/pas/dao/model/VTaskListPas.hbm.xml</value>
+			    <value>com/rsaame/pas/dao/model/VMasProductConfigPas.hbm.xml</value>
+			     <!-- Phase 3 start -->
+			  	<value>com/rsaame/pas/dao/model/TMasPartnerMgmt.hbm.xml</value>							
+			    <value>com/rsaame/pas/dao/model/TMasPromoDiscCover.hbm.xml</value> 
+			    <value>com/rsaame/pas/dao/model/TMasPromotionalCode.hbm.xml</value>
+			    <value>com/rsaame/pas/dao/model/TMasCover.hbm.xml</value>
+			    <value>com/rsaame/pas/dao/model/TMasPolicyType.hbm.xml</value>
+			    <value>com/rsaame/pas/dao/model/TMasPolicyCondition.hbm.xml</value>
+			    <value>com/rsaame/pas/dao/model/TTrnPolicyCondition.hbm.xml</value>
+			    
+			    <!-- Phase 3 end -->
+			  	    
+			    <value>com/rsaame/pas/dao/model/TMasSms.hbm.xml</value>
+			    <value>com/rsaame/pas/dao/model/VTrnRenewalPoliciesHtPas.hbm.xml</value>
+			    <value>com/rsaame/pas/dao/model/VTrnRenewalQuotesHtPas.hbm.xml</value>
+			    <value>com/rsaame/pas/dao/model/TTrnMail.hbm.xml</value>
+			    <value>com/rsaame/pas/dao/model/TTrnSms.hbm.xml</value>
+			    <value>com/rsaame/pas/dao/model/TMasControl.hbm.xml</value>
+			    <value>com/rsaame/pas/dao/model/TMasCurrency.hbm.xml</value>
+			    <value>com/rsaame/pas/dao/model/TTrnPaymentDtl.hbm.xml</value>
+			    <value>com/rsaame/pas/dao/model/TTrnMakeClaim.hbm.xml</value>
+			    <value>com/rsaame/pas/dao/model/TMasDefaultValues.hbm.xml</value>
+			    <value>com/rsaame/pas/dao/model/TTrnPaymentRequest.hbm.xml</value>
+			    
+			    <!-- WebServices Auditing -->
+			    <value>com/rsaame/pas/b2c/ws/utilities/WebServiceAudit/vo/WebServiceAudit.hbm.xml</value>
+			    <value>com/rsaame/pas/b2b/ws/dao/vo/EplatformWsStaging.hbm.xml</value>
+				 <!-- AMS Relwase 3.2 -->
+			    <value>com/rsaame/pas/dao/model/TTrnWctplPersonQuo.hbm.xml</value>
+			    
+   			</list>
+		</property>
+		<!-- <property name="annotatedClasses">
+			<list>
+				<value>
+					com.rsaame.kaizen.admin.model.TMasCodeMaster
+				</value>
+			</list>
+		</property> -->
+		<property name="hibernateProperties" ref="hibernateProperties" />
+	</bean>
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
+		<property name="dataSource">
+			<ref local="pasDS" />
+		</property>
+
+		<property name="mappingResources">
+			<list>
+				<value>com/rsaame/pas/dao/model/LookUpView.hbm.xml</value>
+				
+				<value>com/rsaame/pas/dao/model/VTaskListPas.hbm.xml</value>
+				<value>com/rsaame/pas/dao/model/VMasProductConfigPas.hbm.xml</value>
+				
+				<value>com/rsaame/pas/dao/model/TTrnRoleFunScrSecPriv.hbm.xml</value>
+				<value>com/rsaame/kaizen/admin/model/TMasCodeMaster.hbm.xml</value>
+				<value>com/rsaame/pas/dao/model/VMasUwQuestions.hbm.xml</value>
+				<value>com/rsaame/pas/dao/model/TMasRiskType.hbm.xml</value>
+				<value>com/rsaame/pas/dao/model/TMasProductCriteria.hbm.xml</value>
+				<value>com/rsaame/pas/dao/model/TMasPolicyRating.hbm.xml</value>
+				<value>com/rsaame/pas/dao/model/TMasCommisionType.hbm.xml</value>
+				<value>com/rsaame/pas/gen/domain/TMasCashCustomerQuo.hbm.xml</value>
+				<value>com/rsaame/pas/dao/model/TTrnBuildingQuo.hbm.xml</value>
+				<value>com/rsaame/pas/dao/model/TTrnContentQuo.hbm.xml</value>
+				<value>com/rsaame/pas/dao/model/TTrnSectionDetailsQuo.hbm.xml</value>
+				<value>com/rsaame/pas/dao/model/TMasOccupancy.hbm.xml</value>
+				<value>com/rsaame/pas/dao/model/TTrnPremiumQuo.hbm.xml</value>
+				<value>com/rsaame/pas/dao/model/VParCntDeductibles.hbm.xml</value>
+				<value>com/rsaame/pas/dao/model/VParBldDeductibles.hbm.xml</value>
+				<value>com/rsaame/pas/dao/model/TMasUwMapping.hbm.xml</value>
+				<value>com/rsaame/pas/dao/model/TMasTariff.hbm.xml</value>
+				<value>com/rsaame/pas/gen/domain/TMasInsured.hbm.xml</value>
+				<value>com/rsaame/pas/dao/model/TTrnUwQuestionsQuo.hbm.xml</value>
+ 				<value>com/rsaame/pas/dao/model/TTrnPolicyQuo.hbm.xml</value>  
+				<value>com/rsaame/pas/dao/model/TTrnGaccBuildingQuo.hbm.xml</value>
+				<value>com/rsaame/pas/dao/model/TTrnGaccCashDetailsQuo.hbm.xml</value>
+				<value>com/rsaame/pas/dao/model/TTrnGaccCashQuo.hbm.xml</value>
+				<value>com/rsaame/pas/dao/model/TTrnWctplPremiseQuo.hbm.xml</value>
+				<value>com/rsaame/pas/dao/model/TTrnWctplUnnamedPersonQuo.hbm.xml</value>
+				<value>com/rsaame/pas/dao/model/VTrnTask.hbm.xml</value>
+				<value>com/rsaame/pas/dao/model/SsVMasLookup.hbm.xml</value>
+				<value>com/rsaame/pas/dao/model/TTrnTask.hbm.xml</value>
+				<value>com/rsaame/pas/dao/model/TMasUser.hbm.xml</value>
+				<value>com/rsaame/pas/dao/model/TTrnTempPasReferral.hbm.xml</value>
+				<!-- <value>com/rsaame/pas/dao/model/TTrnPolicy.hbm.xml</value> -->
+				<!-- <value>com/rsaame/pas/dao/model/TTrnPolicyComments.hbm.xml</value> -->
+				<value>com/rsaame/pas/dao/model/VTrnBldWbdQuo.hbm.xml</value>
+				<value>com/rsaame/pas/dao/model/VMasPasFetchAddlDtls.hbm.xml</value>
+				<value>com/rsaame/pas/dao/model/VMasPasFetchBasicDtls.hbm.xml</value>
+				<value>com/rsaame/pas/dao/model/VMasPasFetchBasicInfo.hbm.xml</value>
+			
+				<value>com/rsaame/pas/dao/model/TTrnPolicySectionsQuo.hbm.xml</value>
+				<!-- <value>com/rsaame/pas/dao/model/TTrnSectionLocation.hbm.xml</value>  -->
+				<value>com/rsaame/pas/dao/model/VTrnPasPremiumSummary.hbm.xml</value>
+				<value>com/rsaame/pas/dao/model/TMasCriteria.hbm.xml</value>
+				<value>com/rsaame/pas/dao/model/TTrnNonStdTextQuo.hbm.xml</value>
+				<value>com/rsaame/pas/dao/model/TMasPolicyCondition.hbm.xml</value>
+				<value>com/rsaame/pas/dao/model/TTrnPolicyConditionQuo.hbm.xml</value>
+				<value>com/rsaame/pas/dao/model/TTrnPolicyCondition.hbm.xml</value>
+				<value>com/rsaame/pas/dao/model/TMasPolicyExclusion.hbm.xml</value>
+				<value>com/rsaame/pas/dao/model/TTrnPolicyExclusionQuo.hbm.xml</value>
+				<value>com/rsaame/pas/dao/model/TTrnPolicyExclusion.hbm.xml</value>
+				<value>com/rsaame/pas/dao/model/TMasPolicyWarranty.hbm.xml</value>
+				<value>com/rsaame/pas/dao/model/TTrnPolicyWarrantyQuo.hbm.xml</value>
+				<value>com/rsaame/pas/dao/model/TTrnPolicyWarranty.hbm.xml</value>
+				<value>com/rsaame/pas/dao/model/TTrnReminder.hbm.xml</value>
+				<value>com/rsaame/pas/dao/model/VTrnPasPremSumLoc.hbm.xml</value>
+				<value>com/rsaame/pas/dao/model/TTrnSectionLocationQuo.hbm.xml</value>
+				<value>com/rsaame/pas/dao/model/TMasBroadcastMsg.hbm.xml</value>
+				<value>com/rsaame/pas/dao/model/TTrnGaccPersonQuo.hbm.xml</value>
+			    <value>com/rsaame/pas/dao/model/TTrnConsequentialLossQuo.hbm.xml</value>
+			    <value>com/rsaame/pas/dao/model/TTrnColWorkSheetQuo.hbm.xml</value>
+			    <value>com/rsaame/pas/dao/model/TTrnGaccUnnamedPersonQuo.hbm.xml</value>
+			    
+			    <!-- GIT -->
+			    <value>com/rsaame/pas/dao/model/TTrnMarineDetailQuo.hbm.xml</value>
+			    <value>com/rsaame/pas/dao/model/TTrnMarineHeaderQuo.hbm.xml</value>
+			    <value>com/rsaame/pas/dao/model/TTrnMarineTransitQuo.hbm.xml</value>
+			     <!-- Renewal -->
+			    <value>com/rsaame/pas/dao/model/VTrnRenewalPoliciesSbs.hbm.xml</value>
+			    <value>com/rsaame/pas/dao/model/TTrnRenewalBatchEplatform.hbm.xml</value>			    
+				<value>com/rsaame/pas/dao/model/TTrnPasReferralDetails.hbm.xml</value>
+				<value>com/rsaame/pas/dao/model/VTrnPasGetEndtText.hbm.xml</value>
+			    <value>com/rsaame/pas/dao/model/VTrnRenewalQuotationsSbs.hbm.xml</value>
+			    <value>com/rsaame/pas/dao/model/TTrnPrintBatchPas.hbm.xml</value>
+			    <value>com/rsaame/pas/dao/model/TMasUwQuestions.hbm.xml</value>
+			    
+			     <!-- Phase 3 start -->
+			    <value>com/rsaame/pas/dao/model/TMasPartnerMgmt.hbm.xml</value>
+			     <value>com/rsaame/pas/dao/model/TMasPromoDiscCover.hbm.xml</value> 
+			    <value>com/rsaame/pas/dao/model/TMasPromotionalCode.hbm.xml</value>
+			    <value>com/rsaame/pas/dao/model/TMasCover.hbm.xml</value>
+			    <value>com/rsaame/pas/dao/model/TMasPolicyType.hbm.xml</value>
+			    <!-- Phase 3 end -->
+			    <value>com/rsaame/pas/dao/model/TMasSms.hbm.xml</value>
+			    <value>com/rsaame/pas/dao/model/VTrnRenewalPoliciesHtPas.hbm.xml</value>
+			    <value>com/rsaame/pas/dao/model/VTrnRenewalQuotesHtPas.hbm.xml</value>
+			    <value>com/rsaame/pas/dao/model/TTrnMail.hbm.xml</value>
+			     <value>com/rsaame/pas/dao/model/TTrnSms.hbm.xml</value>
+			     <value>com/rsaame/pas/dao/model/TMasControl.hbm.xml</value>
+			    <value>com/rsaame/pas/dao/model/TMasCurrency.hbm.xml</value>
+			     <value>com/rsaame/pas/dao/model/TTrnPaymentDtl.hbm.xml</value>
+				<value>com/rsaame/pas/dao/model/TTrnMakeClaim.hbm.xml</value>
+				<value>com/rsaame/pas/dao/model/TMasDefaultValues.hbm.xml</value>
+				<value>com/rsaame/pas/dao/model/TTrnPaymentRequest.hbm.xml</value>
+				
+				<!-- WebServices Auditing -->
+			    <value>com/rsaame/pas/b2c/ws/utilities/WebServiceAudit/vo/WebServiceAudit.hbm.xml</value>
+			   <value>com/rsaame/pas/b2b/ws/dao/vo/EplatformWsStaging.hbm.xml</value>
+			    <!-- AMS Relwase 3.2 -->
+			   <value>com/rsaame/pas/dao/model/TTrnWctplPersonQuo.hbm.xml</value>
+			    
+			</list>
+		</property>
+		<!-- <property name="annotatedClasses">
+			<list>
+				<value>
+					com.rsaame.kaizen.admin.model.TMasCodeMaster
+				</value>
+			</list>
+		</property> -->
+		<property name="hibernateProperties" ref="hibernateProperties" />
+	</bean>
+	
+	<bean id="applicationContextUtils" class="com.rsaame.pas.b2c.cmn.utils.ApplicationContextUtils"></bean>
+	
+	<bean id="hibernateTransactionManager"
+		class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+		 <property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="jndiObject_DUB" abstract="true"
+		class="org.springframework.jndi.JndiObjectFactoryBean">
+		<property name="jndiName">
+			<value>java:comp/env/AMEDataSource</value>
+		</property>
+	</bean>
+	
+		<bean id="jndiObject_OMAN" abstract="true"
+		class="org.springframework.jndi.JndiObjectFactoryBean">
+		<property name="jndiName">
+			<value>java:comp/env/Kaizen_OMAN</value>
+		</property>
+	</bean>
+
+	<bean id="loadCoverRenderer " parent="baseProxyBean">
+		<property name="target" ref="riskCoverTagRendererBean" />
+	</bean>
+		<bean id="riskCoverTagRendererBean" class="com.rsaame.pas.b2c.taglib.helper.RiskCoverTagRenderer">
+		<!-- <property name="loadCoverDAO" ref="loadCoverDAOBean" /> -->
+	</bean>
+	
+	<!-- <bean id="jndiObject" abstract="true" class="org.springframework.jndi.JndiObjectFactoryBean"> 
+		<property name="jndiEnvironment"> <props> <prop key="java.naming.factory.initial"> 
+		weblogic.jndi.WLInitialContextFactory </prop> </props> </property> </bean> 
+		<bean id="weblogicJtaTxManager" class="org.springframework.transaction.jta.WebLogicJtaTransactionManager"> 
+		<property name="transactionManagerName" value="javax.transaction.TransactionManager" 
+		/> </bean> -->
+
+	<!-- Configuration for the transaction manager for Weblogic. TODO: Figure 
+		out the configuration for Tomcat. -->
+	<bean id="baseProxyBean"
+		class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean"
+		abstract="true">
+		<property name="transactionManager" ref="hibernateTransactionManager" />
+		<property name="transactionAttributes">
+			<props>
+				<prop key="*">
+					PROPAGATION_REQUIRED,-com.mindtree.ruc.cmn.exception.BusinessException,-com.mindtree.ruc.cmn.exception.SystemException
+				</prop>
+			</props>
+		</property>
+		<property name="proxyTargetClass" value="true" />
+	</bean>
+
+	<!-- START: Sample RH, Svc, DAO entries -->
+	<!--<bean id="testRH" class="com.rsaame.pas.sample.ui.TestRH"/> <bean id="testSvc" 
+		parent="baseProxyBean"> <property name="target" ref="testSvcBean" /> </bean> 
+		<bean id="testSvcBean" class="com.rsaame.pas.sample.svc.TestSvc"> <property 
+		name="testDAO" ref="testDAO"/> </bean> <bean id="testDAO" class="com.rsaame.pas.sample.dao.TestDAO"> 
+		<property name="hibernateTemplate" ref="hibernateTemplate"/> </bean> -->
+	<!-- END: Test RH, Svc, DAO entries -->
+
+	<!--Start: Service,DAO Entries for Quote Flow  -->
+	<!-- START: PAR Load - Svc, DAO entries -->
+	<bean id="parLoadService" parent="baseProxyBean">
+		<property name="target" ref="parLoadServiceBean" />
+	</bean>
+	<bean id="parLoadServiceBean" class="com.rsaame.pas.par.svc.ParSvc">
+		<property name="parDAO" ref="parDAO" />
+	</bean>
+	<bean id="parSaveService" parent="baseProxyBean">
+		<property name="target" ref="parSaveServiceBean" />
+	</bean>
+	<bean id="parSaveServiceBean" class="com.rsaame.pas.par.svc.ParSvc">
+		<property name="parDAO" ref="parDAO" />
+	</bean>
+	<bean id="parFetchService" parent="baseProxyBean">
+		<property name="target" ref="parFetchServiceBean" />
+	</bean>
+	<bean id="parFetchServiceBean" class="com.rsaame.pas.par.svc.ParSvc">
+		<property name="parDAO" ref="parDAO" />
+	</bean>
+	<bean id="parDAO" class="com.rsaame.pas.par.dao.ParDAO">
+		<property name="hibernateTemplate" ref="hibernateTemplate" />
+	</bean>
+
+	<bean id="lookUpService" parent="baseProxyBean">
+		<property name="target" ref="lookUpServiceBean" />
+	</bean>
+	<bean id="lookUpServiceBean" class="com.rsaame.pas.lookup.svc.LookUpService">
+		<property name="lookUpDAO" ref="lookUpDAO" />
+	</bean>
+	<bean id="lookUpDAO" class="com.rsaame.pas.lookup.dao.LookUpDAO">
+		<property name="hibernateTemplate" ref="hibernateTemplate" />
+	</bean>
+
+
+	<bean id="tariffService" parent="baseProxyBean">
+		<property name="target" ref="tariffServiceBean" />
+	</bean>
+	<bean id="tariffServiceBean" class="com.rsaame.pas.tariff.svc.TariffService">
+		<property name="tariffDAO" ref="tariffDAO" />
+	</bean>
+	<bean id="tariffDAO" class="com.rsaame.pas.tariff.dao.TariffDAO">
+		<property name="hibernateTemplate" ref="hibernateTemplate" />
+	</bean>
+
+
+	<bean id="emailService" parent="baseProxyBean">
+		<property name="target" ref="emailServiceBean" />
+	</bean>
+	<bean id="emailServiceBean" class="com.rsaame.pas.mail.svc.PASMailerService">
+	</bean>
+	
+	<bean id="printerService" parent="baseProxyBean">
+		<property name="target" ref="printerServiceBean" />
+	</bean>
+	<bean id="printerServiceBean" class="com.rsaame.pas.print.svc.PASPrinterService">
+	</bean>
+	
+	<bean id="docService" parent="baseProxyBean">
+		<property name="target" ref="docServiceBean" />
+	</bean>
+	<bean id="docServiceBean" class="com.rsaame.pas.doc.svc.PASDocumentService">
+	</bean>
+		
+	
+	<!-- START: Claims History Save - Svc, DAO entries -->
+	<bean id="saveClaimsHistoryService" parent="baseProxyBean">
+		<property name="target" ref="saveClaimsHistoryServiceBean" />
+	</bean>
+	<bean id="saveClaimsHistoryServiceBean" class="com.rsaame.pas.quote.svc.SaveClaimsHistSvc">
+		<property name="claimsHistoryDAO" ref="saveClaimsHistDAO" />
+	</bean>
+	<bean id="saveClaimsHistDAO" class="com.rsaame.pas.quote.dao.SaveClaimsHistoryDAO">
+		<property name="hibernateTemplate" ref="hibernateTemplate" />
+	</bean>
+
+
+	<!-- START: Claims History Save - Svc, DAO entries -->
+	<bean id="checkIfInsuredExistsSvc" parent="baseProxyBean">
+		<property name="target" ref="checkIfInsuredExistsSvcBean" />
+	</bean>
+	<bean id="checkIfInsuredExistsSvcBean" class="com.rsaame.pas.quote.svc.CheckIfInsuredExistsSvc">
+		<property name="checkIfInsuredExistsDAO" ref="checkIfInsExistsDAO" />
+	</bean>
+	<bean id="checkIfInsExistsDAO" class="com.rsaame.pas.quote.dao.CheckIfInsuredExistsDAO">
+		<property name="hibernateTemplate" ref="hibernateTemplate" />
+	</bean>
+
+	<!-- START: View Transaction, Svc, DAO entries -->
+	<bean id="viewTransSvc" parent="baseProxyBean">
+		<property name="target" ref="viewTransSvcBean" />
+	</bean>
+	<bean id="viewTransSvcBean" class="com.rsaame.pas.transaction.svc.ViewTransactionSvc">
+		<property name="viewTransDAO" ref="viewTransDAO" />
+	</bean>
+	<bean id="viewTransDAO" class="com.rsaame.pas.transaction.dao.ViewTransactionDAO">
+		<property name="hibernateTemplate" ref="hibernateTemplate" />
+	</bean>
+	<!-- END: View Transaction, Svc, DAO entries -->
+
+	<!-- START: Money Section, Svc, DAO entries -->
+	<bean id="moneySvc" parent="baseProxyBean">
+		<property name="target" ref="moneySvcBean" />
+	</bean>
+	<bean id="moneySvcBean" class="com.rsaame.pas.money.svc.MoneySvc">
+		<property name="moneyDAO" ref="moneyDAO" />
+	</bean>
+	<bean id="moneyDAO" class="com.rsaame.pas.money.dao.MoneyDAO">
+		<property name="hibernateTemplate" ref="hibernateTemplate" />
+	</bean>
+	<!-- END: Money Section, Svc, DAO entries -->
+	
+	
+	<!-- START: GIT Section, Svc, DAO entries -->
+	<bean id="goodsInTransitSvc" parent="baseProxyBean">
+		<property name="target" ref="goodsInTransitSvcBean" />
+	</bean>
+	<bean id="goodsInTransitSvcBean" class="com.rsaame.pas.git.svc.GoodsInTransitSectionSvc">
+		<property name="goodsInTransitDAO" ref="goodsInTransitDAO" />
+	</bean>
+	<bean id="goodsInTransitDAO" class="com.rsaame.pas.git.dao.GoodsInTransitSaveDAO">
+		<property name="hibernateTemplate" ref="hibernateTemplate" />
+	</bean>
+	<!-- END: GIT Section, Svc, DAO entries -->
+	
+
+	<!-- START: Fidelity Section, Svc, DAO entries -->
+	<bean id="fidelitySvc" parent="baseProxyBean">
+		<property name="target" ref="fidelitySvcBean" />
+	</bean>
+	<bean id="fidelitySvcBean" class="com.rsaame.pas.fidelity.svc.FidelitySectionSvc">
+		<property name="fidelityDAO" ref="fidelityDAO" />
+	</bean>
+	<bean id="fidelityDAO" class="com.rsaame.pas.fidelity.dao.FidelitySaveDAO">
+		<property name="hibernateTemplate" ref="hibernateTemplate" />
+	</bean>
+	<!-- END: Fidelity Section, Svc, DAO entries -->
+	
+	<!-- START : Dairy Svc,DAO entries -->
+	<bean id="dairySvc" parent="baseProxyBean">
+		<property name="target" ref="dairySvcBean" />
+	</bean>
+	<bean id="dairySvcBean" class="com.rsaame.pas.dairy.svc.DairySvc">
+		<property name="dairyDAO" ref="dairyDAO" />
+	</bean>
+	<bean id="dairyDAO" class="com.rsaame.pas.dairy.dao.DairyDAO">
+		<property name="hibernateTemplate" ref="hibernateTemplate" />
+	</bean>
+	<!-- END : Dairy Svc,DAO entries -->
+	
+	<!-- START: PL Section, Svc, DAO entries -->
+	<bean id="plSvc" parent="baseProxyBean">
+		<property name="target" ref="plSvcBean" />
+	</bean>
+	<bean id="plSvcBean" class="com.rsaame.pas.pl.svc.PublicLiabilitySvc">
+		<property name="publicLiabilityDAO" ref="publicLiabilityDAO" />
+	</bean>
+	<bean id="publicLiabilityDAO" class="com.rsaame.pas.pl.dao.PublicLiabilityDAO">
+		<property name="hibernateTemplate" ref="hibernateTemplate" />
+	</bean>
+	<!-- END: PL Section, Svc, DAO entries -->
+
+	<!-- START: TB Section, Svc, DAO entries -->
+	<bean id="tbSvc" parent="baseProxyBean">
+		<property name="target" ref="tbSvcBean" />
+	</bean>
+	<bean id="tbSvcBean" class="com.rsaame.pas.tb.svc.TravelBaggageSvc">
+		<property name="travelBaggageDAO" ref="travelBaggageDAO" />
+	</bean>
+	<bean id="travelBaggageDAO" class="com.rsaame.pas.tb.dao.TravelBaggageDAO">
+		<property name="hibernateTemplate" ref="hibernateTemplate" />
+	</bean>
+	
+	<bean id="travelBaggageLoadDAO" class="com.rsaame.pas.tb.dao.TravelBaggageLoadDAO">
+		<property name="hibernateTemplate" ref="hibernateTemplate" />
+	</bean>
+	
+	<bean id="travelBaggageLoadDAO_POL" class="com.rsaame.pas.tb.dao.TravelBaggageLoadDAO">
+		<property name="hibernateTemplate" ref="hibernateTemplate_POL" />
+	</bean>
+	
+	<bean id="tbSvc_POL" parent="baseProxyBean">
+		<property name="target" ref="tbSvcBean_POL" />
+	</bean>
+	<bean id="tbSvcBean_POL" class="com.rsaame.pas.tb.svc.TravelBaggageSvc">
+		<property name="travelBaggageDAO" ref="travelBaggageDAO_POL" />
+	</bean>
+	<bean id="travelBaggageDAO_POL" class="com.rsaame.pas.tb.dao.TravelBaggageDAO">
+		<property name="hibernateTemplate" ref="hibernateTemplate_POL" />
+	</bean>
+	
+	<bean id="tbFetchPPPValDAO" class="com.rsaame.pas.tb.dao.TravelBaggageFetchPPPValDAO">
+		<property name="hibernateTemplate" ref="hibernateTemplate" />
+	</bean>
+	<!-- END: TB Section, Svc, DAO entries -->
+	
+	<!-- START: Location Deletion SECTION,Svc,DAO entries for policy -->
+	<bean id="sectionSvc" parent="baseProxyBean">
+		<property name="target" ref="sectionSvcBean" />
+	</bean>
+	<bean id="sectionSvcBean" class="com.rsaame.pas.svc.cmn.SectionSvc">
+		<property name="sectionDAO" ref="sectionDAO" />
+	</bean>
+	<bean id="sectionDAO" class="com.rsaame.pas.dao.cmn.SectionDAO">
+		<property name="hibernateTemplate" ref="hibernateTemplate" />
+	</bean>
+	 
+
+	
+
+	<!-- <bean id="SaveClaimsHistoryLoadDAO" class="com.rsaame.pas.quote.dao.SaveClaimsHistoryLoadDAO"> 
+		<property name="hibernateTemplate" ref="hibernateTemplate" /> </bean> -->
+
+	<bean id="parLoadDAO" class="com.rsaame.pas.par.dao.ParLoadDAO">
+		<property name="hibernateTemplate" ref="hibernateTemplate" />
+	</bean>
+	
+	<bean id="mbLoadDAO" class="com.rsaame.pas.mb.dao.MBLoadDAO">
+		<property name="hibernateTemplate" ref="hibernateTemplate" />
+	</bean>
+
+	<bean id="publicLiabilityLoadDAO" class="com.rsaame.pas.pl.dao.PublicLiabilityLoadDAO">
+		<property name="hibernateTemplate" ref="hibernateTemplate" />
+	</bean>
+	<bean id="eeLoadDAO" class="com.rsaame.pas.ee.dao.EELoadDAO">
+		<property name="hibernateTemplate" ref="hibernateTemplate" />
+	</bean> 
+	<bean id="goodsInTransitLoadDAO" class="com.rsaame.pas.git.dao.GoodsInTransitLoadDAO">
+		<property name="hibernateTemplate" ref="hibernateTemplate" />
+	</bean>	
+	<bean id="wCSectionLoadDAO" class="com.rsaame.pas.wc.dao.WCSectionLoadDAO">
+		<property name="hibernateTemplate" ref="hibernateTemplate" />
+	</bean>
+
+	<bean id="generalInfoLoadDAO" class="com.rsaame.pas.quote.dao.GeneralInfoLoadDAO">
+		<property name="hibernateTemplate" ref="hibernateTemplate" />
+	</bean>
+
+	<bean id="moneyLoadDAO" class="com.rsaame.pas.money.dao.MoneyLoadDAO">
+		<property name="hibernateTemplate" ref="hibernateTemplate" />
+	</bean>
+	
+	<bean id="dosLoadDAO" class="com.rsaame.pas.dos.dao.DeteriorationOfStockLoadDAO">
+		<property name="hibernateTemplate" ref="hibernateTemplate" />
+	</bean>
+	
+	<bean id="fidelityLoadDAO" class="com.rsaame.pas.fidelity.dao.FidelityLoadDAO">
+		<property name="hibernateTemplate" ref="hibernateTemplate" />
+	</bean>
+	<bean id="parFetchPPPValDAO" class="com.rsaame.pas.par.dao.ParFetchPPPValDAO">
+		<property name="hibernateTemplate" ref="hibernateTemplate" />
+	</bean>
+	<bean id="mbFetchPPPValDAO" class="com.rsaame.pas.mb.dao.MBFetchPPPValDAO">
+		<property name="hibernateTemplate" ref="hibernateTemplate" />
+	</bean>
+	<bean id="eeFetchPPPValDAO" class="com.rsaame.pas.ee.dao.EEFetchPPPValDAO">
+		<property name="hibernateTemplate" ref="hibernateTemplate" />
+	</bean>
+
+	<bean id="plFetchPPPValDAO" class="com.rsaame.pas.pl.dao.PublicLiabilityFetchPPPValDAO">
+		<property name="hibernateTemplate" ref="hibernateTemplate" />
+	</bean>
+
+	<bean id="wcFetchPPPValDAO" class="com.rsaame.pas.wc.dao.WCFetchPPPValDAO">
+		<property name="hibernateTemplate" ref="hibernateTemplate" />
+	</bean>
+
+	<bean id="moneyFetchPPPValDAO" class="com.rsaame.pas.money.dao.MoneyFetchPPPValDAO">
+		<property name="hibernateTemplate" ref="hibernateTemplate" />
+	</bean>
+
+	<bean id="goodsInTransitFetchPPPValDAO" class="com.rsaame.pas.git.dao.GoodsInTransitFetchPPPValDAO">
+		<property name="hibernateTemplate" ref="hibernateTemplate" />
+	</bean>
+	
+	<bean id="groupPersonalAccidentFetchPPPValDAO" class="com.rsaame.pas.gpa.dao.GroupPersonalAccidentPPPValDAO">
+		<property name="hibernateTemplate" ref="hibernateTemplate" />
+	</bean>
+	
+	<bean id="deteriorationOfStockFetchPPPValDAO" class="com.rsaame.pas.dos.dao.DeteriorationOfStockFetchPPPValDAO">
+		<property name="hibernateTemplate" ref="hibernateTemplate" />
+	</bean>
+	<!-- START: WC Section, Svc, DAO entries -->
+	<bean id="wcSvc" parent="baseProxyBean">
+		<property name="target" ref="wcSvcBean" />
+	</bean>
+	<bean id="wcSvcBean" class="com.rsaame.pas.wc.svc.WCSectionSVC">
+		<property name="wcSectionDAO" ref="wcSectionDAO1" />
+	</bean>
+	<bean id="wcSectionDAO1" class="com.rsaame.pas.wc.dao.WCDAO">
+		<property name="hibernateTemplate" ref="hibernateTemplate" />
+	</bean>	
+	<bean id="fidelityFetchPPPValDAO" class="com.rsaame.pas.fidelity.dao.FidelityFetchPPPValDAO">
+		<property name="hibernateTemplate" ref="hibernateTemplate" />
+	</bean>
+	<!-- END: WC Section, Svc, DAO entries -->
+	
+	<!-- START: MB Section, Svc, DAO entries -->
+	<bean id="mbSvc" parent="baseProxyBean">
+		<property name="target" ref="mbSvcBean" />
+	</bean>
+	<bean id="mbSvcBean" class="com.rsaame.pas.mb.svc.MBSectionSVC">
+		<property name="mbSectionDAO" ref="mbSectionDAO1" />
+	</bean>
+	<bean id="mbSectionDAO1" class="com.rsaame.pas.mb.dao.MBDAO">
+		<property name="hibernateTemplate" ref="hibernateTemplate" />
+	</bean>
+
+
+	<!-- END: MB Section, Svc, DAO entries -->
+	
+	<!-- START: EE Section, Svc, DAO entries -->
+	<bean id="eeSvc" parent="baseProxyBean">
+		<property name="target" ref="eeSvcBean" />
+	</bean>
+	<bean id="eeSvcBean" class="com.rsaame.pas.ee.svc.EESectionSVC">
+		<property name="eeSectionDAO" ref="eeSectionDAO" />
+	</bean>
+	<bean id="eeSectionDAO" class="com.rsaame.pas.ee.dao.EESaveDAO">
+		<property name="hibernateTemplate" ref="hibernateTemplate" />
+	</bean>
+	<!-- END: EE Section, Svc, DAO entries -->
+
+	<!-- START: DOS section, Svc,DAO entries -->
+	<bean id="dosSvc" parent="baseProxyBean">
+		<property name="target" ref="dosSvcBean" />
+	</bean>
+	<bean id="dosSvcBean" class="com.rsaame.pas.dos.svc.DeteriorationOfStockSectionSvc">
+		<property name="deteriorationOfStockDao" ref="deteriorationOfStockDao" />
+	</bean>
+	<bean id="deteriorationOfStockDao" class="com.rsaame.pas.dos.dao.DeteriorationOfStockSaveDAO">
+		<property name="hibernateTemplate" ref="hibernateTemplate" />
+	</bean>
+	
+	<!-- END: DOS section, Svc,DAO entries-->
+	
+	<!-- START: Pre-Package Fetch , Svc, DAO entries -->
+	<bean id="fetchPPPValSvc" parent="baseProxyBean">
+		<property name="target" ref="fetchPPPValSvcBean" />
+	</bean>
+	<bean id="fetchPPPValSvcBean" class="com.rsaame.pas.svc.cmn.FetchPPPValSvc">
+		<property name="iFetchPPPValDAO" ref="iFetchPPPValDAO" />
+	</bean>
+	<bean id="iFetchPPPValDAO" class="com.rsaame.pas.dao.cmn.BaseFetchPPPValDAO">
+		<property name="hibernateTemplate" ref="hibernateTemplate" />
+	</bean>
+
+	<!-- End: Pre-Package Fetch , Svc, DAO entries -->
+
+	<!-- START: Commission , Svc, DAO entries for policy -->
+	<bean id="geComSvc" parent="baseProxyBean">
+		<property name="target" ref="geComSvcBean" />
+	</bean>
+	<bean id="geComSvcBean" class="com.rsaame.pas.com.svc.CommonOpSvc">
+		<property name="commonOpDAO" ref="commonOpDAO" />
+	</bean>
+	<bean id="commonOpDAO" class="com.rsaame.pas.dao.cmn.CommonOpDAO">
+		<property name="hibernateTemplate" ref="hibernateTemplate" />
+	</bean>
+
+	
+
+	<!-- START:Task , Svc, DAO enteries -->
+	<bean id="taskService" parent="baseProxyBean">
+		<property name="target" ref="taskServiceBean" />
+	</bean>
+	<bean id="taskServiceBean" class="com.rsaame.pas.tasks.svc.TaskSvc">
+		<property name="taskDAO" ref="taskDAO" />
+	</bean>
+	<bean id="taskDAO" class="com.rsaame.pas.tasks.dao.TaskDAO">
+		<property name="hibernateTemplate" ref="hibernateTemplate" />
+	</bean>
+
+
+	
+	<!-- END:Task , Svc, DAO enteries -->
+
+	<!-- START: Convert to Policy get policy number - Svc, DAO entries -->
+	<bean id="convToPol" parent="baseProxyBean">
+		<property name="target" ref="convToPolSvcBean" />
+	</bean>
+	<bean id="convToPolSvcBean" class="com.rsaame.pas.policy.svc.ConvertToPolicyService">
+		<property name="convPolDao" ref="convToPolDAO" />
+	</bean>
+	<bean id="convToPolDAO" class="com.rsaame.pas.policy.dao.ConvertToPolicyDAO">
+		<property name="hibernateTemplate" ref="hibernateTemplate" />
+	</bean>
+	<!-- END: Convert to Policy get policy number - Svc, DAO entries -->
+	<!-- START: Capture comments and save - Svc, DAO entries -->
+	<bean id="captureComments" parent="baseProxyBean">
+		<property name="target" ref="captureCommentsBean" />
+	</bean>
+	<bean id="captureCommentsBean" class="com.rsaame.pas.policy.svc.CaptureCommentsService">
+		<property name="commentsDao" ref="captureStatusDAO" />
+	</bean>
+	<bean id="captureStatusDAO" class="com.rsaame.pas.policy.dao.CaptureCommentsDAO">
+		<property name="hibernateTemplate" ref="hibernateTemplate" />
+	</bean>
+	<!-- END: Capture comments and save - Svc, DAO entries -->
+
+	<!-- Sample data source configuration -->
+	<bean id="pasDS" class="org.springframework.jdbc.datasource.TransactionAwareDataSourceProxy">
+		<constructor-arg ref="pasDataSource"/>
+	</bean>
+	
+	  <bean id="pasDataSource" class="com.rsaame.pas.b2c.cmn.utils.RoutingDataSource">
+		<property name="targetDataSources">
+			<map>
+				<entry key="20" value-ref="dataSourceDUB" />
+				<!-- <entry key="30" value-ref="dataSourceMUS2" />
+				<entry key="31" value-ref="dataSourceMUS2" />
+				<entry key="32" value-ref="dataSourceMUS2" /> -->
+			</map>
+		</property>
+		<property name="defaultTargetDataSource" ref="dataSourceDUB" />
+	</bean> 
+	
+	 <bean id="dataSourceDUB" parent="jndiObject_DUB">
+		<property name="jndiName" value="AMEDataSource" />
+     </bean>
+     
+      <bean id="dataSourceMUS2" parent="jndiObject_OMAN">
+		<property name="jndiName" value="Kaizen_OMAN" />
+     </bean>
+
+	<!-- START:Policy Action , Svc, DAO enteries -->
+	<bean id="polActSvc" parent="baseProxyBean">
+		<property name="target" ref="polActSvcBean" />
+	</bean>
+	<bean id="polActSvcBean" class="com.rsaame.pas.policyAction.svc.PolicyActionSvc">
+		<property name="policyActDAO" ref="policyActDAO" />
+	</bean>
+	<bean id="policyActDAO" class="com.rsaame.pas.policyAction.dao.PolicyActionDAO">
+		<property name="hibernateTemplate" ref="hibernateTemplate" />
+	</bean>
+	
+	<bean id="polActCommonSvc" parent="baseProxyBean">
+		<property name="target" ref="polActCommonSvcBean" />
+	</bean>
+	<bean id="polActCommonSvcBean" class="com.rsaame.pas.policyAction.svc.PolicyActionCommonSvc">
+		<property name="policyActCommonDAO" ref="policyActCommonDAO" />
+		<property name="captureStatusDAO" ref="captureStatusDAO" />
+	</bean>
+	<bean id="policyActCommonDAO" class="com.rsaame.pas.policyAction.dao.PolicyActionCommonDAO">
+		<property name="hibernateTemplate" ref="hibernateTemplate" />
+	</bean>
+
+	<!-- START: recent Activity Svc, DAO entries -->
+	<bean id="showRecentActivitySvc" parent="baseProxyBean">
+		<property name="target" ref="showRecentActivityBean" />
+	</bean>
+	<bean id="showRecentActivityBean" class="com.rsaame.pas.recentActivity.svc.ShowRecentActivitySvc">
+		<property name="showRecentActivityDAO" ref="showRecentActivityDAO" />
+	</bean>
+	<bean id="showRecentActivityDAO" class="com.rsaame.pas.recentActivity.dao.ShowRecentActivityDAO">
+		<property name="hibernateTemplate" ref="hibernateTemplate" />
+	</bean>
+	<!-- END: Recent Activity Svc, DAO entries -->
+	
+
+<!-- ************************************************************************************************ -->
+<!-- ************************************************************************************************ -->
+<!-- ************************************************************************************************ -->
+<!-- ************************************************************************************************ -->
+
+	<!--Start: Service,DAO Entries for POlicy Flow  -->
+	<!-- START: PAR Load - Svc, DAO entries -->
+	<bean id="parLoadService_POL" parent="baseProxyBean">
+		<property name="target" ref="parLoadServiceBean_POL" />
+	</bean>
+	<bean id="parLoadServiceBean_POL" class="com.rsaame.pas.par.svc.ParSvc">
+		<property name="parDAO" ref="parDAO_POL" />
+	</bean>
+	<bean id="parSaveService_POL" parent="baseProxyBean">
+		<property name="target" ref="parSaveServiceBean_POL" />
+	</bean>
+	<bean id="parSaveServiceBean_POL" class="com.rsaame.pas.par.svc.ParSvc">
+		<property name="parDAO" ref="parDAO_POL" />
+	</bean>
+	<bean id="parFetchService_POL" parent="baseProxyBean">
+		<property name="target" ref="parFetchServiceBean_POL" />
+	</bean>
+	<bean id="parFetchServiceBean_POL" class="com.rsaame.pas.par.svc.ParSvc">
+		<property name="parDAO" ref="parDAO_POL" />
+	</bean>
+	<bean id="parDAO_POL" class="com.rsaame.pas.par.dao.ParDAO">
+		<property name="hibernateTemplate" ref="hibernateTemplate_POL" />
+	</bean>	
+	<bean id="lookUpService_POL" parent="baseProxyBean">
+		<property name="target" ref="lookUpServiceBean_POL" />
+	</bean>
+	<bean id="lookUpServiceBean_POL" class="com.rsaame.pas.lookup.svc.LookUpService">
+		<property name="lookUpDAO" ref="lookUpDAO_POL" />
+	</bean>
+	<bean id="lookUpDAO_POL" class="com.rsaame.pas.lookup.dao.LookUpDAO">
+		<property name="hibernateTemplate" ref="hibernateTemplate_POL" />
+	</bean>
+
+
+	<bean id="tariffService_POL" parent="baseProxyBean">
+		<property name="target" ref="tariffServiceBean_POL" />
+	</bean>
+	<bean id="tariffServiceBean_POL" class="com.rsaame.pas.tariff.svc.TariffService">
+		<property name="tariffDAO" ref="tariffDAO_POL" />
+	</bean>
+	<bean id="tariffDAO_POL" class="com.rsaame.pas.tariff.dao.TariffDAO">
+		<property name="hibernateTemplate" ref="hibernateTemplate_POL" />
+	</bean>
+
+	<!-- START: Claims History Save - Svc, DAO entries -->
+	<bean id="saveClaimsHistoryService_POL" parent="baseProxyBean">
+		<property name="target" ref="saveClaimsHistoryServiceBean_POL" />
+	</bean>
+	<bean id="saveClaimsHistoryServiceBean_POL" class="com.rsaame.pas.quote.svc.SaveClaimsHistSvc">
+		<property name="claimsHistoryDAO" ref="saveClaimsHistDAO_POL" />
+	</bean>
+	<bean id="saveClaimsHistDAO_POL" class="com.rsaame.pas.quote.dao.SaveClaimsHistoryDAO">
+		<property name="hibernateTemplate" ref="hibernateTemplate_POL" />
+	</bean>
+
+
+	<!-- START: Claims History Save - Svc, DAO entries -->
+	<bean id="checkIfInsuredExistsSvc_POL" parent="baseProxyBean">
+		<property name="target" ref="checkIfInsuredExistsSvcBean_POL" />
+	</bean>
+	<bean id="checkIfInsuredExistsSvcBean_POL" class="com.rsaame.pas.quote.svc.CheckIfInsuredExistsSvc">
+		<property name="checkIfInsuredExistsDAO" ref="checkIfInsExistsDAO_POL" />
+	</bean>
+	<bean id="checkIfInsExistsDAO_POL" class="com.rsaame.pas.quote.dao.CheckIfInsuredExistsDAO">
+		<property name="hibernateTemplate" ref="hibernateTemplate_POL" />
+	</bean>
+
+	<!-- START: View Transaction, Svc, DAO entries -->
+	<bean id="viewTransSvc_POL" parent="baseProxyBean">
+		<property name="target" ref="viewTransSvcBean_POL" />
+	</bean>
+	<bean id="viewTransSvcBean_POL" class="com.rsaame.pas.transaction.svc.ViewTransactionSvc">
+		<property name="viewTransDAO" ref="viewTransDAO_POL" />
+	</bean>
+	<bean id="viewTransDAO_POL" class="com.rsaame.pas.transaction.dao.ViewTransactionDAO">
+		<property name="hibernateTemplate" ref="hibernateTemplate_POL" />
+	</bean>
+	<!-- END: View Transaction, Svc, DAO entries -->
+
+	<!-- START: Money Section, Svc, DAO entries -->
+	<bean id="moneySvc_POL" parent="baseProxyBean">
+		<property name="target" ref="moneySvcBean_POL" />
+	</bean>
+	<bean id="moneySvcBean_POL" class="com.rsaame.pas.money.svc.MoneySvc">
+		<property name="moneyDAO" ref="moneyDAO_POL" />
+	</bean>
+	<bean id="moneyDAO_POL" class="com.rsaame.pas.money.dao.MoneyDAO">
+		<property name="hibernateTemplate" ref="hibernateTemplate_POL" />
+	</bean>
+	<!-- END: Money Section, Svc, DAO entries -->
+
+	<!-- START: Fidelity Section, Svc, DAO entries -->
+	<bean id="fidelitySvc_POL" parent="baseProxyBean">
+		<property name="target" ref="fidelitySvcBean_POL" />
+	</bean>
+	<bean id="fidelitySvcBean_POL" class="com.rsaame.pas.fidelity.svc.FidelitySectionSvc">
+		<property name="fidelityDAO" ref="fidelityDAO_POL" />
+	</bean>
+	<bean id="fidelityDAO_POL" class="com.rsaame.pas.fidelity.dao.FidelitySaveDAO">
+		<property name="hibernateTemplate" ref="hibernateTemplate_POL" />
+	</bean>
+	<!-- END: Fidelity Section, Svc, DAO entries -->
+	
+	<!-- START: PL Section, Svc, DAO entries -->
+	<bean id="plSvc_POL" parent="baseProxyBean">
+		<property name="target" ref="plSvcBean_POL" />
+	</bean>
+	<bean id="plSvcBean_POL" class="com.rsaame.pas.pl.svc.PublicLiabilitySvc">
+		<property name="publicLiabilityDAO" ref="publicLiabilityDAO_POL" />
+	</bean>
+	<bean id="publicLiabilityDAO_POL" class="com.rsaame.pas.pl.dao.PublicLiabilityDAO">
+		<property name="hibernateTemplate" ref="hibernateTemplate_POL" />
+	</bean>
+	<!-- END: PL Section, Svc, DAO entries -->
+	<bean id="dosSvc_POL" parent="baseProxyBean">
+		<property name="target" ref="dosSvcBean_POL" />
+	</bean>
+	<bean id="dosSvcBean_POL" class="com.rsaame.pas.dos.svc.DeteriorationOfStockSectionSvc">
+		<property name="deteriorationOfStockDao" ref="deteriorationOfStockDao_POL" />
+	</bean>
+	<bean id="deteriorationOfStockDao_POL" class="com.rsaame.pas.dos.dao.DeteriorationOfStockSaveDAO">
+		<property name="hibernateTemplate" ref="hibernateTemplate_POL" />
+	</bean>
+	
+	<!-- START: Money Section, Svc, DAO entries -->
+	<bean id="goodsInTransitSvc_POL" parent="baseProxyBean">
+		<property name="target" ref="goodsInTransitSvcBean_POL" />
+	</bean>
+	<bean id="goodsInTransitSvcBean_POL" class="com.rsaame.pas.git.svc.GoodsInTransitSectionSvc">
+		<property name="goodsInTransitDAO" ref="goodsInTransitDAO_POL" />
+	</bean>
+	<bean id="goodsInTransitDAO_POL" class="com.rsaame.pas.git.dao.GoodsInTransitSaveDAO">
+		<property name="hibernateTemplate" ref="hibernateTemplate_POL" />
+	</bean>
+	<!-- END: Money Section, Svc, DAO entries -->
+
+	<!-- START: Location Deletion SECTION,Svc,DAO entries for policy -->
+	<bean id="sectionSvc_POL" parent="baseProxyBean">
+		<property name="target" ref="sectionSvcBean_POL" />
+	</bean>
+	<bean id="sectionSvcBean_POL" class="com.rsaame.pas.svc.cmn.SectionSvc">
+		<property name="sectionDAO" ref="sectionDAO_POL" />
+	</bean>
+	<bean id="sectionDAO_POL" class="com.rsaame.pas.dao.cmn.SectionDAO">
+		<property name="hibernateTemplate" ref="hibernateTemplate_POL" />
+	</bean>
+
+	
+
+	<bean id="parLoadDAO_POL" class="com.rsaame.pas.par.dao.ParLoadDAO">
+		<property name="hibernateTemplate" ref="hibernateTemplate_POL" />
+	</bean>
+	
+	<bean id="mbLoadDAO_POL" class="com.rsaame.pas.mb.dao.MBLoadDAO">
+		<property name="hibernateTemplate" ref="hibernateTemplate_POL" />
+	</bean>
+
+	<bean id="publicLiabilityLoadDAO_POL" class="com.rsaame.pas.pl.dao.PublicLiabilityLoadDAO">
+		<property name="hibernateTemplate" ref="hibernateTemplate_POL" />
+	</bean>
+
+	<bean id="wCSectionLoadDAO_POL" class="com.rsaame.pas.wc.dao.WCSectionLoadDAO">
+		<property name="hibernateTemplate" ref="hibernateTemplate_POL" />
+	</bean>
+	
+	<bean id="generalInfoLoadDAO_POL" class="com.rsaame.pas.quote.dao.GeneralInfoLoadDAO">
+		<property name="hibernateTemplate" ref="hibernateTemplate_POL" />
+	</bean>
+
+	<bean id="moneyLoadDAO_POL" class="com.rsaame.pas.money.dao.MoneyLoadDAO">
+		<property name="hibernateTemplate" ref="hibernateTemplate_POL" />
+	</bean>
+	
+	<bean id="goodsInTransitLoadDAO_POL" class="com.rsaame.pas.git.dao.GoodsInTransitLoadDAO">
+		<property name="hibernateTemplate" ref="hibernateTemplate_POL" />
+	</bean>
+	
+	<bean id="dosLoadDAO_POL" class="com.rsaame.pas.dos.dao.DeteriorationOfStockLoadDAO">
+		<property name="hibernateTemplate" ref="hibernateTemplate_POL" />
+	</bean>
+
+	<bean id="fidelityLoadDAO_POL" class="com.rsaame.pas.fidelity.dao.FidelityLoadDAO">
+		<property name="hibernateTemplate" ref="hibernateTemplate_POL" />
+	</bean>
+
+	<bean id="parFetchPPPValDAO_POL" class="com.rsaame.pas.par.dao.ParFetchPPPValDAO">
+		<property name="hibernateTemplate" ref="hibernateTemplate_POL" />
+	</bean>
+
+	<bean id="plFetchPPPValDAO_POL" class="com.rsaame.pas.pl.dao.PublicLiabilityFetchPPPValDAO">
+		<property name="hibernateTemplate" ref="hibernateTemplate_POL" />
+	</bean>
+
+	<bean id="wcFetchPPPValDAO_POL" class="com.rsaame.pas.wc.dao.WCFetchPPPValDAO">
+		<property name="hibernateTemplate" ref="hibernateTemplate_POL" />
+	</bean>
+
+	<bean id="moneyFetchPPPValDAO_POL" class="com.rsaame.pas.money.dao.MoneyFetchPPPValDAO">
+		<property name="hibernateTemplate" ref="hibernateTemplate_POL" />
+	</bean>
+	
+	<bean id="goodsInTransitFetchPPPValDAO_POL" class="com.rsaame.pas.git.dao.GoodsInTransitFetchPPPValDAO">
+		<property name="hibernateTemplate" ref="hibernateTemplate_POL" />
+	</bean>
+	
+	<bean id="fidelityFetchPPPValDAO_POL" class="com.rsaame.pas.fidelity.dao.FidelityFetchPPPValDAO">
+		<property name="hibernateTemplate" ref="hibernateTemplate_POL" />
+	</bean>
+
+	<bean id="groupPersonalAccidentFetchPPPValDAO_POL" class="com.rsaame.pas.gpa.dao.GroupPersonalAccidentPPPValDAO">
+		<property name="hibernateTemplate" ref="hibernateTemplate_POL" />
+	</bean>
+	
+	<bean id="deteriorationOfStockFetchPPPValDAO_POL" class="com.rsaame.pas.dos.dao.DeteriorationOfStockFetchPPPValDAO">
+		<property name="hibernateTemplate" ref="hibernateTemplate_POL" />
+	</bean>
+
+	<!-- START: WC Section, Svc, DAO entries -->
+	<bean id="wcSvc_POL" parent="baseProxyBean">
+		<property name="target" ref="wcSvcBean_POL" />
+	</bean>
+	<bean id="wcSvcBean_POL" class="com.rsaame.pas.wc.svc.WCSectionSVC">
+		<property name="wcSectionDAO" ref="wcSectionDAO1_POL" />
+	</bean>
+	<bean id="wcSectionDAO1_POL" class="com.rsaame.pas.wc.dao.WCDAO">
+		<property name="hibernateTemplate" ref="hibernateTemplate_POL" />
+	</bean>
+
+
+	<!-- END: WC Section, Svc, DAO entries -->
+	
+	<!-- START: MB Section, Svc, DAO entries -->
+	<bean id="mbSvc_POL" parent="baseProxyBean">
+		<property name="target" ref="mbSvcBean_POL" />
+	</bean>
+	<bean id="mbSvcBean_POL" class="com.rsaame.pas.mb.svc.MBSectionSVC">
+		<property name="mbSectionDAO" ref="mbSectionDAO1_POL" />
+	</bean>
+	<bean id="mbSectionDAO1_POL" class="com.rsaame.pas.mb.dao.MBDAO">
+		<property name="hibernateTemplate" ref="hibernateTemplate_POL" />
+	</bean>
+
+
+	<!-- END: MB Section, Svc, DAO entries -->
+	
+	<!-- START: EE Section, Svc, DAO entries -->
+	<bean id="eeSvc_POL" parent="baseProxyBean">
+		<property name="target" ref="eeSvcBean_POL" />
+	</bean>
+	
+	<bean id="eeSvcBean_POL" class="com.rsaame.pas.ee.svc.EESectionSVC">
+		<property name="eeSectionDAO" ref="eeSectionDAO1_POL" />
+	</bean>
+	<bean id="eeSectionDAO1_POL" class="com.rsaame.pas.ee.dao.EESaveDAO">
+		<property name="hibernateTemplate" ref="hibernateTemplate_POL" />
+	</bean>
+	
+	<bean id="eeLoadDAO_POL" class="com.rsaame.pas.ee.dao.EELoadDAO">
+		<property name="hibernateTemplate" ref="hibernateTemplate_POL" />
+	</bean>
+	
+	<!-- END: EE Section, Svc, DAO entries -->
+
+	<!-- START: Pre-Package Fetch , Svc, DAO entries -->
+	<bean id="fetchPPPValSvc_POL" parent="baseProxyBean">
+		<property name="target" ref="fetchPPPValSvcBean_POL" />
+	</bean>
+	<bean id="fetchPPPValSvcBean_POL" class="com.rsaame.pas.svc.cmn.FetchPPPValSvc">
+		<property name="iFetchPPPValDAO" ref="iFetchPPPValDAO_POL" />
+	</bean>
+	<bean id="iFetchPPPValDAO_POL" class="com.rsaame.pas.dao.cmn.BaseFetchPPPValDAO">
+		<property name="hibernateTemplate" ref="hibernateTemplate_POL" />
+	</bean>
+
+	<!-- End: Pre-Package Fetch , Svc, DAO entries -->
+
+	<!-- START: Commission , Svc, DAO entries for policy -->
+	<bean id="geComSvc_POL" parent="baseProxyBean">
+		<property name="target" ref="geComSvcBean_POL" />
+	</bean>
+	<bean id="geComSvcBean_POL" class="com.rsaame.pas.com.svc.CommonOpSvc">
+		<property name="commonOpDAO" ref="commonOpDAO_POL" />
+	</bean>
+	<bean id="commonOpDAO_POL" class="com.rsaame.pas.dao.cmn.CommonOpDAO">
+		<property name="hibernateTemplate" ref="hibernateTemplate_POL" />
+	</bean>
+
+	
+
+	<!-- START:Task , Svc, DAO enteries -->
+	
+	<bean id="taskService_POL" parent="baseProxyBean">
+		<property name="target" ref="taskServiceBean_POL" />
+	</bean>
+	<bean id="taskServiceBean_POL" class="com.rsaame.pas.tasks.svc.TaskSvc">
+		<property name="taskDAO" ref="taskDAO_POL" />
+	</bean>
+	<bean id="taskDAO_POL" class="com.rsaame.pas.tasks.dao.TaskDAO">
+		<property name="hibernateTemplate" ref="hibernateTemplate_POL" />
+	</bean>
+	<!-- END:Task , Svc, DAO enteries -->
+
+	<!-- START: Convert to Policy get policy number - Svc, DAO entries -->
+	<bean id="convToPol_POL" parent="baseProxyBean">
+		<property name="target" ref="convToPolSvcBean_POL" />
+	</bean>
+	<bean id="convToPolSvcBean_POL" class="com.rsaame.pas.policy.svc.ConvertToPolicyService">
+		<property name="convPolDao" ref="convToPolDAO_POL" />
+	</bean>
+	<bean id="convToPolDAO_POL" class="com.rsaame.pas.policy.dao.ConvertToPolicyDAO">
+		<property name="hibernateTemplate" ref="hibernateTemplate_POL" />
+	</bean>
+	<!-- END: Convert to Policy get policy number - Svc, DAO entries -->
+	<!-- START: Capture comments and save - Svc, DAO entries -->
+	<bean id="captureComments_POL" parent="baseProxyBean">
+		<property name="target" ref="captureCommentsBean_POL" />
+	</bean>
+	<bean id="captureCommentsBean_POL" class="com.rsaame.pas.policy.svc.CaptureCommentsService">
+		<property name="commentsDao" ref="captureStatusDAO_POL" />
+	</bean>
+	<bean id="captureStatusDAO_POL" class="com.rsaame.pas.policy.dao.CaptureCommentsDAO">
+		<property name="hibernateTemplate" ref="hibernateTemplate_POL" />
+	</bean>
+	<!-- END: Capture comments and save - Svc, DAO entries -->
+
+	
+
+	<!-- START:Policy Action , Svc, DAO enteries -->
+	<bean id="polActSvc_POL" parent="baseProxyBean">
+		<property name="target" ref="polActSvcBean_POL" />
+	</bean>
+	<bean id="polActSvcBean_POL" class="com.rsaame.pas.policyAction.svc.PolicyActionSvc">
+		<property name="policyActDAO" ref="policyActDAO_POL" />
+	</bean>
+	<bean id="policyActDAO_POL" class="com.rsaame.pas.policyAction.dao.PolicyActionDAO">
+		<property name="hibernateTemplate" ref="hibernateTemplate_POL" />
+	</bean>
+	
+	<bean id="polActCommonSvc_POL" parent="baseProxyBean">
+		<property name="target" ref="polActCommonSvcBean_POL" />
+	</bean>
+	<bean id="polActCommonSvcBean_POL" class="com.rsaame.pas.policyAction.svc.PolicyActionCommonSvc">
+		<property name="policyActCommonDAO" ref="policyActCommonDAO_POL" />
+		<property name="captureStatusDAO" ref="captureStatusDAO_POL" />
+	</bean>
+	<bean id="policyActCommonDAO_POL" class="com.rsaame.pas.policyAction.dao.PolicyActionCommonDAO">
+		<property name="hibernateTemplate" ref="hibernateTemplate_POL" />
+	</bean>
+	
+	<!-- START: recent Activity Svc, DAO entries -->
+	<bean id="showRecentActivitySvc_POL" parent="baseProxyBean">
+		<property name="target" ref="showRecentActivityBean_POL" />
+	</bean>
+	<bean id="showRecentActivityBean_POL" class="com.rsaame.pas.recentActivity.svc.ShowRecentActivitySvc">
+		<property name="showRecentActivityDAO" ref="showRecentActivityDAO_POL" />
+	</bean>
+	<bean id="showRecentActivityDAO_POL" class="com.rsaame.pas.recentActivity.dao.ShowRecentActivityDAO">
+		<property name="hibernateTemplate" ref="hibernateTemplate_POL" />
+	</bean>
+	<!-- END: Recent Activity Svc, DAO entries -->
+
+	
+
+	<!--  START:Clause , Svc, DAO enteries-->
+	<bean id="viewClauseSvc" parent="baseProxyBean">
+		<property name="target" ref="viewClauseSvcBean" />
+	</bean>
+	<bean id="viewClauseSvcBean" class="com.rsaame.pas.clauses.svc.ViewClausesSvc">
+		<property name="viewClauseDAO" ref="viewClauseDAO" />
+	</bean>
+	<bean id="viewClauseDAO" class="com.rsaame.pas.clauses.dao.ViewClausesDAO">
+		<property name="hibernateTemplate" ref="hibernateTemplate" />
+	</bean>
+	 <!-- END:Clause  , Svc, DAO enteries -->
+	
+	<!--  START:Clause , Svc, DAO enteries-->
+	<bean id="viewClauseSvc_POL" parent="baseProxyBean">
+		<property name="target" ref="viewClauseSvcBean_POL" />
+	</bean>
+	<bean id="viewClauseSvcBean_POL" class="com.rsaame.pas.clauses.svc.ViewClausesSvc">
+		<property name="viewClauseDAO" ref="viewClauseDAO_POL" />
+	</bean>
+	<bean id="viewClauseDAO_POL" class="com.rsaame.pas.clauses.dao.ViewClausesDAO">
+		<property name="hibernateTemplate" ref="hibernateTemplate_POL" />
+	</bean>
+	 <!-- END:Clause  , Svc, DAO enteries -->
+
+
+	<!-- Start Bean for insured search  -->
+	<bean id="insuredDetailsSvc" parent="baseProxyBean">
+		<property name="target" ref="insuredDetailsSvcBean" />
+	</bean>
+	<bean id="insuredDetailsSvcBean" class="com.rsaame.pas.insured.svc.InsuredDetailsSvc">
+		<property name="insuredDetailsDAO" ref="insuredDetailsDAO" />
+	</bean>
+	<bean id="insuredDetailsDAO" class="com.rsaame.pas.insured.dao.InsuredDetailsDAO">
+		<property name="hibernateTemplate" ref="hibernateTemplate" />
+	</bean>
+	<bean id="insuredDetailsSvc_POL" parent="baseProxyBean">
+		<property name="target" ref="insuredDetailsSvcBean" />
+	</bean>
+	<bean id="commonGenInfoSvc" parent="baseProxyBean">
+		<property name="target" ref="insuredDetailsSvcBean" />
+	</bean>
+	
+	<bean id="commonGenInfoSvc_POL" parent="baseProxyBean">
+		<property name="target" ref="insuredDetailsSvcBean_POL" />
+	</bean>
+	
+	<bean id="insuredDetailsSvcBean_POL" class="com.rsaame.pas.insured.svc.InsuredDetailsSvc">
+		<property name="insuredDetailsDAO" ref="insuredDetailsDAO_POL" />
+	</bean>
+	
+	<bean id="insuredDetailsDAO_POL" class="com.rsaame.pas.insured.dao.InsuredDetailsDAO">
+		<property name="hibernateTemplate" ref="hibernateTemplate_POL" />
+	</bean>
+	
+	<!-- End Bean for insured search -->
+	
+	<!--Bean used to call stored procedure For Exposure -->
+	<bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate"
+		scope="prototype">
+		<property name="dataSource" ref="pasDS" />
+	</bean>
+
+	<bean id="hibernateTemplate_POL" class="org.springframework.orm.hibernate3.HibernateTemplate"
+		scope="prototype">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory_POL" />
+		</property>
+	</bean>
+
+	<bean id="hibernateTemplate" class="org.springframework.orm.hibernate3.HibernateTemplate"
+		scope="prototype">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+
+	<bean id="hibernateTemplateAnnotation" class="org.springframework.orm.hibernate3.HibernateTemplate"
+		scope="prototype">
+		<property name="sessionFactory">
+			<ref bean="annotationSessionFactory" />
+		</property>
+	</bean>
+
+	<bean id="jsonResFormatter" class="com.mindtree.ruc.mvc.JSONRF" />
+	<bean id="dojoIframeResFormatter" class="com.mindtree.ruc.mvc.DojoIframeRF" />
+	 
+	
+
+	<!-- END: Request handlers -->
+	
+	<!-- START: Svc/DAO classes -->
+	<!-- <bean id="authorizationDAO" class="com.rsaame.pas.auth.dao.NoDBAuthorizationDAO"/> -->
+	
+	<bean id="authenticationDetailsSvc" parent="baseProxyBean">
+		<property name="target" ref="authenticationDetailsSvcBean" />
+	</bean>
+	<bean id="authenticationDetailsSvcBean" class="com.rsaame.pas.com.svc.AuthSvc">
+		<property name="authDAO" ref="authorizationDAO" />
+	</bean>	
+	<bean id="authorizationDAO" class="com.rsaame.pas.auth.dao.AuthorizationDAO">
+		<property name="hibernateTemplate" ref="hibernateTemplate"></property>
+	</bean>
+
+	<!-- END: Svc/DAO classes -->
+
+
+	<!-- Start Bean for policy cash insertion -->
+
+	<bean id="InsertCshPolProc" class="com.rsaame.pas.dao.cmn.InsertCshPolProc">
+		<constructor-arg index="0">
+			<ref bean="pasDS" />
+		</constructor-arg>
+	</bean>
+
+	<!-- End Bean for policy cash insertion -->
+
+	<!-- START: Stored procedure call for Policy number -->
+	<bean id="mySP" class="com.rsaame.pas.policy.dao.SPConvPkgQuoToPol">
+		<constructor-arg index="0">
+			<ref bean="pasDS" />
+		</constructor-arg>
+	</bean>
+	<!-- END: Stored procedure call for Policy number -->
+
+	<!-- Start Bean for fetching accumulation limit exceeded status -->
+	<bean id="accLimitStatus" class="com.rsaame.pas.dao.cmn.FetchAccumulationLimitStatusFunc">
+		<constructor-arg index="0">
+			<ref bean="pasDS" />
+		</constructor-arg>
+	</bean>
+	<!-- End Bean for fetching accumulation limit exceeded status -->
+
+	<!-- Start Bean for fetching previous premium amount -->
+	<bean id="getPreviousPrem" class="com.rsaame.pas.dao.cmn.GetPreviousPremiumFunc">
+		<constructor-arg index="0">
+			<ref bean="pasDS" />
+		</constructor-arg>
+	</bean>
+	<!-- End Bean for fetching previous premium amount  -->
+
+	<!-- Start Bean for policy cash insertion -->
+
+	<bean id="delLocationProc" class="com.rsaame.pas.dao.cmn.PASStoredProcedure">
+		<constructor-arg value="ENDO_DELETE_LOCATION_QUO"/>
+		<constructor-arg ><ref bean="pasDS"/></constructor-arg>
+	</bean>
+	
+	<!-- Start: Bean for Endorsement location Deletion stored Proc -->
+	<bean id="endtDeleteLocation" class="com.rsaame.pas.dao.cmn.PASStoredProcedure">
+		<constructor-arg value="ENDO_DELETE_LOCATION"/>
+		<constructor-arg ><ref bean="pasDS"/></constructor-arg>
+	</bean>
+	<!-- End: Bean for Endorsement location Deletion stored Proc -->
+	
+	<!-- Start: Bean for Risk Selection Deletion stored Proc -->
+	<bean id="delSectionStProc" class="com.rsaame.pas.dao.cmn.PASStoredProcedure">
+		<constructor-arg value="DELETE_RISK_SECTION"/>
+		<constructor-arg ><ref bean="pasDS"/></constructor-arg>
+	</bean>
+	<!-- End: Bean for Risk Selection Deletion stored Proc -->
+
+    <!-- Start: Bean for Risk Selection Deletion stored Proc -->
+	<bean id="delSectionStProc_POL" class="com.rsaame.pas.dao.cmn.PASStoredProcedure">
+		<constructor-arg value="DELETE_RISK_SECTION_ENDT"/>
+		<constructor-arg ><ref bean="pasDS"/></constructor-arg>
+	</bean>
+	<!-- End: Bean for Risk Selection Deletion stored Proc -->
+	
+	<bean id="tempPasReferralDAO" class="com.rsaame.pas.dao.cmn.TempPasReferralDAO">
+		<property name="hibernateTemplate" ref="hibernateTemplate" />
+	</bean>
+	
+	<!-- Start Bean for Copy Quote -->
+	<bean id="copyQuoteSvc" class="com.rsaame.pas.quote.svc.CopyQuoteSvc">
+		<property name="copyQuoteDAO" ref="copyQuoteDAO" />
+	</bean>
+
+	<bean id="copyQuoteDAO" class="com.rsaame.pas.quote.dao.CopyQuoteDAO">
+		<property name="hibernateTemplate" ref="hibernateTemplate" />
+	</bean>
+	
+	<bean id="quoteDAO" class="com.rsaame.pas.quote.dao.QuoteDAO">
+		<property name="hibernateTemplate" ref="hibernateTemplate" />
+	</bean>
+	
+	<bean id="claimsSvcBean" class="com.rsaame.pas.endorse.svc.ClaimsSvc">
+		<property name="claimsDAO" ref="quoteDAO" />
+	</bean>	
+	
+	<bean id="claimsSvc" parent="baseProxyBean">
+		<property name="target" ref="claimsSvcBean" />
+	</bean>
+	
+	<bean id="copyQuoteProc" class="com.rsaame.pas.dao.cmn.CopyQuoteProc">
+		<constructor-arg index="0">
+			<ref bean="pasDS" />
+		</constructor-arg>
+	</bean>
+	<!-- End Bean for Copy Quote -->
+
+		<!-- START: Bean for ENDORSEMENT -->
+	
+	<bean id="amendPolicySvc_POL" parent="baseProxyBean">
+		<property name="target" ref="amendPolicySvcBean_POL" />
+	</bean>
+	<bean id="amendPolicySvcBean_POL" class="com.rsaame.pas.endorse.svc.AmendPolicySvc">
+		<property name="amendPolicyDao" ref="amendPolicyDao_POL" />
+		<property name="baseLoadSvc" ref="baseLoadSvc_POL" />
+	</bean>
+	<bean id="amendPolicyDao_POL" class="com.rsaame.pas.endorse.dao.AmendPolicyDao">
+		<property name="hibernateTemplate" ref="hibernateTemplate_POL" />
+	</bean>
+	
+	<bean id="amendPolicySvc" parent="baseProxyBean">
+		<property name="target" ref="amendPolicySvcBean" />
+	</bean>
+	<bean id="amendPolicySvcBean" class="com.rsaame.pas.endorse.svc.AmendPolicySvc">
+		<property name="amendPolicyDao" ref="amendPolicyDao" />
+		<property name="baseLoadSvc" ref="baseLoadSvc" />
+	</bean>
+	<bean id="amendPolicyDao" class="com.rsaame.pas.endorse.dao.AmendPolicyDao">
+		<property name="hibernateTemplate" ref="hibernateTemplate_POL" />
+	</bean>
+	
+	<bean id="endorseGenInfoSvc_POL" parent="baseProxyBean">
+		<property name="target" ref="endorseGenInfoSvcBean_POL" />
+	</bean>
+	<bean id="endorseGenInfoSvcBean_POL" class="com.rsaame.pas.endorse.svc.GeneralInfoSvc">
+		<property name="generalInfoDao" ref="endorseGenInfoDao_POL" />
+	</bean>
+	<bean id="endorseGenInfoDao_POL" class="com.rsaame.pas.endorse.dao.GeneralInfoSaveDAO" scope="prototype">
+		<property name="hibernateTemplate" ref="hibernateTemplate_POL" />
+	</bean>
+	
+	<bean id="endorseGenInfoSvc" parent="baseProxyBean">
+		<property name="target" ref="endorseGenInfoSvcBean" />
+	</bean>
+	<bean id="endorseGenInfoSvcBean" class="com.rsaame.pas.endorse.svc.GeneralInfoSvc">
+		<property name="generalInfoDao" ref="endorseGenInfoDao" />
+	</bean>
+	<bean id="endorseGenInfoDao" class="com.rsaame.pas.endorse.dao.GeneralInfoSaveDAO" scope="prototype">
+		<property name="hibernateTemplate" ref="hibernateTemplate" />
+	</bean>
+
+
+	<!--  Start of Bean for getting endorsment text  -->
+	
+	<bean id="captureEndorsementTextSvc_POL" parent="baseProxyBean">
+		<property name="target" ref="captureEndorsementTextSvcBean_POL" />
+	</bean>
+	
+	<bean id="captureEndorsementTextSvcBean_POL" class="com.rsaame.pas.endorse.svc.CaptureEndorsementTextSvc">
+		<property name="captureEndorsementTextDao" ref="captureEndorsementTextDao_POL" />
+	</bean>
+	<bean id="captureEndorsementTextDao_POL" class="com.rsaame.pas.endorse.dao.CaptureEndorsementTextDao">
+		<property name="hibernateTemplate" ref="hibernateTemplate_POL" />
+	</bean>
+	
+	
+	<!-- End of Bean for getting endorsment text  -->
+
+	<!-- END: Bean for ENDORSEMENT -->
+		
+		
+		
+		<!-- Start: Bean for invalidate option stored Proc -->
+	<!-- <bean id="insertPaymentDetailsSP" class="com.rsaame.pas.dao.cmn.PASStoredProcedure">
+		<constructor-arg value="PAYMENT_OPTN_DTL_INSRT" />
+		<constructor-arg>
+			<ref bean="pasDS" />
+		</constructor-arg>
+	</bean>
+ -->
+
+	
+	<!-- End: Bean for payment option stored Proc -->
+		
+		
+	<!-- Start: Bean for convert to policy stored Proc -->
+	<bean id="convertToPolSTProc" class="com.rsaame.pas.dao.cmn.PASStoredProcedure">
+		<constructor-arg value="CONVERT_TO_POL" />
+		<constructor-arg>
+			<ref bean="pasDS" />
+		</constructor-arg>
+	</bean>
+	<!-- End: Bean for convert to policy stored Proc -->
+
+     <bean id="updateValExpDateSecQuo" class="com.rsaame.pas.dao.cmn.PASStoredProcedure">
+		<constructor-arg value="UPD_VAL_EXP_DATES_SEC_QUO"/>
+		<constructor-arg ><ref bean="pasDS"/></constructor-arg>
+	</bean>
+	
+	
+	
+	<!-- Start :  Bean for Invalidate all the section records -->
+	 <bean id="updateValExpDateSecQuoWeb" class="com.rsaame.pas.dao.cmn.PASStoredProcedure">
+		<constructor-arg value="UPD_VAL_EXP_DATES_SEC_QUO_WEB"/>
+		<constructor-arg ><ref bean="pasDS"/></constructor-arg>
+	</bean>
+	<!-- End :  Bean for Invalidate all the section records -->
+	
+	<!-- Start :  Bean for Invalidate all the section records -->
+	 <bean id="updateValExpDateSecQuoWebCurrEndt" class="com.rsaame.pas.dao.cmn.PASStoredProcedure">
+		<constructor-arg value="UPD_CURR_ENDT_INVAL"/>
+		<constructor-arg ><ref bean="pasDS"/></constructor-arg>
+	</bean>
+	<!-- End :  Bean for Invalidate all the section records -->
+	
+	
+	
+	<bean id="updateValExpDateSecQuoHomeTravel" class="com.rsaame.pas.dao.cmn.PASStoredProcedure">
+		<constructor-arg value="UPD_VAL_EXP_DATES_SEC_QUO_HT"/>
+		<constructor-arg ><ref bean="pasDS"/></constructor-arg>
+	</bean>
+
+	<!-- Start: Bean for payment option stored Proc -->
+	<bean id="insertPaymentDetailsSP" class="com.rsaame.pas.dao.cmn.PASStoredProcedure">
+		<constructor-arg value="PAYMENT_OPTN_DTL_INSRT" />
+		<constructor-arg>
+			<ref bean="pasDS" />
+		</constructor-arg>
+	</bean>
+
+
+	
+	<!-- End: Bean for payment option stored Proc -->
+	<!-- Start: Bean for conditions stored Proc -->
+	<bean id="clausesStProc" class="com.rsaame.pas.dao.cmn.PASStoredProcedure">
+		<constructor-arg value="CON_EXC_WAR"/>
+		<constructor-arg ><ref bean="pasDS"/></constructor-arg>
+	</bean>
+	<!-- End: Bean for conditions stored Proc -->
+	
+	<!-- Start: Bean for conditions stored Proc -->
+	<bean id="clausesStEndtProc" class="com.rsaame.pas.dao.cmn.PASStoredProcedure">
+		<constructor-arg value="CON_EXC_WAR_ENDT"/>
+		<constructor-arg ><ref bean="pasDS"/></constructor-arg>
+	</bean>
+	
+	<bean id="clausesStEndtProcHomeTravel" class="com.rsaame.pas.dao.cmn.PASStoredProcedure">
+		<constructor-arg value="CON_EXC_WAR_ENDT_HOME_TRAVEL"/>
+		<constructor-arg ><ref bean="pasDS"/></constructor-arg>
+	</bean>
+	<!-- End: Bean for conditions stored Proc -->
+	<!-- End: Bean for convert to policy stored Proc -->
+	
+	<!-- Start: Bean for cascade to all location stored Proc -->
+	<bean id="cascadeUwqProc_QUO" class="com.rsaame.pas.dao.cmn.PASStoredProcedure">
+		<constructor-arg value="CASCADE_UWQ_QUO"/>
+		<constructor-arg ><ref bean="pasDS"/></constructor-arg>
+	</bean>
+	<!-- End: Bean for cascade to all location stored Proc -->
+	
+	<!-- Start: Bean for cascade to all location stored Proc -->
+	<bean id="cascadeUwqProc_POL" class="com.rsaame.pas.dao.cmn.PASStoredProcedure">
+		<constructor-arg value="CASCADE_UWQ_POL"/>
+		<constructor-arg ><ref bean="pasDS"/></constructor-arg>
+	</bean>
+	<!-- End: Bean for cascade to all location stored Proc -->
+	<!-- Start: Bean for cascade base loc changes stored Proc for Policy -->
+	<bean id="cascadeBaseLocChangesPol" class="com.rsaame.pas.dao.cmn.PASStoredProcedure">
+		<constructor-arg value="UPD_NON_BASE_SEC_POL"/>
+		<constructor-arg ><ref bean="pasDS"/></constructor-arg>
+	</bean>
+	<!-- End: Bean for cascade base loc changes stored Proc for Policy -->
+	<!-- Start: Bean for cascade base loc changes stored Proc for Quote -->
+	<bean id="cascadeBaseLocChangesQuo" class="com.rsaame.pas.dao.cmn.PASStoredProcedure">
+		<constructor-arg value="UPD_NON_BASE_SEC_QUO"/>
+		<constructor-arg ><ref bean="pasDS"/></constructor-arg>
+	</bean>
+	<!-- End: Bean for cascade base loc changes stored Proc for Quote -->
+	<!-- Start: Bean for Updating the status of all the tables after quote issue -->
+	<bean id="updateQuoteTableStatus" class="com.rsaame.pas.dao.cmn.PASStoredProcedure">
+		<constructor-arg value="PRO_QUO_UPD_STATUS"/>
+		<constructor-arg ><ref bean="pasDS"/></constructor-arg>
+	</bean>
+	<!-- End: Bean for Updating the status of all the tables after quote issue -->
+	<!-- Start: Bean for Update the clauses tables after quote issue -->
+	<bean id="insClauses" class="com.rsaame.pas.dao.cmn.PASStoredProcedure">
+		<constructor-arg value="PRO_QUO_INS_CLAUSES"/>
+		<constructor-arg ><ref bean="pasDS"/></constructor-arg>
+	</bean>
+	<!-- End:  Bean for Update the clauses tables after quote issue -->
+	<!-- Start: Bean for generating renewal quote  -->
+	<bean id="generateRenewalQuote" class="com.rsaame.pas.dao.cmn.PASStoredProcedure">
+		<constructor-arg value="PRO_GENERATE_REN_QUOTE"/>
+		<constructor-arg ><ref bean="pasDS"/></constructor-arg>
+	</bean>
+	<bean id="getClaimCount" class="com.rsaame.pas.dao.cmn.PASStoredProcedure">
+		<constructor-arg value="PRO_GET_CLAIM_COUNT"/>
+		<constructor-arg ><ref bean="pasDS"/></constructor-arg>
+	</bean>
+	
+	<!-- procedure invocation in generate online renewal - phase 3 change starts -->
+	<bean id="generateRenewalQuoteForHome" class="com.rsaame.pas.dao.cmn.PASStoredProcedure">
+		<constructor-arg value="PRO_GENERATE_HOME_REN_QUOTE"/>
+		<constructor-arg ><ref bean="pasDS"/></constructor-arg>
+	</bean>
+	
+	<bean id="generateRenewalQuoteForTravel" class="com.rsaame.pas.dao.cmn.PASStoredProcedure">
+		<constructor-arg value="PRO_GENERATE_TRAVEL_REN_QUOTE"/>
+		<constructor-arg ><ref bean="pasDS"/></constructor-arg>
+	</bean>
+	
+	<bean id="getClaimCountCommon" class="com.rsaame.pas.dao.cmn.PASStoredProcedure">
+		<constructor-arg value="PRO_GET_CLAIM_COUNT_COMMON"/>
+		<constructor-arg ><ref bean="pasDS"/></constructor-arg>
+	</bean>	
+	<!--  procedure invocation in generate online renewal - phase 3 change ends-->
+	
+	<!-- End: Bean for generating renewal quote -->
+	<!-- Start:  Bean for generate endt text for add/delete contents in WC -->
+	<bean id="wcCntAddEndtTxtProc" class="com.rsaame.pas.dao.cmn.PASStoredProcedure">
+		<constructor-arg value="ENDO_TEXT_DELETE_WCTPL_UP_ADD"/>
+		<constructor-arg ><ref bean="pasDS"/></constructor-arg>
+	</bean>
+	
+	<bean id="wcCntDelEndtTxtProc" class="com.rsaame.pas.dao.cmn.PASStoredProcedure">
+		<constructor-arg value="ENDO_TEXT_ADD_WCTPL_UP_DEL"/>
+		<constructor-arg ><ref bean="pasDS"/></constructor-arg>
+	</bean>
+	<bean id="getNextSequence" class="com.rsaame.pas.dao.cmn.PASStoredProcedure">
+		<constructor-arg value="PRO_GET_NEXT_SEQUENCE"/>
+		<constructor-arg ><ref bean="pasDS"/></constructor-arg>
+	</bean>
+	<!-- End:  Bean for generate endt text for add/delete contents in WC -->
+	
+	<!-- START: Payment Option's Svc, DAO entries -->
+	<bean id="paymentOptionSvc" parent="baseProxyBean">
+		<property name="target" ref="paymentSvcBean" />
+	</bean>
+	<bean id="paymentSvcBean" class="com.rsaame.pas.paymentoption.svc.PaymentOptionSvc">
+		<property name="paymentOptionDAO" ref="paymentOptionDAO" />
+	</bean>
+	<bean id="paymentOptionDAO" class="com.rsaame.pas.paymentoption.dao.PaymentOptionDAO">
+		<property name="hibernateTemplate" ref="hibernateTemplate" />
+	</bean>
+	<!-- END: PaymentOption Svc, DAO entries -->
+
+	<bean id="insertHomeTravelPaymentDetailsSP" class="com.rsaame.pas.dao.cmn.PASStoredProcedure">
+		<constructor-arg value="PAYMENT_OPTN_DTL_INSRT_HOME_TRAVEL" />
+		<constructor-arg>
+			<ref bean="pasDS" />
+		</constructor-arg>
+	</bean>
+
+	<bean id="convertToPolSTProcHOME" class="com.rsaame.pas.dao.cmn.PASStoredProcedure">
+		<constructor-arg value="CONVERT_TO_POL_HOME" />
+		<constructor-arg>
+			<ref bean="pasDS" />
+		</constructor-arg>
+	</bean>
+
+	<bean id="convertToPolSTProcTRAVEL" class="com.rsaame.pas.dao.cmn.PASStoredProcedure">
+		<constructor-arg value="CONVERT_TO_POL_TRAVEL" />
+		<constructor-arg>
+			<ref bean="pasDS" />
+		</constructor-arg>
+	</bean>
+	<!--END: Service,DAO Entries for Quote Flow  -->
+
+
+<!-- START: Payment Option's Svc, DAO entries -->
+	<bean id="paymentOptionSvc_POL" parent="baseProxyBean">
+		<property name="target" ref="paymentSvcBean_POL" />
+	</bean>
+	<bean id="paymentSvcBean_POL" class="com.rsaame.pas.paymentoption.svc.PaymentOptionSvc">
+		<property name="paymentOptionDAO" ref="paymentOptionDAO_POL" />
+	</bean>
+	<bean id="paymentOptionDAO_POL" class="com.rsaame.pas.paymentoption.dao.PaymentOptionDAO">
+		<property name="hibernateTemplate" ref="hibernateTemplate_POL" />
+	</bean>
+	<!-- END: PaymentOption Svc, DAO entries -->
+
+	<!--END: Service,DAO Entries for Policy Flow  -->
+	
+	<!-- START: Bean for ENDORSEMENT  Proc -->
+	
+	<bean id="deletePrevEndorsement" class="com.rsaame.pas.dao.cmn.PASStoredProcedure">
+		<constructor-arg value="DELETE_PREV_ENDORSEMET_TEXT"/>
+		<constructor-arg ><ref bean="pasDS"/></constructor-arg>
+	</bean>
+	
+	<bean id="modifyGenInfo" class="com.rsaame.pas.dao.cmn.PASStoredProcedure">
+		<constructor-arg value="ENDO_TEXT_MODIFY_GEN_INFO"/>
+		<constructor-arg ><ref bean="pasDS"/></constructor-arg>
+	</bean>
+	
+	<bean id="updateSI" class="com.rsaame.pas.dao.cmn.PASStoredProcedure">
+		<constructor-arg value="ENDO_TEXT_SI"/>
+		<constructor-arg ><ref bean="pasDS"/></constructor-arg>
+	</bean>
+	
+	<bean id="updatePRM" class="com.rsaame.pas.dao.cmn.PASStoredProcedure">
+		<constructor-arg value="ENDO_TEXT_PRM"/>
+		<constructor-arg ><ref bean="pasDS"/></constructor-arg>
+	</bean>
+	
+		<bean id="endTextRiskDel" class="com.rsaame.pas.dao.cmn.PASStoredProcedure">
+		<constructor-arg value="ENDO_TEXT_RISK_DEL"/>
+		<constructor-arg ><ref bean="pasDS"/></constructor-arg>
+	</bean>
+	
+		<bean id="endTextRiskAdd" class="com.rsaame.pas.dao.cmn.PASStoredProcedure">
+		<constructor-arg value="ENDO_TEXT_RISK_ADD"/>
+		<constructor-arg ><ref bean="pasDS"/></constructor-arg>
+	</bean>
+	
+	<bean id="extraBldCnt" class="com.rsaame.pas.dao.cmn.PASStoredProcedure">
+		<constructor-arg value="ENDO_TEXT_EXTRA_BLD_CNT"/>
+		<constructor-arg ><ref bean="pasDS"/></constructor-arg>
+	</bean>
+
+	<bean id="modifyBldCnt" class="com.rsaame.pas.dao.cmn.PASStoredProcedure">
+		<constructor-arg value="ENDO_TEXT_MODIFY_BLD_CNT"/>
+		<constructor-arg ><ref bean="pasDS"/></constructor-arg>
+	</bean>
+	<bean id="modifyCnt" class="com.rsaame.pas.dao.cmn.PASStoredProcedure">
+		<constructor-arg value="ENDO_TEXT_MODIFY_CNT"/>
+		<constructor-arg ><ref bean="pasDS"/></constructor-arg>
+	</bean>
+	
+	<!-- PL  Proc -->
+	<bean id="premAdd" class="com.rsaame.pas.dao.cmn.PASStoredProcedure">
+		<constructor-arg value="ENDO_TEXT_EXTRA_PL_PREM_ADD"/>
+		<constructor-arg ><ref bean="pasDS"/></constructor-arg>
+	</bean>
+
+	<bean id="premModi" class="com.rsaame.pas.dao.cmn.PASStoredProcedure">
+		<constructor-arg value="ENDO_TEXT_EXTRA_PL_PREM_MODI"/>
+		<constructor-arg ><ref bean="pasDS"/></constructor-arg>
+	</bean>
+	
+	<bean id="premDel" class="com.rsaame.pas.dao.cmn.PASStoredProcedure">
+		<constructor-arg value="ENDO_TEXT_EXTRA_PL_PREM_DEL"/>
+		<constructor-arg ><ref bean="pasDS"/></constructor-arg>
+	</bean>
+
+	<bean id="wcAdd" class="com.rsaame.pas.dao.cmn.PASStoredProcedure">
+		<constructor-arg value="ENDO_TEXT_EXTRA_WC_PREM_ADD"/>
+		<constructor-arg ><ref bean="pasDS"/></constructor-arg>
+	</bean>
+	
+		
+	<bean id="wcModi" class="com.rsaame.pas.dao.cmn.PASStoredProcedure">
+		<constructor-arg value="ENDO_TEXT_EXTRA_WC_PREM_MODI"/>
+		<constructor-arg ><ref bean="pasDS"/></constructor-arg>
+	</bean>
+	
+		<bean id="wcDel" class="com.rsaame.pas.dao.cmn.PASStoredProcedure">
+		<constructor-arg value="ENDO_TEXT_EXTRA_WC_PREM_DEL"/>
+		<constructor-arg ><ref bean="pasDS"/></constructor-arg>
+	</bean>
+	
+	<bean id="endTextLocDel" class="com.rsaame.pas.dao.cmn.PASStoredProcedure">
+		<constructor-arg value="ENDO_TEXT_LOCATION_DEL"/>
+		<constructor-arg ><ref bean="pasDS"/></constructor-arg>
+	</bean>
+	
+	<bean id="delCnt" class="com.rsaame.pas.dao.cmn.PASStoredProcedure">
+		<constructor-arg value="ENDO_TEXT_REFUND_BLD_CNT"/>
+		<constructor-arg ><ref bean="pasDS"/></constructor-arg>
+	</bean>
+	
+	
+	<bean id="valExpDates" class="com.rsaame.pas.dao.cmn.PASStoredProcedure">
+		<constructor-arg value="ENDO_UPD_VAL_EXP_DATES"/>
+		<constructor-arg ><ref bean="pasDS"/></constructor-arg>
+	</bean>
+	
+	<bean id="updateValExpDateSection" class="com.rsaame.pas.dao.cmn.PASStoredProcedure">
+		<constructor-arg value="ENDO_UPD_VAL_EXP_DATES_SEC"/>
+		<constructor-arg ><ref bean="pasDS"/></constructor-arg>
+	</bean>
+	
+	<bean id="updateValExpDateHomeTravelPOL" class="com.rsaame.pas.dao.cmn.PASStoredProcedure">
+		<constructor-arg value="ENDO_UPD_VAL_EXP_DATES_HOME_TRAVEL"/>
+		<constructor-arg ><ref bean="pasDS"/></constructor-arg>
+	</bean>
+	
+	<bean id="endIDgeneration" class="com.rsaame.pas.dao.cmn.PASStoredProcedure">
+		<constructor-arg value="ENDO_ID_GENERATION"/>
+		<constructor-arg ><ref bean="pasDS"/></constructor-arg>
+	</bean>
+	
+	<bean id="getPrevEndID" class="com.rsaame.pas.dao.cmn.PASStoredProcedure">
+		<constructor-arg value="PREV_ENDO_ID_GENERATION"/>
+		<constructor-arg ><ref bean="pasDS"/></constructor-arg>
+	</bean>
+
+	<bean id="InsertCshPolProc_POL" class="com.rsaame.pas.dao.cmn.PASStoredProcedure">
+		<constructor-arg value="INS_ROWS_CSH_POL_ENDT"/>
+		<constructor-arg ><ref bean="pasDS"/></constructor-arg>
+	</bean>
+	
+	<bean id="HOMEInsertCshPolProc_QUO" class="com.rsaame.pas.dao.cmn.PASStoredProcedure">
+		<constructor-arg value="INS_ROWS_CSH_QUO_HOME"/>
+		<constructor-arg ><ref bean="pasDS"/></constructor-arg>
+	</bean>
+	
+	<bean id="HOMEInsertCshPolProc_POL" class="com.rsaame.pas.dao.cmn.PASStoredProcedure">
+		<constructor-arg value="INS_ROWS_CSH_POL_HOME"/>
+		<constructor-arg ><ref bean="pasDS"/></constructor-arg>
+	</bean>
+	
+	<bean id="TRAVELInsertCshPolProc_QUO" class="com.rsaame.pas.dao.cmn.PASStoredProcedure">
+		<constructor-arg value="INS_ROWS_CSH_QUO_TRAVEL"/>
+		<constructor-arg ><ref bean="pasDS"/></constructor-arg>
+	</bean>
+	
+	<bean id="TRAVELInsertCshPolProc_POL" class="com.rsaame.pas.dao.cmn.PASStoredProcedure">
+		<constructor-arg value="INS_ROWS_CSH_POL_TRAVEL"/>
+		<constructor-arg ><ref bean="pasDS"/></constructor-arg>
+	</bean>
+	
+	<bean id="InsertCshPolProc_QUO" class="com.rsaame.pas.dao.cmn.PASStoredProcedure">
+		<constructor-arg value="INS_ROWS_CSH_QUO"/>
+		<constructor-arg ><ref bean="pasDS"/></constructor-arg>
+	</bean>
+	
+	<bean id="Prm_text_gen_POL" class="com.rsaame.pas.dao.cmn.PASStoredProcedure">
+		<constructor-arg value="ENDO_TEXT_EXTRA_PREMIUM"/>
+		<constructor-arg ><ref bean="pasDS"/></constructor-arg>
+	</bean>
+	
+	<bean id="delPendingPolicy" class="com.rsaame.pas.dao.cmn.PASStoredProcedure">
+		<constructor-arg value="ENDO_PENDING_STATUS_DELETE"/>
+		<constructor-arg ><ref bean="pasDS"/></constructor-arg>
+	</bean>
+	
+	<bean id="endIDgenerationQuo" class="com.rsaame.pas.dao.cmn.PASStoredProcedure">
+		<constructor-arg value="ENDO_ID_GENERATION_QUO"/>
+		<constructor-arg ><ref bean="pasDS"/></constructor-arg>
+	</bean>
+	
+	<bean id="addCshCshDetails" class="com.rsaame.pas.dao.cmn.PASStoredProcedure">
+		<constructor-arg value="ENDO_TEXT_ADD_CSH_CSHDETAIL"/>
+		<constructor-arg ><ref bean="pasDS"/></constructor-arg>
+	</bean>
+	
+	<bean id="genEntTextAddGaccBld" class="com.rsaame.pas.dao.cmn.PASStoredProcedure">
+		<constructor-arg value="ENDO_TEXT_ADD_GACC_BUILDING"/>
+		<constructor-arg ><ref bean="pasDS"/></constructor-arg>
+	</bean>
+	
+	
+	<bean id="updateCshCshDetails" class="com.rsaame.pas.dao.cmn.PASStoredProcedure">
+		<constructor-arg value="ENDO_TEXT_UPDATE_CSH_CSHDETAIL"/>
+		<constructor-arg ><ref bean="pasDS"/></constructor-arg>
+	</bean>
+	
+	<bean id="deleteCshCshDetails" class="com.rsaame.pas.dao.cmn.PASStoredProcedure">
+		<constructor-arg value="ENDO_TEXT_DELETE_CSH_CSHDETAIL"/>
+		<constructor-arg ><ref bean="pasDS"/></constructor-arg>
+	</bean>
+	
+	<bean id="clauseTextGenProc" class="com.rsaame.pas.dao.cmn.PASStoredProcedure">
+		<constructor-arg value="ENDO_TEXT_CON_EXC_WAR_ADD"/>
+		<constructor-arg ><ref bean="pasDS"/></constructor-arg>
+	</bean>
+	
+	<bean id="endoTextPrmProc" class="com.rsaame.pas.dao.cmn.PASStoredProcedure">
+		<constructor-arg value="ENDO_TEXT_PRM_COL"/>
+		<constructor-arg ><ref bean="pasDS"/></constructor-arg>
+	</bean>
+	
+	<bean id="clauseDelTextGenProc" class="com.rsaame.pas.dao.cmn.PASStoredProcedure">
+		<constructor-arg value="ENDO_TEXT_CON_EXC_WAR_DEL"/>
+		<constructor-arg ><ref bean="pasDS"/></constructor-arg>
+	</bean>
+	
+	<bean id="nonStdTextGenProc" class="com.rsaame.pas.dao.cmn.PASStoredProcedure">
+		<constructor-arg value="ENDO_TEXT_NON_STD_TXT_ADD"/>
+		<constructor-arg ><ref bean="pasDS"/></constructor-arg>
+	</bean>
+	
+	<bean id="nonStdTextDelGenProc" class="com.rsaame.pas.dao.cmn.PASStoredProcedure">
+		<constructor-arg value="ENDO_TEXT_NON_STD_TXT_DEL"/>
+		<constructor-arg ><ref bean="pasDS"/></constructor-arg>
+	</bean>
+	<bean id="nonStdTextColGenProc" class="com.rsaame.pas.dao.cmn.PASStoredProcedure">
+		<constructor-arg value="ENDO_TEXT_NON_STD_TXT_COL"/>
+		<constructor-arg ><ref bean="pasDS"/></constructor-arg>
+	</bean>
+	<bean id="cancelPolicyProc" class="com.rsaame.pas.dao.cmn.PASStoredProcedure">
+		<constructor-arg value="CANCEL_POLICY"/>
+		<constructor-arg ><ref bean="pasDS"/></constructor-arg>
+	</bean>
+	<bean id="getOldNewProPrm" class="com.rsaame.pas.dao.cmn.PASStoredProcedure">
+		<constructor-arg value="GET_OLD_NEW_ANNUALIZED_PRM"/>
+		<constructor-arg ><ref bean="pasDS"/></constructor-arg>
+	</bean>
+	<bean id="getOldNewProPrmNoTax" class="com.rsaame.pas.dao.cmn.PASStoredProcedure">
+		<constructor-arg value="GET_OLD_NEW_ANNUALIZED_PRM_NOTAX"/>
+		<constructor-arg ><ref bean="pasDS"/></constructor-arg>
+	</bean>
+	<bean id="getOldNewProPrmNoTaxQuote" class="com.rsaame.pas.dao.cmn.PASStoredProcedure">
+		<constructor-arg value="GET_OLD_NEW_ANNUALIZED_PRM_NOTAX_QUOTE"/>
+		<constructor-arg ><ref bean="pasDS"/></constructor-arg>
+	</bean>
+	
+	<bean id="getCreateEndtRecSP" class="com.rsaame.pas.dao.cmn.PASStoredProcedure">
+		<constructor-arg value="GET_CREATE_ENDT_DET_REC_SP"/>
+		<constructor-arg ><ref bean="pasDS"/></constructor-arg>
+	</bean>
+	<bean id="updateEndtVed" class="com.rsaame.pas.dao.cmn.PASStoredProcedure">
+		<constructor-arg value="UPDATE_ENDT_VSD"/>
+		<constructor-arg ><ref bean="pasDS"/></constructor-arg>
+	</bean>
+	<bean id="endTextUWQuestionsCol" class="com.rsaame.pas.dao.cmn.PASStoredProcedure">
+		<constructor-arg value="ENDO_TEXT_UW_QUESTIONS_COL"/>
+		<constructor-arg ><ref bean="pasDS"/></constructor-arg>
+	</bean>
+	
+	<!-- Start :  GIT Endorsement Text -->
+	
+	<bean id="gitMDAdd" class="com.rsaame.pas.dao.cmn.PASStoredProcedure">
+		<constructor-arg value="ENDO_TEXT_MD_ADD"/>
+		<constructor-arg ><ref bean="pasDS"/></constructor-arg>
+	</bean>
+	
+	<bean id="gitMHAdd" class="com.rsaame.pas.dao.cmn.PASStoredProcedure">
+		<constructor-arg value="ENDO_TEXT_MH_ADD"/>
+		<constructor-arg ><ref bean="pasDS"/></constructor-arg>
+	</bean>
+	
+	<bean id="gitMTAdd" class="com.rsaame.pas.dao.cmn.PASStoredProcedure">
+		<constructor-arg value="ENDO_TEXT_MT_ADD"/>
+		<constructor-arg ><ref bean="pasDS"/></constructor-arg>
+	</bean>
+	
+	<bean id="gitMDDelete" class="com.rsaame.pas.dao.cmn.PASStoredProcedure">
+		<constructor-arg value="ENDO_TEXT_MD_DELETE"/>
+		<constructor-arg ><ref bean="pasDS"/></constructor-arg>
+	</bean>
+	
+	<bean id="gitMHDelete" class="com.rsaame.pas.dao.cmn.PASStoredProcedure">
+		<constructor-arg value="ENDO_TEXT_MH_DELETE"/>
+		<constructor-arg ><ref bean="pasDS"/></constructor-arg>
+	</bean>
+	
+	<bean id="gitMTDelete" class="com.rsaame.pas.dao.cmn.PASStoredProcedure">
+		<constructor-arg value="ENDO_TEXT_MT_DELETE"/>
+		<constructor-arg ><ref bean="pasDS"/></constructor-arg>
+	</bean>
+	
+	<bean id="gitMDModify" class="com.rsaame.pas.dao.cmn.PASStoredProcedure">
+		<constructor-arg value="ENDO_TEXT_MD_COL"/>
+		<constructor-arg ><ref bean="pasDS"/></constructor-arg>
+	</bean>
+	
+	<bean id="gitMHModify" class="com.rsaame.pas.dao.cmn.PASStoredProcedure">
+		<constructor-arg value="ENDO_TEXT_MH_COL"/>
+		<constructor-arg ><ref bean="pasDS"/></constructor-arg>
+	</bean>
+	
+	<bean id="gitMTModify" class="com.rsaame.pas.dao.cmn.PASStoredProcedure">
+		<constructor-arg value="ENDO_TEXT_MT_COL"/>
+		<constructor-arg ><ref bean="pasDS"/></constructor-arg>
+	</bean>
+	
+	<bean id="procLocModify" class="com.rsaame.pas.dao.cmn.PASStoredProcedure">
+		<constructor-arg value="ENDO_TEXT_PROC_LOC"/>
+		<constructor-arg ><ref bean="pasDS"/></constructor-arg>
+	</bean>
+	
+	<!-- End :  GIT Endorsement Text -->
+	<!-- END: Bean for ENDORSEMENT  Proc -->
+	<!-- Start: bean for Home,Travel issue quote proc-->
+	<bean id="procIssueQuoteHome" class="com.rsaame.pas.dao.cmn.PASStoredProcedure">
+		<constructor-arg value="PROC_ISSUE_QUOTE_HOME"/>
+		<constructor-arg ><ref bean="pasDS"/></constructor-arg>
+	</bean>
+	<bean id="procConfirmEndtHome" class="com.rsaame.pas.dao.cmn.PASStoredProcedure">
+		<constructor-arg value="PROC_CONFIRM_ENDT_HOME"/>
+		<constructor-arg ><ref bean="pasDS"/></constructor-arg>
+	</bean>
+	<bean id="procIssueQuoteTravel" class="com.rsaame.pas.dao.cmn.PASStoredProcedure">
+		<constructor-arg value="PROC_ISSUE_QUOTE_TRAVEL"/>
+		<constructor-arg ><ref bean="pasDS"/></constructor-arg>
+	</bean>
+	<bean id="procConfirmEndtTravel" class="com.rsaame.pas.dao.cmn.PASStoredProcedure">
+		<constructor-arg value="PROC_CONFIRM_ENDT_TRAVEL"/>
+		<constructor-arg ><ref bean="pasDS"/></constructor-arg>
+	</bean>
+	<!-- End: bean for Home,Travel issue quote proc-->
+	<!-- Start:bean configuration for Home/Travel policy extension -->
+	<bean id="procPolExtnHome" class="com.rsaame.pas.dao.cmn.PASStoredProcedure">
+		<constructor-arg value="PROC_POL_EXTN_HOME"/>
+		<constructor-arg ><ref bean="pasDS"/></constructor-arg>
+	</bean>
+	<bean id="procPolExtnTravel" class="com.rsaame.pas.dao.cmn.PASStoredProcedure">
+		<constructor-arg value="PROC_POL_EXTN_TRAVEL"/>
+		<constructor-arg ><ref bean="pasDS"/></constructor-arg>
+	</bean>
+	<bean id="procPolEffChange" class="com.rsaame.pas.dao.cmn.PASStoredProcedure">
+		<constructor-arg value="PRO_ENDT_QUO_EXTENTION"/>
+		<constructor-arg ><ref bean="pasDS"/></constructor-arg>
+	</bean>
+	
+	<!-- End:bean configuration for Home/Travel policy extension -->
+	<!-- Start:bean configuration for Tariff Change procedure Home/Travel -->
+	<bean id="procTariffChangeHome" class="com.rsaame.pas.dao.cmn.PASStoredProcedure">
+		<constructor-arg value="PROC_TARIFF_CHANGE_HOME"/>
+		<constructor-arg ><ref bean="pasDS"/></constructor-arg>
+	</bean>
+	<bean id="procTariffChangeTravel" class="com.rsaame.pas.dao.cmn.PASStoredProcedure">
+		<constructor-arg value="PROC_TARIFF_CHANGE_TRAVEL"/>
+		<constructor-arg ><ref bean="pasDS"/></constructor-arg>
+	</bean>
+	<bean id="procTariffChangeHome_POL" class="com.rsaame.pas.dao.cmn.PASStoredProcedure">
+		<constructor-arg value="PROC_TARIFF_CHANGE_HOME_POL"/>
+		<constructor-arg ><ref bean="pasDS"/></constructor-arg>
+	</bean>
+	<bean id="procTariffChangeTravel_POL" class="com.rsaame.pas.dao.cmn.PASStoredProcedure">
+		<constructor-arg value="PROC_TARIFF_CHANGE_TRAVEL_POL"/>
+		<constructor-arg ><ref bean="pasDS"/></constructor-arg>
+	</bean>
+	
+	<!-- End:bean configuration for Tariff Change procedure Home/Travel -->		
+	<!-- Start:bean configuration for Delete Pending Polciy procedure Home/Travel -->	
+	<bean id="delPendingPolicyHome" class="com.rsaame.pas.dao.cmn.PASStoredProcedure">
+		<constructor-arg value="ENDO_PENDING_STATUS_DELETE_HOME"/>
+		<constructor-arg ><ref bean="pasDS"/></constructor-arg>
+	</bean>
+	<bean id="delPendingPolicyTravel" class="com.rsaame.pas.dao.cmn.PASStoredProcedure">
+		<constructor-arg value="ENDO_PENDING_STATUS_DELETE_TRAVEL"/>
+		<constructor-arg ><ref bean="pasDS"/></constructor-arg>
+	</bean>
+	
+	<!-- End:bean configuration for Delete Pending Polciy procedure Home/Travel -->			
+    <!-- START: Reports Search - Svc, DAO entries -->
+	<bean id="reportsSearch" parent="baseProxyBean">
+		<property name="target" ref="reportsSearchBean" />
+	</bean>
+	<bean id="reportsSearchBean" class="com.rsaame.pas.reports.svc.ReportsSearchSvc">
+		<property name="reportsDAO" ref="reportDAO" />
+	</bean>
+	<bean id="reportDAO" class="com.rsaame.pas.reports.dao.ReportsDAO">
+		<property name="hibernateTemplate" ref="hibernateTemplate"/>
+	</bean>
+	<!-- END: Reports Search - Svc, DAO entries -->	
+	
+	<bean id="editQuoteUpdateStatusProc" class="com.rsaame.pas.dao.cmn.PASStoredProcedure">
+		<constructor-arg value="PROC_UPDATE_STATUS_FOR_EDIT_QUO"/>
+		<constructor-arg ><ref bean="pasDS"/></constructor-arg>
+	</bean>
+	
+	<bean id="updateVSDVEDQuote" class="com.rsaame.pas.dao.cmn.PASStoredProcedure">
+		<constructor-arg value="UPDATE_QUOTE_VSD_VED"/>
+		<constructor-arg ><ref bean="pasDS"/></constructor-arg>
+	</bean>
+	<bean id="copyQuoteHome" class="com.rsaame.pas.dao.cmn.PASStoredProcedure">
+		<constructor-arg value="PRO_COPY_QUO_HOME"/>
+		<constructor-arg ><ref bean="pasDS"/></constructor-arg>
+	</bean>
+		<bean id="copyQuoteTravel" class="com.rsaame.pas.dao.cmn.PASStoredProcedure">
+		<constructor-arg value="PRO_COPY_QUO_TRAVEL"/>
+		<constructor-arg ><ref bean="pasDS"/></constructor-arg>
+	</bean>
+	
+	<!-- Commenting below scheduler for now -->
+	<!-- Start Bean for Mail Scheuler -->
+	
+	<!-- <bean id="reminderMailer" class="com.rsaame.pas.mail.svc.ReminderMailer" />
+	<bean id="scheduledTask" class="org.springframework.scheduling.timer.ScheduledTimerTask">
+		<property name="delay" value="20000" />
+		<property name="period" value="900000" />
+		<property name="timerTask" ref="reminderMailer" />
+	</bean>
+	<bean id="timerFactory" class="org.springframework.scheduling.timer.TimerFactoryBean">
+		<property name="scheduledTimerTasks">
+			<list>
+				
+				<ref bean="scheduledTask" />
+			</list>
+		</property>
+	</bean>  --> 
+	 
+	<!-- End Bean for Mail Scheuler -->
+	
+	<!--  Start Quote expiry Scheuler -->
+	
+	<bean id="expireQuoteProc" class="com.rsaame.pas.dao.cmn.PASStoredProcedure">
+		<constructor-arg value="PROC_EXPIRE_LAPSE_QUOTE"/>
+		<constructor-arg ><ref bean="pasDS"/></constructor-arg>
+	</bean>
+	
+	<bean id="quoteExpirySvc" class=" com.rsaame.pas.quote.scheduler.svc.QuoteExpirySchedulerSvc" />
+	<bean id="quoteExpiryScheduledTask" class="org.springframework.scheduling.timer.ScheduledTimerTask"> 
+		<!-- wait 20 seconds before starting repeated execution -->
+		<property name="delay" value="28800000" />
+		<!--  run every 24 hrs 86400000 -->
+		<property name="period" value="86400000" />
+		<property name="timerTask" ref="quoteExpirySvc" />
+	</bean>
+
+	<bean id="quoteExpiryTimerFactory" class="org.springframework.scheduling.timer.TimerFactoryBean">
+		<property name="scheduledTimerTasks">
+			<list>				
+				<!-- <ref bean="quoteExpiryScheduledTask" /> -->
+			</list>
+		</property>
+	</bean>  
+	 
+	<!-- End Quote expiry Scheuler -->
+	
+
+	
+	<!-- START: BISection, Svc, DAO entries -->
+	<bean id="biSvc" parent="baseProxyBean">
+		<property name="target" ref="biSvcBean" />
+	</bean>
+	<bean id="biSvcBean" class="com.rsaame.pas.bi.svc.BISectionSvc">
+		<property name="biSaveDAO" ref="biSaveDAO1" />
+	</bean>
+	<bean id="biSaveDAO1" class="com.rsaame.pas.bi.dao.BISaveDAO">
+		<property name="hibernateTemplate" ref="hibernateTemplate" />
+	</bean>
+	<bean id="biLoadDAO" class="com.rsaame.pas.bi.dao.BILoadDAO">
+		<property name="hibernateTemplate" ref="hibernateTemplate" />
+	</bean>
+	<!-- Start Renewals -->
+	<!-- Renewal - Phase 3 change starts -->
+
+	<bean id="renewalCommonSvc" parent="baseProxyBean">
+		<property name="target" ref="renewalCommonSvcBean" />
+	</bean>
+	<bean id="renewalCommonSvcBean" class="com.rsaame.pas.renewals.svc.RenewalCommonSvc">
+		<property name="renewalCommonDAO" ref="renewalDAO2" />		
+		<property name="baseCoverDetailsLoadSvc" ref = "baseCoverDetailsLoadSvc"/>
+		<property name="baseHomeBuildingLoadSvc" ref = "baseHomeBuildingLoadSvc"/>
+	</bean>
+	<bean id="renewalDAO2" class="com.rsaame.pas.renewals.dao.RenewalCommonDAO">
+		<property name="hibernateTemplate" ref="hibernateTemplate" />
+	</bean>
+	<!-- Renewal - Phase 3 change starts ends-->	
+	
+	
+	<bean id="renewalSvc" parent="baseProxyBean">
+		<property name="target" ref="renewalSvcBean" />
+	</bean>
+	<bean id="renewalSvcBean" class="com.rsaame.pas.renewals.svc.RenewalSvc">
+		<property name="renewalsDAO" ref="renewalDAO1" />
+	</bean>
+	<bean id="renewalDAO1" class="com.rsaame.pas.renewals.dao.RenewalsDAO">
+		<property name="hibernateTemplate" ref="hibernateTemplate" />
+	</bean>
+	<bean id="referralSvc" parent="baseProxyBean">
+		<property name="target" ref="referralSvcBean" />
+	</bean>
+	<bean id="referralSvcBean" class="com.rsaame.pas.svc.cmn.ReferralDetailsSvc">
+		<property name="referralDAO" ref="pasReferralDetailsDAO" />
+	</bean>
+	<bean id="pasReferralDetailsDAO" class="com.rsaame.pas.dao.cmn.PasReferralDetailsDAO">
+		<property name="hibernateTemplate" ref="hibernateTemplate" />
+	</bean>
+	<!-- End Renewals -->
+	<bean id="biSvc_POL" parent="baseProxyBean">
+		<property name="target" ref="biSvcBean_POL" />
+	</bean>
+	<bean id="biSvcBean_POL" class="com.rsaame.pas.bi.svc.BISectionSvc">
+		<property name="biSaveDAO" ref="biDAO_POL" />
+	</bean>
+	<bean id="biDAO_POL" class="com.rsaame.pas.bi.dao.BISaveDAO">
+		<property name="hibernateTemplate" ref="hibernateTemplate_POL" />
+	</bean>
+	<bean id="biLoadSvc" parent="baseProxyBean">
+		<property name="target" ref="biLoadServiceBean" />
+	</bean>
+	<bean id="biLoadServiceBean" class="com.rsaame.pas.bi.svc.BISectionSvc">
+		<property name="biLoadDAO" ref="biLoadDAO" />
+	</bean>
+	<bean id="biLoadSvc_POL" parent="baseProxyBean">
+		<property name="target" ref="biLoadServiceBean_POL" />
+	</bean>
+	<bean id="biLoadServiceBean_POL" class="com.rsaame.pas.bi.svc.BISectionSvc">
+		<property name="biLoadDAO" ref="biLoadDAO_POL" />
+	</bean>
+	<bean id="biLoadDAO_POL" class="com.rsaame.pas.bi.dao.BILoadDAO">
+		<property name="hibernateTemplate" ref="hibernateTemplate_POL" />
+	</bean>
+	<bean id="biFetchPPPValDAO" class="com.rsaame.pas.bi.dao.BIPPPValDAO">
+		<property name="hibernateTemplate" ref="hibernateTemplate" />
+	</bean>
+	
+	<bean id="biCLSAdd" class="com.rsaame.pas.dao.cmn.PASStoredProcedure">
+		<constructor-arg value="ENDO_TEXT_EXTRA_BI_CLS_PREM_ADD"/>
+		<constructor-arg ><ref bean="pasDS"/></constructor-arg>
+	</bean>
+	<bean id="biCWSAdd" class="com.rsaame.pas.dao.cmn.PASStoredProcedure">
+		<constructor-arg value="ENDO_TEXT_EXTRA_BI_CWS_PREM_ADD"/>
+		<constructor-arg ><ref bean="pasDS"/></constructor-arg>
+	</bean>
+	<bean id="biCLSDel" class="com.rsaame.pas.dao.cmn.PASStoredProcedure">
+		<constructor-arg value="ENDO_TEXT_EXTRA_BI_CLS_PREM_DEL"/>
+		<constructor-arg ><ref bean="pasDS"/></constructor-arg>
+	</bean>
+	<bean id="biCWSDel" class="com.rsaame.pas.dao.cmn.PASStoredProcedure">
+		<constructor-arg value="ENDO_TEXT_EXTRA_BI_CWS_PREM_DEL"/>
+		<constructor-arg ><ref bean="pasDS"/></constructor-arg>
+	</bean>
+	<bean id="biCLSModi" class="com.rsaame.pas.dao.cmn.PASStoredProcedure">
+		<constructor-arg value="ENDO_TEXT_EXTRA_BI_CLS_PREM_MODI"/>
+		<constructor-arg ><ref bean="pasDS"/></constructor-arg>
+	</bean>
+	<bean id="biCWSModi" class="com.rsaame.pas.dao.cmn.PASStoredProcedure">
+		<constructor-arg value="ENDO_TEXT_EXTRA_BI_CWS_PREM_MODI"/>
+		<constructor-arg ><ref bean="pasDS"/></constructor-arg>
+	</bean>
+	<!-- START: GroupPersonalAccidentSection, Svc, DAO entries -->
+	<bean id="groupPersonalAccidentSvc" parent="baseProxyBean">
+		<property name="target" ref="groupPersonalAccidentSvcBean" />
+	</bean>
+	<bean id="groupPersonalAccidentSvcBean" class="com.rsaame.pas.gpa.svc.GroupPersonalAccidentSectionSVC">
+		<property name="groupPersonalAccidentSaveDAO" ref="groupPersonalAccidentSaveDAO" />
+	</bean>
+	<bean id="groupPersonalAccidentSaveDAO" class="com.rsaame.pas.gpa.dao.GroupPersonalAccidentSaveDAO">
+		<property name="hibernateTemplate" ref="hibernateTemplate" />
+	</bean>
+	<bean id="groupPersonalAccidentLoadDAO" class="com.rsaame.pas.gpa.dao.GroupPersonalAccidentLoadDAO">
+		<property name="hibernateTemplate" ref="hibernateTemplate" />
+	</bean>
+	
+	<bean id="groupPersonalAccidentSvc_POL" parent="baseProxyBean">
+		<property name="target" ref="groupPersonalAccidentSvcBean_POL" />
+	</bean>
+	<bean id="groupPersonalAccidentSvcBean_POL" class="com.rsaame.pas.gpa.svc.GroupPersonalAccidentSectionSVC">
+		<property name="groupPersonalAccidentSaveDAO" ref="groupPersonalAccidentDAO_POL" />
+	</bean>
+	<bean id="groupPersonalAccidentDAO_POL" class="com.rsaame.pas.gpa.dao.GroupPersonalAccidentSaveDAO">
+		<property name="hibernateTemplate" ref="hibernateTemplate_POL" />
+	</bean>
+	<bean id="groupPersonalAccidentLoadSvc" parent="baseProxyBean">
+		<property name="target" ref="groupPersonalAccidentLoadServiceBean" />
+	</bean>
+	<bean id="groupPersonalAccidentLoadServiceBean" class="com.rsaame.pas.gpa.svc.GroupPersonalAccidentSectionSVC">
+		<property name="groupPersonalAccidentLoadDAO" ref="groupPersonalAccidentLoadDAO" />
+	</bean>
+	<bean id="groupPersonalAccidentLoadSvc_POL" parent="baseProxyBean">
+		<property name="target" ref="groupPersonalAccidentLoadServiceBean_POL" />
+	</bean>
+	<bean id="groupPersonalAccidentLoadServiceBean_POL" class="com.rsaame.pas.gpa.svc.GroupPersonalAccidentSectionSVC">
+		<property name="groupPersonalAccidentLoadDAO" ref="groupPersonalAccidentLoadDAO_POL" />
+	</bean>
+	<bean id="groupPersonalAccidentLoadDAO_POL" class="com.rsaame.pas.gpa.dao.GroupPersonalAccidentLoadDAO">
+		<property name="hibernateTemplate" ref="hibernateTemplate_POL" />
+	</bean>
+	
+	
+	<bean id="gpaUnnamedAdd" class="com.rsaame.pas.dao.cmn.PASStoredProcedure">
+		<constructor-arg value="ENDO_TEXT_EXTRA_GPA_UNNAMED_PREM_ADD"/>
+		<constructor-arg ><ref bean="pasDS"/></constructor-arg>
+	</bean>
+	<bean id="gpaNamedAdd" class="com.rsaame.pas.dao.cmn.PASStoredProcedure">
+		<constructor-arg value="ENDO_TEXT_EXTRA_GPA_NAMED_PREM_ADD"/>
+		<constructor-arg ><ref bean="pasDS"/></constructor-arg>
+	</bean>
+	<bean id="gpaUnnamedDel" class="com.rsaame.pas.dao.cmn.PASStoredProcedure">
+		<constructor-arg value="ENDO_TEXT_EXTRA_GPA_UNNAMED_PREM_DEL"/>
+		<constructor-arg ><ref bean="pasDS"/></constructor-arg>
+	</bean>
+	<bean id="gpaNamedDel" class="com.rsaame.pas.dao.cmn.PASStoredProcedure">
+		<constructor-arg value="ENDO_TEXT_EXTRA_GPA_NAMED_PREM_DEL"/>
+		<constructor-arg ><ref bean="pasDS"/></constructor-arg>
+	</bean>
+	<bean id="gpaUnnamedMod" class="com.rsaame.pas.dao.cmn.PASStoredProcedure">
+		<constructor-arg value="ENDO_TEXT_EXTRA_GPA_UNNAMED_PREM_MODI"/>
+		<constructor-arg ><ref bean="pasDS"/></constructor-arg>
+	</bean>
+	<bean id="gpaNamedMod" class="com.rsaame.pas.dao.cmn.PASStoredProcedure">
+		<constructor-arg value="ENDO_TEXT_EXTRA_GPA_NAMED_PREM_MODI"/>
+		<constructor-arg ><ref bean="pasDS"/></constructor-arg>
+	</bean>
+	<!-- End : GroupPersonalAccidentSection, Svc, DAO entries -->
+	<!--Start :  Generic code for named and unnamed gacc person endorsement -->
+	<bean id="unnamedAdd" class="com.rsaame.pas.dao.cmn.PASStoredProcedure">
+		<constructor-arg value="ENDO_TEXT_EXTRA_UNNAMED_PREM_ADD"/>
+		<constructor-arg ><ref bean="pasDS"/></constructor-arg>
+	</bean>
+	<bean id="namedAdd" class="com.rsaame.pas.dao.cmn.PASStoredProcedure">
+		<constructor-arg value="ENDO_TEXT_EXTRA_NAMED_PREM_ADD"/>
+		<constructor-arg ><ref bean="pasDS"/></constructor-arg>
+	</bean>
+	<bean id="unnamedDel" class="com.rsaame.pas.dao.cmn.PASStoredProcedure">
+		<constructor-arg value="ENDO_TEXT_EXTRA_UNNAMED_PREM_DEL"/>
+		<constructor-arg ><ref bean="pasDS"/></constructor-arg>
+	</bean>
+	<bean id="namedDel" class="com.rsaame.pas.dao.cmn.PASStoredProcedure">
+		<constructor-arg value="ENDO_TEXT_EXTRA_NAMED_PREM_DEL"/>
+		<constructor-arg ><ref bean="pasDS"/></constructor-arg>
+	</bean>
+	<bean id="unnamedMod" class="com.rsaame.pas.dao.cmn.PASStoredProcedure">
+		<constructor-arg value="ENDO_TEXT_EXTRA_UNNAMED_PREM_MODI"/>
+		<constructor-arg ><ref bean="pasDS"/></constructor-arg>
+	</bean>
+	<bean id="namedMod" class="com.rsaame.pas.dao.cmn.PASStoredProcedure">
+		<constructor-arg value="ENDO_TEXT_EXTRA_NAMED_PREM_MODI"/>
+		<constructor-arg ><ref bean="pasDS"/></constructor-arg>
+	</bean>
+	
+	
+	<!--  Start Batch Print Scheuler -->
+	<!-- <bean id="CheckService" class="com.rsaame.pas.print.svc.PASBatchPrinterService">
+	<property name="renewalsDAO" ref="renewalDAO1" />
+		<property name="hibernateTemplate" ref="hibernateTemplate" />
+	</bean> -->
+
+	<!-- <bean id="scheduledPrinterTimerTask" class="org.springframework.scheduling.timer.ScheduledTimerTask">
+		<property name="delay" value="20000" />
+		Run for every 15 mins
+		<property name="period" value="900000" />
+		<property name="timerTask" ref="CheckService" />		
+	</bean> -->
+
+	<!-- <bean class="org.springframework.scheduling.timer.TimerFactoryBean">
+		<property name="scheduledTimerTasks">
+		<list>
+			<ref bean="scheduledPrinterTimerTask"/>
+		</list>
+		</property>
+	</bean> -->
+	<!--  End Batch Print Scheuler -->
+	<!-- START: MotorFleet Section, Svc, DAO entries -->
+	
+	
+	<bean id="motorFleetSvc" parent="baseProxyBean">
+		<property name="target" ref="motorFleetSvcBean" />
+	</bean>
+	<bean id="motorFleetSvcBean" class="com.rsaame.pas.motor.svc.MotorFleetSectionSvc">
+		<property name="motorFleetSaveDAO" ref="motorFleetSaveDAO" />
+	</bean>
+	<bean id="motorFleetSaveDAO" class="com.rsaame.pas.motor.dao.MotorFleetSaveDAO">
+		<property name="hibernateTemplate" ref="hibernateTemplate" />
+	</bean>
+	
+	
+	<bean id="motorFleetLoadSvc" parent="baseProxyBean">
+		<property name="target" ref="motorFleetLoadServiceBean" />
+	</bean>
+	<bean id="motorFleetLoadServiceBean" class="com.rsaame.pas.motor.svc.MotorFleetSectionSvc">
+		<property name="motorFleetLoadDAO" ref="motorFleetLoadDAO" />
+	</bean>
+	
+	<bean id="motorFleetLoadDAO" class="com.rsaame.pas.motor.dao.MotorFleetLoadDAO">
+		<property name="hibernateTemplate" ref="hibernateTemplate" />
+	</bean>
+	
+	
+	<bean id="motorFleetSvc_POL" parent="baseProxyBean">
+		<property name="target" ref="motorFleetSvcBean_POL" />
+	</bean>
+	<bean id="motorFleetSvcBean_POL" class="com.rsaame.pas.motor.svc.MotorFleetSectionSvc">
+		<property name="motorFleetSaveDAO" ref="motorFleetSaveDAO_POL" />
+	</bean>
+	<bean id="motorFleetSaveDAO_POL" class="com.rsaame.pas.motor.dao.MotorFleetSaveDAO">
+		<property name="hibernateTemplate" ref="hibernateTemplate_POL" />
+	</bean>
+	
+	<bean id="motorFleetLoadSvc_POL" parent="baseProxyBean">
+		<property name="target" ref="motorFleetLoadServiceBean_POL" />
+	</bean>
+	<bean id="motorFleetLoadServiceBean_POL" class="com.rsaame.pas.motor.svc.MotorFleetSectionSvc">
+		<property name="motorFleetLoadDAO" ref="motorFleetLoadDAO_POL" />
+	</bean>
+	<bean id="motorFleetLoadDAO_POL" class="com.rsaame.pas.motor.dao.MotorFleetLoadDAO">
+		<property name="hibernateTemplate" ref="hibernateTemplate_POL" />
+	</bean>
+	
+	<bean id="motorFleetFetchPPPValDAO" class="com.rsaame.pas.motor.dao.MotorFleetFetchPPPValDAO">
+		<property name="hibernateTemplate" ref="hibernateTemplate" />
+	</bean>
+	
+	
+	<!-- End : MotorFleet, Svc, DAO entries -->
+	
+	<!--Start : Beans for Phase 3 Base save dao  -->
+	
+	<bean id="baseSave" parent="baseProxyBean">
+		<property name="target" ref="baseSaveSvc" />
+	</bean>
+	<bean id="baseSaveSvc" class="com.rsaame.pas.com.svc.BaseSaveSvc">
+		<property name="baseSaveOperation" ref="baseSaveOperation" />
+	</bean>
+	<bean id="baseSaveOperation" class="com.rsaame.pas.dao.cmn.BaseSaveOperation">
+		<property name="hibernateTemplate" ref="hibernateTemplate" />
+	</bean>
+	
+	
+	
+	<bean id="baseSave_POL" parent="baseProxyBean">
+		<property name="target" ref="baseSaveSvc_POL" />
+	</bean>
+	<bean id="baseSaveSvc_POL" class="com.rsaame.pas.com.svc.BaseSaveSvc">
+		<property name="baseSaveOperation" ref="baseSaveOperation_POL" />
+	</bean>
+	<bean id="baseSaveOperation_POL" class="com.rsaame.pas.dao.cmn.BaseSaveOperation">
+		<property name="hibernateTemplate" ref="hibernateTemplate_POL" />
+	</bean>
+	<!--End : Beans for Phase 3 Base save dao  -->
+
+	<!--Start : Beans for Phase 3 BASE LOAD dao  -->
+	<bean id="baseLoad" parent="baseProxyBean">
+		<property name="target" ref="baseLoadSvc" />
+	</bean>
+	<bean id="baseLoadSvc" class="com.rsaame.pas.com.svc.BaseLoadSvc">
+		<property name="baseLoadOperation" ref="baseLoadOperation" />
+	</bean>
+	<bean id="baseLoadOperation" class="com.rsaame.pas.dao.cmn.BaseLoadOperation">
+		<property name="hibernateTemplate" ref="hibernateTemplate" />
+	</bean>
+
+	<bean id="baseLoad_POL" parent="baseProxyBean">
+		<property name="target" ref="baseLoadSvc_POL" />
+	</bean>
+	<bean id="baseLoadSvc_POL" class="com.rsaame.pas.com.svc.BaseLoadSvc">
+		<property name="baseLoadOperation" ref="baseLoadOperation_POL" />
+	</bean>
+	<bean id="baseLoadOperation_POL" class="com.rsaame.pas.dao.cmn.BaseLoadOperation">
+		<property name="hibernateTemplate" ref="hibernateTemplate_POL" />
+	</bean>
+	<!--End : Beans for Phase 3 BASE LAOD dao  -->
+	
+	<bean id="commonGenSvc_POL" parent="baseProxyBean">
+		<property name="target" ref="commonGenSvcBean_POL" />
+	</bean>
+	<bean id="commonGenSvcBean_POL" class="com.rsaame.pas.endorse.svc.GeneralInfoCommonSvc">
+		<property name="baseOperationDao" ref="commonGenDao_POL" />
+		<property name="baseLoadSvc" ref="baseLoadSvc_POL" />
+		<property name="travelServiceBean" ref="travelServiceBean_POL" />
+		<property name="uwqaSaveCommonSvc" ref="uwQuestionSaveSvc_POL" />	
+		<property name="pasReferralSaveCmnSvc" ref="pasReferralCmnSvc_POL" />
+		<property name="taskSvc" ref="taskService_POL" />
+		<property name="commonOpSvc" ref="geComSvcBean_POL"></property>	
+	</bean>
+	<bean id="commonGenDao_POL" class="com.rsaame.pas.dao.cmn.BaseSaveOperation" scope="prototype">
+		<property name="hibernateTemplate" ref="hibernateTemplate_POL" />
+	</bean>
+	
+	<!-- For home and Travel -->
+	<bean id="clausesStProcHomeTravel" class="com.rsaame.pas.dao.cmn.PASStoredProcedure">
+		<constructor-arg value="CON_EXC_WAR_HT"/>
+		<constructor-arg ><ref bean="pasDS"/></constructor-arg>
+	</bean>
+	<!-- End: Bean for conditions stored Proc -->
+	
+	<bean id="commonGenSvc" parent="baseProxyBean">
+		<property name="target" ref="commonGenSvcBean" />
+	</bean>
+	<bean id="commonGenSvcBean" class="com.rsaame.pas.endorse.svc.GeneralInfoCommonSvc">
+		<property name="baseOperationDao" ref="commonGenDao" />
+		<property name="baseLoadSvc" ref="baseLoadSvc" />
+		<property name="travelServiceBean" ref="travelServiceBean" />
+		<property name="uwqaSaveCommonSvc" ref="uwQuestionSaveSvc" />
+		<property name="pasReferralSaveCmnSvc" ref="pasReferralCmnSvc" />
+		<property name="taskSvc" ref="taskService" />
+		<property name="commonOpSvc" ref="geComSvcBean" />
+	</bean>
+	<bean id="commonGenDao" class="com.rsaame.pas.dao.cmn.BaseSaveOperation" scope="prototype">
+		<property name="hibernateTemplate" ref="hibernateTemplate" />
+	</bean>
+	
+	<bean id="loadCoverSvc" parent="baseProxyBean">
+		<property name="target" ref="loadCoverSvcBean" />
+	</bean>
+	
+		
+	<bean id="loadCoverSvcBean" class="com.rsaame.pas.taglib.svc.LoadCoverSvc">
+		<property name="loadCoverDAO" ref="loadCoverDAOBean" />
+	</bean>
+	<bean id="loadCoverDAOBean" class="com.rsaame.pas.taglib.dao.LoadCoverDAO" scope="prototype">
+		<property name="hibernateTemplate" ref="hibernateTemplate" />
+	</bean>
+	
+	<!-- <bean id="loadCoverRenderer " parent="baseProxyBean">
+		<property name="target" ref="riskCoverTagRendererBean" />
+	</bean>
+		<bean id="riskCoverTagRendererBean" class="com.rsaame.pas.taglib.helper.RiskCoverTagRenderer">
+		<property name="loadCoverDAO" ref="loadCoverDAOBean" />
+	</bean> -->
+	
+	<bean id="loadCoverSvc_POL" parent="baseProxyBean">
+		<property name="target" ref="loadCoverSvcBean_POL" />
+	</bean>
+	<bean id="loadCoverSvcBean_POL" class="com.rsaame.pas.taglib.svc.LoadCoverSvc">
+		<property name="loadCoverDAO" ref="loadCoverDAOBean_POL" />
+	</bean>
+	<bean id="loadCoverDAOBean_POL" class="com.rsaame.pas.taglib.dao.LoadCoverDAO" scope="prototype">
+		<property name="hibernateTemplate" ref="hibernateTemplate_POL" />
+	</bean> 
+
+	<bean id="SAVE_CASH_CUST_DATA" class ="com.rsaame.pas.gen.domain.TMasCashCustomerQuo" scope = "prototype"/>
+	<bean id="SAVE_CASH_CUST_DATA_ID" class ="com.rsaame.pas.gen.domain.TMasCashCustomerQuoId" scope = "prototype"/>
+	<bean id="SAVE_CASH_CUST_DATAMapper" class ="com.rsaame.pas.pojo.mapper.TMasCashCustQuoToGenVOMapperReverse"/>
+    <bean id="T_TRN_POLICYMapper" class ="com.rsaame.pas.pojo.mapper.PolicyDataVOToTTrnPolicyMapper "/>
+    <bean id="SAVE_CASH_CUST_DATA_DV" class ="com.rsaame.pas.com.helper.DeriveCashCustDetails"/>
+    <bean id="T_MAS_CASH_CUSTOMER_QUO_DV" class ="com.rsaame.pas.com.helper.DeriveCashCustDetails"/>
+    <bean id="VO_HOME" class ="com.rsaame.pas.vo.bus.HomeInsuranceVO" scope = "prototype"/>
+    <bean id="Mapper_HOME" class ="com.rsaame.pas.request.vo.mapper.RequestToHomeInsuranceVOMapper"/>
+    <bean id="VO_TRAVEL" class ="com.rsaame.pas.vo.bus.TravelInsuranceVO" scope = "prototype"/>
+    <bean id="Mapper_TRAVEL" class ="com.rsaame.pas.request.vo.mapper.RequestToTravelInsuranceVOMapper"/>
+    
+    <bean id="T_TRN_NON_STD_TXT" class ="com.rsaame.pas.dao.model.TTrnNonStdTextQuo" scope = "prototype"/>
+	<bean id="T_TRN_NON_STD_TXT_ID" class ="com.rsaame.pas.dao.model.TTrnNonStdTextQuoId" scope = "prototype"/>
+	<bean id="T_TRN_NON_STD_TXTMapper" class ="com.rsaame.pas.pojo.mapper.nonStandardCaluseToTTrnNonStdTextQuo"/>
+	<bean id="T_TRN_NON_STD_TXT_DV" class ="com.rsaame.pas.com.helper.DeriveNonStdTxtDetails"/>
+	
+	<bean id="GACC_PERSONMapper" class = "com.rsaame.pas.pojo.mapper.TTrnGaccPersonVOHolderToTTrnGaccPerson" />
+	
+	<bean id="GACC_PERSON" class = "com.rsaame.pas.dao.model.TTrnGaccPersonQuo" scope = "prototype"/>
+	<bean id="T_TRN_GACC_PERSON_QUO" class = "com.rsaame.pas.dao.model.TTrnGaccPersonQuo" scope = "prototype"/>
+	<bean id="GACC_PERSON_DV" class = "com.rsaame.pas.com.helper.DeriveGaccPersonDetails" />
+	<bean id="T_TRN_POLICY" class = "com.rsaame.pas.dao.model.TTrnPolicyQuo" scope = "prototype" />
+	
+	<bean id="GACC_PERSON_ID" class = "com.rsaame.pas.dao.model.TTrnGaccPersonQuoId" scope = "prototype"/>
+	<bean id="T_TRN_POLICY_ID" class = "com.rsaame.pas.dao.model.TTrnPolicyQuoId" scope = "prototype" />
+	
+	<bean id="travelServiceBean" class="com.rsaame.pas.travel.svc.TravelDetailSvc">
+		<property name="baseSaveSvc" ref="baseSaveSvc" />
+		<property name="baseLoadSvc" ref="baseLoadSvc" />
+		<property name="uwQuestionsLoadSvc" ref="uwQuestionsLoadSvc" />
+	</bean>
+	
+	<bean id="travelServiceBean_POL" class="com.rsaame.pas.travel.svc.TravelDetailSvc">
+		<property name="baseSaveSvc" ref="baseSaveSvc_POL" />
+		<property name="baseLoadSvc" ref="baseLoadSvc_POL" />
+		<property name="uwQuestionsLoadSvc" ref="uwQuestionsLoadSvc_POL" />
+	</bean>
+	
+	<bean id="DERIVE_POL_DATA_DV" class ="com.rsaame.pas.com.helper.DerivePolicyDetails"/>
+	
+	 <bean id="buildingDetailsSvc" parent="baseProxyBean">
+		<property name="target" ref="buildingDetailServiceBean" />
+	</bean>
+	<bean id="buildingDetailServiceBean" class="com.rsaame.pas.home.svc.BuildingDetailsSvc">
+		<property name="baseSaveSvc" ref="baseSaveSvc" />
+		<property name="baseLoadSvc" ref="baseLoadSvc" />
+	</bean>
+	 <bean id="buildingDetailsSvc_POL" parent="baseProxyBean">
+		<property name="target" ref="buildingDetailServiceBean_POL" />
+	</bean>
+	<bean id="buildingDetailServiceBean_POL" class="com.rsaame.pas.home.svc.BuildingDetailsSvc">
+		<property name="baseSaveSvc" ref="baseSaveSvc_POL" />
+		<property name="baseLoadSvc" ref="baseLoadSvc_POL" />
+	</bean>
+	<bean id="T_MAS_CASH_CUSTOMER_QUO" class ="com.rsaame.pas.gen.domain.TMasCashCustomerQuo" scope="prototype" />
+	<bean id="T_MAS_CASH_CUSTOMER_QUO_ID" class ="com.rsaame.pas.gen.domain.TMasCashCustomerQuoId" scope="prototype" />
+	<bean id="T_TRN_BUILDING_QUO" class="com.rsaame.pas.dao.model.TTrnBuildingQuo" scope="prototype"/>
+	<bean id="T_TRN_BUILDING_QUO_DV" class="com.rsaame.pas.com.helper.DeriveBuildingDetails" />
+	<bean id="T_TRN_BUILDING_QUO_ID" class="com.rsaame.pas.dao.model.TTrnBuildingQuoId" scope="prototype"/>
+	<bean id="T_TRN_BUILDING_QUOMapper" class="com.rsaame.pas.request.vo.mapper.BuildingDetailsVOToTTrnBuildingQuoMapper" />	
+	<bean id="T_TRN_POLICY_Rev_Mapper" class ="com.rsaame.pas.pojo.mapper.PolicyDataVOToTTrnPolicyMapperReverse"/>	 
+	
+	
+	<!--Start:  Home Insurance save related beans -->
+	<bean id="T_TRN_CONTENT_QUO" class ="com.rsaame.pas.dao.model.TTrnContentQuo" scope="prototype" />
+	<bean id="T_TRN_CONTENT_QUO_ID" class ="com.rsaame.pas.dao.model.TTrnContentQuoId" scope="prototype" />
+	<bean id="T_TRN_CONTENT_QUOMapper" class="com.rsaame.pas.pojo.mapper.CoverDetailsVOToTTrnContentQuoMapper"></bean>
+	<bean id="T_TRN_CONTENT_QUO_DV" class="com.rsaame.pas.com.helper.DeriveTtrnContentDetails"></bean>
+	<bean id="premiumSVC" class="com.rsaame.pas.com.svc.PremiumSaveCommonSvc" />
+	<bean id="contentSVC" class="com.rsaame.pas.home.svc.HomeContentSaveSVC">
+	    <property name="baseCoverDetailsLoadSvc" ref="baseCoverDetailsLoadSvc" />
+		<property name="baseSvc" ref="baseSaveSvc" />
+		<property name="baseLoadSvc" ref="baseLoadSvc"></property>
+	</bean>
+	<bean id="contentSVC_POL" class="com.rsaame.pas.home.svc.HomeContentSaveSVC">
+	    <property name="baseCoverDetailsLoadSvc" ref="baseCoverDetailsLoadSvc_POL" />
+		<property name="baseSvc" ref="baseSaveSvc_POL" />
+		<property name="baseLoadSvc" ref="baseLoadSvc_POL"></property>
+	</bean>
+	<bean id="saveHomeInsurance" parent="baseProxyBean">
+		<property name="target" ref="saveHomeInsuranceBean" />
+	</bean>
+	<bean id="saveHomeInsuranceBean" class="com.rsaame.pas.home.svc.HomeInsuranceSVCWrapper">
+		<property name="baseLoadSvc" ref="baseLoadSvc"></property>
+		<property name="baseCoverDetailsLoadSvc" ref="baseCoverDetailsLoadSvc"></property>
+		<property name="baseHomeBuildingLoadSvc" ref="baseHomeBuildingLoadSvc"></property>
+		<property name="uwQuestionsLoadSvc" ref="uwQuestionsLoadSvc"></property>
+		<property name="commonGenSvcBean" ref="commonGenSvcBean"></property>
+		<property name="buildingDetailsSvc" ref="buildingDetailsSvc"></property>
+		<property name="contentSvc" ref="contentSVC"></property>
+		<property name="premiumSvc" ref="premiumServiceBean"></property>
+		<property name="uwqaSaveCommonSvc" ref="uwQuestionSaveSvc"></property>
+		<property name="taskSvc" ref="taskServiceBean"></property>
+		<property name="pasReferralSaveCmnSvc" ref="pasReferralSaveSvc"></property>
+		<property name="polComnSvc" ref="polActCommonSvcBean"></property>
+	</bean>
+	<bean id="saveHomeInsurance_POL" parent="baseProxyBean">
+		<property name="target" ref="saveHomeInsuranceBean_POL" />
+	</bean>
+	<bean id="saveHomeInsuranceBean_POL" class="com.rsaame.pas.home.svc.HomeInsuranceSVCWrapper">
+		<property name="baseLoadSvc" ref="baseLoadSvc_POL"></property>
+		<property name="baseCoverDetailsLoadSvc" ref="baseCoverDetailsLoadSvc_POL"></property>
+		<property name="baseHomeBuildingLoadSvc" ref="baseHomeBuildingLoadSvc_POL"></property>
+		<property name="uwQuestionsLoadSvc" ref="uwQuestionsLoadSvc_POL"></property>
+		<property name="commonGenSvcBean" ref="commonGenSvcBean_POL"></property>
+		<property name="buildingDetailsSvc" ref="buildingDetailServiceBean_POL"></property>
+		<property name="contentSvc" ref="contentSVC_POL"></property>
+		<property name="premiumSvc" ref="premiumServiceBean_POL"></property>
+		<property name="uwqaSaveCommonSvc" ref="uwQuestionSaveSvc_POL"></property>
+		<property name="taskSvc" ref="taskService_POL"></property>
+		<property name="pasReferralSaveCmnSvc" ref="pasReferralSaveSvc_POL"></property>
+		<property name="polComnSvc" ref="polActCommonSvcBean_POL"></property>
+	</bean>
+	<bean id="premiumServiceBean" parent="baseProxyBean">
+		<property name="target" ref="premiumSvc" />
+	</bean>
+	<bean id="premiumSvc" class="com.rsaame.pas.com.svc.PremiumSaveCommonSvc">
+            <property name="baseSaveSvc" ref="baseSaveSvc" />
+            <property name="baseLoadSvc" ref="baseLoadSvc" />
+            <property name="travelPackagePremiumSvc" ref="travelPackagePremiumSvc" />
+            <property name="commonOpDAO" ref="commonOpDAO" />
+            <property name="viewClauseSvc" ref="viewClauseSvc" />
+            <property name="minPrmHomeDao" ref="minPrmHomeDao" />
+     </bean>
+	<bean id="premiumServiceBean_POL" parent="baseProxyBean">
+		<property name="target" ref="premiumSvc_POL" />
+	</bean>
+	<bean id="premiumSvc_POL" class="com.rsaame.pas.com.svc.PremiumSaveCommonSvc">
+            <property name="baseSaveSvc" ref="baseSaveSvc_POL" />
+            <property name="baseLoadSvc" ref="baseLoadSvc_POL" />
+            <property name="travelPackagePremiumSvc" ref="travelPackagePremiumSvc_POL" />
+            <property name="commonOpDAO" ref="commonOpDAO_POL" />
+            <property name="viewClauseSvc" ref="viewClauseSvc_POL" />
+            <property name="minPrmHomeDao" ref="minPrmHomeDao_POL" />
+    </bean>
+	<!-- End : Home Insurance save related beans -->
+	
+	<!-- Premium Save Service Start -->
+	<bean id="T_MAS_CASH_CUSTOMER_QUOMapper" class="com.rsaame.pas.pojo.mapper.TMasCashCustomerVOHolderToTMasCashCustomerQuo"></bean>
+	<!-- <bean id="T_TRN_POLICY_QUO" class="com.rsaame.pas.dao.model.TTrnPolicyQuo"></bean> -->
+	<bean id="T_TRN_PREMIUM_QUO_ID" class="com.rsaame.pas.dao.model.TTrnPremiumQuoId" scope="prototype"></bean>
+	<bean id="T_TRN_PREMIUM_QUO" class="com.rsaame.pas.dao.model.TTrnPremiumQuo" scope="prototype"></bean>
+	<bean id="T_TRN_POLICY_QUOMapper" class="com.rsaame.pas.pojo.mapper.PolicyDataVOToTTrnPolicyMapper"></bean>
+	<bean id="T_TRN_PREMIUM_QUOMapper" class="com.rsaame.pas.pojo.mapper.TTrnPremiumVOHolderToTTrnPremiumQuo"></bean>
+	<!-- Premium Save Service End -->
+	
+	<!-- Underwriter Question Answer Save Service Start -->
+        <bean id="uwQuestionSaveSvc" class="com.rsaame.pas.com.svc.UWQASaveCommonSvc">
+                <property name="baseSaveSvc" ref="baseSaveSvc" />
+        </bean>
+        
+         <bean id="uwQuestionSaveSvc_POL" class="com.rsaame.pas.com.svc.UWQASaveCommonSvc">
+                <property name="baseSaveSvc" ref="baseSaveSvc_POL" />
+        </bean>
+        
+        <bean id="T_TRN_UW_QUESTIONS_QUO" class="com.rsaame.pas.dao.model.TTrnUwQuestionsQuo" scope = "prototype"></bean>
+        <bean id="T_TRN_UW_QUESTIONS_QUO_ID" class="com.rsaame.pas.dao.model.TTrnUwQuestionsQuoId" scope = "prototype"></bean>
+        <bean id="T_TRN_UW_QUESTIONS_QUOMapper" class="com.rsaame.pas.pojo.mapper.TTrnUwQuestionsVOHolderToTTrnUwQuestionsQuo"></bean>
+
+    <!-- Underwriter Question Answer Save Service End -->
+	
+	
+	<bean id="SAVE_CASH_CUST_DATA_Rev_Mapper" class ="com.rsaame.pas.pojo.mapper.TMasCashCustQuoToGenVOMapper"/>
+	<bean id="GACC_PERSON_Rev_Mapper" class ="com.rsaame.pas.pojo.mapper.TTrnGaccPersonVOHolderToTTrnGaccPersonReverse"/>
+	 
+	<bean id="T_TRN_POLICY_QUO" class="com.rsaame.pas.dao.model.TTrnPolicyQuo" scope = "prototype"/>
+
+	<!--START : Beans for HOME LOAD (B2B) -->
+
+	<bean id="homeInsuranceLoadBean" parent="baseProxyBean">
+    	<property name="target" ref="homeInsurancebean" />
+    </bean>
+    <bean id="homeInsuranceLoadBean_POL" parent="baseProxyBean">
+    	<property name="target" ref="homeInsurancebean_POL" />
+    </bean>
+    
+    <bean id="homeInsurancebean" class="com.rsaame.pas.home.svc.HomeInsuranceSVCWrapper">
+     	<property name="baseCoverDetailsLoadSvc" ref="baseCoverDetailsLoadSvc" />
+     	<property name="baseHomeBuildingLoadSvc" ref="baseHomeBuildingLoadSvc" />
+     	<property name="uwQuestionsLoadSvc" ref="uwQuestionsLoadSvc" />
+     	<property name="commonGenSvcBean" ref="commonGenSvcBean"></property>
+     	<property name="baseLoadSvc" ref="baseLoadSvc"></property>
+    </bean>
+    
+    <bean id="baseCoverDetailsLoadSvc" class="com.rsaame.pas.home.svc.HomeCoverDetailsLoadSvc">
+    	<property name="baseLoadSvc" ref="baseLoadSvc" />
+    </bean>
+	
+    <bean id="baseHomeBuildingLoadSvc" class="com.rsaame.pas.home.svc.HomeBuildingLoadSvc">
+     	<property name="baseLoadSvc" ref="baseLoadSvc" />
+    </bean>
+    <bean id="uwQuestionsLoadSvc" class="com.rsaame.pas.home.svc.UWQuestionsLoadSvc">
+     	<property name="baseLoadSvc" ref="baseLoadSvc" />
+    </bean>
+	
+    
+    <bean id="homeInsurancebean_POL" class="com.rsaame.pas.home.svc.HomeInsuranceSVCWrapper">
+     	<property name="baseCoverDetailsLoadSvc" ref="baseCoverDetailsLoadSvc_POL" />
+     	<property name="baseHomeBuildingLoadSvc" ref="baseHomeBuildingLoadSvc_POL" />
+     	<property name="uwQuestionsLoadSvc" ref="uwQuestionsLoadSvc_POL" />
+     	<property name="commonGenSvcBean" ref="commonGenSvcBean_POL"></property>
+     	<property name="baseLoadSvc" ref="baseLoadSvc_POL"></property>
+    </bean>
+        
+    <bean id="baseCoverDetailsLoadSvc_POL" class="com.rsaame.pas.home.svc.HomeCoverDetailsLoadSvc">
+    	<property name="baseLoadSvc" ref="baseLoadSvc_POL" />
+    </bean>
+	
+    <bean id="baseHomeBuildingLoadSvc_POL" class="com.rsaame.pas.home.svc.HomeBuildingLoadSvc">
+     	<property name="baseLoadSvc" ref="baseLoadSvc_POL" />
+    </bean>
+    
+    <bean id="uwQuestionsLoadSvc_POL" class="com.rsaame.pas.home.svc.UWQuestionsLoadSvc">
+     	<property name="baseLoadSvc" ref="baseLoadSvc_POL" />
+    </bean>
+   
+    <bean id="T_TRN_CONTENT_QUO_Rev_Mapper" class ="com.rsaame.pas.pojo.mapper.CoverDetailsVOToTTrnContentQuoMapperReverse"/>
+	<bean id="PREMIUM_Rev_Mapper" class ="com.rsaame.pas.pojo.mapper.TTrnPremiumVOHolderToTTrnPremiumQuoReverse"/>
+	<bean id="T_TRN_PREMIUM_QUO_Rev_Mapper" class ="com.rsaame.pas.pojo.mapper.TTrnPremiumVOHolderToTTrnPremiumQuoReverse"/>
+	<bean id="UW_QUESTION_Rev_Mapper" class ="com.rsaame.pas.pojo.mapper.UWQuestionsVOToTtrnUWQuestionsQuoMapperReverse"/>
+	<bean id="T_TRN_BUILDING_QUO_Rev_Mapper" class ="com.rsaame.pas.request.vo.mapper.BuildingDetailsVOToTTrnBuildingQuoMapperReverse"/>
+	
+    <!--END : Beans for HOME LOAD (B2B) -->
+
+    
+    <!-- For Premiun derived value -->
+    
+     <bean id="T_TRN_PREMIUM_QUO_DV" class ="com.rsaame.pas.com.helper.DerivePremiumDetails"/>
+     
+      
+	
+	<bean id="partnerMgmtSaveSvc" parent="baseProxyBean">
+		<property name="target" ref="partnerMgmtSaveSvcBean"></property>
+	</bean>
+	<bean id="partnerMgmtSaveSvcBean" class="com.rsaame.pas.com.svc.PartnerManagementSaveService">
+		<property name="iPartnerMgmtDAO" ref="partnerMgmtDAO" />
+	</bean>
+	<bean id="partnerMgmtDAO" class="com.rsaame.pas.endorse.dao.PartnerManagementDAO">
+		<property name="hibernateTemplate" ref="hibernateTemplate"></property>
+	</bean>
+	
+	<bean id="T_MAS_PARTNER_MGMTMapper" class="com.rsaame.pas.pojo.mapper.TMasPartnerMgmtVOHolderToTMasPartnerMgmt" />
+	<bean id="T_MAS_PARTNER_MGMT" class="com.rsaame.pas.dao.model.TMasPartnerMgmt" scope = "prototype"></bean>
+	<bean id="T_MAS_POLICY_TYPE" class="com.rsaame.pas.dao.model.TMasPolicyType" scope="prototype"></bean>
+	<!-- Partner Management End -->
+	 <!-- Promotional Code Configuration Start -->
+	 
+	
+	<bean id="T_MAS_PROMOTIONAL_CODE" class="com.rsaame.pas.dao.model.TMasPromotionalCode" scope="prototype"></bean>
+	<bean id="T_MAS_PROMO_DISC_COVER" class="com.rsaame.pas.dao.model.TMasPromoDiscCover" scope="prototype"></bean>
+	<bean id="T_MAS_PROMOTIONAL_CODEMapper" class="com.rsaame.pas.request.vo.mapper.TMasPromotionalCodeVOToTMasPromotionalCode"></bean>
+	
+	<bean id="promoCdConfigSaveSvc" parent="baseProxyBean">
+		<property name="target" ref="promoCdConfigSaveSvcBean"></property>
+	</bean>
+	<bean id="promoCdConfigSaveSvcBean" class="com.rsaame.pas.com.svc.PromotionalCodeConfigSaveService">
+		<property name="iPromoCodeConfigDAO" ref="promoConfigSaveDAO"></property>
+	</bean>
+	<bean id="promoConfigSaveDAO" class="com.rsaame.pas.endorse.dao.PromotionalCdConfigDAO">
+		<property name="hibernateTemplate" ref="hibernateTemplate"></property>
+	</bean>
+     <!-- Promotional Code Configuration End -->
+     
+     <bean id="travelDetailSvc" parent="baseProxyBean">
+		<property name="target" ref="travelDetailBeanSvc" />
+	</bean>
+     
+     <bean id="travelDetailBeanSvc" class="com.rsaame.pas.travel.svc.TravelDetailSvc">
+		<property name="baseSaveSvc" ref="baseSaveSvc" />
+		<property name="baseLoadSvc" ref="baseLoadSvc" />
+		<property name="uwQuestionsLoadSvc" ref="uwQuestionsLoadSvc" />
+	</bean>
+	
+		<bean id = "ratingInvoker" class = "com.rsaame.pas.rating.svc.RatingInvoker" />
+	
+	<bean id = "ratingServiceInvoker" class = "com.rsaame.pas.rating.svc.RatingServiceInvoker" abstract = "true">
+		<property name="ratingInvoker" ref="ratingInvoker" />
+	</bean>
+	
+	<bean id = "travelRatingInvoker" class = "com.rsaame.pas.rating.svc.travel.TravelRatingInvoker" parent="ratingServiceInvoker" /> 
+	
+	<bean id="homeRatingInvoker" class="com.rsaame.pas.rating.svc.home.HomeRatingInvoker" parent="ratingServiceInvoker" />
+	<!-- Beans for SMS Master - Phase 3 change starts-->
+    <bean id="smsService" parent="baseProxyBean">
+		<property name="target" ref="smsServiceBean" />
+	</bean>
+	<bean id="smsServiceBean" class="com.rsaame.pas.reports.svc.SmsSvc">
+		<property name="reportsDAO" ref="reportDAO" />
+	</bean>	
+	
+	<!-- Beans for SMS Master - Phase 3 change ends-->
+	
+	<bean id="endIDgenerationHomeTravelQuo" class="com.rsaame.pas.dao.cmn.PASStoredProcedure">
+		<constructor-arg value="ENDO_ID_GENERATION_HOME_TRAVEL_QUO"/>
+		<constructor-arg ><ref bean="pasDS"/></constructor-arg>
+	</bean>
+	
+	<bean id="endIDgenerationHomeTravelPol" class="com.rsaame.pas.dao.cmn.PASStoredProcedure">
+		<constructor-arg value="ENDO_ID_GENERATION_HOME_TRAVEL"/>
+		<constructor-arg ><ref bean="pasDS"/></constructor-arg>
+	</bean>
+	
+	<!-- ####Cancellation START###-->
+     
+    <bean id="endIDgenerationQuoHomeTravel" class="com.rsaame.pas.dao.cmn.PASStoredProcedure">
+		<constructor-arg value="ENDO_ID_GENERATION_QUO_HOME_TRAVEL"/>
+		<constructor-arg ><ref bean="pasDS"/></constructor-arg>
+	</bean>
+	          
+    <bean id="policyCancellationSvc_POL" parent="baseProxyBean">
+		<property name="target" ref="policyCancellationSvcBean" />
+	</bean>
+	
+	<bean id="policyCancellationSvcBean" class="com.rsaame.pas.amend.svc.PolicyCancellationSvc">
+		<property name="policyCancellationDao" ref="policyCancellationDao" />
+	</bean>
+	
+	<bean id="policyCancellationDao" class="com.rsaame.pas.amend.svc.PolicyCancellationDao" scope="prototype">
+		<property name="hibernateTemplate" ref="hibernateTemplate_POL" />
+	</bean> 
+	
+	<bean id="cancelPolicyHomeTravelProc" class="com.rsaame.pas.dao.cmn.PASStoredProcedure">
+		<constructor-arg value="CANCEL_POLICY_HOME_TAVEL"/>
+		<constructor-arg ><ref bean="pasDS"/></constructor-arg>
+	</bean>
+	
+	<bean id="getCreateEndtRecSPHomeTravel" class="com.rsaame.pas.dao.cmn.PASStoredProcedure">
+		<constructor-arg value="GET_CREATE_ENDT_DET_REC_SP_HOME"/>
+		<constructor-arg ><ref bean="pasDS"/></constructor-arg>
+	</bean>
+	
+	<bean id="valExpDatesHomeTravel" class="com.rsaame.pas.dao.cmn.PASStoredProcedure">
+		<constructor-arg value="ENDO_UPD_VAL_EXP_DATES_HOME"/>
+		<constructor-arg ><ref bean="pasDS"/></constructor-arg>
+	</bean>
+	
+	<bean id="insertPaymentDetailsSPHomeTravel" class="com.rsaame.pas.dao.cmn.PASStoredProcedure">
+		<constructor-arg value="PAYMENT_OPTN_DTL_INSRT_HOME_TRAVEL" />
+		<constructor-arg>
+			<ref bean="pasDS" />
+		</constructor-arg>
+	</bean>
+	
+	<bean id="getOldNewProRatePremium" class="com.rsaame.pas.dao.cmn.PASStoredProcedure">
+		<constructor-arg value="GET_OLD_NEW_ANNUALIZED_PREMIUM"/>
+		<constructor-arg ><ref bean="pasDS"/></constructor-arg>
+	</bean>
+	
+	<!-- ####Cancellation END###-->
+	<!-- Start: Procedure Invocation for endt text, home tarvell-->
+	
+	<bean id="commonEndtTxtGen" class="com.rsaame.pas.dao.cmn.PASStoredProcedure">
+		<constructor-arg value="COMMON_ENDT_TEXT_GEN"/>
+		<constructor-arg ><ref bean="pasDS"/></constructor-arg>
+	</bean>
+	
+	<bean id="commonUpdPrmPolEndt" class="com.rsaame.pas.dao.cmn.PASStoredProcedure">
+		<constructor-arg value="COMMON_PRO_UPDATE_PRM_POL_ENDT"/>
+		<constructor-arg ><ref bean="pasDS"/></constructor-arg>
+	</bean>
+	
+	<bean id="commonUpdPrmQuoEndt" class="com.rsaame.pas.dao.cmn.PASStoredProcedure">
+		<constructor-arg value="COMMON_PRO_UPDATE_PRM_QUO_ENDT"/>
+		<constructor-arg ><ref bean="pasDS"/></constructor-arg>
+	</bean>
+	
+	<!-- End: Procedure Invocation for endt text, home tarvell-->
+	
+	<bean id="travelPackagePremiumSvc" parent="baseProxyBean">
+		<property name="target" ref="travelPackagePremiumSvcBean" />
+	</bean>
+	<bean id="travelPackagePremiumSvc_POL" parent="baseProxyBean">
+		<property name="target" ref="travelPackagePremiumSvcBean_POL" />
+	</bean>
+	<bean id="travelPackagePremiumSvcBean" class="com.rsaame.pas.com.svc.TravelPackagePremiumSvc" >
+		<property name="loadCoverSvc" ref="loadCoverSvcBean" />
+		<property name="generalInfoCmnLoadSvc" ref="commonGenSvcBean" />
+		<property name="baseLoadSvc" ref="baseLoadSvc" />
+	</bean>
+	<bean id="travelPackagePremiumSvcBean_POL" class="com.rsaame.pas.com.svc.TravelPackagePremiumSvc" >
+		<property name="loadCoverSvc" ref="loadCoverSvcBean_POL" />
+		<property name="generalInfoCmnLoadSvc" ref="commonGenSvcBean_POL" />
+		<property name="baseLoadSvc" ref="baseLoadSvc_POL" />
+	</bean>
+	<bean id="T_TRN_UW_QUESTIONS_QUO_DV" class ="com.rsaame.pas.com.helper.DeriveUWQuestions"/>
+	
+	<!-- added for invoking rule service -->
+	<bean id="RULE_MAPPER_140" class="com.rsaame.pas.rules.mapper.GeneralInfoRuleMapper" />
+	<bean id="RULE_MAPPER_14" class="com.rsaame.pas.rules.mapper.HomeRiskCoverRuleMapper" />
+   	<bean id="ruleServiceInvoker" class="com.rsaame.pas.rules.invoker.RuleServiceInvoker"/>
+		<!-- RULE ENGINE INVOCATION AND REFERRALS START -->
+	<bean id="RULE_MAPPER_150" class="com.rsaame.pas.rules.mapper.TravelDetailsRuleMapper" />
+	<bean id="RULE_MAPPER_15" class="com.rsaame.pas.rules.mapper.TravelRiskRuleMapper" />
+	<bean id="RULE_MAPPER_490" class="com.rsaame.pas.rules.mapper.ValidationRuleMapper" />
+	<!-- <bean id="referralCommonRH" class ="com.rsaame.pas.referral.ReferralCommonRH"/> -->
+   	<bean id="pasReferralCmnSvc" parent="baseProxyBean">
+	<property name="target" ref="pasReferralSaveSvc"></property>
+	</bean>
+	<bean id="pasReferralSaveSvc" class="com.rsaame.pas.com.svc.PasReferralSaveCommonSvc">
+		<property name="iPasReferralSave" ref="pasReferralSaveDAO" />
+	</bean>
+	<bean id="pasReferralSaveDAO" class="com.rsaame.pas.endorse.dao.PasReferralDetailsSaveDAO">
+		<property name="hibernateTemplate" ref="hibernateTemplate"></property>
+	</bean>
+	
+	 <bean id="pasReferralCmnSvc_POL" parent="baseProxyBean">
+	<property name="target" ref="pasReferralSaveSvc_POL"></property>
+	</bean>
+	<bean id="pasReferralSaveSvc_POL" class="com.rsaame.pas.com.svc.PasReferralSaveCommonSvc">
+		<property name="iPasReferralSave" ref="pasReferralSaveDAO_POL" />
+	</bean>
+	<bean id="pasReferralSaveDAO_POL" class="com.rsaame.pas.endorse.dao.PasReferralDetailsSaveDAO">
+		<property name="hibernateTemplate" ref="hibernateTemplate_POL"></property>
+	</bean>
+	<bean id="ttrnTask" class="com.rsaame.pas.dao.model.TTrnTask" scope="prototype"></bean>
+	<bean id="pasReferralDetailsID" class="com.rsaame.pas.dao.model.TTrnPasReferralDetailsId" scope="prototype"></bean>
+	<bean id="pasReferralDetails" class="com.rsaame.pas.dao.model.TTrnPasReferralDetails" scope="prototype"></bean>
+	<!-- RULE ENGINE INVOCATION AND REFERRALS END -->
+	
+	<bean id="saveTravelInsurance" parent="baseProxyBean">
+		<property name="target" ref="saveTravelInsuranceBean" />
+	</bean>
+	<bean id="saveTravelInsuranceBean" class="com.rsaame.pas.travel.svc.TravelInsuranceSVC">
+		<property name="premiumSvc" ref="premiumServiceBean"></property>
+		
+		<property name="taskSvc" ref="taskServiceBean"></property>
+		<property name="pasReferralSaveCmnSvc" ref="pasReferralSaveSvc"></property>
+		<property name="commonOpSvc" ref="geComSvcBean"></property>
+	</bean>
+	<bean id="saveTravelInsurance_POL" parent="baseProxyBean">
+		<property name="target" ref="saveTravelInsuranceBean_POL" />
+	</bean>
+	<bean id="saveTravelInsuranceBean_POL" class="com.rsaame.pas.travel.svc.TravelInsuranceSVC">
+		<property name="premiumSvc" ref="premiumServiceBean_POL"></property>
+		<property name="taskSvc" ref="taskService_POL"></property>
+		<property name="pasReferralSaveCmnSvc" ref="pasReferralSaveSvc_POL"></property>
+		<property name="commonOpSvc" ref="geComSvcBean_POL"></property>
+	</bean>
+	<bean id="giValidator" class="com.rsaame.pas.b2c.validator.TravelGIQuoteCreateValidator"></bean>
+	<bean id="retrieveQuoteGITravel" class="com.rsaame.pas.b2c.validator.TravelGIQuoteFetchValidator"></bean>
+	<bean id="travelRiskValidator" class="com.rsaame.pas.b2c.validator.TravelRiskValidator"></bean>
+	<bean id="travelRenewalValidator" class="com.rsaame.pas.b2c.validator.TravelRenewalValidator"></bean>	
+	<bean id="homeRenewalValidator" class="com.rsaame.pas.b2c.validator.HomeRenewalValidator"></bean>
+	<!-- START: Send SMS -> RH, Svc, DAO entries -->
+
+	<bean id="sendSmsSvc" parent="baseProxyBean">
+		<property name="target" ref="sendSmsSvcBean" />
+	</bean>
+	<bean id="sendSmsSvcBean" class="com.rsaame.pas.sms.svc.SendSmsSvc">
+		<property name="smsDAO" ref="sendSmsDAO" />
+	</bean>
+	<bean id="sendSmsDAO" class="com.rsaame.pas.sms.dao.SmsDao">
+		<property name="hibernateTemplate" ref="hibernateTemplate" />
+	</bean>
+	<!-- END: Send Sms, Svc, DAO entries -->
+	
+	<bean id="renewalReferalStatusUpdateHome" class="com.rsaame.pas.dao.cmn.PASStoredProcedure">
+		<constructor-arg value="PROC_UPDATE_REN_REF_STATUS_HOME"/>
+		<constructor-arg ><ref bean="pasDS"/></constructor-arg>
+	</bean>
+	<bean id="renewalReferalStatusUpdateTravel" class="com.rsaame.pas.dao.cmn.PASStoredProcedure">
+		<constructor-arg value="PROC_UPDATE_REN_REF_STATUS_TRAVEL"/>
+		<constructor-arg ><ref bean="pasDS"/></constructor-arg>
+	</bean>
+	
+	<bean id="saveOnlinePaymentDetails" parent="baseProxyBean">
+		<property name="target" ref="saveOnlinePaymentDetailsSvc"></property>
+	</bean>
+	<bean id="saveOnlinePaymentDetailsSvc" class="com.rsaame.pas.com.svc.OnlinePaymentDetailsSaveSvc">
+		<property name="onlinePaymentDetailsSaveDao" ref="onlinePaymentDetailsSaveDao"></property>
+	</bean>
+	<bean id="onlinePaymentDetailsSaveDao" class="com.rsaame.pas.dao.cmn.OnlinePaymentDetailsSaveDAO">
+		<property name="hibernateTemplate" ref="hibernateTemplate"></property>
+	</bean>
+	
+	<!-- B2C Start -->
+	<bean id="travelInsuranceHandler" class="com.rsaame.pas.b2c.travelInsurance.TravelInsuranceHandler" scope="prototype"></bean>
+	<bean id="commonServiceHandler" class="com.rsaame.pas.b2c.ws.handler.CommonServiceHandler" scope="prototype"></bean>
+	<bean id="travelInsuranceDetailsMapper" class="com.rsaame.pas.b2c.ws.mapper.TravelInsuranceDetailsMapper" scope="prototype"></bean>
+	<bean id="travelInsuranceVOMapper" class="com.rsaame.pas.b2c.ws.mapper.TravelInsuranceVOMapper" scope="prototype"></bean>
+	<bean id="travelServiceHandler" class="com.rsaame.pas.b2c.ws.handler.TravelServiceHandler" scope="prototype"></bean>
+	<bean id="homeInsuranceDetailsMapper" class="com.rsaame.pas.b2c.ws.mapper.HomeInsuranceDetailsMapper" scope="prototype"></bean>
+	<bean id="homeServiceHandler" class="com.rsaame.pas.b2c.ws.handler.HomeServiceHandler" scope="prototype"></bean>
+	<bean id="homeInsuranceVOMapper" class="com.rsaame.pas.b2c.ws.mapper.HomeInsuranceVOMapper" scope="prototype"></bean>
+	<bean id="systemConfigDAO" class="com.rsaame.pas.init.dao.SystemConfigDAO">
+		<property name="hibernateTemplate" ref="hibernateTemplate" />
+	</bean>
+	<!-- B2C End -->
+	<bean id="generalInfoVO" class="com.rsaame.pas.vo.bus.GeneralInfoVO" scope="prototype"/>
+	<bean id="mailVO" class="com.rsaame.pas.vo.app.MailVO" scope="prototype"/>
+	
+	<!-- CONVERT TO POLICY REMINDER EMAIL TRIGGER START -->
+	<bean id="convertToPolReminderSvc" parent="baseProxyBean">
+		<property name="target" ref="convtToPolReminderSvc" />
+	</bean>
+	<bean id="convtToPolReminderSvc" class="com.rsaame.pas.com.svc.ConvertToPolicyReminderCmnSvc">
+		<property name="genrlInfoCmnSvc" ref="commonGenSvc"></property>
+	</bean>
+	<bean id="convertToPolScheduler" class="com.rsaame.pas.b2c.cmn.handlers.ConvertToPolicyReminderScheduler">
+		<property name="reminderSvc" ref="convertToPolReminderSvc"/>
+		<property name="prmSvc" ref="premiumServiceBean"/>
+	</bean>
+	<!-- bean id="ConvertToPolicyReminderScheduler" class="org.springframework.scheduling.timer.ScheduledTimerTask"--> 
+		<!-- wait 20 seconds before starting repeated execution -->
+		<!-- <property name="delay" value="20000" /> -->
+		<!-- run every 24 hrs 86400000 -->
+		<!-- property name="period" value="86400000" />
+		<property name="timerTask" ref="convertToPolScheduler" />
+	</bean>
+	<bean id="ConvertToPolicyReminderTimerFactory" class="org.springframework.scheduling.timer.TimerFactoryBean">
+		<property name="scheduledTimerTasks">
+			<list>
+				<ref bean="ConvertToPolicyReminderScheduler"/>
+			</list>
+		</property>
+	</bean-->
+	<bean class="org.springframework.scheduling.quartz.JobDetailBean" name="convertToPolJob">
+		<property name="jobClass">
+			<bean factory-bean="convertToPolScheduler" factory-method="getClass"></bean>
+		</property>
+	</bean> 
+	<bean id="cronTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+    	<property name="jobDetail" ref="convertToPolJob" />
+    	<!-- run every morning at 6 AM -->
+    	<property name="cronExpression" value="0 0 6 1/1 * ? *" />
+	</bean>
+	<bean class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+	    <property name="triggers">
+	        <list>
+	            <ref bean="cronTrigger" />
+	        </list>
+	    </property>
+	    <property name="jobDetails">
+			<list>
+				<ref bean="convertToPolJob"/>
+		    </list>
+		</property>
+	</bean>
+	<!-- CONVERT TO POLICY REMINDER EMAIL TRIGGER END -->
+	<bean id="VO_COMMON" class="com.rsaame.pas.vo.cmn.CommonVO" scope="prototype"></bean>
+	<bean id="lookupVO" class="com.rsaame.pas.vo.app.LookUpVO" scope="prototype"></bean>
+	<bean id="lookUpListVO" class="com.rsaame.pas.vo.app.LookUpListVO" scope="prototype"></bean>
+	<bean id="travelLookupValidator" class="com.rsaame.pas.b2c.validator.TravelInsuranceLookupValidator">
+		<property name="lookUpService" ref="lookUpService"></property>
+	</bean>
+	<bean id="VO_INSURED" class="com.rsaame.pas.vo.bus.InsuredVO" scope="prototype"></bean>
+	<bean id="POL_DATA_VO" class="com.rsaame.pas.vo.bus.PolicyDataVO" scope="prototype"></bean>
+
+	
+	<bean id="minPrmHomeDao" class="com.rsaame.pas.dao.premium.HomeMinPremiumDAO">
+		<property name="hibernateTemplate" ref="hibernateTemplate" />
+	</bean>
+	
+	<bean id="minPrmHomeDao_POL" class="com.rsaame.pas.dao.premium.HomeMinPremiumDAO">
+		<property name="hibernateTemplate" ref="hibernateTemplate_POL" />
+	</bean>
+	
+	<bean id="submitClaim" parent="baseProxyBean">
+		<property name="target" ref="submitClaimSvcBean" />
+	</bean>
+
+	<bean id="submitClaimSvcBean" class="com.rsaame.pas.rsadirect.svc.MakeClaimSvc" >
+		<property name="makeClaimDao" ref="makeClaimDao" />
+	</bean>
+	<bean id="makeClaimDao" class="com.rsaame.pas.rsadirect.dao.MakeClaimDAO" >
+		<property name="hibernateTemplate" ref="hibernateTemplate" />
+	</bean>
+	
+	<bean id="makeClaimValidator" class="com.rsaame.pas.b2c.validator.MakeClaimValidator"/>
+	<bean id="golfInsuranceValidator" class="com.rsaame.pas.b2c.validator.GolfInsuranceValidator"/>
+	<bean id="personalAccidentValidator" class="com.rsaame.pas.b2c.validator.PersonalAccidentValidator"/>
+	
+	<!--location based cache changes in PAS -->
+	<bean id="location" class="com.mindtree.ruc.cmn.utils.LoginLocation" scope="singleton">
+	<aop:scoped-proxy/>
+	</bean>
+	<bean id="locationHandler" class="com.mindtree.ruc.cmn.utils.LocationHandler"/>
+	<bean id="webUser" class="com.rsaame.pas.vo.bus.User" scope="session">
+	<aop:scoped-proxy/>
+	</bean>
+	<bean id="T_TRN_WCTPL_PERSON_QUO_ID" class="com.rsaame.pas.dao.model.TTrnWctplPersonQuoId" scope="prototype"></bean>
+	<bean id="T_TRN_WCTPL_PERSON_QUO" class="com.rsaame.pas.dao.model.TTrnWctplPersonQuo" scope="prototype"></bean>
+	
+	<bean id="brokerCacheBean" class="com.rsaame.pas.b2b.ws.util.BrokerDefaultSettingsCache" scope="singleton" />
+	
+	  <!-- Adding the belew bean as part of Req#116356 by M1026668 in 3.8  -->
+    <bean id="InsertCondProc_QUO" class="com.rsaame.pas.dao.cmn.PASStoredProcedure">
+		<constructor-arg value="PROC_INS_COND_QUO"/>
+		<constructor-arg ><ref bean="pasDS"/></constructor-arg>
+	</bean>
+    
+         <!-- Adding the belew bean as part of Req#116356 by M1026668 in 3.8  -->
+    <bean id="InsertCondProc_POL" class="com.rsaame.pas.dao.cmn.PASStoredProcedure">
+		<constructor-arg value="PROC_INS_COND_POL"/>
+		<constructor-arg ><ref bean="pasDS"/></constructor-arg>
+	</bean>
+	
+	
+	<!-- Configuration to trigger the job asynchronously starts. -->
+	<bean id="jobInvoker"
+		class="com.rsaame.pas.b2b.ws.batch.handler.SBSBatchJobInvoker">
+		<property name="eventPublisher" ref="batchAsyncHandler"></property>
+	</bean>
+	<bean id="batchAsyncHandler"
+		class="com.rsaame.pas.b2b.ws.batch.handler.SBSEventHandler"></bean>
+	<bean id="batchAsyncListener"
+		class="com.rsaame.pas.b2b.ws.batch.handler.SBSEventListener">
+		<constructor-arg ref="job"></constructor-arg>
+	</bean>
+	<bean id="job" class="com.rsaame.pas.b2b.ws.batch.tasks.AsyncJob">
+		<property name="policyVoHelper" ref="policyVoHelper"></property>
+	</bean>
+	<bean id="policyVoHelper"
+		class="com.rsaame.pas.b2b.ws.batch.retriever.DbHelper"></bean>
+	<bean id="applicationEventMulticaster"
+		class="org.springframework.context.event.SimpleApplicationEventMulticaster">
+		<property name="taskExecutor">
+			<bean
+				class="org.springframework.core.task.SimpleAsyncTaskExecutor" />
+		</property>
+	</bean>
+	<!-- Configuration to trigger the job asynchronously ends. -->
+
+
+	<!-- Configuration to trigger the job in a scheduled mode starts. -->
+<!-- 	<task:scheduled-tasks scheduler="batchScheduler">
+		<task:scheduled ref="scheduledJobTrigger"
+			method="triggerJob" cron="0 0 0 0 * * ?" />
+	</task:scheduled-tasks>
+	<task:scheduler id="batchScheduler" />
+	<bean id="scheduledJobTrigger"
+		class="com.rsaame.pas.b2b.ws.batch.tasks.ScheduledJob">
+		<property name="policyVoHelper" ref="policyVoHelper"></property>
+	</bean> -->
+	<!-- Configuration to trigger the job in a scheduled mode ends. -->
+
+	<!-- Configuration to trigger the job manually starts. -->
+	<bean id="manualJob" class="com.rsaame.pas.b2b.ws.batch.tasks.ManualJob">
+		<property name="policyVoHelper" ref="policyVoHelper"></property>
+	</bean>
+	<!-- Configuration to trigger the job manually ends. -->
+	
+	
+
+</beans>

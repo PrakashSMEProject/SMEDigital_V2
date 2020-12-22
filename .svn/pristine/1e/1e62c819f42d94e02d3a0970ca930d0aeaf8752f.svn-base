@@ -1,0 +1,51 @@
+<taglib>
+	<tlib-version>1.0</tlib-version>
+	<jsp-version>1.2</jsp-version>
+	<short-name>Underwriter Questions Tag</short-name>
+	<!-- Tag specifies how you are going to reference the tag library from the JSP page -->
+	<uri>http://www.rsa.com/UWQtag</uri>
+	<tag>
+		<description>Underwriter question tag is used to fetch questions</description>
+		<name>uwqTag</name>
+		<tag-class>com.rsaame.pas.underwriterQue.ui.UnderwriterQuestionsTagHandler</tag-class>
+			<body-content>empty</body-content>
+	
+			<attribute>
+				<name>type</name>
+				<required>true</required>
+				<description>Describes whether its underwriter questions type or coverage type to be displayed on JSP.</description>
+				<rtexprvalue>false</rtexprvalue>
+			</attribute>
+			<attribute>
+				<name>noOfCols</name>
+				<required>true</required>
+				<description>Describes in how many columns questions need  to be displayed on JSP.</description>
+				<rtexprvalue>false</rtexprvalue>
+			</attribute>
+			<attribute>
+				<name>sectId</name>
+				<required>true</required>
+				<description>Describes for which section data has to be fetched.</description>
+				<rtexprvalue>false</rtexprvalue>
+			</attribute>
+			<attribute>
+				<name>disabledFlag</name>
+				<required>false</required>
+				<description>Determines whether to render as read only or not </description>
+				<rtexprvalue>true</rtexprvalue>
+			</attribute>
+			<attribute>
+				<name>qRange</name>
+				<required>false</required>
+				<description> Set to display range of values </description>
+				<rtexprvalue>true</rtexprvalue>
+			</attribute>
+			<!-- new attribute 'polType' is getting added -->
+			<attribute>
+				<name>polType</name>
+				<required>false</required>
+				<description> Describes the nature of LOB</description>
+				<rtexprvalue>true</rtexprvalue>
+			</attribute>
+	</tag>
+</taglib>

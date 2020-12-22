@@ -1,0 +1,107 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Mar 3, 2012 11:52:19 AM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.rsaame.pas.dao.model.TTrnGaccCashQuo" table="T_TRN_GACC_CASH_QUO">
+        <composite-id name="id" class="com.rsaame.pas.dao.model.TTrnGaccCashQuoId">
+            <key-property name="gchId" type="long">
+                <column name="GCH_ID" precision="16" scale="0" />
+            </key-property>
+            <key-property name="gchValidityStartDate" type="java.sql.Timestamp">
+                <column name="GCH_VALIDITY_START_DATE" length="7" />
+            </key-property>
+        </composite-id>
+        <property name="gchPolicyId" type="java.lang.Long">
+            <column name="GCH_POLICY_ID" precision="16" scale="0">
+                <comment>GCH_POLICY_ID</comment>
+            </column>
+        </property>
+        <property name="gchBasicRiskId" type="java.lang.Long">
+            <column name="GCH_BASIC_RISK_ID" precision="16" scale="0">
+                <comment>GCH_BASIC_RISK_ID</comment>
+            </column>
+        </property>
+        <property name="gchRskCode" type="java.lang.Long">
+            <column name="GCH_RSK_CODE" precision="16" scale="0">
+                <comment>GCH_RSK_CODE</comment>
+            </column>
+        </property>
+        <property name="gchRtCode" type="java.lang.Long">
+            <column name="GCH_RT_CODE" precision="16" scale="0">
+                <comment>GCH_RT_CODE</comment>
+            </column>
+        </property>
+        <property name="gchRcCode" type="java.lang.Long">
+            <column name="GCH_RC_CODE" precision="16" scale="0">
+                <comment>GCH_RC_CODE</comment>
+            </column>
+        </property>
+        <property name="gchRscCode" type="java.lang.Long">
+            <column name="GCH_RSC_CODE" precision="16" scale="0">
+                <comment>GCH_RSC_CODE</comment>
+            </column>
+        </property>
+        <property name="gchSumInsured" type="big_decimal">
+            <column name="GCH_SUM_INSURED" precision="16" scale="3">
+                <comment>GCH_SUM_INSURED</comment>
+            </column>
+        </property>
+        <property name="gchMaxAmount" type="big_decimal">
+            <column name="GCH_MAX_AMOUNT" precision="16" scale="3">
+                <comment>GCH_MAX_AMOUNT</comment>
+            </column>
+        </property>
+        <property name="gchValidityExpiryDate" type="java.sql.Timestamp">
+            <column name="GCH_VALIDITY_EXPIRY_DATE" length="7" not-null="true">
+                <comment>GCH_VALIDITY_EXPIRY_DATE</comment>
+            </column>
+        </property>
+        <property name="gchEndtId" type="java.lang.Long">
+            <column name="GCH_ENDT_ID" precision="16" scale="0">
+                <comment>GCH_ENDT_ID</comment>
+            </column>
+        </property>
+        <property name="gchBasicRskCode" type="java.lang.Integer">
+            <column name="GCH_BASIC_RSK_CODE" precision="5" scale="0">
+                <comment>GCH_BASIC_RSK_CODE</comment>
+            </column>
+        </property>
+        <property name="gchRiRskCode" type="java.lang.Integer">
+            <column name="GCH_RI_RSK_CODE" precision="5" scale="0">
+                <comment>GCH_RI_RSK_CODE</comment>
+            </column>
+        </property>
+        <property name="gchStatus" type="java.lang.Byte">
+            <column name="GCH_STATUS" precision="2" scale="0">
+                <comment>GCH_STATUS</comment>
+            </column>
+        </property>
+        <property name="gchPreparedBy" type="java.lang.Integer">
+            <column name="GCH_PREPARED_BY" precision="8" scale="0">
+                <comment>GCH_PREPARED_BY</comment>
+            </column>
+        </property>
+        <property name="gchPreparedDt" type="java.sql.Timestamp">
+            <column name="GCH_PREPARED_DT" length="7">
+                <comment>GCH_PREPARED_DT</comment>
+            </column>
+        </property>
+        <property name="gchModifiedBy" type="java.lang.Integer">
+            <column name="GCH_MODIFIED_BY" precision="8" scale="0">
+                <comment>GCH_MODIFIED_BY</comment>
+            </column>
+        </property>
+        <property name="gchModifiedDt" type="java.sql.Timestamp">
+            <column name="GCH_MODIFIED_DT" length="7">
+                <comment>GCH_MODIFIED_DT</comment>
+            </column>
+        </property>
+        <property name="gchStartDate" type="date">
+            <column name="GCH_START_DATE" length="7" />
+        </property>
+        <property name="gchEndDate" type="date">
+            <column name="GCH_END_DATE" length="7" />
+        </property>
+    </class>
+</hibernate-mapping>

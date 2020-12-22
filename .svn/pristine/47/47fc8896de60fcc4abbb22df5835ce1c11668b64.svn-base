@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Feb 1, 2012 11:52:36 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.rsaame.pas.dao.model.TMasRisk" table="T_MAS_RISK" >
+        <id name="rskCode" type="int">
+            <column name="RSK_CODE" precision="5" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <property name="rskADesc" type="string">
+            <column name="RSK_A_DESC" length="100" />
+        </property>
+        <property name="rskEDesc" type="string">
+            <column name="RSK_E_DESC" length="100" />
+        </property>
+        <property name="rskUserCode" type="java.lang.Integer">
+            <column name="RSK_USER_CODE" precision="5" scale="0" />
+        </property>
+        <property name="rskPreparedBy" type="java.lang.Integer">
+            <column name="RSK_PREPARED_BY" precision="8" scale="0" />
+        </property>
+        <property name="rskPreparedDt" type="date">
+            <column name="RSK_PREPARED_DT" length="7" />
+        </property>
+        <property name="rskModifiedBy" type="java.lang.Integer">
+            <column name="RSK_MODIFIED_BY" precision="8" scale="0" />
+        </property>
+        <property name="rskModifiedDt" type="date">
+            <column name="RSK_MODIFIED_DT" length="7" />
+        </property>
+    </class>
+</hibernate-mapping>

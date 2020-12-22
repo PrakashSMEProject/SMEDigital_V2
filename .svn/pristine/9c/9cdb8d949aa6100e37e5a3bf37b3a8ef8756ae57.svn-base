@@ -1,0 +1,3 @@
+#The properties file used for the application configuration
+APP_CONFIG_PROPERTIES_FILE=config/appconfig.properties
+ERROR_MESSAGE_PROPERTIES_FILE=config/messages.properties

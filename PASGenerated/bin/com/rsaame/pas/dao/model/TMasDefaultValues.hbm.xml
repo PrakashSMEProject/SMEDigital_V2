@@ -1,0 +1,86 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.rsaame.pas.dao.model.TMasDefaultValues" table="T_MAS_DEFAULT_VALUES">
+		<composite-id name="id"
+			class="com.rsaame.pas.dao.model.TMasDefaultValuesId">
+			<key-property name="dftPmmId" type="string">
+				<column name="DFT_PMM_ID" length="25" />
+			</key-property>
+			<key-property name="dftPmmPolicyType" type="java.lang.Integer">
+				<column name="DFT_POLICY_TYPE" precision="22" scale="0" />
+			</key-property>
+			<key-property name="dftPmmClass" type="java.lang.Integer">
+				<column name="DFT_CLASS" precision="22" scale="0" />
+			</key-property>
+		</composite-id>
+		<property name="dftUser" type="java.lang.Integer">
+			<column name="DFT_USER" precision="22" scale="0" />
+		</property>
+		<property name="dftLoctionCode" type="java.lang.Integer">
+			<column name="DFT_LOCATION_CODE" precision="22" scale="0" />
+		</property>
+		<property name="dftDocCodeNew" type="java.lang.Integer">
+			<column name="DFT_DOC_CODE_NEW" precision="22" scale="0" />
+		</property>
+		<property name="dftDocCodeRenew" type="java.lang.Integer">
+			<column name="DFT_DOC_CODE_RENEW" precision="22" scale="0" />
+		</property>
+		<property name="dftPolicyTerm" type="java.lang.Integer">
+			<column name="DFT_POLICY_TERM" precision="22" scale="0" />
+		</property>
+		<property name="dftCustCategory" type="java.lang.Integer">
+			<column name="DFT_CUST_CATEGORY" precision="22" scale="0" />
+		</property>
+		<property name="dftSocCustomer" type="java.lang.Integer">
+			<column name="DFT_SOC_CUSTOMER" precision="22" scale="0" />
+		</property>
+		<property name="dftCoverNoteHour" type="java.lang.Integer">
+			<column name="DFT_COVER_NOTE_HOUR" precision="22" scale="0" />
+		</property>
+		<property name="dftTarCode" type="java.lang.Integer">
+			<column name="DFT_TAR_CODE" precision="22" scale="0" />
+		</property>
+		<property name="dftDisctributionChnl" type="java.lang.Integer">
+			<column name="DFT_DISTRIBUTION_CHNL" precision="22" scale="0" />
+		</property>
+		<property name="dftInternalExec" type="java.lang.Integer">
+			<column name="DFT_INTERNAL_EXEC" precision="22" scale="0" />
+		</property>
+		<property name="dftBusinessTypeNew" type="java.lang.Integer">
+			<column name="DFT_BUSINESS_TYPE_NEW" precision="22" scale="0" />
+		</property>
+		<property name="dftBusinessTypeRenew" type="java.lang.Integer">
+			<column name="DFT_BUSINESS_TYPE_RENEW" precision="22" scale="0" />
+		</property>
+		<property name="dftNationality" type="java.lang.Integer">
+			<column name="DFT_NATIONALITY" precision="22" scale="0" />
+		</property>
+		<property name="dftCountry" type="java.lang.Integer">
+			<column name="DFT_COUNTRY" precision="22" scale="0" />
+		</property>
+		<property name="dftGender" type="string">
+			<column name="DFT_GENDER" length="1" />
+		</property>
+		<property name="dftCustName" type="string">
+			<column name="DFT_CUST_NAME" length="200" />
+		</property>
+		<property name="dftOcCode" type="java.lang.Integer">
+			<column name="DFT_OC_CODE" precision="22" scale="0" />
+		</property>
+		<property name="dftRole" type="string">
+			<column name="DFT_ROLE" length="200" />
+		</property>
+		<property name="dftTarDesc" type="string">
+			<column name="DFT_TAR_DESC" length="200" />
+		</property>
+		<property name="dftDiscountPerc" type="java.lang.Integer">
+			<column name="DFT_DISCOUNT_PERC" precision="22" scale="4" />
+		</property>
+		<property name="dftNationalityDesc" type="string">
+			<column name="DFT_NATIONALITY_DESC" length="200" />
+		</property>
+	</class>
+</hibernate-mapping>

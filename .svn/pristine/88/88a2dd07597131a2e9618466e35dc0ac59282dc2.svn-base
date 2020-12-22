@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Feb 1, 2012 11:52:36 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.rsaame.pas.dao.model.TMasPolicyType" table="T_MAS_POLICY_TYPE" >
+        <composite-id name="id" class="com.rsaame.pas.dao.model.TMasPolicyTypeId">
+            <key-property name="ptClCode" type="short">
+                <column name="PT_CL_CODE" precision="4" scale="0" />
+            </key-property>
+            <key-property name="ptCode" type="short">
+                <column name="PT_CODE" precision="4" scale="0" />
+            </key-property>
+        </composite-id>
+        <property name="ptADesc" type="string">
+            <column name="PT_A_DESC" length="100" />
+        </property>
+        <property name="ptEDesc" type="string">
+            <column name="PT_E_DESC" length="100" />
+        </property>
+        <property name="ptUserCode" type="java.lang.Short">
+            <column name="PT_USER_CODE" precision="4" scale="0" />
+        </property>
+        <property name="ptRiDisplayCode" type="java.lang.Boolean">
+            <column name="PT_RI_DISPLAY_CODE" precision="1" scale="0" />
+        </property>
+        <property name="ptPreparedBy" type="java.lang.Integer">
+            <column name="PT_PREPARED_BY" precision="8" scale="0" />
+        </property>
+        <property name="ptPreparedDt" type="date">
+            <column name="PT_PREPARED_DT" length="7" />
+        </property>
+        <property name="ptModifiedBy" type="java.lang.Integer">
+            <column name="PT_MODIFIED_BY" precision="8" scale="0" />
+        </property>
+        <property name="ptModifiedDt" type="date">
+            <column name="PT_MODIFIED_DT" length="7" />
+        </property>
+        <property name="ptStatus" type="java.lang.Integer">
+            <column name="PT_STATUS" precision="5" scale="0" />
+        </property>
+        <property name="ptETerLimits" type="string">
+            <column name="PT_E_TER_LIMITS" length="200" />
+        </property>
+        <property name="ptATerLimits" type="string">
+            <column name="PT_A_TER_LIMITS" length="200" />
+        </property>
+        <set name="TMasCovers" table="T_MAS_COVER" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="COV_CL_CODE" precision="4" scale="0" not-null="true" />
+                <column name="COV_PT_CODE" precision="4" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="com.rsaame.pas.dao.model.TMasCover" />
+        </set>
+    </class>
+</hibernate-mapping>

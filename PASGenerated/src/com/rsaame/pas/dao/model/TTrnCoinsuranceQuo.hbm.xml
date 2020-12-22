@@ -1,0 +1,78 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Mar 4, 2014 6:14:07 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.rsaame.pas.dao.model.TTrnCoinsuranceQuo" table="T_TRN_COINSURANCE_QUO">
+        <composite-id name="id" class="com.rsaame.pas.dao.model.TTrnCoinsuranceQuoId">
+            <key-property name="coiPolicyId" type="long">
+                <column name="COI_POLICY_ID" precision="16" scale="0" />
+            </key-property>
+            <key-property name="coiValidityStartDate" type="date">
+                <column name="COI_VALIDITY_START_DATE" scale="0" />
+            </key-property>
+             <key-property name="coiCoinsuranceCode" type="int">
+                <column name="COI_COINSURANCE_CODE" precision="5" scale="0" />
+            </key-property>
+         </composite-id>
+ 
+        <property name="coiEndtId" type="long">
+            <column name="COI_ENDT_ID" precision="16" scale="0">
+                <comment>COI_ENDT_ID</comment>
+            </column>
+        </property>
+        <property name="coiPercentage" type="big_decimal">
+            <column name="COI_PERCENTAGE" precision="8" scale="5">
+                <comment>COI_PERCENTAGE</comment>
+            </column>
+        </property>
+        <property name="coiPolicyNo" type="string">
+            <column name="COI_POLICY_NO" length="16">
+                <comment>COI_POLICY_NO</comment>
+            </column>
+        </property>
+        <property name="coiCommissionPerc" type="big_decimal">
+            <column name="COI_COMMISSION_PERC" precision="8" scale="5">
+                <comment>COI_COMMISSION_PERC</comment>
+            </column>
+        </property>
+        <!-- <property name="coiCoinsuranceCode" type="int">
+            <column name="COI_COINSURANCE_CODE" precision="5" scale="0">
+                <comment>COI_COINSURANCE_CODE</comment>
+            </column>
+        </property> -->
+        <property name="coiValidityExpiryDate" type="date">
+            <column name="COI_VALIDITY_EXPIRY_DATE" length="7" not-null="true">
+                <comment>COI_VALIDITY_EXPIRY_DATE</comment>
+            </column>
+        </property>
+        <property name="coiLeadFlag" type="java.lang.Boolean">
+            <column name="COI_LEAD_FLAG" precision="1" scale="0">
+                <comment>COI_LEAD_FLAG</comment>
+            </column>
+        </property>
+        <property name="coiPreparedBy" type="java.lang.Integer">
+            <column name="COI_PREPARED_BY" precision="8" scale="0">
+                <comment>COI_PREPARED_BY</comment>
+            </column>
+        </property>
+        <property name="coiPreparedDt" type="date">
+            <column name="COI_PREPARED_DT" length="7">
+                <comment>COI_PREPARED_DT</comment>
+            </column>
+        </property>
+        <property name="coiModifiedBy" type="java.lang.Integer">
+            <column name="COI_MODIFIED_BY" precision="8" scale="0">
+                <comment>COI_MODIFIED_BY</comment>
+            </column>
+        </property>
+        <property name="coiModifiedDt" type="date">
+            <column name="COI_MODIFIED_DT" length="7">
+                <comment>COI_MODIFIED_DT</comment>
+            </column>
+        </property>
+        <property name="coiEndtNo" type="string">
+            <column name="COI_ENDT_NO" length="16" />
+        </property>
+    </class>
+</hibernate-mapping>

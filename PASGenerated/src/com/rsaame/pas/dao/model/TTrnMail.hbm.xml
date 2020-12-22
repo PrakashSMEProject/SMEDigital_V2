@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.rsaame.pas.dao.model.TTrnMail" table="T_TRN_MAIL">
+        <id name="mailId" type="java.lang.Long">
+            <column name="MAL_MAIL_ID" precision="8" scale="0"/>
+             <!--  <generator class="increment" /> -->
+        </id>
+        <property name="mailType" type="java.lang.String">
+            <column name="MAL_MAIL_TYPE_FK" length="20"/>
+        </property>
+        <property name="recipientMailId" type="java.lang.String">
+            <column name="MAL_RECIPIENT_MAIL_ID" length="50"/>
+        </property>
+        <property name="transactionId" type="java.lang.String">
+            <column name="MAL_TRANSACTION_ID" length="40" />
+        </property>        
+        <property name="status" type="java.lang.Byte">
+            <column name="MAL_STATUS" precision="1" scale="0" />
+        </property>
+        <property name="sentDate" type="java.sql.Timestamp">
+            <column name="MAL_SENT_DATE" length="7" not-null="true"/>
+        </property>
+        <property name="malClassCode" type="java.lang.Short">
+            <column name="MAL_CLASS_CODE" precision="4" scale="0" not-null="true" />
+        </property>
+        <!-- <many-to-one name="TMasMailType" class="com.rsaame.pas.dao.model.TMasMailType" update="false" insert="false" fetch="select">
+            <column name="MAL_MAIL_TYPE_FK" length = 20 not-null="true" />           
+        </many-to-one> -->
+    </class>
+</hibernate-mapping>

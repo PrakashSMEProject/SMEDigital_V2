@@ -1,0 +1,442 @@
+### UI labels will be populated from this file ####
+##common##
+quote.download.template=Download Template
+## Page Titles
+par.title=Property All Risk
+pl.title=Public Liability
+wc.title=Worker's Compensation 
+money.title=Money
+ee.title=Electronic Equipment
+bi.title=Business Interruption
+mb.title= Machinery Breakdown
+tb.title=Travel Baggage
+gpa.title=Group Personal Accident
+fidelity.title = Fidelity Guarantee
+git.title=Goods in Transit
+
+## Travel and Home Info Tab details
+quote.general.information=General Information
+quote.risk.premium.details=Risk & Premium Details
+
+## Travel and Home Info Menu details
+quote.edit.quote=Edit Quote
+quote.view.history=View History
+quote.proposal.form=Proposal form
+quote.copy.quote=Copy Quote
+
+## Travel Information in General Information Page
+quote.travel.details=Travel Details
+quote.travel.location=Travel Location
+quote.travel.destination=Final Destination
+quote.travel.include.USA.Canada=Worldwide including USA & Canada
+quote.travel.exclude.USA.Canada=Worldwide excluding USA & Canada
+quote.travel.period=Please select the period you would like to be covered for
+quote.travel.start.date=Start Date
+quote.travel.end.date=End Date
+quote.traveler.detail.label=List of	Travelling Individuals under the policy including Proposer
+quote.traveler.name=Name
+quote.traveler.dob=Date of Birth
+quote.traveler.relation=Relation
+quote.traveler.nationality=Nationality
+quote.travel.add.row=Add row
+quote.travel.remove.row=Remove row
+quote.travel.claim.detail=Have you had any claims in the past 2 years?
+quote.option.yes=Yes
+quote.option.no=No
+
+##Button Information in UI
+quote.button.save=Save
+quote.button.next=Next
+quote.button.close=Close
+
+## Insured Information Basic Info ##
+
+quote.First.Name=First Name
+quote.Last.Name=Last Name
+quote.section.InsuredInformation=Insured Information
+quote.Insured.Name=Insured Name
+quote.Arabic.Name=Arabic Name
+quote.Address=Address
+quote.Emirates=Emirates
+quote.Country=Country
+quote.PO.Box=P.O.Box
+quote.City=City
+quote.Territory=Territory
+quote.Email.Id=Email Id
+quote.Business.Type=Business Type
+quote.Business.Description=Business Description
+quote.Trade.LicenseNo=Trade License No.
+quote.Phone.Number=Phone Number
+quote.Mobile.Number=Mobile Number
+quote.Phone.Mobile.Number=Phone number or Mobile number is mandatory
+quote.turnover.noOfEmployees=Annual Turnover or No.Of Employees is mandatory
+quote.Jurisdiction=Jurisdiction
+quote.note = Note:
+quote.add.row=Add row
+quote.remove.row=Remove row
+quote.upload.row=Upload Equipment Details
+quote.uploadgpa.row=Upload GPA Named Details
+quote.Deductible=Deductible 
+quote.deductible.for.every.claim=Deductible is for each and every claim
+quote.upload.row.mb=Upload Machinery Details
+quote.upload.row.git=Upload Commodity Details
+quote.upload.row.fidelity=Upload Fidelity Details
+quote.turnover=Annual Turnover
+quote.noOfEmployees=No. of Employees
+quote.completeAddress=Complete Address
+quote.streetName=Area
+
+## Additional Information Basic Info ##
+quote.Additional.Information=Additional Information
+quote.Nationality=Nationality
+
+quote.Laws=Laws
+quote.Affinity.Reference=Affinity Reference Number
+quote.Regulatory.Body=Regulatory Body
+quote.Date.Of.Establishment=Date Of Establishment
+quote.Place.Of.Establishment=Place Of Establishment
+quote.Date.Of.CollectionKYC=Date of collection of KYC
+quote.Trade.License.Exp.Dt=Trade License Expiry Date
+quote.Insured.Status=Insured Status
+quote.Remarks=Remarks
+quote.Fax.Number=Fax Number
+quote.Website=Website
+quote.Pay.Terms=Pay Terms
+quote.Policy.Id=System ID
+quote.RSA.Speciality.Indicator=RSA Speciality Indicator
+quote.Speciality.Type=Speciality Type
+
+
+## Source Of Business ##
+quote.Source.Of.Business=Source of business
+quote.Source.Business=Source Of Business
+quote.Distribution.Channel=Distribution Channel
+quote.Broker.Name=Broker Name
+quote.Direct.Sub.Agent=Direct sub agent
+quote.Customer.Source=Customer Source
+quote.Promotional.Code=Promotional code #
+
+## Scheme Details ##
+quote.Scheme.Details=Scheme Details
+quote.Scheme=Scheme
+quote.Tariff=Tariff
+quote.Policy.Type=Policy Type
+quote.Policy.Description=Policy Description
+quote.Effective.Date=Effective Date
+quote.Expiry.Date=Expriy Date
+quote.Policy.Term=Policy Term
+
+## Policy Information ##
+quote.Policy.Information=Policy Information
+quote.Policy.No=Policy No.
+quote.Accounting.Date=Accounting Date
+quote.Transaction.Type=Transaction / document Type
+quote.Quote.No=Quote No.
+quote.Printed.Date=Printed Date
+quote.Status=Status
+quote.Created.By=Created By
+quote.Creation.Date=Creation Date
+quote.Licensed.By=Licensed By
+quote.Approved.By=Approved By
+quote.Approved.Date=Approved Date
+quote.Branch=Branch / Location
+trans.search.branch=Branch
+trans.search.LOB=LOB
+quote.Ref.PolNo=Ref Pol No / Year
+quote.Endt.No=Version no/Endt No 
+quote.Endt.EffectiveDt=Endt Effective Date
+quote.Endt.ExpDate=Endt Expiry Date
+quote.Renewal.Terms=Renewal terms
+quote.Int.AC=Int.A/C Exec
+quote.Ext.AC=Ext.A/C Exec
+quote.issue.loc=Issuing Branch
+quote.processing.loc=Processing Branch
+
+## Claims History ##
+quote.Claims.History=Claims History
+quote.Business.Exp=Business Experience
+quote.Business.Client=Other Business Client
+quote.Loss.ExpQuantum=Loss-Experience Quantum &nbsp; &nbsp;(in amount for the last 3 years)
+quote.Loss.Experience=Loss Experience
+quote.Risk.Quality=Risk Quality
+quote.Market.AdjLoad=Market Adj/Load
+quote.Market.AdiDiscount=Market Adj/Discount
+
+
+#Quote Search ##
+quote.search.Status=Status
+quote.search.Class=Class
+quote.search.Distribution=Distribution Channel
+quote.search.QuotationNo=Quotation No
+quote.search.PolicyEffDate=Policy Effective Date
+quote.search.TransactionDateFrom=Transaction Date: From
+quote.search.CustomerName=Customer Name
+quote.search.BrokerName=Broker Name
+quote.search.PolicyExpDate=Policy Expiry Date
+quote.search.TransactionDateTo=Transaction Date: To
+quote.search.CompanyName=Company Name
+quote.search.SchemeSubAccount=Scheme Sub Account
+quote.search.LastModifiedBy=Last Modified By
+quote.search.CreatedBy=Created By
+quote.search.PolicyNo=Policy No
+quote.search.ShowOnlyLastTransaction=Show Only Last Transaction
+quote.search.ExactSearch=Exact Search
+
+#Customer Search##
+insured.search.CompleteName=Complete Name
+insured.search.InsuredId=Insured Id
+insured.search.QuotePolicyNo=Quote/Policy No.
+insured.search.PhoneNumber=Phone Number
+insured.search.EmailId=Email Id
+insured.search.MobileNumber=Mobile Number
+insured.search.POBOX=P.O Box
+
+
+##Workmen's Comp Details##
+quote.Workmen.Compensation=Workmen's Comp Details
+quote.Employee.Type=Type of Employee
+quote.Number.of.Employee=No of Employee 
+quote.Total.annual.Wageroll=Total annual Wageroll 
+quote.Limit=Employer's Liability Limit 
+
+## Machinery Breakdown Details##
+quote.Machinery.title=Machinery Breakdown
+quote.Machinery.MachineryDetails= Machinery Details
+quote.Machinery.MachineryType= Machinery Type
+quote.Machinery.MachineryDescription=Machinery Description
+quote.Machinery.Yearofmake=Year of Make
+quote.Machinery.NewRepalcement=New Replacement Value
+quote.Machinery.Deductible=Deductible
+quote.Machinery.Cascade=Cascade Information to all locations
+##Coverage##
+quote.Coverage=Coverage
+quote.24Hour.PA.Cover=24 Hour PA Cover 
+
+#Reports Search##
+report.search.StartDate = Start Date
+report.search.EndDate = End Date
+report.search.SearchByBrName = Broker Name
+report.search.SearchByBrCode = Broker Code
+report.search.UnMatched = Unmatched
+report.search.All = All
+report.search.Branch = Branch
+report.search.ByBrokerName = Search By Broker Name
+report.search.ByBrokerCode = Search By Broker Code
+report.search.Agent = Agent
+report.callCenter.callStatus = Call Status
+
+##Electronic Equipment##
+quote.Electronic.Equipment=Equipment Details
+quote.Electronic.EquipmentType=Equipment Type
+quote.Electronic.EquipmentDescription=Equipment Description
+quote.Electronic.NewReplacementValue=New Replacement Value
+quote.Electronic.Deductible=Deductible
+quote.Electronic.YearofMake=Year of Make
+quote.Electronic.SerialNumber=Serial Number
+quote.Electronic.Quantity=Quantity
+
+##Travel Baggage
+quote.Travel.Details.Note=Note:
+quote.Travel.Details.deductible=Minimum deductible is AED 500.
+quote.Travel.Details.sumInsured=The selected sum insured must represent the maximum value of all business and personal effects,valuables,baggage,clothing(after reasonable allowance for wear and tear) carried on any journey.
+quote.Travel.Details.Underinsurance=Underinsurance will result in proportionately reduced claims payments.
+quote.Employee.Details=Employee Details
+quote.Travel.Name=Name
+quote.Travel.Dob=Date of Birth
+quote.Travel.Limit.required=Limit required
+quote.Travel.Limit.deductible=Deductible
+
+##Underwriting Details##
+underwriting.details=Underwriting Details
+underwriting.details.Eml=EML
+underwriting.details.EmlSI=EML SI
+underwriting.details.EmlBi= EML BI
+
+
+##Underwriting Questions##
+underwriting.questions = Underwriting Questions
+
+
+##Business Interruption##
+quote.bi.information = BI Information
+quote.indemnity.period = Indemnity Period
+quote.estimated.grossincomeofbusiness = Estimated gross income of your business during the indemnity period
+quote.increasedcost.of.workinglimit = Increased cost of working limit
+quote.rent.receivable = Receivables(Rent and the like)
+quote.cashdetails.note = One of the Cash Details above is mandatory
+
+## Group Personal Accident ##
+quote.unnamed.employees=Unnamed Employees
+quote.note.one=Only death and permanent disability cover is provided.
+quote.note.two=Maximum Capital Sum Insured is 4 times annual salary or AED 1,000,000 , whichever is lower.
+quote.aggregate.limit=Accumulation Limit
+quote.no.of.employees=No Of Employees
+quote.annual.salary=Annual Salary
+quote.capital.sum.insured=Capital Sum Insured
+quote.gpa.capital.sum.insured=Capital Sum Insured Per Person
+quote.named.employees=Named Employees
+quote.namedemp.note.one=Age limit is between 18 and 60 years only.
+quote.namedemp.note.two=Only death and permanent disability cover is provided.
+quote.namedemp.note.three=Maximum Capital Sum Insured is 4 times annual salary or AED 1,000,000 , whichever is lower.
+quote.name.of.employee=Name Of Employee
+quote.gender=Gender
+quote.designation=Designation
+quote.upload.employee.details=Upload Employee Details
+quote.select.employee.type=Select employee type
+
+##Fidelity ##
+quote.fidelity.insureAllEmp = Do you want to insure all your employees?
+quote.fidelity.totNoEmps = Total Number of Employees
+quote.fidelity.specificLimit = Specific Limit Per Person
+quote.fidelity.aggregateLimit = Aggregate Limit 
+quote.fidelity.deductible = Deductible
+quote.fidelity.name = Name of employee
+quote.fidelity.designation = Designation
+quote.fidelity.typeOfEmp = Type Of Employee
+quote.fidelity.empInformation =  Employee Information
+
+## Goods in Transit ##
+quote.commodity.details=Commodity Details
+quote.single.transit.limit=Single Truck Limit
+quote.esti.annual.carry.val=Estimated Annual Turnover
+quote.settlement.currency=Settlement Currency
+quote.exchange.rate=Exchange Rate
+quote.settling.agent=Settling Agent
+quote.settlement.loc=Settlement Loc
+quote.mode.of.transit=Mode of Transit
+quote.voyage.from=Voyage From
+quote.voyage.to=Voyage To
+quote.commodity.type=Commodity
+quote.description.of.goods=Description of Goods
+quote.si.basis=Sum Insured Basis 
+quote.upload.commodity.details=Upload Commodity Details
+quote.cover.land.transit=Note : This cover is for Land Transit only in the UAE.
+
+## Deterioration of Stock ##
+quote.deterioration.title=Deterioration of Stock
+quote.deterioration.detail=Stock Details
+quote.deterioration.stocktype=Commodity/Stock Type
+quote.deterioration.Description=Description
+quote.deterioration.Quantity=Quantity
+quote.deterioration.Value=Value
+quote.deterioration.Deductible=Deductible
+quote.deterioration.Meat=Meat
+quote.deterioration.Fish=Fish
+quote.deterioration.Vegetable=Vegetable
+quote.deterioration.Fruit=Fruit
+## Renewals
+renewal.search.Class=Class
+renewal.search.PolicyNo=Policy No
+renewal.search.FromDate=From Date
+renewal.search.ToDate=To Date
+renewal.search.InsuredName=Insured Name
+renewal.search.BrokerName=Broker Name
+renewal.search.Scheme=Scheme
+renewal.search.AllDirect=All Direct
+renewal.search.Policy.expiring.days=Policy expiring in next (days)
+renewal.search.Branch=Branch
+renewal.search.Generate.Renewals.Search=Generate Renewals Search
+renewal.search.Reset=Reset
+renewal.search.Search=Search
+renewal.search.SearchResults=Search Results
+renewal.search.Generate.Online.Renewal=Generate Online Renewal
+renewal.search.Generate.Renewals=Generate Renewals
+renewal.search.Print.Renewal.Notice = Print Renewal Notice
+renewal.search.Email.Renewal.Notice = Email Renewal Notice
+renewal.search.View.Renewal.Notice = View Renewal Notice
+renewal.search.renewal.status.report=Renewal Status Report Search
+renewal.search.LOB=LOB
+##SMS
+sms.sendSms=Send SMS
+##Endorsement Summary
+endorsement.summary.oldPremium=Old Annualized Premium
+endorsement.summary.type=Endorsement Type
+endorsement.summary.text=Endorsement Text
+endorsement.summary.no=End No
+endorsement.summary.effDate=End Eff. Date
+endorsement.summary.newPremium=New Annualized Premium
+endorsement.summary.expDate=End Exp Date
+
+
+#List Item Contents
+listItem.Name = Item Name/Description
+listItem.SumInsured = Sum Insured
+
+#Amend Menu contents
+policy.amend.link=Amend Policy
+policy.cancel.link=Cancel Policy
+
+
+
+##Promotional code configuration scheme details#######
+promocode.scheme.name=Scheme Name
+promocode.covers.name=Cover Name
+policy.cancel.link=Cancel Policy
+
+##SMS - phase 3 change
+sms.search.sms.mode=SMS Mode
+sms.search.sms.level=SMS Level
+sms.search.sms.frequency=SMS Frequency
+sms.search.sms.text.eng=English SMS Text
+sms.search.sms.text.arabic=Arabic SMS Text
+sms.search.sms.status=Status
+Sms.Master.Page=SMS Master
+sms.master.Add=Add
+sms.master.Edit=Edit
+sms.master.Delete=Delete
+sms.master.Add.Edit=Add/Edit SMS Master
+sms.master.Save=Save
+
+################ B2C PAGE RELATED LABEL CHANGES START ##########################
+travel.gi.label.mobile=Mobile Number
+travel.gi.label.emailaddress=Email Address
+travel.gi.label.staticText1= YOU AND YOUR TRAVEL DETAILS
+travel.gi.label.staticText2= Tell Us About You 
+travel.gi.label.typeoftrip=Type Of Trip
+travel.gi.label.startDate=Start Date
+travel.gi.label.endDate=End Date
+travel.gi.label.location=Travel Location
+travel.gi.label.staticText3=Tell Us About The Traveller(s)
+travel.gi.label.staticText4=List all individuals traveling under this policy
+travel.gi.label.statictext5=Customer Call Centre
+travel.gi.label.statictext6=800 RSA (772)
+travel.gi.label.promotionalCd=Promotional Code
+travel.gi.label.btn.gq=Get Quote
+travel.gi.label.btn.rq=Retrieve Quote
+travel.gi.label.quotesearch=Quotation Search
+travel.gi.label.submit=Submit
+travel.gi.label.needhelp=Need Help?
+travel.gi.label.traveller = Traveller {0}
+travel.gi.label.writetous=Write to us
+travel.gi.label.callus=Call us
+travel.gi.label.reqcallback=Request a call back
+travel.gi.label.chatwithus=Chat with us
+travel.gi.label.hours=Hours
+travel.gi.label.faqs=FAQs
+travel.gi.label.promoCd=Promotion Code
+##Added by Vishwa for Nexus 130669
+travel.gi.label.nexusTravel=Nexus Consultant Code
+
+##Added by Pushkar
+home.gi.label.nexusHome=Nexus Consultant Code
+home.gi.label.promoCd=Promotion Code
+
+travel.gi.label.staticText7=If you have only one holiday or business trip planned during the year, single trip may be your best value. Single trip insurance covers a trip of up to 180 days.
+travel.gi.label.staticText8=If you are planning to travel several times in a year, multiple trips may be your best value. Multiple-trip insurance includes annual coverage for any number of trips of up to 62 days each. The maximum time you can spend outside the UAE during the policy year is 180 days.
+
+##Added for D2C oman
+travel.gi.label.staticText7.oman=If you have only one holiday or business trip planned during the year, single trip may be your best value. Single trip insurance covers a trip of up to 92 days.
+travel.gi.label.staticText8.oman=If you are planning to travel several times in a year, multiple trips may be your best value. Multiple-trip insurance includes annual coverage for any number of trips of up to 92 days each. The maximum time you can spend outside  Oman during the policy year is 183 days.Journey with in Sultanate Of Oman requires minimum 2 days away from Oman in a pre paid accomodation.
+travel.gi.label.staticText9.oman=Important: All travellers must be residents of Oman to be eligible for Al Ahlia travel insurance.
+travel.gi.label.staticText10.oman=Your journey must start and end in Oman.
+
+travel.gi.label.staticText9=Important: All travellers must be citizens or residents of UAE to be eligible for RSA's travel insurance.
+travel.gi.label.staticText10=Your journey must start and end in the UAE.
+travel.gi.label.staticText11=List all individuals travelling under this policy
+travel.gi.label.statictext12=Email to
+
+#VAT Dileep
+travel.gi.label.country=Travel Country
+travel.gi.label.vatRegNumber=VAT Reg Number
+
+################ B2C PAGE RELATED LABEL CHANGES END ##########################

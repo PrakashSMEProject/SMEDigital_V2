@@ -1,0 +1,62 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Feb 3, 2012 11:21:13 AM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+     <class name="com.rsaame.pas.dao.model.TMasProductCriteria" table="T_MAS_PRODUCT_CRITERIA" >
+        
+        <composite-id name="id" class="com.rsaame.pas.dao.model.TMasProductCriteriaId">
+            <key-property name="pcrSchCode" type="java.lang.Short">
+                <column name="PCR_SCH_CODE" precision="3" scale="0" />
+            </key-property>
+            <key-property name="pcrTarCode" type="java.lang.Integer">
+                <column name="PCR_TAR_CODE" precision="5" scale="0" />
+            </key-property>
+            <key-property name="pcrCriCode" type="java.lang.Integer">
+                <column name="PCR_CRI_CODE" precision="5" scale="0" />
+            </key-property>
+            <key-property name="pcrRtRskCode" type="java.lang.Integer">
+                <column name="PCR_RT_RSK_CODE" precision="5" scale="0" />
+            </key-property>
+             <key-property name="pcrRtCode" type="java.lang.Integer">
+                <column name="PCR_RT_CODE" precision="5" scale="0" />
+            </key-property>
+        </composite-id>
+            <property name="pcrEDesc" type="string">
+                <column name="PCR_E_DESC" length="500" />
+            </property>
+            <property name="pcrADesc" type="string">
+                <column name="PCR_A_DESC" length="500" />
+            </property>
+            <property name="pcrMinVal" type="big_decimal">
+                <column name="PCR_MIN_VAL" precision="8" />
+            </property>
+            <property name="pcrMaxVal" type="big_decimal">
+                <column name="PCR_MAX_VAL" precision="8" />
+            </property>
+            <property name="pcrEffectiveDate" type="date">
+                <column name="PCR_EFFECTIVE_DATE" length="7" />
+            </property>
+            <property name="pcrExpiryDate" type="date">
+                <column name="PCR_EXPIRY_DATE" length="7" />
+            </property>
+            <property name="pcrStatus" type="java.lang.Boolean">
+                <column name="PCR_STATUS" precision="1" scale="0" />
+            </property>
+            <property name="pcrPreparedBy" type="java.lang.Integer">
+                <column name="PCR_PREPARED_BY" precision="8" scale="0" />
+            </property>
+            <property name="pcrPreparedDt" type="date">
+                <column name="PCR_PREPARED_DT" length="7" />
+            </property>
+            <property name="pcrModifiedBy" type="java.lang.Integer">
+                <column name="PCR_MODIFIED_BY" precision="8" scale="0" />
+            </property>
+            <property name="pcrModifiedDt" type="date">
+                <column name="PCR_MODIFIED_DT" length="7" />
+            </property>
+    </class>
+    <sql-query name="getProducts">
+    <return class = "com.rsaame.pas.dao.model.TMasProductCriteria"/>
+    select * from T_Mas_Product_Criteria productCriteria where productCriteria.PCR_SCH_CODE=908 and productCriteria.PCR_TAR_CODE =11 and productCriteria.PCR_CRI_CODE=1 and productCriteria.PCR_RT_RSK_CODE =2</sql-query>
+</hibernate-mapping>

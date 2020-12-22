@@ -1,0 +1,302 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Feb 8, 2012 9:37:43 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.rsaame.pas.gen.domain.TMasCashCustomerQuo" table="T_MAS_CASH_CUSTOMER_QUO">
+        <composite-id name="id" class="com.rsaame.pas.gen.domain.TMasCashCustomerQuoId">
+            <key-property name="cshPolicyId" type="long">
+                <column name="CSH_POLICY_ID" precision="16" scale="0" />
+            </key-property>
+            <key-property name="cshValidityStartDate" type="java.sql.Timestamp">
+                <column name="CSH_VALIDITY_START_DATE" length="7" />
+            </key-property>
+        </composite-id>
+        <property name="cshCustomerId" type="java.lang.Long">
+            <column name="CSH_CUSTOMER_ID" precision="12" scale="0" />
+        </property>
+        <property name="cshNameTitle" type="java.lang.Byte">
+            <column name="CSH_NAME_TITLE" precision="2" scale="0" />
+        </property>
+        <property name="cshASurnameTribe" type="string">
+            <column name="CSH_A_SURNAME_TRIBE" length="30" />
+        </property>
+        <property name="cshESurnameTribe" type="string">
+            <column name="CSH_E_SURNAME_TRIBE" length="30" />
+        </property>
+        <property name="cshAName1" type="string">
+            <column name="CSH_A_NAME_1" length="200" />
+        </property>
+        <property name="cshEName1" type="string">
+            <column name="CSH_E_NAME_1" length="200" />
+        </property>
+        <property name="cshAName2" type="string">
+            <column name="CSH_A_NAME_2" length="50" />
+        </property>
+        <property name="cshEName2" type="string">
+            <column name="CSH_E_NAME_2" length="50" />
+        </property>
+        <property name="cshAName3" type="string">
+            <column name="CSH_A_NAME_3" length="50" />
+        </property>
+        <property name="cshEName3" type="string">
+            <column name="CSH_E_NAME_3" length="50" />
+        </property>
+        <property name="cshAName4" type="string">
+            <column name="CSH_A_NAME_4" length="35" />
+        </property>
+        <property name="cshEName4" type="string">
+            <column name="CSH_E_NAME_4" length="35" />
+        </property>
+        <property name="cshAName5" type="string">
+            <column name="CSH_A_NAME_5" length="35" />
+        </property>
+        <property name="cshEName5" type="string">
+            <column name="CSH_E_NAME_5" length="200" />
+        </property>
+        <property name="cshAAddress1" type="string">
+            <column name="CSH_A_ADDRESS_1" length="200" />
+        </property>
+        <property name="cshEAddress1" type="string">
+            <column name="CSH_E_ADDRESS_1" length="200" />
+        </property>
+        <property name="cshAAddress2" type="string">
+            <column name="CSH_A_ADDRESS_2" length="35" />
+        </property>
+        <property name="cshEAddress2" type="string">
+            <column name="CSH_E_ADDRESS_2" length="35" />
+        </property>
+        <property name="cshAAddress3" type="string">
+            <column name="CSH_A_ADDRESS_3" length="35" />
+        </property>
+        <property name="cshEAddress3" type="string">
+            <column name="CSH_E_ADDRESS_3" length="35" />
+        </property>
+        <property name="cshAAddress4" type="string">
+            <column name="CSH_A_ADDRESS_4" length="35" />
+        </property>
+        <property name="cshEAddress4" type="string">
+            <column name="CSH_E_ADDRESS_4" length="35" />
+        </property>
+        <property name="cshAAddress5" type="string">
+            <column name="CSH_A_ADDRESS_5" length="35" />
+        </property>
+        <property name="cshEAddress5" type="string">
+            <column name="CSH_E_ADDRESS_5" length="35" />
+        </property>
+        <property name="cshAZipCode" type="string">
+            <column name="CSH_A_ZIP_CODE" length="10" />
+        </property>
+        <property name="cshEZipCode" type="string">
+            <column name="CSH_E_ZIP_CODE" length="10" />
+        </property>
+        <property name="cshAEmailId" type="string">
+            <column name="CSH_A_EMAIL_ID" length="40" />
+        </property>
+        <property name="cshEEmailId" type="string">
+            <column name="CSH_E_EMAIL_ID" length="60" />
+        </property>
+        <property name="cshFaxNo" type="java.lang.Long">
+            <column name="CSH_FAX_NO" precision="16" scale="0" />
+        </property>
+        <property name="cshATelexNo" type="string">
+            <column name="CSH_A_TELEX_NO" length="30" />
+        </property>
+        <property name="cshETelexNo" type="string">
+            <column name="CSH_E_TELEX_NO" length="30" />
+        </property>
+        <property name="cshAPhoneNo" type="string">
+            <column name="CSH_A_PHONE_NO" length="200" />
+        </property>
+        <property name="cshEPhoneNo" type="string">
+            <column name="CSH_E_PHONE_NO" length="16" />
+        </property>
+        <property name="cshAGsmNo" type="string">
+            <column name="CSH_A_GSM_NO" length="100" />
+        </property>
+        <property name="cshEGsmNo" type="string">
+            <column name="CSH_E_GSM_NO" length="16" />
+        </property>
+        <property name="cshNationality" type="java.lang.Short">
+            <column name="CSH_NATIONALITY" precision="3" scale="0" />
+        </property>
+        <property name="cshOcCode" type="java.lang.Short">
+            <column name="CSH_OC_CODE" precision="4" scale="0" />
+        </property>
+        <property name="cshCcgCode" type="java.lang.Short">
+            <column name="CSH_CCG_CODE" precision="3" scale="0" />
+        </property>
+        <property name="cshACoRegnNo" type="string">
+            <column name="CSH_A_CO_REGN_NO" length="300" />
+        </property>
+        <property name="cshECoRegnNo" type="string">
+            <column name="CSH_E_CO_REGN_NO" length="30" />
+        </property>
+        <property name="cshAPassportNo" type="string">
+            <column name="CSH_A_PASSPORT_NO" length="300" />
+        </property>
+        <property name="cshEPassportNo" type="string">
+            <column name="CSH_E_PASSPORT_NO" length="30" />
+        </property>
+        <property name="cshAIdCardNo" type="string">
+            <column name="CSH_A_ID_CARD_NO" length="300" />
+        </property>
+        <property name="cshEIdCardNo" type="string">
+            <column name="CSH_E_ID_CARD_NO" length="30" />
+        </property>
+        <property name="cshAVisaNo" type="string">
+            <column name="CSH_A_VISA_NO" length="30" />
+        </property>
+        <property name="cshEVisaNo" type="string">
+            <column name="CSH_E_VISA_NO" length="30" />
+        </property>
+        <property name="cshUserId" type="java.lang.Integer">
+            <column name="CSH_USER_ID" precision="5" scale="0" />
+        </property>
+        <property name="cshValidityExpiryDate" type="java.sql.Timestamp">
+            <column name="CSH_VALIDITY_EXPIRY_DATE" length="7" />
+        </property>
+        <property name="cshCtyCode" type="java.lang.Integer">
+            <column name="CSH_CTY_CODE" precision="5" scale="0" />
+        </property>
+        <property name="cshRegCode" type="java.lang.Integer">
+            <column name="CSH_REG_CODE" precision="5" scale="0" />
+        </property>
+        <property name="cshLocCode" type="java.lang.Integer">
+            <column name="CSH_LOC_CODE" precision="5" scale="0" />
+        </property>
+        <property name="cshTotAccCode" type="big_decimal">
+            <column name="CSH_TOT_ACC_CODE" precision="20" scale="0" />
+        </property>
+        <property name="cshInsuredId" type="java.lang.Long">
+            <column name="CSH_INSURED_ID" precision="16" scale="0" />
+        </property>
+        <property name="cshEndtId" type="java.lang.Long">
+            <column name="CSH_ENDT_ID" precision="16" scale="0" />
+        </property>
+        <property name="cshCutCode" type="java.lang.Byte">
+            <column name="CSH_CUT_CODE" precision="2" scale="0" />
+        </property>
+        <property name="cshPreparedBy" type="java.lang.Integer">
+            <column name="CSH_PREPARED_BY" precision="8" scale="0" />
+        </property>
+        <property name="cshPreparedDt" type="java.sql.Timestamp">
+            <column name="CSH_PREPARED_DT" length="7" />
+        </property>
+        <property name="cshModifiedBy" type="java.lang.Integer">
+            <column name="CSH_MODIFIED_BY" precision="8" scale="0" />
+        </property>
+        <property name="cshModifiedDt" type="java.sql.Timestamp">
+            <column name="CSH_MODIFIED_DT" length="7" />
+        </property>
+        <property name="cshBusiness" type="string">
+            <column name="CSH_BUSINESS" length="300" />
+        </property>
+        <property name="cshCustType" type="string">
+            <column name="CSH_CUST_TYPE" length="3" />
+        </property>
+        <property name="cshPoboxNo" type="string">
+            <column name="CSH_POBOX_NO" length="35" />
+        </property>
+        <property name="cshTerritory" type="java.lang.Integer">
+            <column name="CSH_TERRITORY" precision="5" scale="0" />
+        </property>
+        <property name="cshLaws" type="java.lang.Integer">
+            <column name="CSH_LAWS" precision="5" scale="0" />
+        </property>
+        <property name="cshCompanyName" type="string">
+            <column name="CSH_COMPANY_NAME" length="200" />
+        </property>
+        <property name="cshCompanyAddr1" type="string">
+            <column name="CSH_COMPANY_ADDR1" length="200" />
+        </property>
+        <property name="cshIntAccExecCode" type="java.lang.Integer">
+            <column name="CSH_INT_ACC_EXEC_CODE" precision="8" scale="0" />
+        </property>
+        <property name="cshExtAccExecCode" type="java.lang.Integer">
+            <column name="CSH_EXT_ACC_EXEC_CODE" precision="8" scale="0" />
+        </property>
+        <property name="cshLegalForm" type="string">
+            <column name="CSH_LEGAL_FORM" length="100" />
+        </property>
+        <property name="cshDtEstablishment" type="date">
+            <column name="CSH_DT_ESTABLISHMENT" length="7" />
+        </property>
+        <property name="cshPlaceEstablishment" type="string">
+            <column name="CSH_PLACE_ESTABLISHMENT" length="100" />
+        </property>
+        <property name="cshRegulatoryBody" type="java.lang.Integer">
+            <column name="CSH_REGULATORY_BODY" precision="8" scale="0" />
+        </property>
+        <property name="cshExternalAuditor" type="java.lang.Integer">
+            <column name="CSH_EXTERNAL_AUDITOR" precision="8" scale="0" />
+        </property>
+        <property name="cshSourceOfCust" type="java.lang.Short">
+            <column name="CSH_SOURCE_OF_CUST" precision="3" scale="0" />
+        </property>
+        <property name="cshMarketingFee" type="java.lang.Long">
+            <column name="CSH_MARKETING_FEE" precision="10" scale="0" />
+        </property>
+        <property name="cshDob" type="date">
+            <column name="CSH_DOB" length="7" />
+        </property>
+        <property name="cshPob" type="string">
+            <column name="CSH_POB" length="200" />
+        </property>
+        <property name="cshAffinityRefNo" type="string">
+            <column name="CSH_AFFINITY_REF_NO" length="100" />
+        </property>
+        <property name="cshEcmCode" type="java.lang.Short">
+            <column name="CSH_ECM_CODE" precision="3" scale="0" />
+        </property>
+        <property name="cshIdTypCode" type="java.lang.Short">
+            <column name="CSH_ID_TYP_CODE" precision="3" scale="0" />
+        </property>
+        <property name="cshIdNo" type="string">
+            <column name="CSH_ID_NO" length="50" />
+        </property>
+        <property name="cshCity" type="java.lang.Integer">
+            <column name="CSH_CITY" precision="5" scale="0" />
+        </property>
+        <property name="cshCountry" type="java.lang.Integer">
+            <column name="CSH_COUNTRY" precision="5" scale="0" />
+        </property>
+        <property name="cshSex" type="java.lang.Character">
+            <column name="CSH_SEX" length="1" />
+        </property>
+        <property name="cshBusType" type="java.lang.Short" update="true">
+            <column name="CSH_BUS_TYPE" precision="4" scale="0">
+                <comment>'To store the Customer Business type'</comment>
+            </column>
+        </property>
+        <property name="cshDueDilligence" type="string">
+            <column name="CSH_DUE_DILLIGENCE" length="1" />
+        </property>
+        <property name="cshLossRatio" type="big_decimal"  update="true">
+            <column name="CSH_LOSS_RATIO" precision="22" scale="0" />
+        </property>
+          <property name="cshLossAmt" type="big_decimal" update="true">
+            <column name="CSH_LOSS_AMT" precision="22" scale="0" />
+        </property>
+        <property name="cshTurnover" type="java.lang.Long">
+            <column name="CSH_TURNOVER" precision="16" scale="0" />
+        </property>
+        <property name="cshNoOfEmp" type="java.lang.Integer">
+            <column name="CSH_NO_OF_EMP" precision="6" scale="0" />
+        </property>
+		<!--   <property name="cshPromoCode" type="string">
+            <column name="CSH_PROMO_CODE" length="20" />
+        </property> -->
+        <property name="cshRoyaltyTypCode" type="java.lang.Integer">
+            <column name="CSH_ROYALTY_TYP_CODE" precision="5" scale="0" />
+        </property>
+        <!-- CTS - 21.10.2020 - CR#16903 IA Emirates CR - Starts -->
+        <property name="cshNationalId" type="string">
+            <column name="CSH_NATIONAL_ID" length="14" />
+        </property>
+        <property name="cshEmiratesIdExpiryDate" type="java.sql.Timestamp">
+            <column name="CSH_EMIRATES_ID_EXPIRY_DATE" length="7" />
+        </property>
+       <!-- CTS - 21.10.2020 - CR#16903 IA Emirates CR - Ends -->        
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,152 @@
+<html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=Generator content="Microsoft Word 14 (filtered)">
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:Wingdings;
+	panose-1:5 0 0 0 0 0 0 0 0 0;}
+@font-face
+	{font-family:Wingdings;
+	panose-1:5 0 0 0 0 0 0 0 0 0;}
+@font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;}
+@font-face
+	{font-family:Tahoma;
+	panose-1:2 11 6 4 3 5 4 4 2 4;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:10.0pt;
+	margin-left:0in;
+	line-height:115%;
+	font-size:11.0pt;
+	font-family:"Calibri","sans-serif";}
+a:link, span.MsoHyperlink
+	{color:blue;
+	text-decoration:underline;}
+a:visited, span.MsoHyperlinkFollowed
+	{color:purple;
+	text-decoration:underline;}
+p.MsoAcetate, li.MsoAcetate, div.MsoAcetate
+	{mso-style-link:"Balloon Text Char";
+	margin:0in;
+	margin-bottom:.0001pt;
+	font-size:8.0pt;
+	font-family:"Tahoma","sans-serif";}
+p.MsoNoSpacing, li.MsoNoSpacing, div.MsoNoSpacing
+	{margin:0in;
+	margin-bottom:.0001pt;
+	font-size:11.0pt;
+	font-family:"Calibri","sans-serif";}
+span.BalloonTextChar
+	{mso-style-name:"Balloon Text Char";
+	mso-style-link:"Balloon Text";
+	font-family:"Tahoma","sans-serif";}
+@page WordSection1
+	{size:8.5in 11.0in;
+	margin:1.0in 1.0in 1.0in 1.0in;}
+div.WordSection1
+	{page:WordSection1;}
+ /* List Definitions */
+ ol
+	{margin-bottom:0in;}
+ul
+	{margin-bottom:0in;}
+-->
+@page WordSection1
+	{size:8.5in 11.0in;
+	margin:1.0in 1.0in 1.0in 1.0in;}
+div.WordSection1
+	{page:WordSection1;}
+p.MsoNoSpacing, li.MsoNoSpacing, div.MsoNoSpacing
+	{margin:0in;
+	margin-bottom:.0001pt;
+	font-size:11.0pt;
+	font-family:"Calibri","sans-serif";}
+	p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:10.0pt;
+	margin-left:0in;
+	line-height:115%;
+	font-size:11.0pt;
+	font-family:"Calibri","sans-serif";}
+</style>
+
+</head>
+
+<body lang=EN-US link=blue vlink=purple>
+
+<div class=WordSection1>
+
+<p class=MsoNoSpacing>Dear %INSUREDNAME%,</p>
+
+<p class=MsoNoSpacing>&nbsp;</p>
+
+<p class=MsoNoSpacing><b>SECURE YOUR TRAVEL PLANS WITH INSTANT PEACE OF MIND.</b></p>
+
+<p class=MsoNoSpacing>&nbsp;</p>
+
+<p class=MsoNoSpacing>Thank you for choosing us to get a quote for your travel insurance.
+You are now just a click away from ensuring your travel is an exciting
+experience with complete peace of mind from start to finish.</p>
+
+<p class=MsoNoSpacing>&nbsp;</p>
+
+<p class=MsoNoSpacing><b><span style='color:white;background:purple'>Your quote
+is valid for 30 days.</span></b></p>
+
+<p class=MsoNoSpacing>&nbsp;</p>
+
+<p class=MsoNoSpacing>Your quote reference is: %QUOTENUMBER%. If you are ready to confirm
+your policy, just <span>%B2C_EMAIL_CLICK_HERE_TAG%</span> for immediate
+cover. </p>
+
+<p class=MsoNoSpacing>&nbsp;</p>
+
+<p class=MsoNoSpacing>You can also call us on 800 RSA (772) between 8am and
+8pm, Sunday to Thursday or 8am and 5pm on Saturday, and one of our insurance
+advisors will be happy to set up the policy for you.<br>
+<br>
+</p>
+
+<p class=MsoNoSpacing>With RSA&#39;s Travel Insurance you have:</p>
+
+<p class=MsoNoSpacing style='margin-left:9.0pt;text-indent:-9.0pt'><span
+style='font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;
+</span></span>Cover for trip cancellations, missed departures, delays and lost
+baggage</p>
+
+<p class=MsoNoSpacing style='margin-left:9.0pt;text-indent:-9.0pt'><span
+style='font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;
+</span></span>Up to USD 1M personal liability and emergency medical expenses</p>
+
+<p class=MsoNoSpacing style='margin-left:9.0pt;text-indent:-9.0pt'><span
+style='font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;
+</span></span>Lost passport assistance</p>
+
+<p class=MsoNoSpacing style='margin-left:9.0pt;text-indent:-9.0pt'><span
+style='font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;
+</span></span>24 hour emergency medical assistance</p>
+
+<p class=MsoNoSpacing style='margin-left:9.0pt;text-indent:-9.0pt'><span
+style='font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;
+</span></span>Great optional extras such as adventure sports and golfing cover</p>
+
+<p class=MsoNoSpacing style='margin-left:9.0pt;text-indent:-9.0pt'><span
+style='font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;
+</span></span>10% discount for online purchases</p>
+
+<p class=MsoNoSpacing style='margin-left:9.0pt;text-indent:-9.0pt'><span
+style='font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;
+</span></span>Prompt and efficient claims service</p>
+
+<p class=MsoNoSpacing style='margin-left:9.0pt'>&nbsp;</p>
+
+</div>

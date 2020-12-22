@@ -1,0 +1,203 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Feb 10, 2012 12:39:36 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.rsaame.pas.dao.model.TTrnPremiumQuo" table="T_TRN_PREMIUM_QUO">
+        <composite-id name="id" class="com.rsaame.pas.dao.model.TTrnPremiumQuoId">
+            <key-property name="prmPolicyId" type="long">
+                <column name="PRM_POLICY_ID" precision="16" scale="0" />
+            </key-property>
+            <key-property name="prmBasicRskCode" type="int">
+                <column name="PRM_BASIC_RSK_CODE" precision="5" scale="0" />
+            </key-property>
+            <key-property name="prmBasicRskId" type="big_decimal">
+                <column name="PRM_BASIC_RSK_ID" precision="20" scale="0" />
+            </key-property>
+            <key-property name="prmRskCode" type="int">
+                <column name="PRM_RSK_CODE" precision="5" scale="0" />
+            </key-property>
+            <key-property name="prmRskId" type="big_decimal">
+                <column name="PRM_RSK_ID" precision="20" scale="0" />
+            </key-property>
+            <key-property name="prmCovCode" type="short">
+                <column name="PRM_COV_CODE" precision="4" scale="0" />
+            </key-property>
+            <key-property name="prmCtCode" type="short">
+                <column name="PRM_CT_CODE" precision="4" scale="0" />
+            </key-property>
+            <key-property name="prmCstCode" type="short">
+                <column name="PRM_CST_CODE" precision="4" scale="0" />
+            </key-property>
+            <key-property name="prmValidityStartDate" type="java.sql.Timestamp">
+                <column name="PRM_VALIDITY_START_DATE" length="7" />
+            </key-property>
+        </composite-id>
+        <property name="prmClCode" type="short">
+            <column name="PRM_CL_CODE" precision="4" scale="0" not-null="true">
+                <comment>PRM_CL_CODE</comment>
+            </column>
+        </property>
+        <property name="prmPtCode" type="short">
+            <column name="PRM_PT_CODE" precision="4" scale="0" not-null="true">
+                <comment>PRM_PT_CODE</comment>
+            </column>
+        </property>
+        <property name="prmRtCode" type="int">
+            <column name="PRM_RT_CODE" precision="5" scale="0" not-null="true">
+                <comment>PRM_RT_CODE</comment>
+            </column>
+        </property>
+        <property name="prmRcCode" type="int">
+            <column name="PRM_RC_CODE" precision="5" scale="0" not-null="true">
+                <comment>PRM_RC_CODE</comment>
+            </column>
+        </property>
+        <property name="prmRscCode" type="int">
+            <column name="PRM_RSC_CODE" precision="5" scale="0" not-null="true">
+                <comment>PRM_RSC_CODE</comment>
+            </column>
+        </property>
+        <property name="prmSumInsured" type="big_decimal">
+            <column name="PRM_SUM_INSURED" precision="16" scale="3">
+                <comment>PRM_SUM_INSURED</comment>
+            </column>
+        </property>
+        <property name="prmRate" type="big_decimal">
+            <column name="PRM_RATE" precision="17" scale="4">
+                <comment>PRM_RATE</comment>
+            </column>
+        </property>
+        <property name="prmPremium" type="big_decimal">
+            <column name="PRM_PREMIUM" precision="16" scale="3">
+                <comment>PRM_PREMIUM</comment>
+            </column>
+        </property>
+        <property name="prmCompulsoryExcess" type="big_decimal">
+            <column name="PRM_COMPULSORY_EXCESS" precision="16" scale="3">
+                <comment>PRM_COMPULSORY_EXCESS</comment>
+            </column>
+        </property>
+        <property name="prmVoluntaryExcess" type="big_decimal">
+            <column name="PRM_VOLUNTARY_EXCESS" precision="16" scale="3">
+                <comment>PRM_VOLUNTARY_EXCESS</comment>
+            </column>
+        </property>
+        <property name="prmValidityExpiryDate" type="java.sql.Timestamp">
+            <column name="PRM_VALIDITY_EXPIRY_DATE" length="7" not-null="true">
+                <comment>PRM_VALIDITY_EXPIRY_DATE</comment>
+            </column>
+        </property>
+        <property name="prmEndtId" type="long">
+            <column name="PRM_ENDT_ID" precision="16" scale="0" not-null="true">
+                <comment>PRM_ENDT_ID</comment>
+            </column>
+        </property>
+        <property name="prmExcessRate" type="big_decimal">
+            <column name="PRM_EXCESS_RATE" precision="5">
+                <comment>PRM_EXCESS_RATE</comment>
+            </column>
+        </property>
+        <property name="prmRiRskCode" type="java.lang.Integer">
+            <column name="PRM_RI_RSK_CODE" precision="5" scale="0">
+                <comment>PRM_RI_RSK_CODE</comment>
+            </column>
+        </property>
+        <property name="prmSiInd" type="java.lang.Boolean">
+            <column name="PRM_SI_IND" precision="1" scale="0">
+                <comment>PRM_SI_IND</comment>
+            </column>
+        </property>
+        <property name="prmStatus" type="java.lang.Byte">
+            <column name="PRM_STATUS" precision="2" scale="0">
+                <comment>PRM_STATUS</comment>
+            </column>
+        </property>
+        <property name="prmEffectiveDate" type="java.sql.Timestamp">
+            <column name="PRM_EFFECTIVE_DATE" length="7">
+                <comment>PRM_EFFECTIVE_DATE</comment>
+            </column>
+        </property>
+        <property name="prmExpiryDate" type="java.sql.Timestamp">
+            <column name="PRM_EXPIRY_DATE" length="7">
+                <comment>PRM_EXPIRY_DATE</comment>
+            </column>
+        </property>
+        <property name="prmPolSumInsured" type="big_decimal">
+            <column name="PRM_POL_SUM_INSURED" precision="16" scale="3">
+                <comment>PRM_POL_SUM_INSURED</comment>
+            </column>
+        </property>
+        <property name="prmSitypeCode" type="java.lang.Byte">
+            <column name="PRM_SITYPE_CODE" precision="2" scale="0">
+                <comment>PRM_SITYPE_CODE</comment>
+            </column>
+        </property>
+        <property name="prmFnCode" type="java.lang.Byte">
+            <column name="PRM_FN_CODE" precision="2" scale="0">
+                <comment>PRM_FN_CODE</comment>
+            </column>
+        </property>
+        <property name="prmSumInsuredCurr" type="java.lang.Byte">
+            <column name="PRM_SUM_INSURED_CURR" precision="2" scale="0">
+                <comment>PRM_SUM_INSURED_CURR</comment>
+            </column>
+        </property>
+        <property name="prmPremiumCurr" type="java.lang.Byte">
+            <column name="PRM_PREMIUM_CURR" precision="2" scale="0">
+                <comment>PRM_PREMIUM_CURR</comment>
+            </column>
+        </property>
+        <property name="prmPreparedBy" type="java.lang.Integer">
+            <column name="PRM_PREPARED_BY" precision="8" scale="0">
+                <comment>PRM_PREPARED_BY</comment>
+            </column>
+        </property>
+        <property name="prmPreparedDt" type="java.sql.Timestamp">
+            <column name="PRM_PREPARED_DT" length="7">
+                <comment>PRM_PREPARED_DT</comment>
+            </column>
+        </property>
+        <property name="prmModifiedBy" type="java.lang.Integer">
+            <column name="PRM_MODIFIED_BY" precision="8" scale="0">
+                <comment>PRM_MODIFIED_BY</comment>
+            </column>
+        </property>
+        <property name="prmModifiedDt" type="java.sql.Timestamp">
+            <column name="PRM_MODIFIED_DT" length="7">
+                <comment>PRM_MODIFIED_DT</comment>
+            </column>
+        </property>
+        <property name="prmRiLocCode" type="java.lang.Integer">
+            <column name="PRM_RI_LOC_CODE" precision="5" scale="0" />
+        </property>
+        <property name="prmRateType" type="java.lang.Byte">
+            <column name="PRM_RATE_TYPE" precision="2" scale="0" />
+        </property>
+        <property name="prmOldPremium" type="big_decimal">
+            <column name="PRM_OLD_PREMIUM" precision="16" scale="3" />
+        </property>
+        <property name="prmOldSumInsured" type="big_decimal">
+            <column name="PRM_OLD_SUM_INSURED" precision="16" scale="3" />
+        </property>
+        <property name="prmPremiumActual" type="big_decimal">
+            <column name="PRM_PREMIUM_ACTUAL" precision="16" scale="3" />
+        </property>
+        <property name="prmExpPeriodPrm" type="big_decimal">
+            <column name="PRM_EXP_PERIOD_PRM" precision="16" scale="3" />
+        </property>
+        <property name="prmRenewalLoading" type="big_decimal">
+            <column name="PRM_RENEWAL_LOADING" precision="5" />
+        </property>
+         <property name="prmLoadDisc" type="big_decimal">
+            <column name="PRM_LOAD_DISC" precision="5" scale="0">
+                <comment>PRM_LOAD_DISC</comment>
+            </column>
+        </property>
+         <property name="prmValue1" type="big_decimal">
+            <column name="PRM_VALUE1" precision="5" scale="0">
+                <comment>PRM_VALUE1</comment>
+            </column>
+        </property>
+    </class>
+</hibernate-mapping>

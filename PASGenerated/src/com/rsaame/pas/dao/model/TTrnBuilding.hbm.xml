@@ -1,0 +1,324 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Jan 18, 2012 5:30:03 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.rsaame.pas.dao.model.TTrnBuildingQuo" table="T_TRN_BUILDING"> 
+    
+<!--     <id column="BLD_ID" name="bldId" type="long">
+    	<generator class="sequence">
+    		<param name="table">seq_building_id</param>
+			<param name="column">NEXT</param>
+    	</generator>
+    </id> -->
+    
+        <composite-id name="id" class="com.rsaame.pas.dao.model.TTrnBuildingQuoId">
+            <key-property  name="bldId" type="long" >
+                <column  name="BLD_ID" precision="10" scale="0" />
+            </key-property>
+            <key-property name="bldValidityStartDate" type="java.sql.Timestamp">
+                <column name="BLD_VALIDITY_START_DATE" length="7" />
+            </key-property>
+        </composite-id>
+        
+        <property name="bldPolicyId" type="java.lang.Long">
+            <column name="BLD_POLICY_ID" precision="16" scale="0">
+                <comment>BLD_POLICY_ID</comment>
+            </column>
+        </property>
+        <property name="bldNo" type="string">
+            <column name="BLD_NO" length="30">
+                <comment>BLD_NO</comment>
+            </column>
+        </property>
+        <property name="bldRskCode" type="java.lang.Integer">
+            <column name="BLD_RSK_CODE" precision="5" scale="0">
+                <comment>BLD_RSK_CODE</comment>
+            </column>
+        </property>
+        <property name="bldOccupancyCode" type="java.lang.Short">
+            <column name="BLD_OCCUPANCY_CODE" precision="4" scale="0">
+                <comment>BLD_OCCUPANCY_CODE</comment>
+            </column>
+        </property>
+        <property name="bldConstructionCode" type="java.lang.Short">
+            <column name="BLD_CONSTRUCTION_CODE" precision="4" scale="0">
+                <comment>BLD_CONSTRUCTION_CODE</comment>
+            </column>
+        </property>
+        <property name="bldZoneCode" type="java.lang.Short">
+            <column name="BLD_ZONE_CODE" precision="4" scale="0">
+                <comment>BLD_ZONE_CODE</comment>
+            </column>
+        </property>
+        <property name="bldGeoareaCode" type="java.lang.Short">
+            <column name="BLD_GEOAREA_CODE" precision="4" scale="0">
+                <comment>BLD_GEOAREA_CODE</comment>
+            </column>
+        </property>
+        <property name="bldStartDate" type="date">
+            <column name="BLD_START_DATE" length="7">
+                <comment>BLD_START_DATE</comment>
+            </column>
+        </property>
+        <property name="bldEndDate" type="date">
+            <column name="BLD_END_DATE" length="7">
+                <comment>BLD_END_DATE</comment>
+            </column>
+        </property>
+        <property name="bldAAddress1" type="string">
+            <column name="BLD_A_ADDRESS1" length="40">
+                <comment>BLD_A_ADDRESS1</comment>
+            </column>
+        </property>
+        <property name="bldEAddress1" type="string">
+            <column name="BLD_E_ADDRESS1" length="40">
+                <comment>BLD_E_ADDRESS1</comment>
+            </column>
+        </property>
+        <property name="bldAAddress2" type="string">
+            <column name="BLD_A_ADDRESS2" length="40">
+                <comment>BLD_A_ADDRESS2</comment>
+            </column>
+        </property>
+        <property name="bldEAddress2" type="string">
+            <column name="BLD_E_ADDRESS2" length="40">
+                <comment>BLD_E_ADDRESS2</comment>
+            </column>
+        </property>
+        <property name="bldAAddress3" type="string">
+            <column name="BLD_A_ADDRESS3" length="40">
+                <comment>BLD_A_ADDRESS3</comment>
+            </column>
+        </property>
+        <property name="bldEAddress3" type="string">
+            <column name="BLD_E_ADDRESS3" length="40">
+                <comment>BLD_E_ADDRESS3</comment>
+            </column>
+        </property>
+        <property name="bldZip" type="string">
+            <column name="BLD_ZIP" length="10">
+                <comment>BLD_ZIP</comment>
+            </column>
+        </property>
+        <property name="bldSumInsured" type="big_decimal">
+            <column name="BLD_SUM_INSURED" precision="16" scale="3">
+                <comment>BLD_SUM_INSURED</comment>
+            </column>
+        </property>
+        <property name="bldMplFire" type="big_decimal">
+            <column name="BLD_MPL_FIRE" precision="16" scale="3">
+                <comment>BLD_MPL_FIRE</comment>
+            </column>
+        </property>
+        <property name="bldMplFlood" type="big_decimal">
+            <column name="BLD_MPL_FLOOD" precision="16" scale="3">
+                <comment>BLD_MPL_FLOOD</comment>
+            </column>
+        </property>
+        <property name="bldHazardCode" type="java.lang.Short">
+            <column name="BLD_HAZARD_CODE" precision="4" scale="0">
+                <comment>BLD_HAZARD_CODE</comment>
+            </column>
+        </property>
+        <property name="bldStatus" type="java.lang.Byte">
+            <column name="BLD_STATUS" precision="2" scale="0">
+                <comment>BLD_STATUS</comment>
+            </column>
+        </property>
+        <property name="bldValidityExpiryDate" type="java.sql.Timestamp">
+            <column name="BLD_VALIDITY_EXPIRY_DATE" length="7" not-null="true">
+                <comment>BLD_VALIDITY_EXPIRY_DATE</comment>
+            </column>
+        </property>
+        <property name="bldDeclNo" type="java.lang.Integer">
+            <column name="BLD_DECL_NO" precision="5" scale="0">
+                <comment>BLD_DECL_NO</comment>
+            </column>
+        </property>
+        <property name="bldDeclDate" type="date">
+            <column name="BLD_DECL_DATE" length="7">
+                <comment>BLD_DECL_DATE</comment>
+            </column>
+        </property>
+        <property name="bldDesc" type="string">
+            <column name="BLD_DESC" length="2000">
+                <comment>BLD_DESC</comment>
+            </column>
+        </property>
+        <property name="bldRskType" type="java.lang.Integer">
+            <column name="BLD_RSK_TYPE" precision="5" scale="0">
+                <comment>BLD_RSK_TYPE</comment>
+            </column>
+        </property>
+        <property name="bldEndtId" type="java.lang.Long">
+            <column name="BLD_ENDT_ID" precision="16" scale="0">
+                <comment>BLD_ENDT_ID</comment>
+            </column>
+        </property>
+        <property name="bldEName" type="string">
+            <column name="BLD_E_NAME" length="500">
+                <comment>BLD_E_NAME</comment>
+            </column>
+        </property>
+        <property name="bldAName" type="string">
+            <column name="BLD_A_NAME" length="2000">
+                <comment>BLD_A_NAME</comment>
+            </column>
+        </property>
+        <property name="bldWayNo" type="java.lang.Long">
+            <column name="BLD_WAY_NO" precision="16" scale="0">
+                <comment>BLD_WAY_NO</comment>
+            </column>
+        </property>
+        <property name="bldBlockNo" type="java.lang.Long">
+            <column name="BLD_BLOCK_NO" precision="16" scale="0">
+                <comment>BLD_BLOCK_NO</comment>
+            </column>
+        </property>
+        <property name="bldDirCode" type="java.lang.Integer">
+            <column name="BLD_DIR_CODE" precision="5" scale="0">
+                <comment>BLD_DIR_CODE</comment>
+            </column>
+        </property>
+        <property name="bldMunCode" type="java.lang.Integer">
+            <column name="BLD_MUN_CODE" precision="5" scale="0">
+                <comment>BLD_MUN_CODE</comment>
+            </column>
+        </property>
+        <property name="bldEStreetName" type="string">
+            <column name="BLD_E_STREET_NAME" length="60">
+                <comment>BLD_E_STREET_NAME</comment>
+            </column>
+        </property>
+        <property name="bldAStreetName" type="string">
+            <column name="BLD_A_STREET_NAME" length="60">
+                <comment>BLD_A_STREET_NAME</comment>
+            </column>
+        </property>
+        <property name="bldRiRskCode" type="java.lang.Integer">
+            <column name="BLD_RI_RSK_CODE" precision="5" scale="0">
+                <comment>BLD_RI_RSK_CODE</comment>
+            </column>
+        </property>
+        <property name="bldWallType" type="java.lang.Short">
+            <column name="BLD_WALL_TYPE" precision="4" scale="0">
+                <comment>BLD_WALL_TYPE</comment>
+            </column>
+        </property>
+        <property name="bldRoofType" type="java.lang.Short">
+            <column name="BLD_ROOF_TYPE" precision="4" scale="0">
+                <comment>BLD_ROOF_TYPE</comment>
+            </column>
+        </property>
+        <property name="bldMplFirePerc" type="big_decimal">
+            <column name="BLD_MPL_FIRE_PERC" precision="5">
+                <comment>BLD_MPL_FIRE_PERC</comment>
+            </column>
+        </property>
+        <property name="bldMplFloodPerc" type="big_decimal">
+            <column name="BLD_MPL_FLOOD_PERC" precision="5">
+                <comment>BLD_MPL_FLOOD_PERC</comment>
+            </column>
+        </property>
+        <property name="bldCoverIndicator" type="java.lang.Byte">
+            <column name="BLD_COVER_INDICATOR" precision="2" scale="0">
+                <comment>BLD_COVER_INDICATOR</comment>
+            </column>
+        </property>
+        <property name="bldPreparedBy" type="java.lang.Integer">
+            <column name="BLD_PREPARED_BY" precision="8" scale="0">
+                <comment>BLD_PREPARED_BY</comment>
+            </column>
+        </property>
+        <property name="bldPreparedDt" type="java.sql.Timestamp">
+            <column name="BLD_PREPARED_DT" length="7">
+                <comment>BLD_PREPARED_DT</comment>
+            </column>
+        </property>
+        <property name="bldModifiedBy" type="java.lang.Integer">
+            <column name="BLD_MODIFIED_BY" precision="8" scale="0">
+                <comment>BLD_MODIFIED_BY</comment>
+            </column>
+        </property>
+        <property name="bldModifiedDt" type="java.sql.Timestamp">
+            <column name="BLD_MODIFIED_DT" length="7">
+                <comment>BLD_MODIFIED_DT</comment>
+            </column>
+        </property>
+        <property name="bldFixturesInd" type="java.lang.Integer">
+            <column name="BLD_FIXTURES_IND" precision="1" scale="0" />
+        </property>
+        <property name="bldConstYr" type="java.lang.Short">
+            <column name="BLD_CONST_YR" precision="4" scale="0" />
+        </property>
+        <property name="bldLatitude" type="big_decimal">
+            <column name="BLD_LATITUDE" precision="10" scale="6" />
+        </property>
+        <property name="bldLongitude" type="big_decimal">
+            <column name="BLD_LONGITUDE" precision="10" scale="6" />
+        </property>
+        <property name="bldTotalNoFloors" type="java.lang.Short">
+            <column name="BLD_TOTAL_NO_FLOORS" precision="4" scale="0" />
+        </property>
+		<property name="bldLowestFloor" type="java.lang.Short">
+            <column name="BLD_LOWEST_FLOOR" precision="4" scale="0" />
+        </property>
+        <property name="bldNoOccFloors" type="java.lang.Short">
+            <column name="BLD_NO_OCC_FLOORS" precision="4" scale="0" />
+        </property>
+        <property name="bldDispDate" type="date">
+            <column name="BLD_DISP_DATE" length="7" />
+        </property>
+        <property name="bldResurveyPeriod" type="string">
+            <column name="BLD_RESURVEY_PERIOD" length="40" />
+        </property>
+        <property name="bldRoutineResurveyDt" type="date">
+            <column name="BLD_ROUTINE_RESURVEY_DT" length="7" />
+        </property>
+        <property name="bldSpecificResurveyDt" type="date">
+            <column name="BLD_SPECIFIC_RESURVEY_DT" length="7" />
+        </property>
+        <property name="bldDispensationAgreed" type="java.lang.Character">
+            <column name="BLD_DISPENSATION_AGREED" length="1" />
+        </property>
+        <property name="bldSrfDt" type="date">
+            <column name="BLD_SRF_DT" length="7" />
+        </property>
+        <property name="bldSurveyorOpinion" type="java.lang.Short">
+            <column name="BLD_SURVEYOR_OPINION" precision="3" scale="0" />
+        </property>
+        <property name="bldPointScore" type="java.lang.Short">
+            <column name="BLD_POINT_SCORE" precision="3" scale="0" />
+        </property>
+        <property name="bldRcpDt" type="date">
+            <column name="BLD_RCP_DT" length="7" />
+        </property>
+        <property name="bldRcpStatus" type="java.lang.Short">
+            <column name="BLD_RCP_STATUS" precision="3" scale="0" />
+        </property>
+        <property name="bldRcpConfirmationDt" type="date">
+            <column name="BLD_RCP_CONFIRMATION_DT" length="7" />
+        </property>
+        <property name="bldFreeZone" type="string">
+            <column name="BLD_FREE_ZONE" length="50">
+                <comment>To capture free zone detail</comment>
+            </column>
+        </property>
+        <property name="bldMorgatgeeName" type="string">
+        	<column name="BLD_MORTGAGE_NAME" length="30"></column>
+        </property>
+        <property name="bldOwnershipStatus" type="java.lang.Short">
+			<column name="BLD_OWNERSHIP_STATUS" precision="3" scale="0"></column>
+		</property>
+		<!-- Added for Informap changes -->
+        <property name="bldInforMapStatus" type="string">
+        	<column name="BLD_INFORMAP_STATUS" length="4"></column>
+        </property>
+         <property name="bldTotalNoRooms" type="java.lang.Short">
+            <column name="BLD_TOTAL_NO_ROOMS" precision="4" scale="0" />
+        </property> 
+        
+        
+    </class>
+</hibernate-mapping>

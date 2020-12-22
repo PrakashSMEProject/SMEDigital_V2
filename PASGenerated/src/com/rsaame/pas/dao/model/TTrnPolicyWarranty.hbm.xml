@@ -1,0 +1,85 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated May 17, 2012 9:16:11 AM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.rsaame.pas.dao.model.TTrnPolicyWarranty" table="T_TRN_POLICY_WARRANTY">
+        <comment>Policy warranty details</comment>
+        <composite-id name="id" class="com.rsaame.pas.dao.model.TTrnPolicyWarrantyId">
+            <key-property name="tpwPolicyId" type="long">
+                <column name="TPW_POLICY_ID" precision="16" scale="0" />
+            </key-property>
+            <key-property name="tpwEndtId" type="long">
+                <column name="TPW_ENDT_ID" precision="16" scale="0" />
+            </key-property>
+            <key-property name="tpwClCode" type="int">
+                <column name="TPW_CL_CODE" precision="5" scale="0" />
+            </key-property>
+            <key-property name="tpwPtCode" type="int">
+                <column name="TPW_PT_CODE" precision="5" scale="0" />
+            </key-property>
+            <key-property name="tpwCode" type="int">
+                <column name="TPW_CODE" precision="5" scale="0" />
+            </key-property>
+            <key-property name="tpwRskId" type="long">
+                <column name="TPW_RSK_ID" precision="16" scale="0" />
+            </key-property>
+        </composite-id>
+        <property name="tpwCovCode" type="java.lang.Integer">
+            <column name="TPW_COV_CODE" precision="5" scale="0">
+                <comment>TPW_COV_CODE</comment>
+            </column>
+        </property>
+        <property name="tpwCtCode" type="java.lang.Integer">
+            <column name="TPW_CT_CODE" precision="5" scale="0">
+                <comment>TPW_CT_CODE</comment>
+            </column>
+        </property>
+        <property name="tpwCstCode" type="java.lang.Integer">
+            <column name="TPW_CST_CODE" precision="5" scale="0">
+                <comment>TPW_CST_CODE</comment>
+            </column>
+        </property>
+        <property name="tpwValidityStartDate" type="java.sql.Timestamp">
+            <column name="TPW_VALIDITY_START_DATE" length="7">
+                <comment>TPW_VALIDITY_START_DATE</comment>
+            </column>
+        </property>
+        <property name="tpwValidityEndDate" type="java.sql.Timestamp">
+            <column name="TPW_VALIDITY_END_DATE" length="7">
+                <comment>TPW_VALIDITY_END_DATE</comment>
+            </column>
+        </property>
+        <property name="tpwStatus" type="java.lang.Byte">
+            <column name="TPW_STATUS" precision="2" scale="0">
+                <comment>TPW_STATUS</comment>
+            </column>
+        </property>
+        <property name="tpwPreparedBy" type="java.lang.Integer">
+            <column name="TPW_PREPARED_BY" precision="8" scale="0">
+                <comment>TPW_PREPARED_BY</comment>
+            </column>
+        </property>
+        <property name="tpwPreparedDt" type="date">
+            <column name="TPW_PREPARED_DT" length="7">
+                <comment>TPW_PREPARED_DT</comment>
+            </column>
+        </property>
+        <property name="tpwModifiedBy" type="java.lang.Integer">
+            <column name="TPW_MODIFIED_BY" precision="8" scale="0">
+                <comment>TPW_MODIFIED_BY</comment>
+            </column>
+        </property>
+        <property name="tpwModifiedDt" type="date">
+            <column name="TPW_MODIFIED_DT" length="7">
+                <comment>TPW_MODIFIED_DT</comment>
+            </column>
+        </property>
+        <property name="tpwAmount" type="string">
+            <column name="TPW_AMOUNT" length="100" />
+        </property>
+        <property name="tpwPrintFlag" type="java.lang.Boolean">
+            <column name="TPW_PRINT_FLAG" precision="1" scale="0" />
+        </property>
+    </class>
+</hibernate-mapping>

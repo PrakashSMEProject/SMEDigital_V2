@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.rsaame.pas.dao.model.TTrnPaymentDtl" table="T_TRN_PAYMENT_DTL">
+		<id name="pdlTransId" type="java.lang.String" >
+			<column name="PDL_TRANS_ID" length="35" />
+		</id>
+			
+		<property name="pdlQutoteNo" type="java.lang.Long" >
+			<column name="PDL_QUOTE_NO" precision="6" scale="0" />
+		</property>
+
+		<property name="pdlPolicyId" type="java.lang.Long">
+			<column name="PDL_POLICY_ID" precision="5" scale="0" />
+		</property>
+		
+		<property name="pdlTransaDate" type="java.util.Date">
+			<column name="PDL_TRANS_DATE" length="7" />
+		</property>
+		
+		<property name="pdlTransaAmount" type="java.math.BigDecimal">
+			<column name="PDL_TRANS_AMOUNT" precision="6" scale="0" />
+		</property>
+		
+		<property name="pdlTransStatus" type="java.lang.String">
+			<column name="PDL_TRANS_STATUS" length="8" />
+		</property>
+		
+		<property name="pdlMerchantRefNo" type="java.lang.String">
+			<column name="PDL_MERCHANT_REF_NO" length="100" />
+		</property>
+		
+		<property name="pdlCurName" type="java.lang.String">
+			<column name="PDL_CUR_NAME" length="5" />
+		</property>
+		
+		<property name="pdlErrCode" type="java.lang.Integer">
+			<column name="PDL_ERR_CODE" precision="6" scale="0" />
+		</property>
+		
+		<property name="pdlErrDesc" type="java.lang.String">
+			<column name="PDL_ERR_DESC" length="1000" />
+		</property>
+		
+		<property name="pdlCreditCrdNo" type="java.lang.String">
+			<column name="PDL_CREDIT_CRD_NO" length="4" />
+		</property>
+		
+		<property name="pdlCreditCrdTyp" type="java.lang.String">
+			<column name="PDL_CREDIT_CRD_TYP" length="10" />
+		</property>
+		
+		<property name="pdlBillingAddrs" type="java.lang.String">
+			<column name="PDL_BILLING_ADDRS" length="100" />
+		</property>
+		
+		<property name="pdlCustName" type="java.lang.String">
+			<column name="PDL_CUST_NAME" length="200" />
+		</property>
+	</class>
+
+</hibernate-mapping>

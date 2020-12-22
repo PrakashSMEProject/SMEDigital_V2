@@ -1,0 +1,547 @@
+# All application error code and message mappings will go in here as an alternative to #
+# database table configuration. #
+
+# Format for error code is:
+# <app | cmn | validation>.<MSN>.<Logical short name for the scenario, in camel case>
+cmn.unknownError=Techical Error occurred in the system. Please contact support team.
+cmn.systemError=System Error occurred while processing the data.
+cmn.cannotInstantiate=Unexpected exception occurred. Please contact Administrator.
+cmn.cannotSerialize=Unexpected exception occurred. Please contact Administrator.
+cmn.methodNotAccessible=Unexpected exception occurred. Please contact Administrator.
+cmn.fieldIsNotANumber=Incorrect format of data found. Please enter details in correct format.
+cmn.invalidConfiguration=Unexpected exception occurred. Please contact Administrator.
+cmn.SPError=Unexpected exception occurred. Please contact Administrator.
+cmn.insufficientArgsToSP=Error while saving data. Insufficient data while storing the details.
+cmn.basicRiskIdIsNull=Risk details for this policy  are found to be empty while saving the policy.
+cmn.multiplePrmEntriesCoverCode=Mutiple records found for the premium.
+cmn.contentsNotFound=Content details for this policy are are found to be empty while saving the policy.
+cmn.compareError=Error while saving data.An exception while comparing sections.
+cmn.storedproc.error=Error while saving data. An exception occured while executing database procedure.
+
+#Response navigation
+cmn.redirectionJspRequired=Redirection JSP path not specified.
+
+#Validation Engine messages
+validation.transactionNameNull=
+validation.objectBeanNull=
+validation.transactionMapEmpty=
+validation.transactionObjectEmpty=
+validation.beanNull=
+validation.beanTypeEmpty=
+validation.fieldNameNull=
+validation.validationObjectNull=
+validator.parametersMissing=A mandatory parameter was not passed to the validator.
+validation.configPathNotSet=
+
+
+#PAS Error Keys
+pas.login.invalidUserCredentials = Please enter the correct user name and password to login.
+
+pas.cmn.policyContextUnavailable=PolicyContext has not been initialized.
+pas.cmn.userUnavailable=User has not been initialized.
+pas.cmn.sectionNotAdded = The section has not been added to the context.
+pas.cmn.sectionsNotSelected = Sections have not been selected for this policy yet.
+pas.cmn.basicSectionNotSelected = Basic section (PAR or PL) has not been selected for this policy.
+pas.cmn.sectionsNotConfigured = No risk sections have been configured for this policy type.
+pas.cmn.sectionsNotAdded = No risk sections have been added for this policy.
+pas.cmn.riskGroupNotAdded = The risk group being searched for has not been added to the context.
+pas.cmn.cannotDeleteLastLocation=Atleast one location must be present in the section.
+pas.cmn.rulesException=There is an error while calling rules engine.Please contact Administrator.
+pas.cmn.rulesFailed=Some rules have failed. Please review the referral details.
+pas.cmn.polLinkindIs0=Incorrect policy linking Id found
+pas.cmn.tooManyRecordsFound=Inconsistent data. Too many records found.
+pas.cmn.noRecordFound=No record found for criteria.
+pas.cmn.existingTableRecordNotFound=No values found for this policy.
+pas.cmn.branchCodeNull = Please select branch.
+
+pas.name.required=Customer Name cannot be blank
+pas.name.length=Customer Name cannot exceed 100 characters
+pas.name.allowedspecialchars=Enter Valid Insured Name
+pas.address.required=Address cannot be blank
+pas.address.length=Address cannot exceed 200 characters
+pas.pobox.required=P.O.Box cannot be blank
+pas.pobox.length=P.O.Box cannot exceed 30 characters
+pas.emirates.required=Emirates cannot be blank
+pas.country.required=Country cannot be blank
+pas.city.required=City cannot be blank
+pas.businesstype.required=Business Type cannot be blank
+pas.businessdesc.required=Business Description cannot be blank
+pas.jurisdiction.required=Jurisdiction cannot be blank
+pas.distchannel.required=Distribution Channel cannot be blank
+pas.directsubagent.required=Direct Sub Agent cannot be blank
+pas.schemecode.required=Scheme cannot be blank
+pas.tariff.required=Tariff cannot be blank
+pas.policytype.required=Policy Type cannot be blank
+pas.policyterm.required=Policy Term cannot be blank
+customer_exists=Insured already existing, kindly search the insured and proceed with issuance of quote
+pas.gi.couldNotGetCustDetails=Could not fetch customer details. Please try again.
+pas.gi.couldNotUpdateCustDetails=Could not update customer details. Please try again.
+pas.gi.couldNotUpdatePolicyLinkingId=Could not update policy details. Please try again.
+pas.gi.couldNotUpdatePolIssueHour=Could not update app id. Please try again.
+pas.schemeCode.null=Scheme code is null
+pas.plPolicyId.Mandatory=PL (Public Liability) Policy Id is not available. (Please check if you have saved atleast one location in PL.)
+pas.gi.exception=Policy Extension and Tariff Change cannot be done in the same version.
+pas.gi.city=Please select City as OTHERS
+pas.gi.effectiveDate=Effective date of Renewal Quotation cannot be before Policy Expiry date.
+
+pas.pending.endorsement.deleted = Pending Endorsement deleted successfully
+
+pas.firstname.required=First Name cannot be blank
+pas.firstname.length=First Name cannot exceed 100 characters
+pas.lastname.required=Last Name cannot be blank
+pas.lastname.length=Last Name cannot exceed 100 characters
+pas.mobile.required=Mobile Number cannot be blank
+pas.mobile.length=Mobile Number cannot exceed 13 digits
+pas.pobox.maxlength=P.O.Box cannot exceed 6 characters
+pas.nationality.required=Please enter Nationality.
+pas.effdate.required=Effective Date cannot be blank
+
+#PAS General error keys
+pas.auth.appFlowNotAvailable=Application Flow cannot be determined.
+pas.auth.taskDetilsNotAvailable=TaskDetails  are found to be empty while resolving the referral.
+
+#PAS Par error keys
+pas.par.location=Location cannot be blank
+pas.saveSuccessful=Data is saved successfully
+pas.locComp.addRiskGroupsNotAllowed=Data not saved. Please check if this location has been saved in PAR (or PL).
+pas.locComp.riskGroupIdNotPassed=Risk details cannot be empty while deleting the location.
+pas.locComp.deleteSuccessful=Location deleted successfully
+pas.locComp.deselectSuccessful= Location de-selected successfully
+pas.locComp.locReloadJSPNotSet=Error while loading the location for the section.
+par.uwqCascade.exception=Error while saving data. An exception occured while executing database procedure for underwriting.
+#Search Quote/Policy Error keys starts.
+pas.searchTransaction.quoteNo=Quote number should be numeric.
+pas.searchTransaction.policyNo=Policy number should be numeric.
+pas.searchTransaction.transactionDateFromValid=Transaction Date From should not be after Today.
+pas.searchTransaction.transactionDateToValid=Transaction Date To should not be after Today.
+pas.searchTransaction.transactionDateFromAfterTo=Transaction Date From should not be after Transaction Date To
+pas.searchTransaction.effectiveAfterExpiry=Policy Effective Date Should not be after Policy Expiry Date
+pas.min.prm=The total payable premium is less than minimum premium. Please remove any discount if applied.
+#Search Quote/Policy Error keys ends.
+
+#Start: Service framework error keys
+svc.fgbpmConfigNotFound=Unexpected exception occurred. Please contact Administrator.
+svc.serviceTaskConfigIncomplete=Unexpected exception occurred. Please contact Administrator.
+#End: Service framework error keys
+
+#PAR Error keys.
+par.officeShopNumber.required=Office/Shop number cannot be left blank.
+par.location.required=Location cannot be left blank.
+par.buildingName.required=Building name cannot be left blank.
+par.freeZone.required=Free Zone cannot be left blank.
+par.buildingcovered.required=Building cover cannot be left unchecked.
+par.deductibles.required=Deductibles cannot be left blank.
+par.hazardLevel.required=Hazard level is mandatory.
+par.riCategory.required=RI Category can not be left blank.
+par.officeShopNumber.length=Office/Shop number cannot exceed 200 characters.
+par.floor.length=Floor cannot exceed 200 characters.
+par.occTradeGroup.required=Occupancy/Trade Group is mandatory.
+par.surveyDate.valid=Survey Date should be in Date format(DD/MM/YYYY).
+par.bldConstYear.numberOnly=Building construction year should be a number.
+par.bldConstYear.length=Building construction year cannot exceed 4 characters.
+par.latitude.numberOnly=Latitude should be a number.
+par.latitude.length=Latitude cannot exceed 10 characters.
+par.noOfFloor.numberOnly=No. of floors should be a number.
+par.noOfFloor.length=No. of floors cannot exceed 4 characters.
+par.occupiedFloors.numberOnly=No. of floors occupied should be a number.
+par.occupiedFloors.length=No. of floors occupied cannot exceed 4 characters.
+par.dispDate.valid=Disp Date should be in Date format(DD/MM/YYYY).
+par.resurveyReqDt.valid=Routine Re-survey Request Date should be in Date format(DD/MM/YYYY).
+par.dispensationAgreed.alphaNumeric=Dispensation Agreed should be alphanumeric.
+par.dispensationAgreed.length=Dispensation Agreed should be only 1 character.
+par.specResurveyReqDt.valid=Specific Re-survey Request Date should be in Date format(DD/MM/YYYY).
+par.SRFDate.valid=SRF Submission date should be in Date format(DD/MM/YYYY).
+par.rcpSentDt.valid=RCP Sent Date should be in Date format(DD/MM/YYYY).
+par.rcpConfirmDt.valid=RCP Confirm Date should be in Date format(DD/MM/YYYY).
+par.directorate.required=Directorate is mandatory.
+par.status.required=Status is mandatory.
+par.startDt.valid=Start Date should be in Date format(DD/MM/YYYY).
+par.endDt.valid=End Date should be in Date format(DD/MM/YYYY).
+par.categoryRI.required=RI Category is mandatory.
+par.emlSI.numberOnly=EML SI should be a number.
+par.UWQuestionResponse.required=Underwriting question response is mandatory.
+par.cover.numberOnly=Sum Insured should be a number only.
+par.cover.length=Sum Insured cannot exceed 10 characters.
+par.emirates.required=Emirates is mandatory.
+par.Loc.Sum.Insured.Exceeds=Sum Insured per Location can not be greater than 35M
+par.Loc.SumInsuredPerLoc=Sum insured per location should not exceed the sum insured per location entered in General Information
+par.Pol.Sum.Insured.Exceeds=Sum Insured per policy can not be greater than 50M
+par.startdt.required=Start date cannot be blank
+par.endDt.required=End date cannot be blank
+par.floor.required=Floor number cannot be left blank.
+par.contentCategoryIsNull=The risk details for the Property Risk cannot be empty.
+#End: Service framework error keys
+
+
+#PAR Error keys ends.
+
+#PAR Error keys ends.
+
+#Start : PL Error keys
+pl.office.shop.required=office/shop number can not be left blank.
+pl.location.name.required= Location name can not be left blank.
+pl.building.name.required= Bhilding name required.
+pl.freezone.required=Freezone can not be left blank.
+pl.territory.required=Territory can not be left blank.
+pl.jurisdiction.required=Jurisdiction can not be left blank.
+pl.occupancy.tradegroup.required=Occupancy trade group can not be left blank.
+pl.hazard.level.required=Hazard Level can not be left blank.
+pl.suminsured.required=Sum insured can not be left blank.
+pl.indemnityAmtLimit.required=Indemnity amount can not be left blank.
+pl.sumInsuredBasis.required=Sum Insured Basis can not be left blank.
+pl.sumInsuredDets.deductible.required=Deductibles can not be left blank.
+pL.saveSuccessful=Data is saved successfully.
+#End : PL Error keys
+
+#Start : Money Error keys
+
+commission.required=Commission can not be left blank.
+
+money.details.required=Please enter mandatory fields.
+money.cashInResidence.required=Cash in Authorized Employees Residence yes or no?
+money.make.required= Make can not be left blank.
+money.weight.required=Weight can not be left blank.
+money.height.required=Height can not be left blank.
+money.width.required=Width can not be left blank.
+money.empname.required=Employee name can not be left blank.
+money.occupation.required=Employee occupation can not be left blank.
+money.sumInsuredDets.required=Amount can not be left blank.
+money.flushCashDetailsQuo=DB operation failed. Please try after sometime.
+
+#End : Money Error keys
+
+#Start: WC Error keys 
+wc.empType.required=Please choose an Employee Type.
+wc.noOfEmp.required=No. of employees cannot be left blank.
+wc.wageroll.required=Total Annual Wageroll cannot be left blank.
+wc.deductibles.required=Please choose a deductible.
+wc.limit.required=Please choose a value for limit.
+wc.pacover.required=24 Hour PA Cover required?
+pas.wc.maxNumberOfPersons=Number of employees should not exceed the number of employees entered in General Information
+wc.wageroll.valid.number = Please enter valid number for wage roll.
+wc.noOfEmp.valid.number = Please enter valid number for number of employee.
+wc.empName.valid = Please enter valid employee name.
+wc.wcDetails.required = Please enter at least one workman compensation details.
+wc.wcDetails.duplicate = Duplicate entries found in workman compensation details.
+
+#End: WC Error Keys
+
+#Start: Travel Baggage Error Keys
+travellingEmployee.limit.required=Limit required is mandatory and is missing in one or more rows.
+travellingEmployee.deductible.required=Deductible is mandatory.
+travellingEmployee.name.required=Name is mandatory and is missing in one or more rows.
+travellingEmployee.dateOfBirth.required=Date of Birth is mandatory and is missing in one or more rows.
+#End: Travel Baggage Error Keys
+
+
+#Start: Machinery Details Error Keys
+machineDetails.machineryType.required= Machine type is mandatory.
+machineDetails.machineDescription.required= Machine description is mandatory.
+machineDetails.yearOfMake.required= Year of make is mandatory.
+machineDetails.deductible.required= Deductible is mandatory.
+machineDetails.sumInsured.required= New replacement value is mandatory.
+
+#End: Machinery Details Error Keys
+
+#Start: Task Details Keys
+task.details.noaccess=Unable to get task details from the database.
+task.details.nullvalue=Sorry Tasks are not available.
+task.polEndID.null=Policy ID or Endorsement ID is not available.
+task.policyId.notNull = There are no policy ids available
+task.sectionID.notNull = Sections are not available
+task.new.save.success = Task Created successfully
+task.edit.save.success = Task Saved successfully
+#End: Task Details Keys
+
+
+#Start: Referrals Keys
+pas.referrals=Referral(s) triggered. Please click Yes to proceed further or No to modify.
+pas.referrals.userRole=The user role is mandatory for rule execution.
+#End: Task Details Keys
+
+#Start: New Task error keys
+task.taskName.required=Task Name cannot be left blank.
+task.assignedTo.required=Assigned To cannot be left blank.
+task.dueDate.required=Due date should be greater than today's date.
+task.Priority.required=Priority cannot be left blank.
+task.desc.required=Description cannot be left blank.
+#End  : New Task error keys
+
+#Start: View Single Task Error keys
+task.dueDate.valid= Due date should be greater than created date.
+#End: View Single Task Error keys
+
+#Start: Rating Error Keys
+rating.par.noriskgrpid= Building Id is not present 
+rating.par.itm.num=Rating Item Sequence no is not Set
+rating.par.uwq.sprk= Response not set for UWQ_CODE_PAR_SPRIKLERFLG Question
+rating.par.uwq.alarm=Response not set for UWQ_CODE_PAR_SPRIKLERFLG Question
+rating.par.uwq=PAR Under Writing Questions not present
+rating.par.uwd.constr.type=Construction Type Factor not present for PAR section
+rating.par.uwd.hazlvl.type=Hazard Level Factor not present for section
+rating.par.uwd=UW details not present for section
+rating.par.nosi=PAR Building SI is not available
+rating.par.nocover=No Covers found for PAR Section
+rating.par.nobldingdata=In Covers no data found for PAR building SI or Deductible;
+rating.par.nodeduct=In Covers no data found for PAR building Deductible
+rating.par.content.norisktype=In Covers no data found for cover risk type
+rating.par.nocontentdeduct=In Covers no data found for Content Deductible
+
+rating.pl.notrdgrp=PL Trade group is not present
+rating.pl.uwq.notntflg=Response not set for UWQ_TENANT_FLG_FACTOR Question
+rating.pl.uwq.nowrkawyflg=Response not set for UWQ_CODE_PL_WORK_AWY_FLG Question
+rating.pl.uwq.nofddrnk=Response not set for UWQ_PL_FOOD_DRINK_FLG Question 
+rating.wc.itm.num=Item Sequence Number Not Found 
+
+rating.pl.noded=PL deductible not available 
+rating.pl.noliblimit=PL liability limit not available
+rating.wc.noded=Deductibe is not present for WC
+rating.wc.nopaflg=Response for 24 PA Cover is not available for WC
+rating.wc.noliablimit=Liabilitylimit is not available for WC
+rating.wc.noemptype=Employee type is not available for WC
+rating.wc.nowageRoll=Annual WageRoll is not present for WC
+rating.money.notrdgrp=Money Trade group id is not present
+rating.money.nocategory=Money Category is not present
+rating.money.nodeductible=Money deductible is not present
+rating.money.nosi=Money sum insured is not present
+
+rating.getdetails.error=Error occurred during Rating invocation. Please check the Rating configuration
+rating.getRates.error=Error occurred during Rating invocation. Please check the Rating configuration
+rating.invocation.error=Error occurred  during invocation from Rating Engine
+rating.invocation.generalexception=Error occurred  during invocation from Rating Engine
+rating.invocation.no.riskGroupDetailsMap=No risk found
+rating.invocation.no.loc=Loc details not found
+
+#Phase 2a Messages
+#For BI
+rating.bi.itm.num = Item Sequence Number For BI not set.
+ 
+#Start: Rating Error Keys
+
+
+#Start:Error keys for quote processes
+pas.approveQuoteSuccessful=Quote approved successfully
+pas.issueQuoteSuccessful=Quote issued successfully
+pas.rejectQuoteSuccessful=Quote rejected successfully
+pas.declineQuoteSuccessful=Quote declined successfully
+pas.endorsementTextSuccessful=Endorsement comments saved successfully
+pas.cancelEndorsement=Cancel Endorsement comments saved successfully
+pas.endorsementSuccessMsg=Endorsement Confirmed successfully
+pas.approvePolicySuccessful=Policy approved successfully
+pas.declinePolicySuccessful=Policy declined successfully
+pas.convertToPolicy.createdDtEffectiveDt=Policy Created Date Should not be after Policy Effective Date.Please change quotation effective date.
+pas.convertToPolicy.brokerAccBlocked=Broker account is blocked.
+#End:Error keys for quote process
+pas.convertTopolicy.exception=Unable to Convert Quote To Policy Please contact IT support
+
+#Start: New task error Keys
+pas.loggedInUser.idNull=Error occurred during creation of new task.
+#End:  New task error Keys
+
+# search transaction error keys
+pas.src.linkerror=Unable to get quote/policy data. Please try again later.
+pas.src.Empty=The record for the entered search criteria is not available
+#############################
+
+# Start : Insured Search Error keys
+pas.insuredSearch.insuredId=Insured Id should be numeric.
+pas.insuredSearch.phoneNo=Phone number should be numeric.
+pas.insuredSearch.mobileNo=Mobile number should be numeric.
+pas.insuredSearch.policyQuoteNo=Quote/Policy number should be numeric.
+pas.insuredSearch.emailId=Email Id should be a valid format.
+# End : Insured Search Error keys
+
+# Start : File upload component keys
+pas.upload.rootFolderNotSet=File path specified for upload is incorrect. Please set the correct path.
+pas.upload.successful=File uploaded successfully
+pas.upload.unsuccessful=File could not be uploaded
+pas.upload.fileSizeTooHigh=File is too large. Please upload a file less than 2MB in size.
+pas.upload.tlc.fileSizeTooHigh=File is too large. Please upload a file less than 5MB in size.
+pas.upload.fileTypeNotSupportedType1=You can upload only .doc, .docx, .pdf and .jpeg files.
+pas.upload.fileTypeNotSupportedType2 = You can upload only .xls or .xlsx files.
+pas.cmn.incorrectData=File may have incorrect data.
+pas.cmn.fileNotFound=Error : Could not find the file.
+pas.cmn.fileReadFailed=Error : Problem in reading file.
+pas.cmn.uploadRowExceeded=Uploaded file has more than 50 rows.
+pas.upload.fileIsEmpty = Uploaded file is empty
+pas.upload.headers = Uploaded file has only Headers
+pas.download.unsuccessful=File could not be downloaded.
+# End : File upload component keys
+
+#Start:PASMailing
+mail.error=Error in sending mail, Please retry after some time. 
+mail.user.noemail=User does not have mail id updated in user profile
+mail.user.notlemail=From Email Id is not available.
+#End: PASMailing
+
+
+#Start:My Dairy 
+pas.dairyAdd.successfull=Diary Item Added successfully.
+pas.dairyUpd.successfull=Diary Item Updated successfully.
+pas.dairyDelete.successfull=Diary Item Deleted successfully.
+#End:My Dairy 
+
+#Start:Clauses
+pas.sectionNotFilled=This Section details are not entered.Please enter the details first.
+pas.insClauses.exception=Cannot save mandatory Clauses.Please contact administrator.
+#End:Clauses
+
+
+#Start:Premium Calculation
+pas.prm.duplicateDelRec=Error in processing premium
+
+pas.wc.24HourPACover =24 Hour PA Cover not selected in Workmen Compensation.
+pas.tradeLicense.notUploaded=Cannot Convert to Policy as Trade License Details have not been uploaded. Please Upload and try again.
+##CTS - 21.10.2020 - CR#16903 IA Emirates CR - Starts
+pas.emirates.notUploaded=Cannot Convert to Policy as Emirates ID Details have not been uploaded. Please Upload and try again.
+pas.emirates.front.notUploaded=Cannot Convert to Policy as Emirates ID Front side details have not been uploaded. Please Upload and try again.
+pas.emirates.back.notUploaded=Cannot Convert to Policy as Emirates ID Back side details have not been uploaded. Please Upload and try again.
+##CTS - 21.10.2020 - CR#16903 IA Emirates CR - End
+#Start: EE Error Keys
+
+ee.equipmentType.required=Equipment Type is mandatory.
+ee.equipmentDesc.required=Equipment Description is mandatory.
+#ee.yearOfMake.required=Year Of Make is mandatory.
+#ee.serialNumber.required=Serial Number is mandatory.
+#ee.quantity.required=Quantity is mandatory.
+ee.newReplacementVal.required=New Replacement Value is mandatory.
+
+ee.deductibles.required=Deductible is mandatory.
+
+#End: EE Error Keys
+
+
+#Start: BI Error keys 
+bi.indemnityPeriod.required=Indemnity Period is mandatory.
+bi.deductibles.required=Deductible is mandatory.
+#Renewals
+pas.renewal.exceptionInDataFetch=Exception Occurred while fetching the data.
+pas.renewal.noRecordsFound=No records found.
+pas.renewal.policyNo=Policy number should be numeric.
+pas.renewal.transactionDateFromValid=Transaction From Date should not be before Today.
+pas.renewal.transactionDateToValid=Transaction To Date should not be before Today.
+pas.renewal.transExpiresIn=Policies expiring In Next should be numeric.
+pas.renewal.ratingfail=Renewal quotation generation process is not complete due to rating error. Please contact Administrator.
+pas.renewal.quoteprocessingfail=Renewal quotation generation process is not complete due to some error. Please contact Administrator.
+#Start : GIT Error Keys
+
+git.singleTransitLimit.required=Single Transit Limit is mandatory.
+git.estimatedAnnualCarryValue.required=Estimated Annual Carry Value is mandatory.
+git.settlmentCurrency.required=Settlement Currency is mandatory.
+git.exchangeRate.required=Exchange Rate is mandatory.
+git.settlingAgent.required=Settling Agent is mandatory.
+git.settlingLocation.required=Settling Location is mandatory.
+git.modeOfTransit.required=Mode of Transit is mandatory.
+git.voyageFrom.required=Voyage From is mandatory.
+git.voyageTo.required=Voyage To is mandatory.
+git.commodityType.required=Commodity Type is mandatory.
+git.goodsDescription.required=Description of Goods is mandatory.
+git.siBasis.required=SI Basis is mandatory.
+git.deductible.required=Deductible is mandatory.
+#End : GIT Error Keys
+#Start : GPA Error Keys
+
+groupPersonalAccident.aggregateLimit.required=Aggregate limit is mandatory.
+groupPersonalAccident.gpaDeductible.required=Deductible is mandatory.
+groupPersonalAccident.unnammedEmployeeType.required=Employee type for Unnamed employee is mandatory.
+groupPersonalAccident.unnammedNumberOfEmloyee.required=Number of employee is mandatory.
+groupPersonalAccident.unnammedAnnualSalary.required=Annual salary is mandatory.
+groupPersonalAccident.sumInsured.required=Capital sum insured is mandatory.
+groupPersonalAccident.nameOfEmployee.required=Name of employee is mandatory.
+groupPersonalAccident.employeeType.required=Employee type for Named employee is mandatory.
+groupPersonalAccident.nammedEmpGender.required= Employee gender is mandatory.
+groupPersonalAccident.nammedEmpDob.required=Employee date of birth is mandatory.
+groupPersonalAccident.nammedEmpDesignation.required=Employee designation is mandatory. 
+groupPersonalAccident.nammedEmpAnnualSalary.required=Employee annual salary is mandatory.
+
+#End : GPA Error Keys
+
+#Start: DOS Error Keys
+deteriorationOfStock.stockType.required = Stock Type is mandatory
+deteriorationOfStock.stockDesc.required = Stock Description is mandatory
+deteriorationOfStock.stockQuantity.required = Stock Quantity is mandatory
+deteriorationOfStock.stockValue.required = Stock Value is mandatory
+deteriorationOfStock.stockDeductible.required = Deductible is mandatory
+#End: DOS Error Keys
+
+#Start: Fidelity Error Keys
+fidelity.aggregateLimit.required = AggregateLimit is mandatory
+fidelity.deductible.required = Deductible is mandatory
+fidelity.empName.required = Name is mandatory
+fidelity.empDesignation.required = Designation is mandatory
+fidelity.limitPerPerson.required = Specific Limit Per Person is mandatory
+fidelity.empType.required = Type is of Employee mandatory
+fidelity.totalNumberOfEmployee.required = No of Employee is mandatory
+#End: Fidelity Error Keys
+
+
+#Start: Travel details Error Keys
+travelDetails.travelLocation.required = Travel Location is mandatory
+travelDetails.travelPeriod.required = Travel Period is mandatory
+travelDetails.startDate.required = Start Date is mandatory
+travelDetails.endDate.required = End Date is mandatory
+travelDetails.startDate.validDate = Start Date is Invalid
+travelDetails.endDate.validDate = End Date is Invalid
+travelDetails.travelFinalDest.required = Final Destination is mandatory
+#End: Travel details Error Keys
+
+#Start: Traveler details Error Keys
+travelerDetails.name.required = Traveler Name is mandatory
+travelerDetails.dateOfBirth.required = Traveler Date of Birth is mandatory
+travelerDetails.relation.required = Traveler relation detail is mandatory
+travelerDetails.nationality.required = Traveler nationality detail is mandatory
+travelerDetails.dateOfBirth.validDate = Traveler Date of Birth is Invalid
+travelerDetails.gender.required = Traveler Gender is mandatory
+#End: Traveler details Error Keys
+
+pas.policy.noRecordsFound=No data found in Policy table.
+pas.policy.tooManyRecords=Too many records found.
+
+#Phase3 change
+#Start: SMS Details Keys
+sms.details.noaccess=Unable to get SMS details  from the database.
+sms.details.nullvalue=Sorry Tasks are not available.
+
+pas.cmn.languageNull = Please select a language
+#End: SMS Details Keys
+
+#start: Home Insurance error keys
+homeInsurance.listItem.SI.validation = List item total Sum Insured should be less than or equal to the content value
+homeInsurance.listItemPP.SI.validation = List item total Sum Insured should be less than or equal to the personal possession value
+#End: Home Insurance error keys
+
+travel.basicCovers.notFound=Either Personal Baggage or Emergency Medical Expenses is mandatory.
+
+err.promo.duplicate=Given Promotional Code already exists
+err.free.cover.empty=Please select any Cover
+err.discount.empty=Please select any Scheme 
+err.discload.auth=Your role does not allow to decrease the approved loading or increase the approved discount.
+cmn.brkblocked=This account is blocked. Please contact admin.
+##Start:Forgot Password error keys.
+cmn.loginError=Unexpected exception occurred. Please contact Administrator!
+cmn.dobError=User Additional Details do not Match (Invalid)!
+cmn.lastNameError=User Additional Details do not Match (Invalid)
+cmn.userError=Check your account information!
+
+##Added as part of WC-Monoline
+pas.emailId.required=Please enter Email Id
+pas.noOfEmployees.required = No of Employee is mandatory
+pas.insured.emailId=Email Id should be a valid format.
+pas.insured.phoneNo=Phone number should be numeric.
+pas.insured.mobileNo=Mobile number should be numeric.
+pas.name.invalid=Insured Name is Invalid
+pas.Insuredname.required=Insured Name cannot be blank
+pas.wc.minPrm.validation=Premium cannot be below minimum premium. Please provide a valid discount.
+pas.quote.policy=Quote already converted to policy
+pas.quote.declined=Quote cannot be issued as this quote already declined by other user
+pas.concurrent.transaction.by.multiple.users=The same quote is edited by Another User please do transaction search once again to have the latest update
+pas.something.went.wrong=Something went wrong please contact support.
+##VAT new screen implementation
+pas.vat.regNo.error=Error while updating VAT Reg No.
+## For On Demand Batch
+ondemand.submitquotes=All Quote Submitted in Batch, Please check after some time in transaction search
+ondemand.quote=Quote is submitted for Batch, Please check after some time in transaction search
+
+##added to fix defect #129210
+cmn.brkblocked.cl=Broker is blocked.Please contact the system administrator.
+cmn.brkblocked.pl=Broker is blocked.Please contact the system administrator.

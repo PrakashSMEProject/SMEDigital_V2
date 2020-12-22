@@ -1,0 +1,84 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated May 17, 2012 9:12:17 AM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.rsaame.pas.dao.model.TTrnPolicyConditionQuo" table="T_TRN_POLICY_CONDITION_QUO">
+        <composite-id name="id" class="com.rsaame.pas.dao.model.TTrnPolicyConditionQuoId">
+            <key-property name="tpcPolicyId" type="long">
+                <column name="TPC_POLICY_ID" precision="16" scale="0" />
+            </key-property>
+            <key-property name="tpcEndtId" type="long">
+                <column name="TPC_ENDT_ID" precision="16" scale="0" />
+            </key-property>
+            <key-property name="tpcClCode" type="int">
+                <column name="TPC_CL_CODE" precision="5" scale="0" />
+            </key-property>
+            <key-property name="tpcPtCode" type="int">
+                <column name="TPC_PT_CODE" precision="5" scale="0" />
+            </key-property>
+            <key-property name="tpcCode" type="int">
+                <column name="TPC_CODE" precision="5" scale="0" />
+            </key-property>
+            <key-property name="tpcRskId" type="long">
+                <column name="TPC_RSK_ID" precision="16" scale="0" />
+            </key-property>
+        </composite-id>
+        <property name="tpcCovCode" type="java.lang.Integer">
+            <column name="TPC_COV_CODE" precision="5" scale="0">
+                <comment>TPC_COV_CODE</comment>
+            </column>
+        </property>
+        <property name="tpcCtCode" type="java.lang.Integer">
+            <column name="TPC_CT_CODE" precision="5" scale="0">
+                <comment>TPC_CT_CODE</comment>
+            </column>
+        </property>
+        <property name="tpcCstCode" type="java.lang.Integer">
+            <column name="TPC_CST_CODE" precision="5" scale="0">
+                <comment>TPC_CST_CODE</comment>
+            </column>
+        </property>
+        <property name="tpcValidityStartDate" type="java.sql.Timestamp">
+            <column name="TPC_VALIDITY_START_DATE" length="7">
+                <comment>TPC_VALIDITY_START_DATE</comment>
+            </column>
+        </property>
+        <property name="tpcValidityEndDate" type="java.sql.Timestamp">
+            <column name="TPC_VALIDITY_END_DATE" length="7">
+                <comment>TPC_VALIDITY_END_DATE</comment>
+            </column>
+        </property>
+        <property name="tpcStatus" type="java.lang.Byte">
+            <column name="TPC_STATUS" precision="2" scale="0">
+                <comment>TPC_STATUS</comment>
+            </column>
+        </property>
+        <property name="tpcPreparedBy" type="java.lang.Integer">
+            <column name="TPC_PREPARED_BY" precision="8" scale="0">
+                <comment>TPC_PREPARED_BY</comment>
+            </column>
+        </property>
+        <property name="tpcPreparedDt" type="date">
+            <column name="TPC_PREPARED_DT" length="7">
+                <comment>TPC_PREPARED_DT</comment>
+            </column>
+        </property>
+        <property name="tpcModifiedBy" type="java.lang.Integer">
+            <column name="TPC_MODIFIED_BY" precision="8" scale="0">
+                <comment>TPC_MODIFIED_BY</comment>
+            </column>
+        </property>
+        <property name="tpcModifiedDt" type="date">
+            <column name="TPC_MODIFIED_DT" length="7">
+                <comment>TPC_MODIFIED_DT</comment>
+            </column>
+        </property>
+        <property name="tpcAmount" type="string">
+            <column name="TPC_AMOUNT" length="100" />
+        </property>
+        <property name="tpcPrintFlag" type="java.lang.Boolean">
+            <column name="TPC_PRINT_FLAG" precision="1" scale="0" />
+        </property>
+    </class>
+</hibernate-mapping>

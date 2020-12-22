@@ -1,0 +1,72 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Mar 13, 2012 3:28:03 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.rsaame.pas.dao.model.TTrnTask" table="T_TRN_TASK">
+        <id name="tskId" type="long">
+            <column name="TSK_ID" precision="16" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <property name="tskAssignor" type="java.lang.Integer">
+            <column name="TSK_ASSIGNOR" precision="5" scale="0" />
+        </property>
+        <property name="tskAssignee" type="java.lang.Integer">
+            <column name="TSK_ASSIGNEE" precision="5" scale="0" />
+        </property>
+        <property name="tskShortDesc" type="string">
+            <column name="TSK_SHORT_DESC" length="200" />
+        </property>
+        <property name="tskDescription" type="string">
+            <column name="TSK_DESCRIPTION" length="2000" />
+        </property>
+        <property name="tskTargetDate" type="java.sql.Timestamp">
+            <column name="TSK_TARGET_DATE" length="7" />
+        </property>
+        <property name="tskEstimatedTime" type="java.lang.Integer">
+            <column name="TSK_ESTIMATED_TIME" precision="5" scale="0" />
+        </property>
+        <property name="tskTimeUnit" type="java.lang.Boolean">
+            <column name="TSK_TIME_UNIT" precision="1" scale="0" />
+        </property>
+        <property name="tskCustomerId" type="java.lang.Long">
+            <column name="TSK_CUSTOMER_ID" precision="16" scale="0" />
+        </property>
+        <property name="tskTranType" type="java.lang.Byte">
+            <column name="TSK_TRAN_TYPE" precision="2" scale="0" />
+        </property>
+        <property name="tskDocumentId" type="string">
+            <column name="TSK_DOCUMENT_ID" length="30" />
+        </property>
+        <property name="tskPriority" type="java.lang.Byte">
+            <column name="TSK_PRIORITY" precision="1" scale="0" />
+        </property>
+        <property name="tskStatus" type="java.lang.Byte">
+            <column name="TSK_STATUS" precision="1" scale="0" />
+        </property>
+        <property name="tskCompletionDate" type="date">
+            <column name="TSK_COMPLETION_DATE" length="7" />
+        </property>
+        <property name="tskClientRef" type="string">
+            <column name="TSK_CLIENT_REF" length="50" />
+        </property>
+        <property name="tskClass" type="java.lang.Byte">
+            <column name="TSK_CLASS" precision="2" scale="0" />
+        </property>
+        <property name="tskBrCode" type="java.lang.Long">
+            <column name="TSK_BR_CODE" precision="12" scale="0" />
+        </property>
+        <property name="tskEstPremium" type="big_decimal">
+            <column name="TSK_EST_PREMIUM" precision="16" scale="3" />
+        </property>
+        <property name="tskCreatedBy" type="java.lang.Integer">
+            <column name="TSK_CREATED_BY" precision="5" scale="0" />
+        </property>
+        <property name="tskTaskCategory" type="java.lang.Byte">
+            <column name="TSK_TASK_CATEGORY" precision="1" scale="0" />
+        </property>
+        <property name="tskCreatedDate" type="java.sql.Timestamp">
+            <column name="TSK_CREATED_DATE" length="7" />
+        </property>
+    </class>
+</hibernate-mapping>

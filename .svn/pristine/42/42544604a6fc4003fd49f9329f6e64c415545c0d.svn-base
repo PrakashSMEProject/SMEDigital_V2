@@ -1,0 +1,80 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated May 17, 2012 10:26:02 AM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.rsaame.pas.dao.model.TMasPolicyExclusion" table="T_MAS_POLICY_EXCLUSION">
+        <composite-id name="id" class="com.rsaame.pas.dao.model.TMasPolicyExclusionId">
+            <key-property name="pexClCode" type="int">
+                <column name="PEX_CL_CODE" precision="5" scale="0" />
+            </key-property>
+            <key-property name="pexPtCode" type="int">
+                <column name="PEX_PT_CODE" precision="5" scale="0" />
+            </key-property>
+            <key-property name="pexCode" type="int">
+                <column name="PEX_CODE" precision="5" scale="0" />
+            </key-property>
+            <key-property name="pexCovCode" type="int">
+                <column name="PEX_COV_CODE" precision="5" scale="0" />
+            </key-property>
+            <key-property name="pexSchCode" type="int">
+                <column name="PEX_SCH_CODE" precision="5" scale="0" />
+            </key-property>
+        </composite-id>
+        <property name="pexAText" type="string">
+            <column name="PEX_A_TEXT" length="2000" />
+        </property>
+        <property name="pexEText" type="string">
+            <column name="PEX_E_TEXT" length="2000" />
+        </property>
+        <property name="pexYn" type="java.lang.Character">
+            <column name="PEX_YN" length="1" />
+        </property>
+        <property name="pexDefaultInd" type="java.lang.Integer">
+            <column name="PEX_DEFAULT_IND" precision="1" scale="0" />
+        </property>
+        <property name="pexCtCode" type="java.lang.Integer">
+            <column name="PEX_CT_CODE" precision="5" scale="0" />
+        </property>
+        <property name="pexCstCode" type="java.lang.Integer">
+            <column name="PEX_CST_CODE" precision="5" scale="0" />
+        </property>
+        <property name="pexUserCode" type="java.lang.Integer">
+            <column name="PEX_USER_CODE" precision="5" scale="0" />
+        </property>
+        <property name="pexPhrCode" type="java.lang.Integer">
+            <column name="PEX_PHR_CODE" precision="5" scale="0" />
+        </property>
+        <property name="pexAmount" type="string">
+            <column name="PEX_AMOUNT" length="2000" />
+        </property>
+        <property name="pexPreparedBy" type="java.lang.Integer">
+            <column name="PEX_PREPARED_BY" precision="8" scale="0" />
+        </property>
+        <property name="pexPreparedDt" type="date">
+            <column name="PEX_PREPARED_DT" length="7" />
+        </property>
+        <property name="pexModifiedBy" type="java.lang.Integer">
+            <column name="PEX_MODIFIED_BY" precision="8" scale="0" />
+        </property>
+        <property name="pexModifiedDt" type="date">
+            <column name="PEX_MODIFIED_DT" length="7" />
+        </property>
+        <property name="pexDocRef" type="string">
+            <column name="PEX_DOC_REF" length="200" />
+        </property>
+        <property name="pexDocFlag" type="java.lang.Boolean">
+            <column name="PEX_DOC_FLAG" precision="1" scale="0" />
+        </property>
+        <property name="pexEffectiveDate" type="date">
+            <column name="PEX_EFFECTIVE_DATE" length="7" />
+        </property>
+        <property name="pexExpiryDate" type="date">
+            <column name="PEX_EXPIRY_DATE" length="7" />
+        </property>
+        <property name="pexOldCode" type="int">
+            <column name="PEX_OLD_CODE" precision="5" scale="0" />
+        </property>
+        
+    </class>
+</hibernate-mapping>

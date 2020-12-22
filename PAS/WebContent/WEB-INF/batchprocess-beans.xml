@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	 xmlns:aop="http://www.springframework.org/schema/aop"
+	 xsi:schemaLocation="http://www.springframework.org/schema/beans
+	 http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+	 http://www.springframework.org/schema/aop
+     http://www.springframework.org/schema/aop/spring-aop-2.5.xsd">
+     
+     <import resource="classpath*:config/applicationContext.xml"/>
+     
+     		<!-- Start Renewal Batch Scheuler -->
+	<bean id="RenewalBatchSchedulerSvc" class="com.rsaame.pas.renewals.scheduler.RenewalBatchSchedulerSvc"  scope="singleton">
+		<property name="renewalsDAO" ref="renewalDAO1" />
+		<property name="renewalPolicyDetailCommon" ref="renewalPolicyDetailsCommon" />
+		<property name="hibernateTemplate" ref="hibernateTemplate" />
+	</bean>
+	
+	<!-- added for db switching timer tasks -->
+	<bean id="RenewalBatchSvc" class="com.rsaame.pas.renewals.scheduler.RenewalBatchService" >
+			<property name="renewalBatchSchedulerSvc" ref="RenewalBatchSchedulerSvc" />
+	</bean>
+	
+	<bean id="RenewalBatchScheduledTask" class="org.springframework.scheduling.timer.ScheduledTimerTask"> 
+		<!-- wait 20 seconds before starting repeated execution -->
+		<property name="delay" value="20000" /> 
+		<!-- <property name="delay" value="180000" /> -->
+		<!-- run every 24 hrs 86400000-->
+		<property name="period" value="86400000" />
+		<property name="timerTask" ref="RenewalBatchSvc" />
+	</bean>
+
+
+	<!-- Start SBSQuoteScheduledTask Batch Scheuler -->
+
+<bean id="WSImportSBSQuoteScheduledTask" class="com.rsaame.pas.renewals.scheduler.WSImportSBSQuoteScheduledTask"  scope="singleton">
+	</bean>
+	
+	<!-- added for db switching timer tasks -->
+	<bean id="WSImportSBSQuoteService" class="com.rsaame.pas.renewals.scheduler.WSImportSBSQuoteScheduledService" >
+			<property name="wSImportSBSQuoteScheduledTask" ref="WSImportSBSQuoteScheduledTask" />
+	</bean>
+	
+ 
+	
+	<bean id="WSImportSBSQuoteScheduledTaskEXE" class="org.springframework.scheduling.timer.ScheduledTimerTask"> 
+		<!-- wait 20 seconds before starting repeated execution -->
+		<property name="delay" value="20000" /> 
+		<!-- <property name="delay" value="180000" /> -->
+		<!-- run every 24 hrs 86400000-->
+		<!--  <property name="period" value="86400000" /> -->
+		<property name="period" value="60000" /> 
+		<property name="timerTask" ref="WSImportSBSQuoteService" />
+	</bean>
+
+	<bean id="RenewalBatchTimerFactory" class="org.springframework.scheduling.timer.TimerFactoryBean">
+		<property name="scheduledTimerTasks">
+			<list>				
+			   <ref bean="RenewalBatchScheduledTask" />  
+ 			  <!-- <ref bean="WSImportSBSQuoteScheduledTaskEXE"/> -->
+			</list>
+		</property>
+	</bean>  
+	<!-- End Renewal Batch Scheuler -->
+	
+</beans>

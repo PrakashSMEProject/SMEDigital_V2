@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapping PUBLIC "-//EXOLAB/Castor Mapping DTD Version 1.0//EN"
+                         "http://castor.org/mapping.dtd">
+
+<mapping>
+  <class name="com.rsaame.pas.doc.vo.DocumentVO">
+    <map-to xml="Document"/>
+
+		<field name="UUID" type="string" >
+			<bind-xml name="UUID" node="element" />
+		</field>
+		<field name="parentFolderUUID" type="java.lang.String" >
+			<bind-xml name="parentFolderUUID" node="element" />
+		</field>
+		
+		<field name="name" type="java.lang.String" >
+			<bind-xml name="name" node="element" />
+		</field>
+		
+		<field name="title" type="java.lang.String" >
+			<bind-xml name="title" node="element" />
+		</field>
+		<field name="description" type="java.lang.String" >
+			<bind-xml name="description" node="element" />
+		</field>
+		
+		<field name="size" type="java.lang.String" >
+			<bind-xml name="size" node="element" />
+		</field>
+		<field name="creator" type="java.lang.String" >
+			<bind-xml name="creator" node="element" />
+		</field>
+		
+		<field name="modifier" type="java.lang.String" >
+			<bind-xml name="modifier" node="element" />
+		</field>
+		
+		<field name="createdDateInMillis" type="java.lang.String" >
+			<bind-xml name="createdDateInMillis" node="element" />
+		</field>
+		<field name="modifiedDateInMillis" type="java.lang.String" >
+			<bind-xml name="modifiedDateInMillis" node="element" />
+		</field>
+		<field name="expiryDateInMillis" type="java.lang.String" >
+			<bind-xml name="expiryDateInMillis" node="element" />
+		</field>
+		
+		<field name="publishDateInMillis" type="java.lang.String" >
+			<bind-xml name="publishDateInMillis" node="element" />
+		</field>
+		
+		<field name="base64String" type="java.lang.String" >
+			<bind-xml name="base64String" node="element" />
+		</field>
+		
+		<field name="securityContext" type="com.rsaame.pas.ecm.SecurityContext" >
+			<bind-xml name="securityContext" node="element" />
+		</field>
+		
+		<field name="publishDate" type="java.lang.String" >
+			<bind-xml name="publishDate" node="element" />
+		</field>
+		
+		<field name="expiryDate" type="java.lang.String" >
+			<bind-xml name="expiryDate" node="element" />
+		</field>
+		
+		<field name="period" type="java.lang.String" >
+			<bind-xml name="period" node="element" />
+		</field>
+		
+		<field name="status" type="java.lang.String" >
+			<bind-xml name="status" node="element" />
+		</field>
+		
+		<field name="keyword" type="java.lang.String" >
+			<bind-xml name="keyword" node="element" />
+		</field>
+		
+  </class>
+</mapping>

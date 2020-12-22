@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Feb 1, 2012 11:52:36 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.rsaame.pas.dao.model.TMasRiskSubCategory" table="T_MAS_RISK_SUB_CATEGORY" >
+        <composite-id name="id" class="com.rsaame.pas.dao.model.TMasRiskSubCategoryId">
+            <key-property name="rscRskCode" type="int">
+                <column name="RSC_RSK_CODE" precision="5" scale="0" />
+            </key-property>
+            <key-property name="rscRtCode" type="int">
+                <column name="RSC_RT_CODE" precision="5" scale="0" />
+            </key-property>
+            <key-property name="rscRcCode" type="int">
+                <column name="RSC_RC_CODE" precision="5" scale="0" />
+            </key-property>
+            <key-property name="rscCode" type="int">
+                <column name="RSC_CODE" precision="5" scale="0" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="TMasRiskCategory" class="com.rsaame.pas.dao.model.TMasRiskCategory" update="false" insert="false" fetch="select">
+            <column name="RSC_RSK_CODE" precision="5" scale="0" not-null="true" />
+            <column name="RSC_RT_CODE" precision="5" scale="0" not-null="true" />
+            <column name="RSC_RC_CODE" precision="5" scale="0" not-null="true" />
+        </many-to-one>
+        <property name="rscADesc" type="string">
+            <column name="RSC_A_DESC" length="100" />
+        </property>
+        <property name="rscEDesc" type="string">
+            <column name="RSC_E_DESC" length="100" />
+        </property>
+        <property name="rscUserCode" type="java.lang.Integer">
+            <column name="RSC_USER_CODE" precision="5" scale="0" />
+        </property>
+        <property name="rscLimitCode" type="java.lang.Integer">
+            <column name="RSC_LIMIT_CODE" precision="5" scale="0" />
+        </property>
+        <property name="rscPreparedBy" type="java.lang.Integer">
+            <column name="RSC_PREPARED_BY" precision="8" scale="0" />
+        </property>
+        <property name="rscPreparedDt" type="date">
+            <column name="RSC_PREPARED_DT" length="7" />
+        </property>
+        <property name="rscModifiedBy" type="java.lang.Integer">
+            <column name="RSC_MODIFIED_BY" precision="8" scale="0" />
+        </property>
+        <property name="rscModifiedDt" type="date">
+            <column name="RSC_MODIFIED_DT" length="7" />
+        </property>
+        <property name="rscStatus" type="java.lang.Integer">
+            <column name="RSC_STATUS" precision="5" scale="0" />
+        </property>
+    </class>
+</hibernate-mapping>

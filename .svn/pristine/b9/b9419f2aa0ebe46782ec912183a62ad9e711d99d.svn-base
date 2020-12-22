@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+xmlns="http://com/rsaame/pas/b2c/ws" 
+targetNamespace="http://com/rsaame/pas/b2c/ws">
+
+  <xs:element name="SendNotificationMailResponse">
+  <xs:complexType>
+    <xs:sequence>
+      <xs:element name="response" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  </xs:element>
+
+  <xs:element name="SendNotificationMailRequest">
+  <xs:complexType>
+    <xs:sequence>
+  	  <xs:element name="lob" type="xs:string" minOccurs="0"/>
+      <xs:element name="idNumber" type="xs:long" minOccurs="0"/>
+      <xs:element name="type" type="xs:string" minOccurs="0"/>
+      <xs:element name="triggerName" minOccurs="0">
+      	<xs:simpleType>
+      		<xs:restriction base="xs:string">
+      			<xs:enumeration value="Create_Quote"></xs:enumeration>
+      			<xs:enumeration value="Complete_Purchase"></xs:enumeration>
+      		</xs:restriction>
+      	</xs:simpleType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  </xs:element>
+  
+</xs:schema>
+

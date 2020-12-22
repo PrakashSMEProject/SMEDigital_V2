@@ -1,0 +1,302 @@
+#set( $quote = '"' )
+##Bean Mapping Generator template
+##-------------------------------
+##
+## First of all, set the mapper type that this particular parsing run of the template represents.
+#if( $clazzA == "javax.servlet.http.HttpServletRequest" )
+#set( $mapperType = "R2B" )
+#else
+#set( $mapperType = "B2B" )
+#end
+##
+## /**
+##  * Macro to handle multi-element mappings in collections or arrays. For HTTP-REQUEST mappings, reverse mapping has not been
+##  * considered here. */ 
+## ---------------------------------------------------------------
+#macro( multi )
+#if( $mapperType == "R2B" ) ## {
+##In the case of request-to-bean mapping, the number of items to be fetched can be found using the utility
+##HTTPUtils.getMatchingReqParamKeys()
+		noOfItems = HTTPUtils.getMatchingMultiReqParamKeys( beanA, "${field.getSrcAttribute()}" ).size();
+## }
+#elseif( $field.getSrcAttrCollType() == "LIST" ) ## {
+		noOfItems = beanA${dot}${field.getSrcAttrAccessorMethodTillColl()}.size();
+## }
+#elseif( $field.getSrcAttrCollType() == "ARRAY" ) ## {
+		noOfItems = beanA${dot}${field.getSrcAttrAccessorMethodTillColl()}${dot}length;
+#end ## }
+##
+#set( $closeBrace = ");" ) ##Default setting for "closeBrace"
+#set( $eq = "=" ) ##Default setting for "eq"
+		for( int i = 0; i < noOfItems; i++ ){
+#if( $field.getDestAttrCollType() == "LIST" ) ## {
+#set( $eq = "" )
+#if( $field.isDestHasFieldsAfterIndex() ) ## {
+#set( $setter = "beanB$dot$field.getDestAttrMutatorMethodTillColl()${dot}get( i )${dot}${field.getDestAttrMutatorMethodAfterColl()} (")
+## }
+#else ## {
+#set( $setter = "Utils.setValueIntoList( beanB$dot$field.getDestAttrMutatorMethodTillColl(), i, " )
+#end ## }
+## }
+#elseif( $field.getDestAttrCollType() == "ARRAY" ) ## {
+#if( $field.isDestHasFieldsAfterIndex() ) ## {
+#set( $eq = "" )
+#set( $setter = "beanB$dot$field.getDestAttrMutatorMethodTillColl()[ i ]${dot}${field.getDestAttrMutatorMethodAfterColl()} (" )
+## }
+#else ## {
+#set( $closeBrace = ";" )
+#set( $setter = "beanB$dot$field.getDestAttrMutatorMethodTillColl()[ i ]" ) 
+#end ## }
+#end ## }
+##
+## /* Handle HTTP-REQUEST in one way and the rest in another */
+#if( $mapperType == "R2B" ) ## {
+#if( $field.getHttpAttr() ) ## {
+#set( $getter = "beanA.getAttribute( $quote$field.getSrcAttribute()[$quote + i + $quote]$quote )" )
+## }
+#else ## {
+#set( $getter = "beanA.getParameter( $quote$field.getSrcAttribute()[$quote + i + $quote]$quote )" )
+#end ## }
+## }
+#else ## {
+## /* Start: ELSE for If not HTTP-REQUEST */
+#if( $field.getSrcAttrCollType() == "LIST" ) ## {
+#if( $field.isSrcHasFieldsAfterIndex() ) ## {
+#set( $getter = "beanA$dot$field.getSrcAttrAccessorMethodTillColl()${dot}get( i )${dot}${field.getSrcAttrAccessorMethodAfterColl()}" )
+## }
+#else ## {
+#set( $getter = "beanA$dot$field.getSrcAttrAccessorMethodTillColl()${dot}get( i )" )
+#end ## }
+## }
+#elseif( $field.getSrcAttrCollType() == "ARRAY" ) ## {
+#if( $field.isSrcHasFieldsAfterIndex() ) ## {
+#set( $getter = "beanA$dot$field.getSrcAttrAccessorMethodTillColl()[ i ]${dot}${field.getSrcAttrAccessorMethodAfterColl()}" )
+## }
+#else ## {
+#set( $getter = "beanA$dot$field.getSrcAttrAccessorMethodTillColl()[ i ]" )
+#end ## }
+#end ## }
+#end ## } ## /* End: ELSE for If not HTTP-REQUEST */
+##if( $closeBrace == "Y" ) ## {
+##			);
+## }
+##else ##{
+##			;
+##end ## }
+##
+## /* Now, form the actual set-value statement. */ 
+#if( !$field.isConverterClassSet() )
+			$setter $eq $getter $closeBrace
+#else
+#handleConverterString( $eq $setter $getter )
+#end
+		}
+#end ##END OF MACRO multi()
+##
+##
+## Macro to generate Converter A to B using FieldVO ($field) instance
+## ------------------------------------------------------------------
+#macro( convertA2B $firstProps $secondProps )
+			$field.getConverterClass() converter = ConverterFactory.getInstance( $field.getConverterClass()$classExtension, "$firstProps", "$secondProps" );
+			beanB$dot$field.getDestAttributeMutatorMethod()( converter.getTypeOfB().cast( converter.getBFromA( beanA$dot$field.getSrcAttributeAccessorMethod() ) ) );
+#end ##END OF MACRO convertA2B()
+##
+## Macro to generate Converter B to A using FieldVO ($field) instance
+## ------------------------------------------------------------------
+#macro( convertB2A $firstProps $secondProps )
+			$field.getConverterClass() converter = ConverterFactory.getInstance( $field.getConverterClass()$classExtension, "$firstProps", "$secondProps" );
+			beanB$dot$field.getDestAttributeMutatorMethod()( converter.getTypeOfA().cast( converter.getAFromB( beanA$dot$field.getSrcAttributeAccessorMethod() ) ) );
+#end ##END OF MACRO convertB2A()
+##
+## Macro to handle converter cases using FieldVO ($field) instance
+## ---------------------------------------------------------------
+#macro( handleConverter )
+#if( $field.isConverterClassSet() && $field.isConverterDefaultAToB() && !$mappings.isReverse() ) ##{
+#convertA2B( $aProps $bProps )
+#elseif( $field.isConverterClassSet() && $field.isConverterDefaultAToB() && $mappings.isReverse() ) ##{
+#convertB2A( $aProps $bProps )
+#elseif( $field.isConverterClassSet() && !$field.isConverterDefaultAToB() && !$mappings.isReverse() )
+#convertB2A( $bProps $aProps )
+#elseif( $field.isConverterClassSet() && !$field.isConverterDefaultAToB() && $mappings.isReverse() )
+#convertA2B( $bProps $aProps )
+#end ##}
+#end ##END OF MACRO handleConverter()
+##
+##
+## Macro to generate Converter A to B using passed getter and setter strings
+## -------------------------------------------------------------------------
+#macro( convertA2BString $eq $setter $getter $firstProps $secondProps )
+			$field.getConverterClass() converter = ConverterFactory.getInstance( $field.getConverterClass()$classExtension, "$firstProps", "$secondProps" );
+#if( $eq == "=" )
+			$setter = converter.getTypeOfB().cast( converter.getBFromA( $getter ) );
+#else
+			$setter converter.getTypeOfB().cast( converter.getBFromA( $getter ) ) );
+#end
+#end ##END OF MACRO convertA2BString()
+##
+## Macro to generate Converter B to A using passed getter and setter strings
+## -------------------------------------------------------------------------
+#macro( convertB2AString $eq $setter $getter $firstProps $secondProps )
+			$field.getConverterClass() converter = ConverterFactory.getInstance( $field.getConverterClass()$classExtension, "$firstProps", "$secondProps" );
+#if( $eq == "=" )
+			$setter = converter.getTypeOfA().cast( converter.getAFromB( $getter ) );
+#else
+			$setter converter.getTypeOfA().cast( converter.getAFromB( $getter ) ) );
+#end
+#end ##END OF MACRO convertB2AString()
+##
+## Macro to handle converter cases using passed getter and setter strings
+## ----------------------------------------------------------------------
+#macro( handleConverterString $eq $setter $getter )
+#if( $field.isConverterClassSet() && $field.isConverterDefaultAToB() && !$mappings.isReverse() ) ##{
+#convertA2BString( $eq $setter $getter $aProps $bProps )
+#elseif( $field.isConverterClassSet() && $field.isConverterDefaultAToB() && $mappings.isReverse() ) ##{
+#convertB2AString( $eq $setter $getter $aProps $bProps )
+#elseif( $field.isConverterClassSet() && !$field.isConverterDefaultAToB() && !$mappings.isReverse() )
+#convertB2AString( $eq $setter $getter $bProps $aProps )
+#elseif( $field.isConverterClassSet() && !$field.isConverterDefaultAToB() && $mappings.isReverse() )
+#convertA2BString( $eq $setter $getter $bProps $aProps )
+#end ##}
+#end ##END OF MACRO handleConverter()
+##
+#set( $dot = "." )	
+#set( $classExtension = ".class" )
+#set( $beanMapperMethod = "mapBean" )
+/*
+ * THIS IS A GENERATED CLASS. THIS CLASS SHOULD NOT BE EDITED.
+ */
+package $package;
+
+import com.mindtree.ruc.cmn.beanmap.BaseBeanToBeanMapper;
+import com.mindtree.ruc.cmn.beanmap.BeanMapperFactory;
+import com.mindtree.ruc.cmn.beanmap.ConverterFactory;
+import com.mindtree.ruc.cmn.log.Logger;
+import com.mindtree.ruc.cmn.utils.BeanUtils;
+import com.mindtree.ruc.cmn.utils.CopyUtils;
+#if( $mapperType == "R2B" )
+import com.mindtree.ruc.cmn.utils.HTTPUtils;
+#end
+import com.mindtree.ruc.cmn.utils.Utils;
+
+/**
+ * Mapper class for:<ol>
+ * <li>$clazzA</li>
+ * <li>$clazzB</li>
+ * </ol>
+ * Get an instance of this class by making a call to <code>BeanMapperFactory.getMapperInstance( $BeanMapperClassName$classExtension )</code>.
+ */
+public class $BeanMapperClassName extends BaseBeanToBeanMapper<$clazzA, $clazzB>{
+	private final Logger log = Logger.getLogger( this.getClass() );	
+
+	public $BeanMapperClassName(){
+		super();
+	}
+
+	public $BeanMapperClassName( $clazzA src, $clazzB dest ){
+		super( src, dest );
+	}
+
+	/**
+	 * This method maps the contents of the source bean to a destination bean.
+	 * 
+	 * @param src
+	 * @param dest
+	 */
+	@Override
+	public $clazzB mapBean(){
+		
+		/* Simply return if the source is null. */
+		if( Utils.isEmpty( src ) ){
+			return null;
+		}
+		
+		/* If the destination is null, instantiate it. */
+		if( Utils.isEmpty( dest ) ){
+			dest = ($clazzB) Utils.newInstance( "$clazzB" );
+		}
+		
+		/* Cast the destination bean to a bean of type of BeanA */	
+		$clazzA beanA = src;
+			
+		/* Cast the destination bean to a bean of type of BeanB */
+		$clazzB beanB = dest;
+			
+#if( $mappings ) ##{ Comment: IF-1
+#if( $mappings.fields ) ##{ Comment: IF-2	
+		/* Initialize any deepVO inside the destination bean. This is to avoid null pointers at runtime whenever a deep field is being mapped in the destination bean. */
+		beanB = initializeDeepVO(beanA, beanB);
+		
+		/* A common variable that will be used to store the number of items in the case of multi-mappings. */
+		int noOfItems = 0;
+		
+## The following represent the bean copy methods		
+#foreach( $field in $mappings.fields )
+		/* Mapping: "$field.getSrcAttribute()" -> "$field.getDestAttribute()" */
+##
+## /* ********************************* */
+## CASE 1: No configuration for "ref", "mapper-type" or multi-element collection mapping. That is, a regular setAAA( getBBB() ) case.
+## /* ********************************* */
+##
+#if( !$field.isRefConfigured() && !$field.isMapperTypeConfigured() && !$field.isDeepCollMultiMapping() )##{ Comment: IF-3
+## This is the only case where "converter" will be used.
+		$field.getSrcAttributeNullCheckChain(){
+#set( $aProps = $field.getaProperties() )
+#set( $bProps = $field.getbProperties() )
+#if( !$field.isConverterClassSet() ) ##{
+			beanB$dot$field.getDestAttributeMutatorMethod()( beanA$dot$field.getSrcAttributeAccessorMethod() ); 
+#else
+#handleConverter()
+#end ##}
+##
+		}
+
+## /* ********************************* */
+## CASE 2: Collection mapping for multiple elements. Single element collection mapping is taken care of in the regular
+##         single field mapping (CASE 1 or CASE 3)
+## /* ********************************* */
+#elseif( $field.isDeepCollMultiMapping() ) ##IF for deep collection mapping for simple types or similar types
+##
+#multi()
+##
+
+## /* ********************************* */
+## CASE 3: "ref" and "mapper-type" combinations
+## /* ********************************* */
+#elseif( $field.isRefConfigured() && !$field.isMapperTypeConfigured() )
+		$field.getSrcAttributeNullCheckChain(){
+##			This is a mapping for an attribute which is not a collection
+			BaseBeanToBeanMapper mapper = BeanMapperFactory.getMapperInstanceForRef( "$field.getRef()", beanA$dot$field.getSrcAttributeAccessorMethod() );
+			mapper.mapBean( beanA$dot$field.getSrcAttributeAccessorMethod(), beanB$dot$field.getDestAttributeAccessorMethod() );
+		}
+	   	
+#elseif( !$field.isRefConfigured() && $field.isMapperTypeConfigured() )
+		$field.getSrcAttributeNullCheckChain()
+##		This is a mapping for attribute which is a collection of complex data type or simple data type where the source and destination collection are of same type
+		beanB$dot$field.getDestAttributeMutatorMethod()( CopyUtils.copy( beanA$dot$field.getSrcAttributeAccessorMethod(), beanB$dot$field.getDestAttributeAccessorMethod() ));	
+
+#elseif( $field.isRefConfigured() && $field.isMapperTypeConfigured() )
+		$field.getSrcAttributeNullCheckChain(){
+##			This is a mapping for attribute which is a collection of complex data type or simple data type where the source and destination collection are of same type
+			BaseBeanToBeanMapper mapper = BeanMapperFactory.getMapperInstanceForRef( "$field.getRef()", CopyUtils.asList( beanA$dot$field.getSrcAttributeAccessorMethod() ).get( 0 ) );
+			beanB$dot$field.getDestAttributeMutatorMethod()( CopyUtils.copy( beanA$dot$field.getSrcAttributeAccessorMethod(), beanB$dot$field.getDestAttributeAccessorMethod(), mapper.getClass() ));
+		}
+#end ## Comment: End IF-3
+#end				
+#end ## Comment: End IF-2
+#end ## Comment: End IF-1
+
+		return dest;
+	}	  
+
+	/**
+	 * This method initialises all the complex objects and collection instances we need for mapping.
+	 */
+	private static $clazzB initializeDeepVO( $clazzA beanA, $clazzB beanB ){
+#foreach( $field in $mappings.fields ) ## {
+#if( $field.getDestAttributeInit() ) ## {
+		$field.getDestAttributeInit()
+#end ## }
+#end ## }
+		return beanB;
+	}
+}

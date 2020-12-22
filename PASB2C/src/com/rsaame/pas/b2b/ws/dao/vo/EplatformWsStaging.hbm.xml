@@ -1,0 +1,1124 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.rsaame.pas.b2b.ws.dao.vo.EplatformWsStaging" table="T_TRN_EPLATFORM_STAGING_QUO">
+        <composite-id class="com.rsaame.pas.b2b.ws.dao.vo.EplatformWsStagingId" mapped="false" name="id" unsaved-value="undefined">
+            <key-property name="polPolicyId" type="long">
+                <column name="POL_POLICY_ID" precision="16" scale="0"/>
+            </key-property>
+            <key-property name="polEndtId" type="long">
+                <column name="POL_ENDT_ID" precision="16" scale="0"/>
+            </key-property>
+        </composite-id>
+      <!-- 
+      <property generated="never" lazy="false" name="polLocationCode" optimistic-lock="true" type="java.lang.Short" unique="false">
+            <column name="POL_LOCATION_CODE" precision="4" scale="0"/>
+        </property>
+        <property generated="never" lazy="false" name="polClassCode" optimistic-lock="true" type="java.lang.Short" unique="false">
+            <column name="POL_CLASS_CODE" precision="4" scale="0"/>
+        </property>
+        <property generated="never" lazy="false" name="polDocumentCode" optimistic-lock="true" type="java.lang.Short" unique="false">
+            <column name="POL_DOCUMENT_CODE" precision="4" scale="0"/>
+        </property>
+         -->  
+        <property generated="never" lazy="false" name="polPolicyNo" optimistic-lock="true" type="java.lang.Long" unique="false">
+            <column name="POL_POLICY_NO" precision="16" scale="0"/>
+        </property>
+        
+         <!--
+        <property generated="never" lazy="false" name="polPolicyYear" optimistic-lock="true" type="java.lang.Short" unique="false">
+            <column name="POL_POLICY_YEAR" precision="4" scale="0"/>
+        </property>
+        <property generated="never" lazy="false" name="polRefPolicyNo" optimistic-lock="true" type="java.lang.Long" unique="false">
+            <column name="POL_REF_POLICY_NO" precision="16" scale="0"/>
+        </property>
+        <property generated="never" lazy="false" name="polRefPolicyYear" optimistic-lock="true" type="java.lang.Short" unique="false">
+            <column name="POL_REF_POLICY_YEAR" precision="4" scale="0"/>
+        </property>
+        <property generated="never" lazy="false" name="polPolicyType" optimistic-lock="true" type="java.lang.Short" unique="false">
+            <column name="POL_POLICY_TYPE" precision="4" scale="0"/>
+        </property>
+        <property generated="never" lazy="false" name="polProposalNo" optimistic-lock="true" type="java.lang.Long" unique="false">
+            <column name="POL_PROPOSAL_NO" precision="10" scale="0"/>
+        </property>
+        <property generated="never" lazy="false" name="polProposalDate" optimistic-lock="true" type="date" unique="false">
+            <column length="7" name="POL_PROPOSAL_DATE"/>
+        </property>
+        <property generated="never" lazy="false" name="polIssueDate" optimistic-lock="true" type="date" unique="false">
+            <column length="7" name="POL_ISSUE_DATE"/>
+        </property>
+        <property generated="never" lazy="false" name="polExpiryDate" optimistic-lock="true" type="date" unique="false">
+            <column length="7" name="POL_EXPIRY_DATE"/>
+        </property>
+        <property generated="never" lazy="false" name="polCustomerId" optimistic-lock="true" type="java.lang.Long" unique="false">
+            <column name="POL_CUSTOMER_ID" precision="12" scale="0"/>
+        </property>
+        <property generated="never" lazy="false" name="polSourceOfBusiness" optimistic-lock="true" type="java.lang.Byte" unique="false">
+            <column name="POL_SOURCE_OF_BUSINESS" precision="2" scale="0"/>
+        </property>
+        <property generated="never" lazy="false" name="polAgentId" optimistic-lock="true" type="java.lang.Long" unique="false">
+            <column name="POL_AGENT_ID" precision="12" scale="0"/>
+        </property>
+        <property generated="never" lazy="false" name="polCommisionId" optimistic-lock="true" type="big_decimal" unique="false">
+            <column name="POL_COMMISION_ID" precision="8" scale="5"/>
+        </property>
+        <property generated="never" lazy="false" name="polCoinsuranceIndicator" optimistic-lock="true" type="java.lang.Boolean" unique="false">
+            <column name="POL_COINSURANCE_INDICATOR" precision="1" scale="0"/>
+        </property>
+        <property generated="never" lazy="false" name="polCoinsuranceType" optimistic-lock="true" type="java.lang.Boolean" unique="false">
+            <column name="POL_COINSURANCE_TYPE" precision="1" scale="0"/>
+        </property>
+        <property generated="never" lazy="false" name="polCoverNoteNo" optimistic-lock="true" type="java.lang.Long" unique="false">
+            <column name="POL_COVER_NOTE_NO" precision="12" scale="0"/>
+        </property>
+        <property generated="never" lazy="false" name="polCoverNoteDate" optimistic-lock="true" type="date" unique="false">
+            <column length="7" name="POL_COVER_NOTE_DATE"/>
+        </property>
+        <property generated="never" lazy="false" name="polPremium" optimistic-lock="true" type="big_decimal" unique="false">
+            <column name="POL_PREMIUM" precision="16" scale="3"/>
+        </property>
+        <property generated="never" lazy="false" name="polGovernmentTax" optimistic-lock="true" type="big_decimal" unique="false">
+            <column name="POL_GOVERNMENT_TAX" precision="10" scale="3"/>
+        </property>
+        <property generated="never" lazy="false" name="polPolicyFees" optimistic-lock="true" type="big_decimal" unique="false">
+            <column name="POL_POLICY_FEES" precision="10" scale="3"/>
+        </property>
+        <property generated="never" lazy="false" name="polCurrencyCode" optimistic-lock="true" type="java.lang.Short" unique="false">
+            <column name="POL_CURRENCY_CODE" precision="3" scale="0"/>
+        </property>
+        <property generated="never" lazy="false" name="polExchangeRate" optimistic-lock="true" type="big_decimal" unique="false">
+            <column name="POL_EXCHANGE_RATE" precision="10" scale="4"/>
+        </property>
+        <property generated="never" lazy="false" name="polProcessedDate" optimistic-lock="true" type="date" unique="false">
+            <column length="7" name="POL_PROCESSED_DATE"/>
+        </property>
+        -->
+        <property generated="never" lazy="false" name="polStatus" optimistic-lock="true" type="java.lang.Byte" unique="false">
+            <column name="POL_STATUS" precision="2" scale="0"/>
+        </property>
+        
+        <!-- 
+        <property generated="never" lazy="false" name="polFinancialIntInd" optimistic-lock="true" type="java.lang.Byte" unique="false">
+            <column name="POL_FINANCIAL_INT_IND" precision="2" scale="0"/>
+        </property>
+        <property generated="never" lazy="false" name="polApprovedBy" optimistic-lock="true" type="java.lang.Integer" unique="false">
+            <column name="POL_APPROVED_BY" precision="6" scale="0"/>
+        </property>
+        <property generated="never" lazy="false" name="polUserId" optimistic-lock="true" type="java.lang.Integer" unique="false">
+            <column name="POL_USER_ID" precision="6" scale="0"/>
+        </property>
+        <property generated="never" lazy="false" name="polEffectiveDate" optimistic-lock="true" type="date" unique="false">
+            <column length="7" name="POL_EFFECTIVE_DATE"/>
+        </property>
+        <property generated="never" lazy="false" name="polPrintDate" optimistic-lock="true" type="date" unique="false">
+            <column length="7" name="POL_PRINT_DATE"/>
+        </property>
+        <property generated="never" lazy="false" name="polCutCode" optimistic-lock="true" type="java.lang.Short" unique="false">
+            <column name="POL_CUT_CODE" precision="3" scale="0"/>
+        </property>
+        <property generated="never" lazy="false" name="polSpecialType" optimistic-lock="true" type="java.lang.Short" unique="false">
+            <column name="POL_SPECIAL_TYPE" precision="3" scale="0"/>
+        </property>
+        <property generated="never" lazy="false" name="polCoverNoteHour" optimistic-lock="true" type="java.lang.Integer" unique="false">
+            <column name="POL_COVER_NOTE_HOUR" precision="5" scale="0"/>
+        </property>
+        <property generated="never" lazy="false" name="polCoverNoteMin" optimistic-lock="true" type="java.lang.Byte" unique="false">
+            <column name="POL_COVER_NOTE_MIN" precision="2" scale="0"/>
+        </property>
+        <property generated="never" lazy="false" name="polIssueHour" optimistic-lock="true" type="java.lang.Integer" unique="false">
+            <column name="POL_ISSUE_HOUR" precision="8" scale="0"/>
+        </property>
+        <property generated="never" lazy="false" name="polIssueMin" optimistic-lock="true" type="big_decimal" unique="false">
+            <column name="POL_ISSUE_MIN" precision="16" scale="3"/>
+        </property>
+        <property generated="never" lazy="false" name="polEffectiveHour" optimistic-lock="true" type="java.lang.Byte" unique="false">
+            <column name="POL_EFFECTIVE_HOUR" precision="2" scale="0"/>
+        </property>
+        <property generated="never" lazy="false" name="polEffectiveMin" optimistic-lock="true" type="string" unique="false">
+            <column length="30" name="POL_EFFECTIVE_MIN"/>
+        </property>
+        <property generated="never" lazy="false" name="polExpiryHour" optimistic-lock="true" type="java.lang.Long" unique="false">
+            <column name="POL_EXPIRY_HOUR" precision="16" scale="0"/>
+        </property>
+        <property generated="never" lazy="false" name="polExpiryMin" optimistic-lock="true" type="java.lang.Long" unique="false">
+            <column name="POL_EXPIRY_MIN" precision="16" scale="0"/>
+        </property>
+        <property generated="never" lazy="false" name="polCertificateNo" optimistic-lock="true" type="java.lang.Long" unique="false">
+            <column name="POL_CERTIFICATE_NO" precision="10" scale="0"/>
+        </property>
+        <property generated="never" lazy="false" name="polCertificateDate" optimistic-lock="true" type="date" unique="false">
+            <column length="7" name="POL_CERTIFICATE_DATE"/>
+        </property>
+        -->
+        <property generated="never" lazy="false" name="polValidityStartDate" optimistic-lock="true" type="date" unique="false">
+            <column length="7" name="POL_VALIDITY_START_DATE"/>
+        </property>
+        <!-- 
+        <property generated="never" lazy="false" name="polValidityExpiryDate" optimistic-lock="true" type="date" unique="false">
+            <column length="7" name="POL_VALIDITY_EXPIRY_DATE"/>
+        </property>
+        <property generated="never" lazy="false" name="polEndtEffectiveDate" optimistic-lock="true" type="date" unique="false">
+            <column length="7" name="POL_ENDT_EFFECTIVE_DATE"/>
+        </property>
+        <property generated="never" lazy="false" name="polEndtExpiryDate" optimistic-lock="true" type="date" unique="false">
+            <column length="7" name="POL_ENDT_EXPIRY_DATE"/>
+        </property>
+        <property generated="never" lazy="false" name="polRatingType" optimistic-lock="true" type="java.lang.Byte" unique="false">
+            <column name="POL_RATING_TYPE" precision="2" scale="0"/>
+        </property>
+        <property generated="never" lazy="false" name="polCcgCode" optimistic-lock="true" type="java.lang.Integer" unique="false">
+            <column name="POL_CCG_CODE" precision="5" scale="0"/>
+        </property>
+        -->
+        <property generated="never" lazy="false" name="polEndtNo" optimistic-lock="true" type="java.lang.Long" unique="false">
+            <column name="POL_ENDT_NO" precision="16" scale="0"/>
+        </property>
+        
+        <!-- 
+        <property generated="never" lazy="false" name="polCtyCode" optimistic-lock="true" type="java.lang.Integer" unique="false">
+            <column name="POL_CTY_CODE" precision="5" scale="0"/>
+        </property>
+        <property generated="never" lazy="false" name="polRegCode" optimistic-lock="true" type="java.lang.Integer" unique="false">
+            <column name="POL_REG_CODE" precision="5" scale="0"/>
+        </property>
+        <property generated="never" lazy="false" name="polPolicyTerm" optimistic-lock="true" type="java.lang.Integer" unique="false">
+            <column name="POL_POLICY_TERM" precision="5" scale="0"/>
+        </property>
+        <property generated="never" lazy="false" name="polRefPolicyId" optimistic-lock="true" type="java.lang.Long" unique="false">
+            <column name="POL_REF_POLICY_ID" precision="16" scale="0"/>
+        </property>
+        <property generated="never" lazy="false" name="polAccexecCode" optimistic-lock="true" type="java.lang.Integer" unique="false">
+            <column name="POL_ACCEXEC_CODE" precision="5" scale="0"/>
+        </property>
+        <property generated="never" lazy="false" name="polInsuredId" optimistic-lock="true" type="java.lang.Long" unique="false">
+            <column name="POL_INSURED_ID" precision="16" scale="0"/>
+        </property>
+        -->
+        <property generated="never" lazy="false" name="polQuotationNo" optimistic-lock="true" type="java.lang.Long" unique="false">
+            <column name="POL_QUOTATION_NO" precision="16" scale="0"/>
+        </property>
+        <!-- 
+        <property generated="never" lazy="false" name="polQuotationDate" optimistic-lock="true" type="date" unique="false">
+            <column length="7" name="POL_QUOTATION_DATE"/>
+        </property>
+        <property generated="never" lazy="false" name="polBrCode" optimistic-lock="true" type="java.lang.Short" unique="false">
+            <column name="POL_BR_CODE" precision="4" scale="0"/>
+        </property>
+        <property generated="never" lazy="false" name="polDctCode" optimistic-lock="true" type="java.lang.Byte" unique="false">
+            <column name="POL_DCT_CODE" precision="2" scale="0"/>
+        </property>
+        <property generated="never" lazy="false" name="polPreparedBy" optimistic-lock="true" type="java.lang.Integer" unique="false">
+            <column name="POL_PREPARED_BY" precision="8" scale="0"/>
+        </property>
+        <property generated="never" lazy="false" name="polPreparedDt" optimistic-lock="true" type="date" unique="false">
+            <column length="7" name="POL_PREPARED_DT"/>
+        </property>
+        <property generated="never" lazy="false" name="polModifiedBy" optimistic-lock="true" type="java.lang.Integer" unique="false">
+            <column name="POL_MODIFIED_BY" precision="8" scale="0"/>
+        </property>
+        <property generated="never" lazy="false" name="polModifiedDt" optimistic-lock="true" type="date" unique="false">
+            <column length="7" name="POL_MODIFIED_DT"/>
+        </property>
+        <property generated="never" lazy="false" name="polPostedDate" optimistic-lock="true" type="date" unique="false">
+            <column length="7" name="POL_POSTED_DATE"/>
+        </property>
+        <property generated="never" lazy="false" name="polRefreshDate" optimistic-lock="true" type="date" unique="false">
+            <column length="7" name="POL_REFRESH_DATE"/>
+        </property>
+        <property generated="never" lazy="false" name="polConcPolicyNo" optimistic-lock="true" type="string" unique="false">
+            <column length="30" name="POL_CONC_POLICY_NO"/>
+        </property>
+        <property generated="never" lazy="false" name="polSocCode" optimistic-lock="true" type="java.lang.Short" unique="false">
+            <column name="POL_SOC_CODE" precision="3" scale="0"/>
+        </property>
+        <property generated="never" lazy="false" name="polTarCode" optimistic-lock="true" type="java.lang.Short" unique="false">
+            <column name="POL_TAR_CODE" precision="3" scale="0"/>
+        </property>
+        <property generated="never" lazy="false" name="polRenTermTxt" optimistic-lock="true" type="string" unique="false">
+            <column length="250" name="POL_REN_TERM_TXT"/>
+        </property>
+        <property generated="never" lazy="false" name="polOtherInsurerCode" optimistic-lock="true" type="java.lang.Integer" unique="false">
+            <column name="POL_OTHER_INSURER_CODE" precision="8" scale="0"/>
+        </property>
+        <property generated="never" lazy="false" name="polBusinessType" optimistic-lock="true" type="java.lang.Short" unique="false">
+            <column name="POL_BUSINESS_TYPE" precision="3" scale="0"/>
+        </property>
+        <property generated="never" lazy="false" name="polApprovalDate" optimistic-lock="true" type="date" unique="false">
+            <column length="7" name="POL_APPROVAL_DATE"/>
+        </property>
+        <property generated="never" lazy="false" name="polSuspendTransaction" optimistic-lock="true" type="string" unique="false">
+            <column length="1" name="POL_SUSPEND_TRANSACTION"/>
+        </property>
+        <property generated="never" lazy="false" name="polInsuredCode" optimistic-lock="true" type="java.lang.Long" unique="false">
+            <column name="POL_INSURED_CODE" precision="16" scale="0"/>
+        </property>
+        <property generated="never" lazy="false" name="polDistributionChnl" optimistic-lock="true" type="java.lang.Integer" unique="false">
+            <column name="POL_DISTRIBUTION_CHNL" precision="5" scale="0"/>
+        </property>
+        <property generated="never" lazy="false" name="polRenewalCount" optimistic-lock="true" type="java.lang.Short" unique="false">
+            <column name="POL_RENEWAL_COUNT" precision="4" scale="0"/>
+        </property>
+        <property generated="never" lazy="false" name="polNajExpDate" optimistic-lock="true" type="date" unique="false">
+            <column length="7" name="POL_NAJ_EXP_DATE"/>
+        </property>
+        <property generated="never" lazy="false" name="polReasonCode" optimistic-lock="true" type="java.lang.Short" unique="false">
+            <column name="POL_REASON_CODE" precision="3" scale="0"/>
+        </property>
+        <property generated="never" lazy="false" name="polApprovedInd" optimistic-lock="true" type="string" unique="false">
+            <column length="1" name="POL_APPROVED_IND"/>
+        </property>
+        -->
+         
+        <property generated="never" lazy="false" name="polLinkingId" optimistic-lock="true" type="java.lang.Long" unique="false">
+            <column name="POL_LINKING_ID" precision="16" scale="0"/>
+        </property>
+        
+        <!--
+        <property generated="never" lazy="false" name="polRenClmCount" optimistic-lock="true" type="java.lang.Long" unique="false">
+            <column name="POL_REN_CLM_COUNT" precision="16" scale="0"/>
+        </property>
+        <property generated="never" lazy="false" name="polSbsInd" optimistic-lock="true" type="java.lang.Boolean" unique="false">
+            <column name="POL_SBS_IND" precision="1" scale="0"/>
+        </property>
+        <property generated="never" lazy="false" name="polProcLocCode" optimistic-lock="true" type="java.lang.Integer" unique="false">
+            <column name="POL_PROC_LOC_CODE" precision="5" scale="0"/>
+        </property>
+        <property generated="never" lazy="false" name="polPepCode" optimistic-lock="true" type="java.lang.Short" unique="false">
+            <column name="POL_PEP_CODE" precision="4" scale="0"/>
+        </property>
+        <property generated="never" lazy="false" name="polPymntDueDate" optimistic-lock="true" type="date" unique="false">
+            <column length="7" name="POL_PYMNT_DUE_DATE"/>
+        </property>
+        <property generated="never" lazy="false" name="polPpwDate" optimistic-lock="true" type="date" unique="false">
+            <column length="7" name="POL_PPW_DATE"/>
+        </property>
+        <property generated="never" lazy="false" name="polFgnCurrPrm" optimistic-lock="true" type="big_decimal" unique="false">
+            <column name="POL_FGN_CURR_PRM" precision="16" scale="3"/>
+        </property>
+        <property generated="never" lazy="false" name="polAutoCession" optimistic-lock="true" type="java.lang.Character" unique="false">
+            <column length="1" name="POL_AUTO_CESSION"/>
+        </property>
+        <property generated="never" lazy="false" name="polCcAgentCode" optimistic-lock="true" type="java.lang.Integer" unique="false">
+            <column name="POL_CC_AGENT_CODE" precision="8" scale="0"/>
+        </property>
+        <property generated="never" lazy="false" name="polTechPremium" optimistic-lock="true" type="big_decimal" unique="false">
+            <column name="POL_TECH_PREMIUM" precision="16" scale="3"/>
+        </property>
+        <property generated="never" lazy="false" name="polSipCode" optimistic-lock="true" type="java.lang.Integer" unique="false">
+            <column name="POL_SIP_CODE" precision="5" scale="0"/>
+        </property>
+        <property generated="never" lazy="false" name="polPromoCode" optimistic-lock="true" type="string" unique="false">
+            <column length="30" name="POL_PROMO_CODE"/>
+        </property>
+        <property generated="never" lazy="false" name="polRiskPremium" optimistic-lock="true" type="big_decimal" unique="false">
+            <column name="POL_RISK_PREMIUM" precision="16" scale="3"/>
+        </property>
+        <property generated="never" lazy="false" name="polLicenseLvl" optimistic-lock="true" type="string" unique="false">
+            <column length="20" name="POL_LICENSE_LVL"/>
+        </property>
+        <property generated="never" lazy="false" name="polCrmQuotRefNo" optimistic-lock="true" type="string" unique="false">
+            <column length="200" name="POL_CRM_QUOT_REF_NO"/>
+        </property>
+        <property generated="never" lazy="false" name="polFacInYn" optimistic-lock="true" type="string" unique="false">
+            <column length="1" name="POL_FAC_IN_YN"/>
+        </property>
+        <property generated="never" lazy="false" name="polDiscLoadFlag" optimistic-lock="true" type="string" unique="false">
+            <column length="10" name="POL_DISC_LOAD_FLAG"/>
+        </property>
+        <property generated="never" lazy="false" name="polQuoteStage" optimistic-lock="true" type="string" unique="false">
+            <column length="30" name="POL_QUOTE_STAGE"/>
+        </property>
+        <property generated="never" lazy="false" name="polNcdAmount" optimistic-lock="true" type="big_decimal" unique="false">
+            <column name="POL_NCD_AMOUNT" precision="16" scale="3"/>
+        </property>
+        <property generated="never" lazy="false" name="polSamaUsrType" optimistic-lock="true" type="java.lang.Long" unique="false">
+            <column name="POL_SAMA_USR_TYPE" precision="16" scale="0"/>
+        </property>
+        <property generated="never" lazy="false" name="polPrevExpDate" optimistic-lock="true" type="date" unique="false">
+            <column length="7" name="POL_PREV_EXP_DATE"/>
+        </property>
+        <property generated="never" lazy="false" name="polOrangeIssueBranch" optimistic-lock="true" type="java.lang.Integer" unique="false">
+            <column name="POL_ORANGE_ISSUE_BRANCH" precision="6" scale="0"/>
+        </property>
+        <property generated="never" lazy="false" name="polAmlCode" optimistic-lock="true" type="java.lang.Short" unique="false">
+            <column name="POL_AML_CODE" precision="4" scale="0"/>
+        </property>
+        <property generated="never" lazy="false" name="polCrmExclCountries" optimistic-lock="true" type="string" unique="false">
+            <column length="1000" name="POL_CRM_EXCL_COUNTRIES"/>
+        </property>
+        <property generated="never" lazy="false" name="polFromAnotherInsurer" optimistic-lock="true" type="java.lang.Byte" unique="false">
+            <column name="POL_FROM_ANOTHER_INSURER" precision="2" scale="0"/>
+        </property>
+        <property generated="never" lazy="false" name="polComConsideration" optimistic-lock="true" type="string" unique="false">
+            <column length="2" name="POL_COM_CONSIDERATION"/>
+        </property>
+        <property generated="never" lazy="false" name="polInsuranceInstallment" optimistic-lock="true" type="java.lang.Boolean" unique="false">
+            <column name="POL_INSURANCE_INSTALLMENT" precision="1" scale="0"/>
+        </property>
+        <property generated="never" lazy="false" name="polLoyaltyDiscount" optimistic-lock="true" type="big_decimal" unique="false">
+            <column name="POL_LOYALTY_DISCOUNT" precision="16" scale="3"/>
+        </property>
+        <property generated="never" lazy="false" name="polLoyaltyDiscountPerc" optimistic-lock="true" type="java.lang.Byte" unique="false">
+            <column name="POL_LOYALTY_DISCOUNT_PERC" precision="2" scale="0"/>
+        </property>
+        <property generated="never" lazy="false" name="polVatCode" optimistic-lock="true" type="java.lang.Byte" unique="false">
+            <column name="POL_VAT_CODE" precision="2" scale="0"/>
+        </property>
+        <property generated="never" lazy="false" name="polVatRate" optimistic-lock="true" type="big_decimal" unique="false">
+            <column name="POL_VAT_RATE" precision="16"/>
+        </property>
+        <property generated="never" lazy="false" name="polVatRegnNo" optimistic-lock="true" type="string" unique="false">
+            <column length="50" name="POL_VAT_REGN_NO"/>
+        </property>
+        <property generated="never" lazy="false" name="polVatAmount" optimistic-lock="true" type="big_decimal" unique="false">
+            <column name="POL_VAT_AMOUNT" precision="16"/>
+        </property>
+        <property generated="never" lazy="false" name="polVatablePrm" optimistic-lock="true" type="big_decimal" unique="false">
+            <column name="POL_VATABLE_PRM" precision="16"/>
+        </property>
+        <property generated="never" lazy="false" name="polGuaranteeFund" optimistic-lock="true" type="big_decimal" unique="false">
+            <column name="POL_GUARANTEE_FUND" precision="10" scale="3"/>
+        </property>
+        <property generated="never" lazy="false" name="polPremiumBeforeDiscount" optimistic-lock="true" type="big_decimal" unique="false">
+            <column name="POL_PREMIUM_BEFORE_DISCOUNT" precision="16" scale="3"/>
+        </property>
+        <property generated="never" lazy="false" name="polDeductionExplanation" optimistic-lock="true" type="java.lang.Short" unique="false">
+            <column name="POL_DEDUCTION_EXPLANATION" precision="3" scale="0"/>
+        </property>
+        <property generated="never" lazy="false" name="cshPolicyId" optimistic-lock="true" type="java.lang.Long" unique="false">
+            <column name="CSH_POLICY_ID" precision="16" scale="0"/>
+        </property>
+        <property generated="never" lazy="false" name="cshCustomerId" optimistic-lock="true" type="java.lang.Long" unique="false">
+            <column name="CSH_CUSTOMER_ID" precision="12" scale="0"/>
+        </property>
+        <property generated="never" lazy="false" name="cshNameTitle" optimistic-lock="true" type="java.lang.Byte" unique="false">
+            <column name="CSH_NAME_TITLE" precision="2" scale="0"/>
+        </property>
+        <property generated="never" lazy="false" name="cshASurnameTribe" optimistic-lock="true" type="string" unique="false">
+            <column length="30" name="CSH_A_SURNAME_TRIBE"/>
+        </property>
+        <property generated="never" lazy="false" name="cshESurnameTribe" optimistic-lock="true" type="string" unique="false">
+            <column length="30" name="CSH_E_SURNAME_TRIBE"/>
+        </property>
+        <property generated="never" lazy="false" name="cshAName1" optimistic-lock="true" type="string" unique="false">
+            <column length="300" name="CSH_A_NAME_1"/>
+        </property>
+        <property generated="never" lazy="false" name="cshEName1" optimistic-lock="true" type="string" unique="false">
+            <column length="200" name="CSH_E_NAME_1"/>
+        </property>
+        <property generated="never" lazy="false" name="cshAName2" optimistic-lock="true" type="string" unique="false">
+            <column length="50" name="CSH_A_NAME_2"/>
+        </property>
+        <property generated="never" lazy="false" name="cshEName2" optimistic-lock="true" type="string" unique="false">
+            <column length="50" name="CSH_E_NAME_2"/>
+        </property>
+        <property generated="never" lazy="false" name="cshAName3" optimistic-lock="true" type="string" unique="false">
+            <column length="100" name="CSH_A_NAME_3"/>
+        </property>
+        <property generated="never" lazy="false" name="cshEName3" optimistic-lock="true" type="string" unique="false">
+            <column length="50" name="CSH_E_NAME_3"/>
+        </property>
+        <property generated="never" lazy="false" name="cshAName4" optimistic-lock="true" type="string" unique="false">
+            <column length="35" name="CSH_A_NAME_4"/>
+        </property>
+        <property generated="never" lazy="false" name="cshEName4" optimistic-lock="true" type="string" unique="false">
+            <column length="35" name="CSH_E_NAME_4"/>
+        </property>
+        <property generated="never" lazy="false" name="cshAName5" optimistic-lock="true" type="string" unique="false">
+            <column length="35" name="CSH_A_NAME_5"/>
+        </property>
+        <property generated="never" lazy="false" name="cshEName5" optimistic-lock="true" type="string" unique="false">
+            <column length="4000" name="CSH_E_NAME_5"/>
+        </property>
+        <property generated="never" lazy="false" name="cshAAddress1" optimistic-lock="true" type="string" unique="false">
+            <column length="200" name="CSH_A_ADDRESS_1"/>
+        </property>
+        <property generated="never" lazy="false" name="cshEAddress1" optimistic-lock="true" type="string" unique="false">
+            <column length="200" name="CSH_E_ADDRESS_1"/>
+        </property>
+        <property generated="never" lazy="false" name="cshAAddress2" optimistic-lock="true" type="string" unique="false">
+            <column length="35" name="CSH_A_ADDRESS_2"/>
+        </property>
+        <property generated="never" lazy="false" name="cshEAddress2" optimistic-lock="true" type="string" unique="false">
+            <column length="35" name="CSH_E_ADDRESS_2"/>
+        </property>
+        <property generated="never" lazy="false" name="cshAAddress3" optimistic-lock="true" type="string" unique="false">
+            <column length="35" name="CSH_A_ADDRESS_3"/>
+        </property>
+        <property generated="never" lazy="false" name="cshEAddress3" optimistic-lock="true" type="string" unique="false">
+            <column length="35" name="CSH_E_ADDRESS_3"/>
+        </property>
+        <property generated="never" lazy="false" name="cshAAddress4" optimistic-lock="true" type="string" unique="false">
+            <column length="35" name="CSH_A_ADDRESS_4"/>
+        </property>
+        <property generated="never" lazy="false" name="cshEAddress4" optimistic-lock="true" type="string" unique="false">
+            <column length="100" name="CSH_E_ADDRESS_4"/>
+        </property>
+        <property generated="never" lazy="false" name="cshAAddress5" optimistic-lock="true" type="string" unique="false">
+            <column length="35" name="CSH_A_ADDRESS_5"/>
+        </property>
+        <property generated="never" lazy="false" name="cshEAddress5" optimistic-lock="true" type="string" unique="false">
+            <column length="35" name="CSH_E_ADDRESS_5"/>
+        </property>
+        <property generated="never" lazy="false" name="cshAZipCode" optimistic-lock="true" type="string" unique="false">
+            <column length="10" name="CSH_A_ZIP_CODE"/>
+        </property>
+        <property generated="never" lazy="false" name="cshEZipCode" optimistic-lock="true" type="string" unique="false">
+            <column length="10" name="CSH_E_ZIP_CODE"/>
+        </property>
+        <property generated="never" lazy="false" name="cshAEmailId" optimistic-lock="true" type="string" unique="false">
+            <column length="40" name="CSH_A_EMAIL_ID"/>
+        </property>
+        <property generated="never" lazy="false" name="cshEEmailId" optimistic-lock="true" type="string" unique="false">
+            <column length="60" name="CSH_E_EMAIL_ID"/>
+        </property>
+        <property generated="never" lazy="false" name="cshFaxNo" optimistic-lock="true" type="java.lang.Long" unique="false">
+            <column name="CSH_FAX_NO" precision="16" scale="0"/>
+        </property>
+        <property generated="never" lazy="false" name="cshATelexNo" optimistic-lock="true" type="string" unique="false">
+            <column length="30" name="CSH_A_TELEX_NO"/>
+        </property>
+        <property generated="never" lazy="false" name="cshETelexNo" optimistic-lock="true" type="string" unique="false">
+            <column length="30" name="CSH_E_TELEX_NO"/>
+        </property>
+        <property generated="never" lazy="false" name="cshAPhoneNo" optimistic-lock="true" type="string" unique="false">
+            <column length="200" name="CSH_A_PHONE_NO"/>
+        </property>
+        <property generated="never" lazy="false" name="cshEPhoneNo" optimistic-lock="true" type="string" unique="false">
+            <column length="16" name="CSH_E_PHONE_NO"/>
+        </property>
+        <property generated="never" lazy="false" name="cshAGsmNo" optimistic-lock="true" type="string" unique="false">
+            <column length="100" name="CSH_A_GSM_NO"/>
+        </property>
+        <property generated="never" lazy="false" name="cshEGsmNo" optimistic-lock="true" type="string" unique="false">
+            <column length="16" name="CSH_E_GSM_NO"/>
+        </property>
+        <property generated="never" lazy="false" name="cshNationality" optimistic-lock="true" type="java.lang.Short" unique="false">
+            <column name="CSH_NATIONALITY" precision="3" scale="0"/>
+        </property>
+        <property generated="never" lazy="false" name="cshOcCode" optimistic-lock="true" type="java.lang.Integer" unique="false">
+            <column name="CSH_OC_CODE" precision="8" scale="0"/>
+        </property>
+        <property generated="never" lazy="false" name="cshCcgCode" optimistic-lock="true" type="java.lang.Short" unique="false">
+            <column name="CSH_CCG_CODE" precision="3" scale="0"/>
+        </property>
+        <property generated="never" lazy="false" name="cshACoRegnNo" optimistic-lock="true" type="string" unique="false">
+            <column length="300" name="CSH_A_CO_REGN_NO"/>
+        </property>
+        <property generated="never" lazy="false" name="cshECoRegnNo" optimistic-lock="true" type="string" unique="false">
+            <column length="30" name="CSH_E_CO_REGN_NO"/>
+        </property>
+        <property generated="never" lazy="false" name="cshAPassportNo" optimistic-lock="true" type="string" unique="false">
+            <column length="300" name="CSH_A_PASSPORT_NO"/>
+        </property>
+        <property generated="never" lazy="false" name="cshEPassportNo" optimistic-lock="true" type="string" unique="false">
+            <column length="30" name="CSH_E_PASSPORT_NO"/>
+        </property>
+        <property generated="never" lazy="false" name="cshAIdCardNo" optimistic-lock="true" type="string" unique="false">
+            <column length="300" name="CSH_A_ID_CARD_NO"/>
+        </property>
+        <property generated="never" lazy="false" name="cshEIdCardNo" optimistic-lock="true" type="string" unique="false">
+            <column length="30" name="CSH_E_ID_CARD_NO"/>
+        </property>
+        <property generated="never" lazy="false" name="cshAVisaNo" optimistic-lock="true" type="string" unique="false">
+            <column length="30" name="CSH_A_VISA_NO"/>
+        </property>
+        <property generated="never" lazy="false" name="cshEVisaNo" optimistic-lock="true" type="string" unique="false">
+            <column length="30" name="CSH_E_VISA_NO"/>
+        </property>
+        <property generated="never" lazy="false" name="cshUserId" optimistic-lock="true" type="java.lang.Integer" unique="false">
+            <column name="CSH_USER_ID" precision="5" scale="0"/>
+        </property>
+        <property generated="never" lazy="false" name="cshValidityStartDate" optimistic-lock="true" type="date" unique="false">
+            <column length="7" name="CSH_VALIDITY_START_DATE"/>
+        </property>
+        <property generated="never" lazy="false" name="cshValidityExpiryDate" optimistic-lock="true" type="date" unique="false">
+            <column length="7" name="CSH_VALIDITY_EXPIRY_DATE"/>
+        </property>
+        <property generated="never" lazy="false" name="cshCtyCode" optimistic-lock="true" type="java.lang.Integer" unique="false">
+            <column name="CSH_CTY_CODE" precision="5" scale="0"/>
+        </property>
+        <property generated="never" lazy="false" name="cshRegCode" optimistic-lock="true" type="java.lang.Integer" unique="false">
+            <column name="CSH_REG_CODE" precision="5" scale="0"/>
+        </property>
+        <property generated="never" lazy="false" name="cshLocCode" optimistic-lock="true" type="java.lang.Integer" unique="false">
+            <column name="CSH_LOC_CODE" precision="5" scale="0"/>
+        </property>
+        <property generated="never" lazy="false" name="cshTotAccCode" optimistic-lock="true" type="big_decimal" unique="false">
+            <column name="CSH_TOT_ACC_CODE" precision="20" scale="0"/>
+        </property>
+        <property generated="never" lazy="false" name="cshInsuredId" optimistic-lock="true" type="java.lang.Long" unique="false">
+            <column name="CSH_INSURED_ID" precision="16" scale="0"/>
+        </property>
+        <property generated="never" lazy="false" name="cshEndtId" optimistic-lock="true" type="java.lang.Long" unique="false">
+            <column name="CSH_ENDT_ID" precision="16" scale="0"/>
+        </property>
+        <property generated="never" lazy="false" name="cshCutCode" optimistic-lock="true" type="java.lang.Byte" unique="false">
+            <column name="CSH_CUT_CODE" precision="2" scale="0"/>
+        </property>
+        <property generated="never" lazy="false" name="cshPreparedBy" optimistic-lock="true" type="java.lang.Integer" unique="false">
+            <column name="CSH_PREPARED_BY" precision="8" scale="0"/>
+        </property>
+        <property generated="never" lazy="false" name="cshPreparedDt" optimistic-lock="true" type="date" unique="false">
+            <column length="7" name="CSH_PREPARED_DT"/>
+        </property>
+        <property generated="never" lazy="false" name="cshModifiedBy" optimistic-lock="true" type="java.lang.Integer" unique="false">
+            <column name="CSH_MODIFIED_BY" precision="8" scale="0"/>
+        </property>
+        <property generated="never" lazy="false" name="cshModifiedDt" optimistic-lock="true" type="date" unique="false">
+            <column length="7" name="CSH_MODIFIED_DT"/>
+        </property>
+        <property generated="never" lazy="false" name="cshBusiness" optimistic-lock="true" type="string" unique="false">
+            <column length="300" name="CSH_BUSINESS"/>
+        </property>
+        <property generated="never" lazy="false" name="cshCustType" optimistic-lock="true" type="string" unique="false">
+            <column length="3" name="CSH_CUST_TYPE"/>
+        </property>
+        <property generated="never" lazy="false" name="cshPoboxNo" optimistic-lock="true" type="string" unique="false">
+            <column length="35" name="CSH_POBOX_NO"/>
+        </property>
+        <property generated="never" lazy="false" name="cshTerritory" optimistic-lock="true" type="java.lang.Integer" unique="false">
+            <column name="CSH_TERRITORY" precision="5" scale="0"/>
+        </property>
+        <property generated="never" lazy="false" name="cshLaws" optimistic-lock="true" type="java.lang.Integer" unique="false">
+            <column name="CSH_LAWS" precision="5" scale="0"/>
+        </property>
+        <property generated="never" lazy="false" name="cshCompanyName" optimistic-lock="true" type="string" unique="false">
+            <column length="200" name="CSH_COMPANY_NAME"/>
+        </property>
+        <property generated="never" lazy="false" name="cshCompanyAddr1" optimistic-lock="true" type="string" unique="false">
+            <column length="200" name="CSH_COMPANY_ADDR1"/>
+        </property>
+        <property generated="never" lazy="false" name="cshIntAccExecCode" optimistic-lock="true" type="java.lang.Integer" unique="false">
+            <column name="CSH_INT_ACC_EXEC_CODE" precision="8" scale="0"/>
+        </property>
+        <property generated="never" lazy="false" name="cshExtAccExecCode" optimistic-lock="true" type="java.lang.Integer" unique="false">
+            <column name="CSH_EXT_ACC_EXEC_CODE" precision="8" scale="0"/>
+        </property>
+        <property generated="never" lazy="false" name="cshLegalForm" optimistic-lock="true" type="string" unique="false">
+            <column length="100" name="CSH_LEGAL_FORM"/>
+        </property>
+        <property generated="never" lazy="false" name="cshDtEstablishment" optimistic-lock="true" type="date" unique="false">
+            <column length="7" name="CSH_DT_ESTABLISHMENT"/>
+        </property>
+        <property generated="never" lazy="false" name="cshPlaceEstablishment" optimistic-lock="true" type="string" unique="false">
+            <column length="100" name="CSH_PLACE_ESTABLISHMENT"/>
+        </property>
+        <property generated="never" lazy="false" name="cshRegulatoryBody" optimistic-lock="true" type="java.lang.Integer" unique="false">
+            <column name="CSH_REGULATORY_BODY" precision="8" scale="0"/>
+        </property>
+        <property generated="never" lazy="false" name="cshExternalAuditor" optimistic-lock="true" type="java.lang.Integer" unique="false">
+            <column name="CSH_EXTERNAL_AUDITOR" precision="8" scale="0"/>
+        </property>
+        <property generated="never" lazy="false" name="cshSourceOfCust" optimistic-lock="true" type="java.lang.Short" unique="false">
+            <column name="CSH_SOURCE_OF_CUST" precision="3" scale="0"/>
+        </property>
+        <property generated="never" lazy="false" name="cshMarketingFee" optimistic-lock="true" type="java.lang.Long" unique="false">
+            <column name="CSH_MARKETING_FEE" precision="10" scale="0"/>
+        </property>
+        <property generated="never" lazy="false" name="cshDob" optimistic-lock="true" type="date" unique="false">
+            <column length="7" name="CSH_DOB"/>
+        </property>
+        <property generated="never" lazy="false" name="cshPob" optimistic-lock="true" type="string" unique="false">
+            <column length="200" name="CSH_POB"/>
+        </property>
+        <property generated="never" lazy="false" name="cshAffinityRefNo" optimistic-lock="true" type="string" unique="false">
+            <column length="100" name="CSH_AFFINITY_REF_NO"/>
+        </property>
+        <property generated="never" lazy="false" name="cshEcmCode" optimistic-lock="true" type="java.lang.Short" unique="false">
+            <column name="CSH_ECM_CODE" precision="3" scale="0"/>
+        </property>
+        <property generated="never" lazy="false" name="cshIdTypCode" optimistic-lock="true" type="java.lang.Short" unique="false">
+            <column name="CSH_ID_TYP_CODE" precision="3" scale="0"/>
+        </property>
+        <property generated="never" lazy="false" name="cshIdNo" optimistic-lock="true" type="string" unique="false">
+            <column length="50" name="CSH_ID_NO"/>
+        </property>
+        <property generated="never" lazy="false" name="cshCity" optimistic-lock="true" type="java.lang.Integer" unique="false">
+            <column name="CSH_CITY" precision="5" scale="0"/>
+        </property>
+        <property generated="never" lazy="false" name="cshCountry" optimistic-lock="true" type="java.lang.Integer" unique="false">
+            <column name="CSH_COUNTRY" precision="5" scale="0"/>
+        </property>
+        <property generated="never" lazy="false" name="cshSex" optimistic-lock="true" type="java.lang.Character" unique="false">
+            <column length="1" name="CSH_SEX"/>
+        </property>
+        <property generated="never" lazy="false" name="cshBusType" optimistic-lock="true" type="java.lang.Short" unique="false">
+            <column name="CSH_BUS_TYPE" precision="4" scale="0"/>
+        </property>
+        <property generated="never" lazy="false" name="cshDueDilligence" optimistic-lock="true" type="string" unique="false">
+            <column length="1" name="CSH_DUE_DILLIGENCE"/>
+        </property>
+        <property generated="never" lazy="false" name="cshLossRatio" optimistic-lock="true" type="big_decimal" unique="false">
+            <column name="CSH_LOSS_RATIO" precision="22" scale="0"/>
+        </property>
+        <property generated="never" lazy="false" name="cshLossAmt" optimistic-lock="true" type="big_decimal" unique="false">
+            <column name="CSH_LOSS_AMT" precision="22" scale="0"/>
+        </property>
+        <property generated="never" lazy="false" name="cshTurnover" optimistic-lock="true" type="java.lang.Long" unique="false">
+            <column name="CSH_TURNOVER" precision="16" scale="0"/>
+        </property>
+        <property generated="never" lazy="false" name="cshNoOfEmp" optimistic-lock="true" type="java.lang.Integer" unique="false">
+            <column name="CSH_NO_OF_EMP" precision="6" scale="0"/>
+        </property>
+        <property generated="never" lazy="false" name="cshProjPropId" optimistic-lock="true" type="java.lang.Integer" unique="false">
+            <column name="CSH_PROJ_PROP_ID" precision="5" scale="0"/>
+        </property>
+        <property generated="never" lazy="false" name="cshRoyaltyTypCode" optimistic-lock="true" type="big_decimal" unique="false">
+            <column name="CSH_ROYALTY_TYP_CODE" precision="22" scale="0"/>
+        </property>
+        <property generated="never" lazy="false" name="cshFutureUpdate" optimistic-lock="true" type="string" unique="false">
+            <column length="10" name="CSH_FUTURE_UPDATE"/>
+        </property>
+        <property generated="never" lazy="false" name="cshSponCty" optimistic-lock="true" type="java.lang.Integer" unique="false">
+            <column name="CSH_SPON_CTY" precision="5" scale="0"/>
+        </property>
+        <property generated="never" lazy="false" name="cshSponReg" optimistic-lock="true" type="java.lang.Short" unique="false">
+            <column name="CSH_SPON_REG" precision="4" scale="0"/>
+        </property>
+        <property generated="never" lazy="false" name="cshEAddress6" optimistic-lock="true" type="java.lang.Short" unique="false">
+            <column name="CSH_E_ADDRESS_6" precision="4" scale="0"/>
+        </property>
+        <property generated="never" lazy="false" name="cshEAddress7" optimistic-lock="true" type="string" unique="false">
+            <column length="50" name="CSH_E_ADDRESS_7"/>
+        </property>
+        <property generated="never" lazy="false" name="cshEAddress8" optimistic-lock="true" type="java.lang.Integer" unique="false">
+            <column name="CSH_E_ADDRESS_8" precision="5" scale="0"/>
+        </property>
+        <property generated="never" lazy="false" name="cshEAddress9" optimistic-lock="true" type="string" unique="false">
+            <column length="100" name="CSH_E_ADDRESS_9"/>
+        </property>
+        <property generated="never" lazy="false" name="cshEAddress10" optimistic-lock="true" type="java.lang.Integer" unique="false">
+            <column name="CSH_E_ADDRESS_10" precision="6" scale="0"/>
+        </property>
+        <property generated="never" lazy="false" name="cshWaselInd" optimistic-lock="true" type="java.lang.Boolean" unique="false">
+            <column name="CSH_WASEL_IND" precision="1" scale="0"/>
+        </property>
+        <property generated="never" lazy="false" name="cshWaselAddr1" optimistic-lock="true" type="java.lang.Short" unique="false">
+            <column name="CSH_WASEL_ADDR1" precision="4" scale="0"/>
+        </property>
+        <property generated="never" lazy="false" name="cshWaselAddr2" optimistic-lock="true" type="java.lang.Short" unique="false">
+            <column name="CSH_WASEL_ADDR2" precision="4" scale="0"/>
+        </property>
+        <property generated="never" lazy="false" name="cshWaselAddr3" optimistic-lock="true" type="java.lang.Integer" unique="false">
+            <column name="CSH_WASEL_ADDR3" precision="5" scale="0"/>
+        </property>
+        <property generated="never" lazy="false" name="cshWaselAddr4" optimistic-lock="true" type="string" unique="false">
+            <column length="50" name="CSH_WASEL_ADDR4"/>
+        </property>
+        <property generated="never" lazy="false" name="cshWaselAddr5" optimistic-lock="true" type="string" unique="false">
+            <column length="100" name="CSH_WASEL_ADDR5"/>
+        </property>
+        <property generated="never" lazy="false" name="cshNationalId" optimistic-lock="true" type="string" unique="false">
+            <column length="10" name="CSH_NATIONAL_ID"/>
+        </property>
+        <property generated="never" lazy="false" name="cshEFullName" optimistic-lock="true" type="string" unique="false">
+            <column length="400" name="CSH_E_FULL_NAME"/>
+        </property>
+        <property generated="never" lazy="false" name="cshBankId" optimistic-lock="true" type="java.lang.Short" unique="false">
+            <column name="CSH_BANK_ID" precision="4" scale="0"/>
+        </property>
+        <property generated="never" lazy="false" name="cshIban" optimistic-lock="true" type="string" unique="false">
+            <column length="50" name="CSH_IBAN"/>
+        </property>
+        <property generated="never" lazy="false" name="cshInsTypeSaaed" optimistic-lock="true" type="java.lang.Integer" unique="false">
+            <column name="CSH_INS_TYPE_SAAED" precision="5" scale="0"/>
+        </property>
+        <property generated="never" lazy="false" name="cshVatRegnNo" optimistic-lock="true" type="string" unique="false">
+            <column length="50" name="CSH_VAT_REGN_NO"/>
+        </property>
+        <property generated="never" lazy="false" name="cshQualification" optimistic-lock="true" type="java.lang.Byte" unique="false">
+            <column name="CSH_QUALIFICATION" precision="2" scale="0"/>
+        </property>
+        <property generated="never" lazy="false" name="cshMaritalStatus" optimistic-lock="true" type="java.lang.Byte" unique="false">
+            <column name="CSH_MARITAL_STATUS" precision="2" scale="0"/>
+        </property>
+        <property generated="never" lazy="false" name="cshNoOfChildren" optimistic-lock="true" type="java.lang.Byte" unique="false">
+            <column name="CSH_NO_OF_CHILDREN" precision="2" scale="0"/>
+        </property>
+        <property generated="never" lazy="false" name="cshInsType" optimistic-lock="true" type="java.lang.Byte" unique="false">
+            <column name="CSH_INS_TYPE" precision="2" scale="0"/>
+        </property>
+        <property generated="never" lazy="false" name="insInsuredCode" optimistic-lock="true" type="java.lang.Long" unique="false">
+            <column name="INS_INSURED_CODE" precision="16" scale="0"/>
+        </property>
+        <property generated="never" lazy="false" name="insCcgCode" optimistic-lock="true" type="java.lang.Short" unique="false">
+            <column name="INS_CCG_CODE" precision="3" scale="0"/>
+        </property>
+        <property generated="never" lazy="false" name="insNameTitle" optimistic-lock="true" type="java.lang.Byte" unique="false">
+            <column name="INS_NAME_TITLE" precision="2" scale="0"/>
+        </property>
+        <property generated="never" lazy="false" name="insEFirstName" optimistic-lock="true" type="string" unique="false">
+            <column length="200" name="INS_E_FIRST_NAME"/>
+        </property>
+        <property generated="never" lazy="false" name="insAFirstName" optimistic-lock="true" type="string" unique="false">
+            <column length="300" name="INS_A_FIRST_NAME"/>
+        </property>
+        <property generated="never" lazy="false" name="insEMiddleName" optimistic-lock="true" type="string" unique="false">
+            <column length="50" name="INS_E_MIDDLE_NAME"/>
+        </property>
+        <property generated="never" lazy="false" name="insAMiddleName" optimistic-lock="true" type="string" unique="false">
+            <column length="50" name="INS_A_MIDDLE_NAME"/>
+        </property>
+        <property generated="never" lazy="false" name="insELastName" optimistic-lock="true" type="string" unique="false">
+            <column length="50" name="INS_E_LAST_NAME"/>
+        </property>
+        <property generated="never" lazy="false" name="insALastName" optimistic-lock="true" type="string" unique="false">
+            <column length="100" name="INS_A_LAST_NAME"/>
+        </property>
+        <property generated="never" lazy="false" name="insCompanyName" optimistic-lock="true" type="string" unique="false">
+            <column length="200" name="INS_COMPANY_NAME"/>
+        </property>
+        <property generated="never" lazy="false" name="insCompanyAddr1" optimistic-lock="true" type="string" unique="false">
+            <column length="200" name="INS_COMPANY_ADDR1"/>
+        </property>
+        <property generated="never" lazy="false" name="insCompanyAddr2" optimistic-lock="true" type="string" unique="false">
+            <column length="100" name="INS_COMPANY_ADDR2"/>
+        </property>
+        <property generated="never" lazy="false" name="insCompanyAddr3" optimistic-lock="true" type="string" unique="false">
+            <column length="100" name="INS_COMPANY_ADDR3"/>
+        </property>
+        <property generated="never" lazy="false" name="insEZipCode" optimistic-lock="true" type="string" unique="false">
+            <column length="35" name="INS_E_ZIP_CODE"/>
+        </property>
+        <property generated="never" lazy="false" name="insCtyCode" optimistic-lock="true" type="java.lang.Integer" unique="false">
+            <column name="INS_CTY_CODE" precision="5" scale="0"/>
+        </property>
+        <property generated="never" lazy="false" name="insEMobileNo" optimistic-lock="true" type="string" unique="false">
+            <column length="16" name="INS_E_MOBILE_NO"/>
+        </property>
+        <property generated="never" lazy="false" name="insEEmailId" optimistic-lock="true" type="string" unique="false">
+            <column length="60" name="INS_E_EMAIL_ID"/>
+        </property>
+        <property generated="never" lazy="false" name="insFaxNo" optimistic-lock="true" type="java.lang.Long" unique="false">
+            <column name="INS_FAX_NO" precision="16" scale="0"/>
+        </property>
+        <property generated="never" lazy="false" name="insDob" optimistic-lock="true" type="date" unique="false">
+            <column length="7" name="INS_DOB"/>
+        </property>
+        <property generated="never" lazy="false" name="insPlaceOfBirth" optimistic-lock="true" type="string" unique="false">
+            <column length="200" name="INS_PLACE_OF_BIRTH"/>
+        </property>
+        <property generated="never" lazy="false" name="insNationality" optimistic-lock="true" type="java.lang.Short" unique="false">
+            <column name="INS_NATIONALITY" precision="4" scale="0"/>
+        </property>
+        <property generated="never" lazy="false" name="insOcCode" optimistic-lock="true" type="java.lang.Integer" unique="false">
+            <column name="INS_OC_CODE" precision="8" scale="0"/>
+        </property>
+        <property generated="never" lazy="false" name="insBusiness" optimistic-lock="true" type="string" unique="false">
+            <column length="300" name="INS_BUSINESS"/>
+        </property>
+        <property generated="never" lazy="false" name="insEPassportNo" optimistic-lock="true" type="string" unique="false">
+            <column length="30" name="INS_E_PASSPORT_NO"/>
+        </property>
+        <property generated="never" lazy="false" name="insECoRegnNo" optimistic-lock="true" type="string" unique="false">
+            <column length="30" name="INS_E_CO_REGN_NO"/>
+        </property>
+        <property generated="never" lazy="false" name="insIntAccExecCode" optimistic-lock="true" type="java.lang.Integer" unique="false">
+            <column name="INS_INT_ACC_EXEC_CODE" precision="8" scale="0"/>
+        </property>
+        <property generated="never" lazy="false" name="insExtAccExecCode" optimistic-lock="true" type="java.lang.Integer" unique="false">
+            <column name="INS_EXT_ACC_EXEC_CODE" precision="8" scale="0"/>
+        </property>
+        <property generated="never" lazy="false" name="insEPhoneNo" optimistic-lock="true" type="string" unique="false">
+            <column length="16" name="INS_E_PHONE_NO"/>
+        </property>
+        <property generated="never" lazy="false" name="insWayNo" optimistic-lock="true" type="string" unique="false">
+            <column length="35" name="INS_WAY_NO"/>
+        </property>
+        <property generated="never" lazy="false" name="insBldgNo" optimistic-lock="true" type="string" unique="false">
+            <column length="35" name="INS_BLDG_NO"/>
+        </property>
+        <property generated="never" lazy="false" name="insCountry" optimistic-lock="true" type="java.lang.Short" unique="false">
+            <column name="INS_COUNTRY" precision="3" scale="0"/>
+        </property>
+        <property generated="never" lazy="false" name="insAffinityRefNo" optimistic-lock="true" type="string" unique="false">
+            <column length="100" name="INS_AFFINITY_REF_NO"/>
+        </property>
+        <property generated="never" lazy="false" name="insCustomerType" optimistic-lock="true" type="string" unique="false">
+            <column length="2" name="INS_CUSTOMER_TYPE"/>
+        </property>
+        <property generated="never" lazy="false" name="insExcComModes" optimistic-lock="true" type="string" unique="false">
+            <column length="200" name="INS_EXC_COM_MODES"/>
+        </property>
+        <property generated="never" lazy="false" name="insLegalForm" optimistic-lock="true" type="string" unique="false">
+            <column length="100" name="INS_LEGAL_FORM"/>
+        </property>
+        <property generated="never" lazy="false" name="insDtEstablishment" optimistic-lock="true" type="date" unique="false">
+            <column length="7" name="INS_DT_ESTABLISHMENT"/>
+        </property>
+        <property generated="never" lazy="false" name="insPlaceEstablishment" optimistic-lock="true" type="string" unique="false">
+            <column length="100" name="INS_PLACE_ESTABLISHMENT"/>
+        </property>
+        <property generated="never" lazy="false" name="insRegulatoryBody" optimistic-lock="true" type="java.lang.Integer" unique="false">
+            <column name="INS_REGULATORY_BODY" precision="8" scale="0"/>
+        </property>
+        <property generated="never" lazy="false" name="insExternalAuditor" optimistic-lock="true" type="java.lang.Integer" unique="false">
+            <column name="INS_EXTERNAL_AUDITOR" precision="8" scale="0"/>
+        </property>
+        <property generated="never" lazy="false" name="insDtCollectionKyc" optimistic-lock="true" type="date" unique="false">
+            <column length="7" name="INS_DT_COLLECTION_KYC"/>
+        </property>
+        <property generated="never" lazy="false" name="insExpiryDate" optimistic-lock="true" type="date" unique="false">
+            <column length="7" name="INS_EXPIRY_DATE"/>
+        </property>
+        <property generated="never" lazy="false" name="insSuspendCustomer" optimistic-lock="true" type="string" unique="false">
+            <column length="1" name="INS_SUSPEND_CUSTOMER"/>
+        </property>
+        <property generated="never" lazy="false" name="insDistributionChnl" optimistic-lock="true" type="java.lang.Integer" unique="false">
+            <column name="INS_DISTRIBUTION_CHNL" precision="5" scale="0"/>
+        </property>
+        <property generated="never" lazy="false" name="insSourceOfCust" optimistic-lock="true" type="java.lang.Short" unique="false">
+            <column name="INS_SOURCE_OF_CUST" precision="3" scale="0"/>
+        </property>
+        <property generated="never" lazy="false" name="insBrCode" optimistic-lock="true" type="java.lang.Short" unique="false">
+            <column name="INS_BR_CODE" precision="4" scale="0"/>
+        </property>
+        <property generated="never" lazy="false" name="insAgentCode" optimistic-lock="true" type="java.lang.Long" unique="false">
+            <column name="INS_AGENT_CODE" precision="12" scale="0"/>
+        </property>
+        <property generated="never" lazy="false" name="insCustomerId" optimistic-lock="true" type="java.lang.Long" unique="false">
+            <column name="INS_CUSTOMER_ID" precision="12" scale="0"/>
+        </property>
+        <property generated="never" lazy="false" name="insRegCode" optimistic-lock="true" type="java.lang.Integer" unique="false">
+            <column name="INS_REG_CODE" precision="5" scale="0"/>
+        </property>
+        <property generated="never" lazy="false" name="insLocCode" optimistic-lock="true" type="java.lang.Integer" unique="false">
+            <column name="INS_LOC_CODE" precision="5" scale="0"/>
+        </property>
+        <property generated="never" lazy="false" name="insIdTypCode" optimistic-lock="true" type="java.lang.Short" unique="false">
+            <column name="INS_ID_TYP_CODE" precision="3" scale="0"/>
+        </property>
+        <property generated="never" lazy="false" name="insIdNo" optimistic-lock="true" type="string" unique="false">
+            <column length="50" name="INS_ID_NO"/>
+        </property>
+        <property generated="never" lazy="false" name="insMarketingFee" optimistic-lock="true" type="java.lang.Long" unique="false">
+            <column name="INS_MARKETING_FEE" precision="10" scale="0"/>
+        </property>
+        <property generated="never" lazy="false" name="insEAddress" optimistic-lock="true" type="string" unique="false">
+            <column length="200" name="INS_E_ADDRESS"/>
+        </property>
+        <property generated="never" lazy="false" name="insAAddress" optimistic-lock="true" type="string" unique="false">
+            <column length="200" name="INS_A_ADDRESS"/>
+        </property>
+        <property generated="never" lazy="false" name="insHintQuestion" optimistic-lock="true" type="string" unique="false">
+            <column length="200" name="INS_HINT_QUESTION"/>
+        </property>
+        <property generated="never" lazy="false" name="insHintAnswer" optimistic-lock="true" type="string" unique="false">
+            <column length="200" name="INS_HINT_ANSWER"/>
+        </property>
+        <property generated="never" lazy="false" name="insPassword" optimistic-lock="true" type="string" unique="false">
+            <column length="100" name="INS_PASSWORD"/>
+        </property>
+        <property generated="never" lazy="false" name="insStatus" optimistic-lock="true" type="java.lang.Integer" unique="false">
+            <column name="INS_STATUS" precision="8" scale="0"/>
+        </property>
+        <property generated="never" lazy="false" name="insEFullName" optimistic-lock="true" type="string" unique="false">
+            <column length="200" name="INS_E_FULL_NAME"/>
+        </property>
+        <property generated="never" lazy="false" name="insAFullName" optimistic-lock="true" type="string" unique="false">
+            <column length="200" name="INS_A_FULL_NAME"/>
+        </property>
+        <property generated="never" lazy="false" name="insRemarks" optimistic-lock="true" type="string" unique="false">
+            <column length="200" name="INS_REMARKS"/>
+        </property>
+        <property generated="never" lazy="false" name="insCity" optimistic-lock="true" type="java.lang.Integer" unique="false">
+            <column name="INS_CITY" precision="5" scale="0"/>
+        </property>
+        <property generated="never" lazy="false" name="insPreparedBy" optimistic-lock="true" type="java.lang.Integer" unique="false">
+            <column name="INS_PREPARED_BY" precision="8" scale="0"/>
+        </property>
+        <property generated="never" lazy="false" name="insPreparedDt" optimistic-lock="true" type="date" unique="false">
+            <column length="7" name="INS_PREPARED_DT"/>
+        </property>
+        <property generated="never" lazy="false" name="insModifiedBy" optimistic-lock="true" type="java.lang.Integer" unique="false">
+            <column name="INS_MODIFIED_BY" precision="8" scale="0"/>
+        </property>
+        <property generated="never" lazy="false" name="insModifiedDt" optimistic-lock="true" type="date" unique="false">
+            <column length="7" name="INS_MODIFIED_DT"/>
+        </property>
+        <property generated="never" lazy="false" name="insLinkCode" optimistic-lock="true" type="java.lang.Long" unique="false">
+            <column name="INS_LINK_CODE" precision="16" scale="0"/>
+        </property>
+        <property generated="never" lazy="false" name="insSex" optimistic-lock="true" type="java.lang.Character" unique="false">
+            <column length="1" name="INS_SEX"/>
+        </property>
+        <property generated="never" lazy="false" name="insPostalCode" optimistic-lock="true" type="java.lang.Long" unique="false">
+            <column name="INS_POSTAL_CODE" precision="16" scale="0"/>
+        </property>
+        <property generated="never" lazy="false" name="insTurnover" optimistic-lock="true" type="java.lang.Long" unique="false">
+            <column name="INS_TURNOVER" precision="16" scale="0"/>
+        </property>
+        <property generated="never" lazy="false" name="insNoOfEmp" optimistic-lock="true" type="java.lang.Integer" unique="false">
+            <column name="INS_NO_OF_EMP" precision="6" scale="0"/>
+        </property>
+        <property generated="never" lazy="false" name="insSponNo" optimistic-lock="true" type="string" unique="false">
+            <column length="12" name="INS_SPON_NO"/>
+        </property>
+        <property generated="never" lazy="false" name="insSponCty" optimistic-lock="true" type="java.lang.Integer" unique="false">
+            <column name="INS_SPON_CTY" precision="5" scale="0"/>
+        </property>
+        <property generated="never" lazy="false" name="insSponReg" optimistic-lock="true" type="java.lang.Short" unique="false">
+            <column name="INS_SPON_REG" precision="4" scale="0"/>
+        </property>
+        <property generated="never" lazy="false" name="insDrvLicenseNo" optimistic-lock="true" type="string" unique="false">
+            <column length="60" name="INS_DRV_LICENSE_NO"/>
+        </property>
+        <property generated="never" lazy="false" name="insDrvLicense" optimistic-lock="true" type="string" unique="false">
+            <column length="60" name="INS_DRV_LICENSE"/>
+        </property>
+        <property generated="never" lazy="false" name="insTcfNo" optimistic-lock="true" type="string" unique="false">
+            <column length="60" name="INS_TCF_NO"/>
+        </property>
+        <property generated="never" lazy="false" name="insAddtlNo" optimistic-lock="true" type="java.lang.Short" unique="false">
+            <column name="INS_ADDTL_NO" precision="4" scale="0"/>
+        </property>
+        <property generated="never" lazy="false" name="insResCity" optimistic-lock="true" type="string" unique="false">
+            <column length="50" name="INS_RES_CITY"/>
+        </property>
+        <property generated="never" lazy="false" name="insZipCode" optimistic-lock="true" type="java.lang.Integer" unique="false">
+            <column name="INS_ZIP_CODE" precision="5" scale="0"/>
+        </property>
+        <property generated="never" lazy="false" name="insZoneName" optimistic-lock="true" type="string" unique="false">
+            <column length="100" name="INS_ZONE_NAME"/>
+        </property>
+        <property generated="never" lazy="false" name="insUnitNo" optimistic-lock="true" type="java.lang.Integer" unique="false">
+            <column name="INS_UNIT_NO" precision="6" scale="0"/>
+        </property>
+        <property generated="never" lazy="false" name="insWaselInd" optimistic-lock="true" type="java.lang.Boolean" unique="false">
+            <column name="INS_WASEL_IND" precision="1" scale="0"/>
+        </property>
+        <property generated="never" lazy="false" name="insWaselBldngNo" optimistic-lock="true" type="java.lang.Short" unique="false">
+            <column name="INS_WASEL_BLDNG_NO" precision="4" scale="0"/>
+        </property>
+        <property generated="never" lazy="false" name="insWaselAddtlNo" optimistic-lock="true" type="java.lang.Short" unique="false">
+            <column name="INS_WASEL_ADDTL_NO" precision="4" scale="0"/>
+        </property>
+        <property generated="never" lazy="false" name="insWaselZipCode" optimistic-lock="true" type="java.lang.Integer" unique="false">
+            <column name="INS_WASEL_ZIP_CODE" precision="5" scale="0"/>
+        </property>
+        <property generated="never" lazy="false" name="insWaselCity" optimistic-lock="true" type="string" unique="false">
+            <column length="50" name="INS_WASEL_CITY"/>
+        </property>
+        <property generated="never" lazy="false" name="insWaselZoneName" optimistic-lock="true" type="string" unique="false">
+            <column length="100" name="INS_WASEL_ZONE_NAME"/>
+        </property>
+        <property generated="never" lazy="false" name="insNationalId" optimistic-lock="true" type="string" unique="false">
+            <column length="10" name="INS_NATIONAL_ID"/>
+        </property>
+        <property generated="never" lazy="false" name="insEAddress6" optimistic-lock="true" type="java.lang.Short" unique="false">
+            <column name="INS_E_ADDRESS_6" precision="4" scale="0"/>
+        </property>
+        <property generated="never" lazy="false" name="insEAddress7" optimistic-lock="true" type="string" unique="false">
+            <column length="50" name="INS_E_ADDRESS_7"/>
+        </property>
+        <property generated="never" lazy="false" name="insEAddress8" optimistic-lock="true" type="java.lang.Integer" unique="false">
+            <column name="INS_E_ADDRESS_8" precision="5" scale="0"/>
+        </property>
+        <property generated="never" lazy="false" name="insEAddress9" optimistic-lock="true" type="string" unique="false">
+            <column length="100" name="INS_E_ADDRESS_9"/>
+        </property>
+        <property generated="never" lazy="false" name="insEAddress10" optimistic-lock="true" type="java.lang.Integer" unique="false">
+            <column name="INS_E_ADDRESS_10" precision="6" scale="0"/>
+        </property>
+        <property generated="never" lazy="false" name="insBorderInd" optimistic-lock="true" type="java.lang.Short" unique="false">
+            <column name="INS_BORDER_IND" precision="3" scale="0"/>
+        </property>
+        <property generated="never" lazy="false" name="insVatRegnNo" optimistic-lock="true" type="string" unique="false">
+            <column length="50" name="INS_VAT_REGN_NO"/>
+        </property>
+        <property generated="never" lazy="false" name="insVatCode" optimistic-lock="true" type="java.lang.Byte" unique="false">
+            <column name="INS_VAT_CODE" precision="2" scale="0"/>
+        </property>
+        <property generated="never" lazy="false" name="insVatRegnCnty" optimistic-lock="true" type="java.lang.Integer" unique="false">
+            <column name="INS_VAT_REGN_CNTY" precision="5" scale="0"/>
+        </property>
+        <property generated="never" lazy="false" name="insVatRegnStartDate" optimistic-lock="true" type="date" unique="false">
+            <column length="7" name="INS_VAT_REGN_START_DATE"/>
+        </property>
+        <property generated="never" lazy="false" name="insVatRegnEndDate" optimistic-lock="true" type="date" unique="false">
+            <column length="7" name="INS_VAT_REGN_END_DATE"/>
+        </property>
+        <property generated="never" lazy="false" name="insNoOfChildren" optimistic-lock="true" type="java.lang.Byte" unique="false">
+            <column name="INS_NO_OF_CHILDREN" precision="2" scale="0"/>
+        </property>
+        <property generated="never" lazy="false" name="insQualification" optimistic-lock="true" type="java.lang.Byte" unique="false">
+            <column name="INS_QUALIFICATION" precision="2" scale="0"/>
+        </property>
+        <property generated="never" lazy="false" name="insMaritalStatus" optimistic-lock="true" type="java.lang.Byte" unique="false">
+            <column name="INS_MARITAL_STATUS" precision="2" scale="0"/>
+        </property>
+        <property generated="never" lazy="false" name="quoImportStatus" optimistic-lock="true" type="java.lang.Byte" unique="false">
+            <column name="QUO_IMPORT_STATUS" precision="2" scale="0"/>
+        </property>
+        <property generated="never" lazy="false" name="quoImportDate" optimistic-lock="true" type="date" unique="false">
+            <column length="7" name="QUO_IMPORT_DATE"/>
+        </property>
+        <property generated="never" lazy="false" name="quoParSecFlag" optimistic-lock="true" type="java.lang.Long" unique="false">
+            <column name="QUO_PAR_SEC_FLAG" precision="16" scale="0"/>
+        </property>
+        <property generated="never" lazy="false" name="quoPlSecFlag" optimistic-lock="true" type="java.lang.Long" unique="false">
+            <column name="QUO_PL_SEC_FLAG" precision="16" scale="0"/>
+        </property>
+        <property generated="never" lazy="false" name="quoWcSecFlag" optimistic-lock="true" type="java.lang.Long" unique="false">
+            <column name="QUO_WC_SEC_FLAG" precision="16" scale="0"/>
+        </property>
+        <property generated="never" lazy="false" name="quoDosSecFlag" optimistic-lock="true" type="java.lang.Long" unique="false">
+            <column name="QUO_DOS_SEC_FLAG" precision="16" scale="0"/>
+        </property>
+        <property generated="never" lazy="false" name="quoMbSecFlag" optimistic-lock="true" type="java.lang.Long" unique="false">
+            <column name="QUO_MB_SEC_FLAG" precision="16" scale="0"/>
+        </property>
+        <property generated="never" lazy="false" name="quoEeSecFlag" optimistic-lock="true" type="java.lang.Long" unique="false">
+            <column name="QUO_EE_SEC_FLAG" precision="16" scale="0"/>
+        </property>
+        <property generated="never" lazy="false" name="quoBiSecFlag" optimistic-lock="true" type="java.lang.Long" unique="false">
+            <column name="QUO_BI_SEC_FLAG" precision="16" scale="0"/>
+        </property>
+        <property generated="never" lazy="false" name="quoTbSecFlag" optimistic-lock="true" type="java.lang.Long" unique="false">
+            <column name="QUO_TB_SEC_FLAG" precision="16" scale="0"/>
+        </property>
+        <property generated="never" lazy="false" name="quoGpaSecFlag" optimistic-lock="true" type="java.lang.Long" unique="false">
+            <column name="QUO_GPA_SEC_FLAG" precision="16" scale="0"/>
+        </property>
+        <property generated="never" lazy="false" name="quoFgSecFlag" optimistic-lock="true" type="java.lang.Long" unique="false">
+            <column name="QUO_FG_SEC_FLAG" precision="16" scale="0"/>
+        </property>
+        <property generated="never" lazy="false" name="quoMoneySecFlag" optimistic-lock="true" type="java.lang.Long" unique="false">
+            <column name="QUO_MONEY_SEC_FLAG" precision="16" scale="0"/>
+        </property>
+        -->  
+        
+        <property generated="never" lazy="false" name="quoRequest" optimistic-lock="true" type="clob" unique="false">
+            <column name="QUO_REQUEST"/>
+        </property>
+        <property generated="never" lazy="false" name="quoResponse" optimistic-lock="true" type="clob" unique="false">
+            <column name="QUO_RESPONSE"/>
+        </property>
+        
+        <!-- 
+        <property generated="never" lazy="false" name="quoIntrResponse" optimistic-lock="true" type="clob" unique="false">
+            <column name="QUO_INTR_RESPONSE"/>
+        </property>
+        <property generated="never" lazy="false" name="quoIntrRequest" optimistic-lock="true" type="clob" unique="false">
+            <column name="QUO_INTR_REQUEST"/>
+        </property>
+         -->
+         <property generated="never" lazy="false" name="quoIntrResponseAdd" optimistic-lock="true" type="blob" unique="false">
+            <column name="QUO_INTR_RESPONSE_ADD"/>
+        </property>
+         <property generated="never" lazy="false" name="quoIntrBatchResponse" optimistic-lock="true" type="blob" unique="false">
+            <column name="INTR_BATCH_VO "/>
+        </property>
+        <property generated="never" lazy="false" name="twa_id" optimistic-lock="true" type="java.lang.Long" unique="true">
+			<column name="TWA_ID" />
+		</property>
+		 <property generated="never" lazy="false" name="insInsuredCode" optimistic-lock="true" type="java.lang.Long" unique="false">
+            <column name="INS_INSURED_CODE" precision="16" scale="0"/>
+        </property>
+         <property generated="never" lazy="false" name="batchStatus" optimistic-lock="true" type="java.lang.Byte" unique="false">
+            <column name="BATCH_STATUS" precision="2" scale="0"/>
+        </property>
+    </class>
+</hibernate-mapping>

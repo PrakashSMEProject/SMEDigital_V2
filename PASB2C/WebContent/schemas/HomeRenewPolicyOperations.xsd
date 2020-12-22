@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+xmlns="http://com/rsaame/pas/b2c/ws" 
+targetNamespace="http://com/rsaame/pas/b2c/ws"
+xmlns:Q2="http://com/rsaame/pas/b2c/ws/homeInsuranceDetails" >
+
+<xs:import schemaLocation="HomeInsuranceDetails.xsd" namespace="http://com/rsaame/pas/b2c/ws/homeInsuranceDetails"></xs:import>
+
+ <xs:element name="HomeRenewPolicyRequest">
+  <xs:complexType>
+    <xs:sequence>
+  	 <xs:element name="isModified" type="xs:boolean" minOccurs="0" form="qualified"/>
+      <xs:element name="homeInsuranceDetails" type="Q2:homeInsuranceDetails" minOccurs="0" form="qualified"/>
+    </xs:sequence>
+  </xs:complexType>
+  </xs:element>
+
+ <xs:element name="HomeRenewPolicyResponse">
+  <xs:complexType>
+    <xs:sequence>
+      <xs:element name="coverDetails" type="coverDetails" nillable="true" minOccurs="0" maxOccurs="unbounded" form="qualified"/>
+      <xs:element name="policyId" type="xs:long" minOccurs="0" form="qualified"/>
+      <xs:element name="premiumDetails" type="premiumDetails" minOccurs="0" form="qualified"/>
+    </xs:sequence>
+  </xs:complexType>
+  </xs:element>
+
+  <xs:complexType name="coverDetails">
+    <xs:sequence>
+      <xs:element name="coverCodes" type="cover" minOccurs="0"/>
+      <xs:element name="coverDesc" type="xs:string" minOccurs="0"/>
+      <xs:element name="coverName" type="xs:string" minOccurs="0"/>
+      <xs:element name="currency" type="xs:string" minOccurs="0"/>
+      <xs:element name="discOrLoadAmt" type="xs:decimal" minOccurs="0"/>
+      <xs:element name="discOrLoadPerc" type="xs:double" minOccurs="0"/>
+      <xs:element name="govtTax" type="xs:double"/>
+      <xs:element name="isCovered" type="xs:string" minOccurs="0"/>
+      <xs:element name="loading" type="xs:boolean"/>
+      <xs:element name="lossRatio" type="xs:double"/>
+      <xs:element name="mandatoryIndicator" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="mappingField" type="xs:string" minOccurs="0"/>
+      <xs:element name="minPremium" type="xs:decimal" minOccurs="0"/>
+      <xs:element name="policyFees" type="xs:double"/>
+      <xs:element name="premiumAmt" type="xs:double"/>
+      <xs:element name="premiumAmtActual" type="xs:double"/>
+      <xs:element name="promoDiscPerc" type="xs:double" minOccurs="0"/>
+      <xs:element name="riskCodes" type="riskDetails" minOccurs="0"/>
+      <xs:element name="specialDiscount" type="xs:double"/>
+      <xs:element name="sumInsured" type="sumInsuredDetails" minOccurs="0"/>
+      <xs:element name="tariffCode" type="xs:int" minOccurs="0"/>
+      <xs:element name="vsd" type="xs:dateTime" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="cover">
+    <xs:sequence>
+      <xs:element name="covCode" type="xs:short"/>
+      <xs:element name="covCriteriaCode" type="xs:int" minOccurs="0"/>
+      <xs:element name="covSubTypeCode" type="xs:short"/>
+      <xs:element name="covTypeCode" type="xs:short"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="riskDetails">
+    <xs:sequence>
+      <xs:element name="basicRskCode" type="xs:int" minOccurs="0"/>
+      <xs:element name="basicRskId" type="xs:decimal" minOccurs="0"/>
+      <xs:element name="riskCat" type="xs:int" minOccurs="0"/>
+      <xs:element name="riskCode" type="xs:int" minOccurs="0"/>
+      <xs:element name="riskType" type="xs:int" minOccurs="0"/>
+      <xs:element name="rskId" type="xs:decimal" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="sumInsuredDetails">
+    <xs:sequence>
+      <xs:element name="cash_Id" type="xs:long" minOccurs="0"/>
+      <xs:element name="deductible" type="xs:double" minOccurs="0"/>
+      <xs:element name="identifier" type="xs:int" minOccurs="0"/>
+      <xs:element name="promoCover" type="xs:boolean"/>
+      <xs:element name="sumInsured" type="xs:double" minOccurs="0"/>
+      <xs:element name="vsd" type="xs:dateTime" minOccurs="0"/>
+      <xs:element name="aDesc" type="xs:string" minOccurs="0"/>
+      <xs:element name="eDesc" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="premiumDetails">
+    <xs:sequence>
+      <xs:element name="currency" type="xs:string" minOccurs="0"/>
+      <xs:element name="discOrLoadAmt" type="xs:decimal" minOccurs="0"/>
+      <xs:element name="discOrLoadPerc" type="xs:double" minOccurs="0"/>
+      <xs:element name="govtTax" type="xs:double"/>
+      <xs:element name="lossRatio" type="xs:double"/>
+      <xs:element name="minPremium" type="xs:decimal" minOccurs="0"/>
+      <xs:element name="policyFees" type="xs:double"/>
+      <xs:element name="premiumAmt" type="xs:double"/>
+      <xs:element name="premiumAmtActual" type="xs:double"/>
+      <xs:element name="promoDiscPerc" type="xs:double" minOccurs="0"/>
+      <xs:element name="specialDiscount" type="xs:double"/>
+    </xs:sequence>
+  </xs:complexType>
+  
+</xs:schema>
+

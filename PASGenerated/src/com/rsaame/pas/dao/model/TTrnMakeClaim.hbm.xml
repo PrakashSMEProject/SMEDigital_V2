@@ -1,0 +1,87 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated May 26, 2014 2:07:26 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.rsaame.pas.dao.model.TTrnMakeClaim" table="T_TRN_MAKE_CLAIM">
+        <id name="macClaimId" type="long">
+            <column name="MAC_CLAIM_ID" precision="10" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <property name="macInsuredName" type="string">
+            <column name="MAC_INSURED_NAME" length="150" />
+        </property>
+        <property name="macContactNo" type="big_decimal">
+            <column name="MAC_CONTACT_NO" precision="22" scale="0" />
+        </property>
+        <property name="macEmailId" type="string">
+            <column name="MAC_EMAIL_ID" length="200" />
+        </property>
+        <property name="macMakeCode" type="big_decimal">
+            <column name="MAC_MAKE_CODE" precision="22" scale="0" />
+        </property>
+        <property name="macModelCode" type="big_decimal">
+            <column name="MAC_MODEL_CODE" precision="22" scale="0" />
+        </property>
+        <property name="macVehregNo" type="string">
+            <column name="MAC_VEHREG_NO" precision="22" scale="0" />
+        </property>
+        <property name="macAccidentDate" type="date">
+            <column name="MAC_ACCIDENT_DATE" length="7" />
+        </property>
+        <property name="macLossDesc" type="string">
+            <column name="MAC_LOSS_DESC" length="500" />
+        </property>
+        <property name="macPoliceReport" type="string">
+            <column name="MAC_POLICE_REPORT" length="250" />
+        </property>
+        <property name="macRegcardCopy" type="string">
+            <column name="MAC_REGCARD_COPY" length="250" />
+        </property>
+        <property name="macDriverLicense" type="string">
+            <column name="MAC_DRIVER_LICENSE" length="250" />
+        </property>
+        <property name="macRepairLoc" type="string">
+            <column name="MAC_REPAIR_LOC" length="20" />
+        </property>
+        <property name="macClaimRemarks" type="string">
+            <column name="MAC_CLAIM_REMARKS" length="500" />
+        </property>
+        <property name="macPolicyNo" type="string">
+            <column name="MAC_POLICY_NO" length="30" not-null="true" />
+        </property>
+        <property name="macPreparedDate" type="date">
+            <column name="MAC_PREPARED_DT" />
+        </property>
+        <!-- Added for Oman D2C -->
+        <property name="macAccidentType" type="string">
+            <column name="MAC_ACCIDENT_TYPE" length="50" />
+        </property>
+        <property name="macMRTAForm" type="string">
+            <column name="MAC_MRTA_FORM" length="250" />
+        </property>
+        <property name="macClaimForm" type="string">
+            <column name="MAC_CLAIM_FORM" length="250" />
+        </property>
+        <property name="macDriverName" type="string">
+            <column name="MAC_DRIVER_NAME" length="150" />
+        </property>
+        <property name="macDriverLicenseNo" type="string">
+            <column name="MAC_DRIVER_LICENSE_NO" length="50" />
+        </property>
+        <!--
+        <property name="macTPName" type="string">
+            <column name="MAC_TP_NAME" length="150" />
+        </property>
+        <property name="macTPInvolved" type="string">
+            <column name="MAC_TP_INVOLVED" length="50" />
+        </property>
+        <property name="macVehicleMake" type="string">
+            <column name="MAC_VEHICLE_MAKE" length="50" />
+        </property>
+        <property name="macMakeAndModel" type="string">
+            <column name="MAC_Make_AND_MODEL" length="50" />
+        </property> -->
+        <!-- D2C End -->
+    </class>
+</hibernate-mapping>

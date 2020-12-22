@@ -1,0 +1,61 @@
+
+# Set root logger level to DEBUG and its only appender to A1.
+#Development mode
+#log4j.rootLogger=DEBUG, Console, RollingFile
+
+#Production mode
+log4j.rootLogger=DEBUG, Console, RollingFile,auditLog
+
+# A1 is set to be a ConsoleAppender.
+log4j.appender.Console=org.apache.log4j.ConsoleAppender
+
+log4j.logger.org=WARN
+log4j.logger.com.rsaame.kaizen=WARN
+log4j.logger.com.cognizant=WARN
+log4j.logger.com.cts=WARN
+
+# A1 uses PatternLayout.
+log4j.appender.Console.layout=org.apache.log4j.PatternLayout
+log4j.appender.Console.layout.ConversionPattern=%-4r [%t] %-5p %c %x - %m%n
+
+# RollingFile is set to be a RollingFileAppender
+log4j.appender.RollingFile=org.apache.log4j.RollingFileAppender
+#Uncomment for Dev enviroment.
+log4j.appender.RollingFile.File=C:/Logs/B2b/pas.log
+#Uncomment for QA and PROD enviroment.
+log4j.appender.RollingFile.Encoding=UTF-8
+log4j.appender.RollingFile.MaxFileSize=5MB
+ 
+
+# Number of backup files
+log4j.appender.RollingFile.MaxBackupIndex=10
+log4j.appender.RollingFile.layout=org.apache.log4j.PatternLayout
+log4j.appender.RollingFile.layout.ConversionPattern=%d{DATE} [%t] %-5p %-15c{1} [%x]: %m%n
+
+
+
+# premiumLog is set to be a RollingFileAppender which will log premium actions in the application.
+log4j.appender.premiumLog=org.apache.log4j.RollingFileAppender
+log4j.appender.premiumLog.layout=org.apache.log4j.PatternLayout
+log4j.appender.premiumLog.layout.ConversionPattern=%d{DATE} [%t] %-5p %-15c{1} [%x]\: %m%n
+log4j.appender.premiumLog.file=C:/Logs/B2b/premium.log
+
+# Number of backup files
+log4j.appender.premiumLog.MaxBackupIndex=10
+
+log4j.logger.com.rsaame.pas.premiumHelper=ALL,premiumLog
+
+#########################Audit Trail###############################
+
+# premiumLog is set to be a RollingFileAppender which will log premium actions in the application.
+log4j.appender.auditLog=org.apache.log4j.DailyRollingFileAppender
+log4j.appender.auditLog.layout=org.apache.log4j.PatternLayout
+log4j.appender.auditLog.datePattern='.'yyyy-MM-dd
+log4j.appender.auditLog.append = true
+log4j.appender.auditLog.layout.ConversionPattern=%d{DATE} [%t] %-5p %-15c{1} [%x]\: - %X{userid} \: - %X{activity} \: %m%n
+log4j.appender.auditLog.file=C:/Logs/B2b/audit.log
+log4j.appender.auditLog.MaxFileSize=10MB
+# Number of backup files
+log4j.appender.auditLog.MaxBackupIndex=10
+
+log4j.logger.com.rsaame.pas.web.AuditLogger=ALL,auditLog

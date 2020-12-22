@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Feb 9, 2012 5:55:56 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.rsaame.pas.dao.model.VParCntDeductibles" table="V_PAR_CNT_DEDUCTIBLES">
+        <composite-id name="id" class="com.rsaame.pas.dao.model.VParCntDeductiblesId">
+            <key-property name="schCode" type="java.lang.Short">
+                <column name="SCH_CODE" precision="3" scale="0" />
+            </key-property>
+            <key-property name="tariff" type="java.lang.Integer">
+                <column name="TARIFF" precision="5" scale="0" />
+            </key-property>
+            <key-property name="riskType" type="java.lang.Integer">
+                <column name="RISK_TYPE" precision="5" scale="0" />
+            </key-property>
+            <key-property name="riskTypeDesc" type="string">
+                <column name="RISK_TYPE_DESC" length="500" />
+            </key-property>
+            <key-property name="compulsoryExcess" type="big_decimal">
+                <column name="COMPULSORY_EXCESS" precision="8" scale="3" />
+            </key-property>
+        </composite-id>
+         <property name="riskTypeADesc" type="string">
+                <column name="RISK_TYPE_A_DESC" length="500" />
+         </property>
+    </class>
+</hibernate-mapping>

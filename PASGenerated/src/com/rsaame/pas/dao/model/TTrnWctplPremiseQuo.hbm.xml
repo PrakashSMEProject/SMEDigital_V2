@@ -1,0 +1,180 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Mar 3, 2012 11:52:19 AM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.rsaame.pas.dao.model.TTrnWctplPremiseQuo" table="T_TRN_WCTPL_PREMISE_QUO">
+        <composite-id name="id" class="com.rsaame.pas.dao.model.TTrnWctplPremiseQuoId">
+            <key-property name="wbdId" type="long">
+                <column name="WBD_ID" precision="16" scale="0" />
+            </key-property>
+            <key-property name="wbdValidityStartDate" type="java.sql.Timestamp">
+                <column name="WBD_VALIDITY_START_DATE" length="7" />
+            </key-property>
+        </composite-id>
+        <property name="wbdPolicyId" type="long">
+            <column name="WBD_POLICY_ID" precision="16" scale="0" not-null="true">
+                <comment>WBD_POLICY_ID</comment>
+            </column>
+        </property>
+        <property name="wbdEndtId" type="long">
+            <column name="WBD_ENDT_ID" precision="16" scale="0" not-null="true">
+                <comment>WBD_ENDT_ID</comment>
+            </column>
+        </property>
+        <property name="wbdRskCode" type="long">
+            <column name="WBD_RSK_CODE" precision="16" scale="0" not-null="true">
+                <comment>WBD_RSK_CODE</comment>
+            </column>
+        </property>
+        <property name="wbdPremiseType" type="java.lang.Byte">
+            <column name="WBD_PREMISE_TYPE" precision="2" scale="0">
+                <comment>WBD_PREMISE_TYPE</comment>
+            </column>
+        </property>
+        <property name="wbdCbCode" type="java.lang.Integer">
+            <column name="WBD_CB_CODE" precision="5" scale="0">
+                <comment>WBD_CB_CODE</comment>
+            </column>
+        </property>
+        <property name="wbdNo" type="string">
+            <column name="WBD_NO" length="30">
+                <comment>WBD_NO</comment>
+            </column>
+        </property>
+        <property name="wbdFlatNo" type="java.lang.Long">
+            <column name="WBD_FLAT_NO" precision="16" scale="0">
+                <comment>WBD_FLAT_NO</comment>
+            </column>
+        </property>
+        <property name="wbdEName" type="string">
+            <column name="WBD_E_NAME" length="500">
+                <comment>WBD_E_NAME</comment>
+            </column>
+        </property>
+        <property name="wbdAName" type="string">
+            <column name="WBD_A_NAME" length="60">
+                <comment>WBD_A_NAME</comment>
+            </column>
+        </property>
+        <property name="wbdWayNo" type="java.lang.Long">
+            <column name="WBD_WAY_NO" precision="16" scale="0">
+                <comment>WBD_WAY_NO</comment>
+            </column>
+        </property>
+        <property name="wbdEStreetName" type="string">
+            <column name="WBD_E_STREET_NAME" length="120">
+                <comment>WBD_E_STREET_NAME</comment>
+            </column>
+        </property>
+        <property name="wbdAStreetName" type="string">
+            <column name="WBD_A_STREET_NAME" length="60">
+                <comment>WBD_A_STREET_NAME</comment>
+            </column>
+        </property>
+        <property name="wbdBlockNo" type="java.lang.Long">
+            <column name="WBD_BLOCK_NO" precision="16" scale="0">
+                <comment>WBD_BLOCK_NO</comment>
+            </column>
+        </property>
+        <property name="wbdDirCode" type="java.lang.Long">
+            <column name="WBD_DIR_CODE" precision="16" scale="0">
+                <comment>WBD_DIR_CODE</comment>
+            </column>
+        </property>
+        <property name="wbdMunCode" type="java.lang.Long">
+            <column name="WBD_MUN_CODE" precision="16" scale="0">
+                <comment>WBD_MUN_CODE</comment>
+            </column>
+        </property>
+        <property name="wbdAAddress1" type="string">
+            <column name="WBD_A_ADDRESS1" length="40">
+                <comment>WBD_A_ADDRESS1</comment>
+            </column>
+        </property>
+        <property name="wbdEAddress1" type="string">
+            <column name="WBD_E_ADDRESS1" length="40">
+                <comment>WBD_E_ADDRESS1</comment>
+            </column>
+        </property>
+        <property name="wbdZip" type="string">
+            <column name="WBD_ZIP" length="10">
+                <comment>WBD_ZIP</comment>
+            </column>
+        </property>
+        <property name="wbdSumInsured" type="big_decimal">
+            <column name="WBD_SUM_INSURED" precision="16" scale="3">
+                <comment>WBD_SUM_INSURED</comment>
+            </column>
+        </property>
+        <property name="wbdRiRskCode" type="java.lang.Integer">
+            <column name="WBD_RI_RSK_CODE" precision="5" scale="0">
+                <comment>WBD_RI_RSK_CODE</comment>
+            </column>
+        </property>
+        <property name="wbdGeoLimit" type="string">
+            <column name="WBD_GEO_LIMIT" length="50">
+                <comment>WBD_GEO_LIMIT</comment>
+            </column>
+        </property>
+        <property name="wbdValidityExpiryDate" type="java.sql.Timestamp">
+            <column name="WBD_VALIDITY_EXPIRY_DATE" length="7" not-null="true">
+                <comment>WBD_VALIDITY_EXPIRY_DATE</comment>
+            </column>
+        </property>
+        <property name="wbdStatus" type="java.lang.Byte">
+            <column name="WBD_STATUS" precision="2" scale="0">
+                <comment>WBD_STATUS</comment>
+            </column>
+        </property>
+        <property name="wbdPreparedBy" type="java.lang.Integer">
+            <column name="WBD_PREPARED_BY" precision="8" scale="0">
+                <comment>WBD_PREPARED_BY</comment>
+            </column>
+        </property>
+        <property name="wbdPreparedDt" type="java.sql.Timestamp">
+            <column name="WBD_PREPARED_DT" length="7">
+                <comment>WBD_PREPARED_DT</comment>
+            </column>
+        </property>
+        <property name="wbdModifiedBy" type="java.lang.Integer">
+            <column name="WBD_MODIFIED_BY" precision="8" scale="0">
+                <comment>WBD_MODIFIED_BY</comment>
+            </column>
+        </property>
+        <property name="wbdModifiedDt" type="java.sql.Timestamp">
+            <column name="WBD_MODIFIED_DT" length="7">
+                <comment>WBD_MODIFIED_DT</comment>
+            </column>
+        </property>
+        <property name="wbdStartDate" type="date">
+            <column name="WBD_START_DATE" length="7" />
+        </property>
+        <property name="wbdEndDate" type="date">
+            <column name="WBD_END_DATE" length="7" />
+        </property>
+        <property name="wbdPremiseDesc" type="string">
+            <column name="WBD_PREMISE_DESC" length="2000" />
+        </property>
+        <property name="wbdBusinessDesc" type="string">
+            <column name="WBD_BUSINESS_DESC" length="2000" />
+        </property>
+        <property name="wbdBldId" type="java.lang.Long">
+            <column name="WBD_BLD_ID" precision="10" scale="0">
+                <comment>'To store section1 Building ID'</comment>
+            </column>
+        </property>
+        <property name="wbdTerCode" type="java.lang.Short">
+            <column name="WBD_TER_CODE" precision="4" scale="0" />
+        </property>
+        <property name="wbdJurCode" type="java.lang.Short">
+            <column name="WBD_JUR_CODE" precision="4" scale="0" />
+        </property>
+        <property name="wbdFreeZone" type="string">
+            <column name="WBD_FREE_ZONE" length="50" />
+        </property>
+        <property name="wbdIndemnityLimitAmt" type="java.lang.Integer">
+            <column name="WBD_INDEMNITY_LIMIT_AMT" precision="8" scale="0" />
+        </property>
+    </class>
+</hibernate-mapping>

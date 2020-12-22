@@ -1,0 +1,103 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Apr 18, 2012 2:51:48 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.rsaame.pas.dao.model.TTrnEndorsement" table="T_TRN_ENDORSEMENT">
+        <comment>Endorsement transactions</comment>
+        <composite-id name="id" class="com.rsaame.pas.dao.model.TTrnEndorsementId">
+            <key-property name="endPolicyId" type="long">
+                <column name="END_POLICY_ID" precision="16" scale="0" />
+            </key-property>
+            <key-property name="endNo" type="long">
+                <column name="END_NO" precision="16" scale="0" />
+            </key-property>
+        </composite-id>
+        <property name="endEndorsementId" type="java.lang.Long">
+            <column name="END_ENDORSEMENT_ID" precision="16" scale="0">
+                <comment>END_ENDORSEMENT_ID</comment>
+            </column>
+        </property>
+        <property name="endDate" type="date">
+            <column name="END_DATE" length="7">
+                <comment>END_DATE</comment>
+            </column>
+        </property>
+        <property name="endHeader" type="string">
+            <column name="END_HEADER" length="2000">
+                <comment>END_HEADER</comment>
+            </column>
+        </property>
+        <property name="endFooter" type="string">
+            <column name="END_FOOTER" length="2000">
+                <comment>END_FOOTER</comment>
+            </column>
+        </property>
+        <property name="endType" type="java.lang.Boolean">
+            <column name="END_TYPE" precision="1" scale="0">
+                <comment>END_TYPE</comment>
+            </column>
+        </property>
+        <property name="endOldPremium" type="big_decimal">
+            <column name="END_OLD_PREMIUM" precision="16" scale="3">
+                <comment>END_OLD_PREMIUM</comment>
+            </column>
+        </property>
+        <property name="endNewPremium" type="big_decimal">
+            <column name="END_NEW_PREMIUM" precision="16" scale="3">
+                <comment>END_NEW_PREMIUM</comment>
+            </column>
+        </property>
+        <property name="endOldGovTax" type="big_decimal">
+            <column name="END_OLD_GOV_TAX" precision="16" scale="3">
+                <comment>END_OLD_GOV_TAX</comment>
+            </column>
+        </property>
+        <property name="endNewGovTax" type="big_decimal">
+            <column name="END_NEW_GOV_TAX" precision="16" scale="3">
+                <comment>END_NEW_GOV_TAX</comment>
+            </column>
+        </property>
+        <property name="endOldPolFee" type="big_decimal">
+            <column name="END_OLD_POL_FEE" precision="16" scale="3">
+                <comment>END_OLD_POL_FEE</comment>
+            </column>
+        </property>
+        <property name="endNewPolFee" type="big_decimal">
+            <column name="END_NEW_POL_FEE" precision="16" scale="3">
+                <comment>END_NEW_POL_FEE</comment>
+            </column>
+        </property>
+        <property name="endText" type="string">
+            <column name="END_TEXT" length="4000">
+                <comment>END_TEXT</comment>
+            </column>
+        </property>
+        <property name="endPreparedBy" type="java.lang.Integer">
+            <column name="END_PREPARED_BY" precision="8" scale="0">
+                <comment>END_PREPARED_BY</comment>
+            </column>
+        </property>
+        <property name="endPreparedDt" type="date">
+            <column name="END_PREPARED_DT" length="7">
+                <comment>END_PREPARED_DT</comment>
+            </column>
+        </property>
+        <property name="endModifiedBy" type="java.lang.Integer">
+            <column name="END_MODIFIED_BY" precision="8" scale="0">
+                <comment>END_MODIFIED_BY</comment>
+            </column>
+        </property>
+        <property name="endModifiedDt" type="date">
+            <column name="END_MODIFIED_DT" length="7">
+                <comment>END_MODIFIED_DT</comment>
+            </column>
+        </property>
+        <property name="endRichText" type="string">
+            <column name="END_RICH_TEXT" length="0" />
+        </property>
+        <property name="endRtfFlag" type="java.lang.Boolean">
+            <column name="END_RTF_FLAG" precision="1" scale="0" />
+        </property>
+    </class>
+</hibernate-mapping>

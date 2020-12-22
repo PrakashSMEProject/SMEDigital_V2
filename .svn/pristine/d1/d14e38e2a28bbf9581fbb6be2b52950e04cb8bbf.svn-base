@@ -1,0 +1,175 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Jan 18, 2012 5:30:03 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.rsaame.pas.dao.model.TTrnContentQuo" table="T_TRN_CONTENT_QUO">
+        <composite-id name="id" class="com.rsaame.pas.dao.model.TTrnContentQuoId">
+            <key-property name="cntContentId" type="long">
+                <column name="CNT_CONTENT_ID" precision="10" scale="0" />
+            </key-property>
+            <key-property name="cntValidityStartDate" type="java.sql.Timestamp">
+                <column name="CNT_VALIDITY_START_DATE" length="7" />
+            </key-property>
+        </composite-id>
+        <property name="cntPolicyId" type="long">
+            <column name="CNT_POLICY_ID" precision="16" scale="0" not-null="true">
+                <comment>CNT_POLICY_ID</comment>
+            </column>
+        </property>
+        <property name="cntBasicRiskId" type="java.lang.Long">
+            <column name="CNT_BASIC_RISK_ID" precision="10" scale="0">
+                <comment>CNT_BASIC_RISK_ID</comment>
+            </column>
+        </property>
+        <property name="cntRskCode" type="java.lang.Integer">
+            <column name="CNT_RSK_CODE" precision="5" scale="0">
+                <comment>CNT_RSK_CODE</comment>
+            </column>
+        </property>
+        <property name="cntCategory" type="java.lang.Integer">
+            <column name="CNT_CATEGORY" precision="5" scale="0">
+                <comment>CNT_CATEGORY</comment>
+            </column>
+        </property>
+        <property name="cntDescription" type="string">
+            <column name="CNT_DESCRIPTION" length="500">
+                <comment>CNT_DESCRIPTION</comment>
+            </column>
+        </property>
+        <property name="cntSumInsured" type="big_decimal">
+            <column name="CNT_SUM_INSURED" precision="16" scale="3">
+                <comment>CNT_SUM_INSURED</comment>
+            </column>
+        </property>
+        <property name="cntValidityExpiryDate" type="java.sql.Timestamp">
+            <column name="CNT_VALIDITY_EXPIRY_DATE" length="7" not-null="true">
+                <comment>CNT_VALIDITY_EXPIRY_DATE</comment>
+            </column>
+        </property>
+        <property name="cntDeclNo" type="java.lang.Integer">
+            <column name="CNT_DECL_NO" precision="5" scale="0">
+                <comment>CNT_DECL_NO</comment>
+            </column>
+        </property>
+        <property name="cntDeclDate" type="date">
+            <column name="CNT_DECL_DATE" length="7">
+                <comment>CNT_DECL_DATE</comment>
+            </column>
+        </property>
+        <property name="cntBasicRskCode" type="java.lang.Integer">
+            <column name="CNT_BASIC_RSK_CODE" precision="5" scale="0">
+                <comment>CNT_BASIC_RSK_CODE</comment>
+            </column>
+        </property>
+        <property name="cntEndtId" type="java.lang.Long">
+            <column name="CNT_ENDT_ID" precision="16" scale="0">
+                <comment>CNT_ENDT_ID</comment>
+            </column>
+        </property>
+        <property name="cntRiRskCode" type="java.lang.Integer">
+            <column name="CNT_RI_RSK_CODE" precision="5" scale="0">
+                <comment>CNT_RI_RSK_CODE</comment>
+            </column>
+        </property>
+        <property name="cntStatus" type="java.lang.Byte">
+            <column name="CNT_STATUS" precision="2" scale="0">
+                <comment>CNT_STATUS</comment>
+            </column>
+        </property>
+        <property name="cntPreparedBy" type="java.lang.Integer">
+            <column name="CNT_PREPARED_BY" precision="8" scale="0">
+                <comment>CNT_PREPARED_BY</comment>
+            </column>
+        </property>
+        <property name="cntPreparedDt" type="java.sql.Timestamp">
+            <column name="CNT_PREPARED_DT" length="7">
+                <comment>CNT_PREPARED_DT</comment>
+            </column>
+        </property>
+        <property name="cntModifiedBy" type="java.lang.Integer">
+            <column name="CNT_MODIFIED_BY" precision="8" scale="0">
+                <comment>CNT_MODIFIED_BY</comment>
+            </column>
+        </property>
+        <property name="cntModifiedDt" type="java.sql.Timestamp">
+            <column name="CNT_MODIFIED_DT" length="7">
+                <comment>CNT_MODIFIED_DT</comment>
+            </column>
+        </property>
+        <property name="cntStartDate" type="date">
+            <column name="CNT_START_DATE" length="7" />
+        </property>
+        <property name="cntEndDate" type="date">
+            <column name="CNT_END_DATE" length="7" />
+        </property>
+        <property name="cntMplFire" type="big_decimal">
+            <column name="CNT_MPL_FIRE" precision="16" scale="3" />
+        </property>
+        <property name="cntMplFlood" type="big_decimal">
+            <column name="CNT_MPL_FLOOD" precision="16" scale="3" />
+        </property>
+        <property name="cntMplFirePerc" type="big_decimal">
+            <column name="CNT_MPL_FIRE_PERC" precision="5" />
+        </property>
+        <property name="cntMplFloodPerc" type="big_decimal">
+            <column name="CNT_MPL_FLOOD_PERC" precision="5" />
+        </property>
+        <property name="cntADescription" type="string">
+            <column name="CNT_A_DESCRIPTION" length="500" />
+        </property>
+        <property name="cntRiskDtl" type="java.lang.Long">
+            <column name="CNT_RISK_DTL" precision="10" scale="0">
+                <comment>'Machinery, Commodity type, Equipment type'</comment>
+            </column>
+        </property>
+        <property name="cntRiskSubDtl" type="java.lang.Integer">
+            <column name="CNT_RISK_SUB_DTL" precision="5" scale="0">
+                <comment>'Machinery Type'</comment>
+            </column>
+        </property>
+        <property name="cntAddress" type="string">
+            <column name="CNT_ADDRESS" length="200">
+                <comment>'Situation Address'</comment>
+            </column>
+        </property>
+        <property name="cntTradeCode" type="java.lang.Integer">
+            <column name="CNT_TRADE_CODE"  precision="4" scale="0">
+                <comment>'Trade code for DOS and EE'</comment>
+            </column>
+        </property>
+        <property name="cntQty" type="big_decimal">
+            <column name="CNT_QTY" precision="12" scale="3">
+                <comment>'Quantity for DOS and EE'</comment>
+            </column>
+        </property>
+        <property name="cntNoChamber" type="java.lang.Short">
+            <column name="CNT_NO_CHAMBER" precision="4" scale="0">
+                <comment>'No of chambers for DOS'</comment>
+            </column>
+        </property>
+        <property name="cntEqCode" type="java.lang.Integer">
+            <column name="CNT_EQ_CODE" precision="5" scale="0">
+                <comment>'Earth quake zone for DOS and EE'</comment>
+            </column>
+        </property>
+        <property name="cntManufacture" type="java.lang.Short">
+            <column name="CNT_MANUFACTURE" precision="4" scale="0">
+                <comment>'code of Manufacturer for EE'</comment>
+            </column>
+        </property>
+        <property name="cntYearOfMan" type="java.lang.Short">
+            <column name="CNT_YEAR_OF_MAN" precision="4" scale="0">
+                <comment>'Year of Manufacture for EE'</comment>
+            </column>
+        </property>
+        <property name="cntBiCoverDesc" type="string">
+            <column name="CNT_BI_COVER_DESC" length="500">
+                <comment>'BI cover description for EE'</comment>
+            </column>
+        </property>
+        <property name="cntEqptSerialNo" type="java.lang.Long">
+            <column name="CNT_EQPT_SERIAL_NO" precision="10" scale="0" />
+        </property>
+    </class>
+</hibernate-mapping>

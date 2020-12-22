@@ -1,0 +1,3463 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mappings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="mappings.xsd">
+
+	<!-- Request to PolicyVO mapper starts here -->
+	<mapping package="com.rsaame.pas.request.vo.mapper" id="RequestToPolicyVOMapper"
+		genReverse="false">
+		<class-a class="HTTP-REQUEST" />
+		<class-b class="com.rsaame.pas.vo.bus.PolicyVO" />
+
+		<field converterDefaultDir="a-b">
+			<a>quote_name_jurisdiction</a>
+			<b>generalInfo.jurisdiction</b>
+		</field>
+
+		<!-- InsuredVO mapping within GeneralInfoVO Begins -->
+		<field converterDefaultDir="a-b">
+			<a>quote_name_insuredname</a>
+			<b>generalInfo.insured.name</b>
+		</field>
+
+		<field converterDefaultDir="a-b">
+			<a>quote_name_araname</a>
+			<b>generalInfo.insured.arabicName</b>
+		</field>
+
+		<field converterDefaultDir="a-b">
+			<a>quote_name_custphno</a>
+			<b>generalInfo.insured.phoneNo</b>
+		</field>
+
+		<field converterDefaultDir="a-b">
+			<a>quote_name_custmobno</a>
+			<b>generalInfo.insured.mobileNo</b>
+		</field>
+
+		<field converter="com.rsaame.pas.cmn.converter.IntegerStringConverter"
+			converterDefaultDir="b-a">
+			<a>quote_name_city</a>
+			<b>generalInfo.insured.city</b>
+		</field>
+
+		<field converterDefaultDir="a-b">
+			<a>quote_name_emailid</a>
+			<b>generalInfo.insured.emailId</b>
+		</field>
+
+		<field converterDefaultDir="a-b">
+			<a>quote_name_businessdesc</a>
+			<b>generalInfo.insured.busDescription</b>
+		</field>
+
+		<field converter="com.rsaame.pas.cmn.converter.IntegerStringConverter"
+			converterDefaultDir="b-a">
+			<a>quote_name_businesstype</a>
+			<b>generalInfo.insured.busType</b>
+		</field>
+
+		<field converterDefaultDir="a-b">
+			<a>quote_name_tradelicno</a>
+			<b>generalInfo.insured.tradeLicenseNo</b>
+		</field>
+
+		<!-- Added below field on 03 Feb 2012 -->
+		<field converter="com.rsaame.pas.cmn.converter.IntegerStringConverter"
+			converterDefaultDir="b-a">
+			<a>quote_name_nationality</a>
+			<b>generalInfo.insured.nationality</b>
+		</field>
+		<!-- Ends Here 03 Feb 2012 -->
+
+
+
+		<field converterDefaultDir="a-b">
+			<a>quote_name_address</a>
+			<b>generalInfo.insured.address.address</b>
+		</field>
+
+		<field converterDefaultDir="a-b">
+			<a>quote_name_pobox</a>
+			<b>generalInfo.insured.address.poBox</b>
+		</field>
+
+		<field converterDefaultDir="a-b">
+			<a>quote_name_pobox</a>
+			<b>generalInfo.insured.address.poBox</b>
+		</field>
+
+		<field converter="com.rsaame.pas.cmn.converter.IntegerStringConverter"
+			converterDefaultDir="b-a">
+			<a>quote_name_emirates</a>
+			<b>generalInfo.insured.address.emirates</b>
+		</field>
+
+
+		<field converter="com.rsaame.pas.cmn.converter.IntegerStringConverter"
+			converterDefaultDir="b-a">
+			<a>quote_name_country</a>
+			<b>generalInfo.insured.address.country</b>
+		</field>
+
+
+		<field converter="com.rsaame.pas.cmn.converter.IntegerStringConverter"
+			converterDefaultDir="b-a">
+			<a>quote_name_territory</a>
+			<b>generalInfo.insured.address.territory</b>
+		</field>
+
+		<!-- InsuredVO mapping within GeneralInfoVO Ends -->
+
+		<!-- AdditionalInsuredInfoVO mapping within GeneralInfoVO Begins -->
+
+		<field converterDefaultDir="a-b">
+			<a>quote_name_laws</a>
+			<b>generalInfo.additionalInfo.laws</b>
+		</field>
+
+		<field converter="com.rsaame.pas.cmn.converter.IntegerStringConverter"
+			converterDefaultDir="b-a">
+			<a>quote_name_regbody</a>
+			<b>generalInfo.additionalInfo.regulatoryBody</b>
+		</field>
+
+		<field converter="com.mindtree.ruc.cmn.beanmap.DateStringConverter"
+			converterDefaultDir="b-a">
+			<a properties="format=yyyy-MM-dd">quote_name_dtestb</a>
+			<b>generalInfo.additionalInfo.dateOfEst</b>
+		</field>
+
+
+		<field converterDefaultDir="a-b">
+			<a>quote_name_placeofest</a>
+			<b>generalInfo.additionalInfo.placeOfEst</b>
+		</field>
+
+		<field converter="com.mindtree.ruc.cmn.beanmap.DateStringConverter"
+			converterDefaultDir="b-a">
+			<a properties="format=yyyy-MM-dd">quote_name_colldtKYC</a>
+			<b>generalInfo.additionalInfo.dateOfcollectionOfKYC</b>
+		</field>
+
+
+		<field converter="com.mindtree.ruc.cmn.beanmap.DateStringConverter"
+			converterDefaultDir="b-a">
+			<a properties="format=yyyy-MM-dd">quote_name_tradelicexp</a>
+			<b>generalInfo.additionalInfo.tradeLicenseExpDate</b>
+		</field>
+
+		<field converter="com.rsaame.pas.cmn.converter.IntegerStringConverter"
+			converterDefaultDir="b-a">
+			<a>quote_name_insuredstatus</a>
+			<b>generalInfo.additionalInfo.insuredStatus</b>
+		</field>
+
+		<field converterDefaultDir="a-b">
+			<a>quote_name_remarks</a>
+			<b>generalInfo.additionalInfo.remarks</b>
+		</field>
+		
+		<field converterDefaultDir="a-b">
+			<a>quote_name_jlt_remarks</a>
+			<b>generalInfo.additionalInfo.remarks</b>
+		</field>
+
+		<field converter="com.rsaame.pas.cmn.converter.LongStringConverter"
+			converterDefaultDir="b-a">
+			<a>quote_name_faxnumber</a>
+			<b>generalInfo.additionalInfo.faxNumber</b>
+		</field>
+
+		<field converterDefaultDir="a-b">
+			<a>quote_name_website</a>
+			<b>generalInfo.additionalInfo.website</b>
+		</field>
+
+		<!-- <field converterDefaultDir="a-b"> <a>quote_txt_payterms</a> <b>generalInfo.additionalInfo.payTerms</b> 
+			</field> -->
+		<field converterDefaultDir="a-b">
+			<a>quote_name_payterms</a>
+			<b>generalInfo.additionalInfo.payTerms</b>
+		</field>
+
+		<field converter="com.rsaame.pas.cmn.converter.IntegerStringConverter"
+			converterDefaultDir="b-a">
+			<a>quote_name_policyid</a>
+			<b>generalInfo.additionalInfo.policyId</b>
+		</field>
+
+		<field converter="com.rsaame.pas.cmn.converter.IntegerStringConverter"
+			converterDefaultDir="b-a">
+			<a>quote_name_rsaspecind</a>
+			<b>generalInfo.additionalInfo.rsaSpacialIndicator</b>
+		</field>
+
+		<field converter="com.rsaame.pas.cmn.converter.IntegerStringConverter"
+			converterDefaultDir="b-a">
+			<a>quote_name_specialitytype</a>
+			<b>generalInfo.additionalInfo.specialityType</b>
+		</field>
+
+		<!-- AdditionalInsuredInfoVO mapping within GeneralInfoVO Ends -->
+
+
+		<!-- Source of Business Section with GeneralInfoVO Begins -->
+
+		<field converter="com.rsaame.pas.cmn.converter.IntegerStringConverter"
+			converterDefaultDir="b-a">
+			<a>quote_name_distchnl</a>
+			<b>generalInfo.sourceOfBus.distributionChannel</b>
+		</field>
+
+		<field converter="com.rsaame.pas.cmn.converter.IntegerStringConverter"
+			converterDefaultDir="b-a">
+			<a>quote_name_brokername</a>
+			<b>generalInfo.sourceOfBus.brokerName</b>
+		</field>
+
+		<field converter="com.rsaame.pas.cmn.converter.LongStringConverter"
+			converterDefaultDir="b-a">
+			<a>quote_name_directsubagent</a>
+			<b>generalInfo.sourceOfBus.directSubAgent</b>
+		</field>
+
+		<!-- Source of Business Section with GeneralInfoVO Ends -->
+
+		<!-- PolicyVO section with GeneralInfoVO Begins -->
+
+		<field converter="com.rsaame.pas.cmn.converter.LongStringConverter"
+			converterDefaultDir="b-a">
+			<a>quote_name_policyno</a>
+			<b>policyNo</b>
+		</field>
+
+		<field converter="com.rsaame.pas.cmn.converter.LongStringConverter"
+			converterDefaultDir="b-a">
+			<a>quote_name_quoteno</a>
+			<b>quoteNo</b>
+		</field>
+
+		<!-- <field converter="com.mindtree.ruc.cmn.beanmap.BooleanStringConverter" 
+			converterDefaultDir="b-a"> <a type="boolean" http-attr="true">yesso</a> <b>policyDetails.quoteNo</b> 
+			</field> -->
+		<!-- SchemeVO section with PolicyVO Begins -->
+
+		<field converter="com.rsaame.pas.cmn.converter.IntegerStringConverter"
+			converterDefaultDir="b-a">
+			<a>quote_name_scheme</a>
+			<b>scheme.schemeCode</b>
+		</field>
+
+		<field converter="com.rsaame.pas.cmn.converter.IntegerStringConverter"
+			converterDefaultDir="b-a">
+			<a>quote_name_tariff</a>
+			<b>scheme.tariffCode</b>
+		</field>
+
+		<field converter="com.rsaame.pas.cmn.converter.IntegerStringConverter"
+			converterDefaultDir="b-a">
+			<a>quote_name_poltype</a>
+			<b>scheme.policyCode</b>
+		</field>
+
+		<field converterDefaultDir="a-b">
+			<a>quote_name_poldesc</a>
+			<b>scheme.policyType</b>
+		</field>
+
+
+		<field converter="com.mindtree.ruc.cmn.beanmap.DateStringConverter"
+			converterDefaultDir="b-a">
+			<a properties="format=yyyy-MM-dd">quote_name_effdt</a>
+			<b>scheme.effDate</b>
+		</field>
+
+		<field converter="com.mindtree.ruc.cmn.beanmap.DateStringConverter"
+			converterDefaultDir="b-a">
+			<a properties="format=yyyy-MM-dd">quote_name_expdt</a>
+			<b>scheme.expiryDate</b>
+		</field>
+
+		<field converter="com.mindtree.ruc.cmn.beanmap.DateStringConverter"
+			converterDefaultDir="b-a">
+			<a properties="format=yyyy-MM-dd">quote_name_creationdt</a>
+			<b>processedDate</b>
+		</field>
+
+		<field converter="com.rsaame.pas.cmn.converter.IntegerStringConverter"
+			converterDefaultDir="b-a">
+			<a>quote_name_policyterm</a>
+			<b>policyTerm</b>
+		</field>
+
+
+		<!-- Added on 03 Feb 2012 -->
+		<field converter="com.mindtree.ruc.cmn.beanmap.DateStringConverter"
+			converterDefaultDir="b-a">
+			<!-- START SIT BUG FIX: Unexpected exception Date formate exception -->
+			<!-- <a properties="format=dd/MM/yyyy">quote_name_acctdt</a> -->
+			<a properties="format=yyyy-MM-dd">quote_name_acctdt</a>
+			<!-- END SIT BUG FIX: Unexpected exception Date formate exception -->
+			<b>authInfoVO.accountingDate</b>
+		</field>
+
+		<field converter="com.rsaame.pas.cmn.converter.IntegerStringConverter"
+			converterDefaultDir="b-a">
+			<a>quote_name_txntype</a>
+			<b>authInfoVO.txnType</b>
+		</field>
+
+		<field converter="com.mindtree.ruc.cmn.beanmap.DateStringConverter"
+			converterDefaultDir="b-a">
+			<!-- START SIT BUG FIX: Unexpected exception Date formate exception -->
+			<!-- <a properties="format=dd/MM/yyyy">quote_name_printeddt</a> -->
+			<a properties="format=yyyy-MM-dd">quote_name_printeddt</a>
+			<!-- END SIT BUG FIX: Unexpected exception Date formate exception -->
+			<b>authInfoVO.printedDate</b>
+		</field>
+
+		<field converter="com.rsaame.pas.cmn.converter.IntegerStringConverter"
+			converterDefaultDir="b-a">
+			<a>quote_name_status</a>
+			<b>status</b>
+		</field>
+
+		<!-- Info :: createdBy is part of BaseVO -->
+		<field>
+			<a>quote_name_createdBy</a>
+			<b>authInfoVO.createdBy</b>
+		</field>
+
+		<field converter="com.rsaame.pas.cmn.converter.IntegerStringConverter"
+			converterDefaultDir="b-a">
+			<a>quote_name_licensedby</a>
+			<b>authInfoVO.licensedBy</b>
+		</field>
+
+
+		<field converter="com.rsaame.pas.cmn.converter.IntegerStringConverter"
+			converterDefaultDir="b-a">
+			<a>quote_name_approvedby</a>
+			<b>authInfoVO.approvedBy</b>
+		</field>
+
+		<field converter="com.mindtree.ruc.cmn.beanmap.DateStringConverter"
+			converterDefaultDir="b-a">
+			<!-- START SIT BUG FIX: Unexpected exception Date formate exception -->
+			<!-- <a properties="format=dd/MM/yyyy">quote_name_approveddt</a> -->
+			<a properties="format=yyyy-MM-dd">quote_name_approveddt</a>
+			<!-- END SIT BUG FIX: Unexpected exception Date formate exception -->
+			<b>authInfoVO.approvedDt</b>
+		</field>
+
+		<field converter="com.rsaame.pas.cmn.converter.IntegerStringConverter"
+			converterDefaultDir="b-a">
+			<a>quote_name_loccode</a>
+			<b>authInfoVO.locationCode</b>
+		</field>
+
+
+		<field converter="com.rsaame.pas.cmn.converter.IntegerStringConverter"
+			converterDefaultDir="b-a">
+			<a>quote_name_intacexe</a>
+			<b>authInfoVO.intAccExecCode</b>
+		</field>
+
+		<field converter="com.rsaame.pas.cmn.converter.IntegerStringConverter"
+			converterDefaultDir="b-a">
+			<a>quote_name_extacexec</a>
+			<b>authInfoVO.extAccExecCode</b>
+		</field>
+
+		<field converter="com.rsaame.pas.cmn.converter.IntegerStringConverter"
+			converterDefaultDir="b-a">
+			<a>quote_name_loccode</a>
+			<b>authInfoVO.extAccExecCode</b>
+		</field>
+
+
+		<!-- TODO: List of EndorsmentVO, RenewalVO, SectionVO -->
+
+
+		<!-- ClaimsVO within GeneralInfoVO Begins -->
+		<field converter="com.rsaame.pas.cmn.converter.IntegerStringConverter"
+			converterDefaultDir="b-a">
+			<a>quote_name_businessclient</a>
+			<b>generalInfo.claimsHistory.otherBusinessClient</b>
+		</field>
+
+		<field converter="com.rsaame.pas.cmn.converter.BigDecimalStringConverter"
+			converterDefaultDir="b-a">
+			<a>quote_name_lossexpquantum</a>
+			<b>generalInfo.claimsHistory.lossExpQuantum</b>
+		</field>
+
+
+		<field converter="com.rsaame.pas.cmn.converter.IntegerStringConverter"
+			converterDefaultDir="b-a">
+			<a>quote_name_lossexp</a>
+			<b>generalInfo.claimsHistory.lossExp</b>
+		</field>
+		
+		<field converter="com.rsaame.pas.cmn.converter.IntegerStringConverter"
+			converterDefaultDir="b-a">
+			<a>quote_name_adjload</a>
+			<b>generalInfo.claimsHistory.marketAdjLoad</b>
+		</field>
+
+		<field converter="com.rsaame.pas.cmn.converter.IntegerStringConverter"
+			converterDefaultDir="b-a">
+			<a>quote_name_telexNo</a>
+			<b>generalInfo.claimsHistory.telexNo</b>
+		</field>
+		
+		
+
+		<field converter="com.rsaame.pas.cmn.converter.IntegerStringConverter"
+			converterDefaultDir="b-a">
+			<a>quote_name_sob</a>
+			<b>generalInfo.claimsHistory.sourceOfBusiness</b>
+		</field>
+
+
+		<field converter="com.rsaame.pas.cmn.converter.IntegerStringConverter"
+			converterDefaultDir="b-a">
+			<a>quote_name_adjdiscount</a>
+			<b>generalInfo.claimsHistory.marketAdjDiscount</b>
+		</field>
+
+		<!-- ClaimsVO within GeneralInfoVO Ends -->
+
+		<!-- Mapping for hidden fields on the screen begins here -->
+		<field converter="com.rsaame.pas.cmn.converter.LongStringConverter"
+			converterDefaultDir="b-a">
+			<a>quote_name_insuredid</a>
+			<b>generalInfo.insured.insuredId</b>
+		</field>
+
+
+		<field converter="com.mindtree.ruc.cmn.beanmap.BooleanStringConverter"
+			converterDefaultDir="b-a">
+			<a>quote_name_isChannel_changed</a>
+			<b>generalInfo.isChannelChanged</b>
+		</field>
+
+		<field>
+			<a>quote_name_hidden_new_cust</a>
+			<b>generalInfo.newCustomer</b>
+		</field>
+
+		<field>
+			<a>quote_name_hidden_save_req</a>
+			<b>generalInfo.customerSaveReq</b>
+		</field>
+
+		<field>
+			<a>quote_insured_match_exists</a>
+			<b>generalInfo.insured.matchExists</b>
+		</field>
+
+		<field converter="com.rsaame.pas.cmn.converter.IntegerStringConverter"
+			converterDefaultDir="b-a">
+			<a>class_code_name</a>
+			<b>defaultClassCode</b>
+		</field>
+
+
+		<field converter="com.rsaame.pas.cmn.converter.LongStringConverter"
+			converterDefaultDir="b-a">
+			<a>quote_txt_endorsmntid</a>
+			<b>endtNo</b>
+		</field>
+
+
+		<field converter="com.rsaame.pas.cmn.converter.LongStringConverter"
+			converterDefaultDir="b-a">
+			<a>quote_name_refpolno</a>
+			<b>authInfoVO.refPolicyNo</b>
+		</field>
+
+		<field converter="com.rsaame.pas.cmn.converter.IntegerStringConverter"
+			converterDefaultDir="b-a">
+			<a>quote_name_refpolyear</a>
+			<b>authInfoVO.refPolicyYear</b>
+		</field>
+
+		<!-- Mapping for hidden fields on the screen ends here -->
+
+	</mapping>
+
+	<!-- PolicyVO to PolicyQuo POJO mapper starts here -->
+	<mapping package="com.rsaame.pas.request.vo.mapper" id="PolicyVOToPolicyQuoMapper"
+		genReverse="true">
+		<class-a class="com.rsaame.pas.vo.bus.PolicyVO" />
+		<class-b class="com.rsaame.kaizen.quote.model.PolicyQuo" />
+
+		<field>
+			<a>generalInfo.insured.name</a>
+			<b>customerInsured.engFirstName</b>
+		</field>
+
+		<field>
+			<a>generalInfo.insured.name</a>
+			<b>cashCustomerQuo.engName1</b>
+		</field>
+
+		<!-- <field> <a>generalInfo.insured.name</a> <b>cashCustomerQuo.engName3</b> 
+			</field> -->
+
+		<field>
+			<a>generalInfo.insured.arabicName</a>
+			<b>cashCustomerQuo.arabicName1</b>
+		</field>
+
+
+		<field>
+			<a>generalInfo.insured.arabicName</a>
+			<b>customerInsured.arabicFirstName</b>
+		</field>
+
+		<field>
+			<a>generalInfo.insured.phoneNo</a>
+			<b>customerInsured.engPhoneNo</b>
+		</field>
+
+		<field>
+			<a>generalInfo.insured.mobileNo</a>
+			<b>customerInsured.engMobileNo</b>
+		</field>
+
+		<field>
+			<a>generalInfo.insured.phoneNo</a>
+			<b>cashCustomerQuo.engPhoneNo</b>
+		</field>
+
+		<field>
+			<a>generalInfo.insured.mobileNo</a>
+			<b>cashCustomerQuo.engGsmNo</b>
+		</field>
+
+		<field>
+			<a>generalInfo.insured.address.address</a>
+			<b>cashCustomerQuo.engAddress1</b>
+		</field>
+
+		<!-- Commented <field> <a>generalInfo.insured.address.country</a> <b>cashCustomerQuo.nationality</b> 
+			</field> -->
+
+		<field>
+			<a>generalInfo.insured.emailId</a>
+			<b>customerInsured.engEmailId</b>
+		</field>
+
+		<!-- <field> <a>generalInfo.insured.city</a> <b>cashCustomerQuo.ctyCode</b> 
+			</field> -->
+		<field>
+			<a>generalInfo.insured.city</a>
+			<b>cashCustomerQuo.city.cityCode</b>
+		</field>
+
+
+		<field>
+			<a>generalInfo.insured.busType</a>
+			<b>businessType</b>
+		</field>
+
+		<field>
+			<a>generalInfo.insured.tradeLicenseNo</a>
+			<b>customerInsured.engCoRegnNo</b>
+		</field>
+
+		<field>
+			<a>generalInfo.insured.tradeLicenseNo</a>
+			<b>customerInsured.engCoRegnNo</b>
+		</field>
+
+		<field>
+			<a>generalInfo.additionalInfo.affinityRefNo</a>
+			<b>customerInsured.affinityRefNo</b>
+		</field>
+
+		<field>
+			<a>generalInfo.additionalInfo.faxNumber</a>
+			<b>customerInsured.faxNo</b>
+		</field>
+
+		<!-- <field> <a>additionalInfo.regulatoryBody</a> <b>customerInsured.regulatoryBody</b> 
+			</field> -->
+
+		<field>
+			<a>generalInfo.additionalInfo.dateOfEst</a>
+			<b>customerInsured.dtEstablishment</b>
+		</field>
+
+		<field>
+			<a>generalInfo.additionalInfo.placeOfEst</a>
+			<b>customerInsured.placeEstablishment</b>
+		</field>
+
+
+		<field>
+			<a>generalInfo.additionalInfo.affinityRefNo</a>
+			<b>cashCustomerQuo.affinityRefNo</b>
+		</field>
+
+		<field>
+			<a>generalInfo.additionalInfo.faxNumber</a>
+			<b>cashCustomerQuo.faxNo</b>
+		</field>
+
+		<field>
+			<a>generalInfo.additionalInfo.dateOfEst</a>
+			<b>cashCustomerQuo.dtEstablishment</b>
+		</field>
+
+		<field>
+			<a>generalInfo.additionalInfo.placeOfEst</a>
+			<b>cashCustomerQuo.placeEstablishment</b>
+		</field>
+
+		<field>
+			<a>generalInfo.additionalInfo.dateOfcollectionOfKYC</a>
+			<b>customerInsured.dtCollectionKyc</b>
+		</field>
+
+		<field>
+			<a>generalInfo.additionalInfo.tradeLicenseExpDate</a>
+			<b>customerInsured.expiryDate</b>
+		</field>
+
+		<field>
+			<a>generalInfo.additionalInfo.insuredStatus</a>
+			<b>customerInsured.status</b>
+		</field>
+
+		<field>
+			<a>generalInfo.additionalInfo.remarks</a>
+			<b>customerInsured.remarks</b>
+		</field>
+
+		<!-- <field> <a>generalInfo.additionalInfo.payTerms</a> <b>cashCustomerQuo.engIdCardNo</b> 
+			</field> -->
+		<field>
+			<a>generalInfo.additionalInfo.payTerms</a>
+			<b>cashCustomerQuo.arabicIdCardNo</b>
+		</field>
+
+
+		<field>
+			<a>generalInfo.additionalInfo.specialityType</a>
+			<b>reasonCode.code</b>
+		</field>
+
+		<field>
+			<a>generalInfo.additionalInfo.rsaSpacialIndicator</a>
+			<b>coverNoteMin</b>
+		</field>
+
+		<field>
+			<a>generalInfo.sourceOfBus.distributionChannel</a>
+			<b>distributionChannel.code</b>
+		</field>
+
+		<field>
+			<a>generalInfo.sourceOfBus.brokerName</a>
+			<b>customerInsured.brCode</b>
+		</field>
+
+		<field>
+			<a>generalInfo.sourceOfBus.brokerName</a>
+			<b>brCode</b>
+		</field>
+
+
+		<field>
+			<a>generalInfo.sourceOfBus.directSubAgent</a>
+			<b>agent.agentCode</b>
+		</field>
+
+		<field>
+			<a>quoteNo</a>
+			<b>quotationNo</b>
+		</field>
+
+		<field>
+			<a>policyNo</a>
+			<b>comp_id.policyId</b>
+		</field>
+
+		<field>
+			<a>endtId</a>
+			<b>comp_id.endtId</b>
+		</field>
+
+		<field>
+			<a>policyNo</a>
+			<b>policyNo</b>
+		</field>
+
+		<field>
+			<a>scheme.schemeCode</a>
+			<b>coverNoteHour</b>
+		</field>
+
+		<field>
+			<a>scheme.tariffCode</a>
+			<b>tarCode</b>
+		</field>
+
+		<field>
+			<a>scheme.tariffName</a>
+			<b>tariffDesc</b>
+		</field>
+
+
+		<field>
+			<a>scheme.policyCode</a>
+			<b>policyTypeCode</b>
+		</field>
+
+		<field>
+			<a>scheme.effDate</a>
+			<b>effectiveDate</b>
+		</field>
+
+
+		<field>
+			<a>scheme.expiryDate</a>
+			<b>expiryDate</b>
+		</field>
+
+		<!-- Added on 03 Feb 2012 -->
+		<field>
+			<a>policyTerm</a>
+			<b>policyTerm</b>
+		</field>
+
+		<field>
+			<a>authInfoVO.licensedBy</a>
+			<b>userId</b>
+		</field>
+
+		<field>
+			<a>authInfoVO.approvedBy</a>
+			<b>approvedBy</b>
+		</field>
+
+		<field>
+			<a>authInfoVO.approvedDt</a>
+			<b>polApprovalDate</b>
+		</field>
+
+		<field>
+			<a>authInfoVO.locationCode</a>
+			<b>location.code</b>
+		</field>
+
+
+		<!-- Commented <field> <a>generalInfo.insured.address.country</a> <b>location.comp_id.region.comp_id.country</b> 
+			</field> -->
+
+		<field>
+			<a>authInfoVO.intAccExecCode</a>
+			<b>customerInsured.employee</b>
+		</field>
+
+		<field>
+			<a>authInfoVO.intAccExecCode</a>
+			<b>cashCustomerQuo.intAccExecCode</b>
+		</field>
+
+		<field>
+			<a>authInfoVO.extAccExecCode</a>
+			<b>customerInsured.extAccExecCode</b>
+		</field>
+
+		<field>
+			<a>authInfoVO.extAccExecCode</a>
+			<b>cashCustomerQuo.extAccExecCode</b>
+		</field>
+
+
+		<field>
+			<a>generalInfo.insured.nationality</a>
+			<b>cashCustomerQuo.nationality</b>
+		</field>
+
+		<field>
+			<a>generalInfo.insured.insuredId</a>
+			<b>insuredId</b>
+		</field>
+
+		<field>
+			<a>generalInfo.isChannelChanged</a>
+			<b>isChannelChanged</b>
+		</field>
+
+		<field>
+			<a>generalInfo.newCustomer</a>
+			<b>newCustomer</b>
+		</field>
+
+		<field>
+			<a>generalInfo.customerSaveReq</a>
+			<b>customerSaveReq</b>
+		</field>
+
+		<field>
+			<a>generalInfo.insured.matchExists</a>
+			<b>matchExists</b>
+		</field>
+
+		<field>
+			<a>generalInfo.insured.address.poBox</a>
+			<b>cashCustomerQuo.poBox</b>
+		</field>
+
+		<field>
+			<a>generalInfo.insured.address.poBox</a>
+			<b>customerInsured.engZipCode</b>
+		</field>
+
+		<!-- Mapping for Default class code being populated within PolicyVO -->
+		<field>
+			<a>defaultClassCode</a>
+			<b>classCode</b>
+		</field>
+
+		<!-- Mapping for Source of Business from Claims History Section -->
+		<field>
+			<a>generalInfo.claimsHistory.sourceOfBusiness</a>
+			<b>sourceOfBusiness</b>
+		</field>
+
+		<!-- Commented for Constraint issue during merge operation on T_MAS_CASH_CUSTOMER_QUO 
+			table -->
+		<!-- <field> <a>validityStartDate</a> <b>validityStartDate</b> </field> -->
+
+		<field converter="com.rsaame.pas.cmn.converter.IntegerStringConverter"
+			converterDefaultDir="b-a">
+			<a>authInfoVO.createdBy</a>
+			<b>preparedBy</b>
+		</field>
+
+		<field>
+			<a>authInfoVO.createdOn</a>
+			<b>preparedDt</b>
+		</field>
+
+		<field>
+			<a>status</a>
+			<b>status.code</b>
+		</field>
+
+		<field>
+			<a>generalInfo.insured.busDescription</a>
+			<b>customerInsured.business</b>
+		</field>
+
+		<field>
+			<a>generalInfo.insured.busDescription</a>
+			<b>cashCustomerQuo.business</b>
+		</field>
+
+		<field>
+			<a>authInfoVO.refPolicyNo</a>
+			<b>refPolicyNo</b>
+		</field>
+
+
+		<field>
+			<a>authInfoVO.refPolicyYear</a>
+			<b>refPolicyYear</b>
+		</field>
+
+
+		<field>
+			<a>generalInfo.insured.address.country</a>
+			<b>customerInsured.country.code</b>
+		</field>
+
+
+		<field>
+			<a>generalInfo.insured.address.country</a>
+			<b>cashCustomerQuo.country</b>
+		</field>
+
+		<field>
+			<a>endEffectiveDate</a>
+			<b>endtEffectiveDate</b>
+		</field>
+
+	</mapping>
+
+	<!-- Mapping for Search Transaction Starts -->
+
+	<mapping id="RequestToSearchTransactionCriteriaVOMapper"
+		genReverse="false">
+		<class-a class="HTTP-REQUEST" />
+		<class-b class="com.rsaame.pas.vo.bus.SearchTransactionCriteriaVO" />
+		<field>
+			<a>transClazz</a>
+			<b>transaction.clazz</b>
+		</field>
+
+		<field>
+			<a>transQuoteNo</a>
+			<b>transaction.quoteNo</b>
+		</field>
+
+		<field>
+			<a>transPolicyNo</a>
+			<b>transaction.policyNo</b>
+		</field>
+
+		<field converter="com.mindtree.ruc.cmn.beanmap.DateStringConverter"
+			converterDefaultDir="b-a">
+			<a properties="format=yyyy-MM-dd">transTransactionFrom</a>
+			<b>transaction.transactionFrom</b>
+		</field>
+
+		<field converter="com.mindtree.ruc.cmn.beanmap.DateStringConverter"
+			converterDefaultDir="b-a">
+			<a properties="format=yyyy-MM-dd">transTransactionTo</a>
+			<b>transaction.transactionTo</b>
+		</field>
+		<!-- START SIT BUG FIX: -->
+		<!-- <field> -->
+		<!-- <a>transCompanyName</a> -->
+		<!-- <b>transaction.companyName</b> -->
+		<!-- </field> -->
+		<!-- END SIT BUG FIX: -->
+		<field>
+			<a>transCustomerName</a>
+			<b>transaction.customerName</b>
+		</field>
+
+		<field>
+			<a>transBrokerName</a>
+			<b>transaction.brokerName</b>
+		</field>
+
+		<field>
+			<a>transScheme</a>
+			<b>transaction.scheme</b>
+		</field>
+
+		<field converter="com.mindtree.ruc.cmn.beanmap.DateStringConverter"
+			converterDefaultDir="b-a">
+			<a properties="format=yyyy-MM-dd">transEffectiveDate</a>
+			<b>transaction.transactionEffectiveDate</b>
+		</field>
+
+		<field converter="com.mindtree.ruc.cmn.beanmap.DateStringConverter"
+			converterDefaultDir="b-a">
+			<a properties="format=yyyy-MM-dd">transExpiryDate</a>
+			<b>transaction.transactionExpiryDate</b>
+		</field>
+
+		<field>
+			<a>transLastModifiedBy</a>
+			<b>transaction.lastModifiedBy</b>
+		</field>
+
+		<field>
+			<a>transCreatedBy</a>
+			<b>transaction.createdBy</b>
+		</field>
+
+		<field>
+			<a>transDistributionCode</a>
+			<b>transaction.distributionCode</b>
+		</field>
+
+		<field>
+			<a>transStatus</a>
+			<b>transaction.status</b>
+		</field>
+
+		<field converter="com.mindtree.ruc.cmn.beanmap.BooleanStringConverter"
+			converterDefaultDir="b-a">
+			<a>transSearchQuote</a>
+			<b>searchQuote</b>
+		</field>
+
+		<field converter="com.mindtree.ruc.cmn.beanmap.BooleanStringConverter"
+			converterDefaultDir="b-a">
+			<a>transSearchPolicy</a>
+			<b>searchPolicy</b>
+		</field>
+
+		<field converter="com.mindtree.ruc.cmn.beanmap.BooleanStringConverter"
+			converterDefaultDir="b-a">
+			<a>transExactSearch</a>
+			<b>exactSearch</b>
+		</field>
+
+		<field converter="com.mindtree.ruc.cmn.beanmap.BooleanStringConverter"
+			converterDefaultDir="b-a">
+			<a>transLastTransaction</a>
+			<b>lastTransaction</b>
+		</field>
+
+	</mapping>
+
+	<mapping id="SearchTransactionCriteriaVOToTransactionMapper"
+		genReverse="false">
+		<class-a class="com.rsaame.pas.vo.bus.SearchTransactionCriteriaVO" />
+		<class-b class="com.rsaame.kaizen.policy.model.Transaction" />
+		<field>
+			<a>transaction.clazz</a>
+			<b>transactionClass</b>
+		</field>
+
+		<field>
+			<a>transaction.quoteNo</a>
+			<b>transactionNumber</b>
+		</field>
+
+		<field>
+			<a>transaction.policyNo</a>
+			<b>transactionNumberPolicy</b>
+		</field>
+
+		<field>
+			<a>transaction.transactionFrom</a>
+			<b>transactionFrom</b>
+		</field>
+
+		<field>
+			<a>transaction.transactionTo</a>
+			<b>transactionTo</b>
+		</field>
+
+		<field>
+			<a>transaction.companyName</a>
+			<b>transactionCompanyName</b>
+		</field>
+
+		<field>
+			<a>transaction.customerName</a>
+			<b>transactionCustomerName</b>
+		</field>
+
+		<field>
+			<a>transaction.brokerName</a>
+			<b>transactionBrokerName</b>
+		</field>
+
+		<field>
+			<a>transaction.scheme</a>
+			<b>transactionScheme</b>
+		</field>
+
+		<field>
+			<a>transaction.transactionEffectiveDate</a>
+			<b>transactionEffectiveDate</b>
+		</field>
+
+		<field>
+			<a>transaction.transactionExpiryDate</a>
+			<b>transactionExpiryDate</b>
+		</field>
+
+		<field>
+			<a>transaction.lastModifiedBy</a>
+			<b>transactionLastModifiedBy</b>
+		</field>
+
+		<field>
+			<a>transaction.createdBy</a>
+			<b>transactionCreatedBy</b>
+		</field>
+
+		<field>
+			<a>transaction.distributionCode</a>
+			<b>transactionDistributionCode</b>
+		</field>
+
+		<field>
+			<a>transaction.status</a>
+			<b>transactionStatus</b>
+		</field>
+
+		<!-- Start: Added for the sake of view GeneralInfo -->
+		<field>
+			<a>transaction.transactionNo</a>
+			<b>transactionNumber</b>
+		</field>
+
+		<field>
+			<a>transaction.tempTransactionEndtNo</a>
+			<b>tempTransactionEndtNo</b>
+		</field>
+		<!-- End: Added for the sake of view GeneralInfo -->
+		<field>
+			<a>quoteEntered</a>
+			<b>quoteEntered</b>
+		</field>
+
+		<field>
+			<a>policyEntered</a>
+			<b>policyEntered</b>
+		</field>
+
+		<field>
+			<a>quotePolicy</a>
+			<b>quotePolicy</b>
+		</field>
+
+		<field>
+			<a>exactSearch</a>
+			<b>exactSearch</b>
+		</field>
+
+		<field>
+			<a>lastTransaction</a>
+			<b>lastTransaction</b>
+		</field>
+
+	</mapping>
+
+	<mapping id="PaginatedResultToTransactionSummaryVOMapper"
+		genReverse="false">
+		<class-a class="com.rsaame.kaizen.framework.model.PaginatedResult" />
+		<class-b class="com.rsaame.pas.vo.bus.TransactionSummaryVO" />
+
+		<field ref="TransactionToTransactionVOMapper" mapper-type="ARRAY">
+			<a>objectArray</a>
+			<b>transactionArray</b>
+		</field>
+
+		<field>
+			<a>numberOfRecords</a>
+			<b>numberOfRecords</b>
+		</field>
+
+		<field>
+			<a>recordsPerPage</a>
+			<b>recordsPerPage</b>
+		</field>
+
+		<field>
+			<a>currentPage</a>
+			<b>currentPage</b>
+		</field>
+	</mapping>
+
+	<mapping id="TransactionToTransactionVOMapper" genReverse="false">
+		<class-a class="com.rsaame.kaizen.policy.model.Transaction" />
+		<class-b class="com.rsaame.pas.vo.bus.TransactionVO" />
+		<field>
+			<a>transactionCompanyName</a>
+			<b>companyName</b>
+		</field>
+
+		<field>
+			<a>transactionLastModifiedBy</a>
+			<b>lastModifiedBy</b>
+		</field>
+
+		<field>
+			<a>transactionType</a>
+			<b>transactionType</b>
+		</field>
+
+		<field>
+			<a>transactionNumber</a>
+			<b>transactionNo</b>
+		</field>
+
+		<field>
+			<a>transactionEndorsementNumber</a>
+			<b>transactionEndNo</b>
+		</field>
+
+		<field>
+			<a>transactionPolicyNumber</a>
+			<b>transactionPolicyNumber</b>
+		</field>
+
+		<field>
+			<a>transactionEndtId</a>
+			<b>transactionEndtId</b>
+		</field>
+
+		<field>
+			<a>transactionPolicyType</a>
+			<b>policyType</b>
+		</field>
+
+		<field>
+			<a>transactionDateTime</a>
+			<b>transactionDate</b>
+		</field>
+
+		<field>
+			<a>effectiveDate</a>
+			<b>effectiveDate</b>
+		</field>
+
+		<field>
+			<a>expiryDate</a>
+			<b>expiryDate</b>
+		</field>
+
+		<field>
+			<a>transactionSumInsured</a>
+			<b>transactionSumInsured</b>
+		</field>
+
+		<field converter="com.rsaame.pas.cmn.converter.BigDecimalStringConverter"
+			converterDefaultDir="a-b">
+			<a>transactionFinalPremium</a>
+			<b>transactionPremium</b>
+		</field>
+
+		<field>
+			<a>transactionStatus</a>
+			<b>status</b>
+		</field>
+
+		<field>
+			<a>policyApprover</a>
+			<b>referredTo</b>
+		</field>
+
+		<field>
+			<a>locationName</a>
+			<b>branch</b>
+		</field>
+
+		<field>
+			<a>policyTariffCode</a>
+			<b>policyTariffCode</b>
+		</field>
+
+	</mapping>
+
+	<mapping id="SectionDetailsQuoToSectionDetailsVOMapper"
+		genReverse="false">
+		<class-a class="com.rsaame.pas.dao.model.TTrnSectionDetailsQuo" />
+		<class-b class="com.rsaame.pas.vo.bus.SectionDetailsVO" />
+		<field>
+			<a>id.secPolicyId</a>
+			<b>secPolicyId</b>
+		</field>
+
+		<field>
+			<a>id.secSecId</a>
+			<b>secSecId</b>
+		</field>
+
+		<field>
+			<a>id.secValidityStartDate</a>
+			<b>secValidityStartDate</b>
+		</field>
+
+		<field>
+			<a>secEndtId</a>
+			<b>secEndtId</b>
+		</field>
+
+		<field>
+			<a>secClCode</a>
+			<b>secClCode</b>
+		</field>
+
+		<field>
+			<a>secPtCode</a>
+			<b>secPtCode</b>
+		</field>
+
+		<field>
+			<a>secCommVal</a>
+			<b>secCommVal</b>
+		</field>
+
+		<field>
+			<a>secValidityExpiryDate</a>
+			<b>secValidityExpiryDate</b>
+		</field>
+
+		<field>
+			<a>secNonStdText</a>
+			<b>secNonStdText</b>
+		</field>
+
+	</mapping>
+
+	<!-- Mapping for Search Transaction Ends -->
+
+	<!-- Mapping for Par starts -->
+	<mapping package="com.rsaame.pas.pojo.mapper" id="LocVOToBuldPojoMapper"
+		genReverse="true">
+		<class-a class="com.rsaame.pas.vo.bus.LocationVO" />
+		<class-b class="com.rsaame.pas.dao.model.TTrnBuildingQuo" />
+		<field>
+			<a>freeZone</a>
+			<b>bldFreeZone</b>
+		</field>
+
+		<field converter="com.rsaame.pas.cmn.converter.IntegerShortConverter"
+			converterDefaultDir="a-b">
+			<a>occTradeGroup</a>
+			<b>bldOccupancyCode</b>
+		</field>
+
+		<field>
+			<a>address.officeShopNo</a>
+			<b>bldAAddress1</b>
+		</field>
+
+		<field>
+			<a>address.floor</a>
+			<b>bldAAddress2</b>
+		</field>
+
+		<field>
+			<a>address.buildingName</a>
+			<b>bldEName</b>
+		</field>
+
+		<field>
+			<a>address.streetName</a>
+			<b>bldEStreetName</b>
+		</field>
+	</mapping>
+
+	<mapping package="com.rsaame.pas.pojo.mapper" id="ParVOToBuldPojoMapper"
+		genReverse="true">
+		<class-a class="com.rsaame.pas.vo.bus.ParVO" />
+		<class-b class="com.rsaame.pas.dao.model.TTrnBuildingQuo" />
+
+		<field converter="com.rsaame.pas.cmn.converter.IntegerByteConverter"
+			converterDefaultDir="a-b">
+			<a>builCovered</a>
+			<b>bldCoverIndicator</b>
+		</field>
+
+		<field>
+			<a>surveyDetails.surveyRequired</a>
+			<b>bldFixturesInd</b>
+		</field>
+
+		<field converter="com.rsaame.pas.cmn.converter.IntegerShortConverter"
+			converterDefaultDir="a-b">
+			<a>surveyDetails.bldConstYear</a>
+			<b>bldConstYr</b>
+		</field>
+
+
+		<field>
+			<a>surveyDetails.surveyRequired</a>
+			<b>bldFixturesInd</b>
+		</field>
+
+		<field>
+			<a>surveyDetails.surveyDt</a>
+			<b>bldDeclDate</b>
+		</field>
+
+		<field converter="com.rsaame.pas.cmn.converter.BigDecimalDoubleConverter"
+			converterDefaultDir="b-a">
+			<a>surveyDetails.latitude</a>
+			<b>bldLatitude</b>
+		</field>
+
+		<field converter="com.rsaame.pas.cmn.converter.BigDecimalDoubleConverter"
+			converterDefaultDir="b-a">
+			<a>surveyDetails.longitude</a>
+			<b>bldLongitude</b>
+		</field>
+
+		<field converter="com.rsaame.pas.cmn.converter.IntegerShortConverter"
+			converterDefaultDir="a-b">
+			<a>surveyDetails.noOfFloor</a>
+			<b>bldTotalNoFloors</b>
+		</field>
+
+		<field converter="com.rsaame.pas.cmn.converter.IntegerShortConverter"
+			converterDefaultDir="a-b">
+			<a>surveyDetails.lowestFloor</a>
+			<b>bldLowestFloor</b>
+		</field>
+
+		<field converter="com.rsaame.pas.cmn.converter.IntegerShortConverter"
+			converterDefaultDir="a-b">
+			<a>surveyDetails.occupiedFloors</a>
+			<b>bldNoOccFloors</b>
+		</field>
+
+		<field>
+			<a>surveyDetails.dispDate</a>
+			<b>bldDispDate</b>
+		</field>
+
+		<field>
+			<a>surveyDetails.resurveyPeriod</a>
+			<b>bldResurveyPeriod</b>
+		</field>
+
+		<field>
+			<a>surveyDetails.resurveyReqDt</a>
+			<b>bldRoutineResurveyDt</b>
+		</field>
+
+		<field>
+			<a>surveyDetails.dispensationAgreed</a>
+			<b>bldDispensationAgreed</b>
+		</field>
+
+		<field>
+			<a>surveyDetails.specResurveyReqDt</a>
+			<b>bldSpecificResurveyDt</b>
+		</field>
+
+		<field converter="com.rsaame.pas.cmn.converter.IntegerShortConverter"
+			converterDefaultDir="a-b">
+			<a>surveyDetails.surveyorOpinion</a>
+			<b>bldSurveyorOpinion</b>
+		</field>
+
+		<field>
+			<a>surveyDetails.SRFDate</a>
+			<b>bldSrfDt</b>
+		</field>
+
+		<field converter="com.rsaame.pas.cmn.converter.IntegerShortConverter"
+			converterDefaultDir="a-b">
+			<a>surveyDetails.pointSource</a>
+			<b>bldPointScore</b>
+		</field>
+
+		<field>
+			<a>surveyDetails.rcpSentDt</a>
+			<b>bldRcpDt</b>
+		</field>
+
+		<field>
+			<a>surveyDetails.rcpConfirmDt</a>
+			<b>bldRcpConfirmationDt</b>
+		</field>
+
+		<field converter="com.rsaame.pas.cmn.converter.IntegerShortConverter"
+			converterDefaultDir="a-b">
+			<a>surveyDetails.rcpStatus</a>
+			<b>bldRcpStatus</b>
+		</field>
+
+	</mapping>
+
+	<mapping package="com.rsaame.pas.pojo.mapper" id="ParUWVOToBuldPojoMapper"
+		genReverse="true">
+		<class-a class="com.rsaame.pas.vo.bus.PARUWDetailsVO" />
+		<class-b class="com.rsaame.pas.dao.model.TTrnBuildingQuo" />
+		<field>
+			<a>directorate</a>
+			<b>bldDirCode</b>
+		</field>
+
+		<field converter="com.rsaame.pas.cmn.converter.IntegerByteConverter"
+			converterDefaultDir="a-b">
+			<a>uwMinDetails.status</a>
+			<b>bldStatus</b>
+		</field>
+
+		<field>
+			<a>uwMinDetails.startDate</a>
+			<b>bldStartDate</b>
+		</field>
+
+		<field>
+			<a>uwMinDetails.endDate</a>
+			<b>bldEndDate</b>
+		</field>
+
+		<field converter="com.rsaame.pas.cmn.converter.BigDecimalDoubleConverter"
+			converterDefaultDir="b-a">
+			<a>emlPrc</a>
+			<b>bldMplFirePerc</b>
+		</field>
+
+		<field converter="com.rsaame.pas.cmn.converter.BigDecimalDoubleConverter"
+			converterDefaultDir="b-a">
+			<a>emlSI</a>
+			<b>bldMplFire</b>
+		</field>
+
+		<field>
+			<a>categoryRI</a>
+			<b>bldRiRskCode</b>
+		</field>
+
+		<field converter="com.rsaame.pas.cmn.converter.IntegerShortConverter"
+			converterDefaultDir="a-b">
+			<a>hazardLevel</a>
+			<b>bldHazardCode</b>
+		</field>
+
+		<field converter="com.rsaame.pas.cmn.converter.IntegerShortConverter"
+			converterDefaultDir="a-b">
+			<a>ageOfBuilding</a>
+			<b>bldConstYr</b>
+		</field>
+
+	</mapping>
+
+
+	<mapping package="com.rsaame.pas.request.vo.mapper" id="RequestToParVOMapper"
+		genReverse="false">
+		<class-a class="HTTP-REQUEST" />
+		<class-b class="com.rsaame.pas.vo.bus.ParVO" />
+
+		<field converter="com.rsaame.pas.cmn.converter.DoubleStringConverter"
+			converterDefaultDir="b-a">
+			<a>commission</a>
+			<b>commission</b>
+		</field>
+
+		<field converter="com.rsaame.pas.cmn.converter.IntegerStringConverter"
+			converterDefaultDir="b-a">
+			<a>parBuildingCoveredHiddenValue</a>
+			<b>builCovered</b>
+		</field>
+
+		<field converter="com.rsaame.pas.cmn.converter.LongStringConverter"
+			converterDefaultDir="b-a">
+			<a collType="LIST">coverId[]</a>
+			<b collType="LIST">covers.propertyCoversDetails[].coverId</b>
+		</field>
+
+		<field converter="com.mindtree.ruc.cmn.beanmap.DateStringConverter"
+			converterDefaultDir="b-a">
+			<a collType="LIST" properties="format=MM/dd/yyyy">coverVSD[]</a>
+			<b collType="LIST">covers.propertyCoversDetails[].setValidityStartDate</b>
+		</field>
+
+		<field converter="com.rsaame.pas.cmn.converter.DoubleStringConverter"
+			converterDefaultDir="b-a">
+			<a collType="LIST">si[]</a>
+			<b collType="LIST">covers.propertyCoversDetails[].cover</b>
+		</field>
+
+		<field>
+			<a collType="LIST">desc[]</a>
+			<b collType="LIST">covers.propertyCoversDetails[].desc</b>
+		</field>
+
+		<field converter="com.rsaame.pas.cmn.converter.DoubleStringConverter"
+			converterDefaultDir="b-a">
+			<a collType="LIST">deductible[]</a>
+			<b collType="LIST">covers.propertyCoversDetails[].deductibles</b>
+		</field>
+		<field converter="com.rsaame.pas.cmn.converter.IntegerStringConverter"
+			converterDefaultDir="b-a">
+			<a collType="LIST">riskType[]</a>
+			<b collType="LIST">covers.propertyCoversDetails[].riskType</b>
+		</field>
+
+		<field converter="com.rsaame.pas.cmn.converter.IntegerStringConverter"
+			converterDefaultDir="b-a">
+			<a>parSurveyReq</a>
+			<b>surveyDetails.surveyRequired</b>
+		</field>
+
+		<field converter="com.mindtree.ruc.cmn.beanmap.DateStringConverter"
+			converterDefaultDir="b-a">
+			<a properties="format=yyyy-MM-dd">parSurveyDate</a>
+			<b>surveyDetails.surveyDt</b>
+		</field>
+
+		<field converter="com.rsaame.pas.cmn.converter.IntegerStringConverter"
+			converterDefaultDir="b-a">
+			<a>parConstructionYear</a>
+			<b>surveyDetails.bldConstYear</b>
+		</field>
+
+		<field converter="com.rsaame.pas.cmn.converter.DoubleStringConverter"
+			converterDefaultDir="b-a">
+			<a>parLatitude</a>
+			<b>surveyDetails.latitude</b>
+		</field>
+
+		<field converter="com.rsaame.pas.cmn.converter.DoubleStringConverter"
+			converterDefaultDir="b-a">
+			<a>parLongitude</a>
+			<b>surveyDetails.longitude</b>
+		</field>
+
+		<field converter="com.rsaame.pas.cmn.converter.IntegerStringConverter"
+			converterDefaultDir="b-a">
+			<a>parNoFloors</a>
+			<b>surveyDetails.noOfFloor</b>
+		</field>
+
+		<field converter="com.rsaame.pas.cmn.converter.IntegerStringConverter"
+			converterDefaultDir="b-a">
+			<a>parLowestFloor</a>
+			<b>surveyDetails.lowestFloor</b>
+		</field>
+
+		<field converter="com.rsaame.pas.cmn.converter.IntegerStringConverter"
+			converterDefaultDir="b-a">
+			<a>parFloorsOccupied</a>
+			<b>surveyDetails.occupiedFloors</b>
+		</field>
+
+		<field converter="com.mindtree.ruc.cmn.beanmap.DateStringConverter"
+			converterDefaultDir="b-a">
+			<a properties="format=yyyy-MM-dd">parDispDate</a>
+			<b>surveyDetails.dispDate</b>
+		</field>
+
+		<field>
+			<a>parResurveyPeriod</a>
+			<b>surveyDetails.resurveyPeriod</b>
+		</field>
+
+		<field converter="com.mindtree.ruc.cmn.beanmap.DateStringConverter"
+			converterDefaultDir="b-a">
+			<a properties="format=yyyy-MM-dd">parResurveyReqDate</a>
+			<b>surveyDetails.resurveyReqDt</b>
+		</field>
+
+		<field converter="com.rsaame.pas.cmn.converter.CharacterStringConverter"
+			converterDefaultDir="b-a">
+			<a>parDispensationAgreed</a>
+			<b>surveyDetails.dispensationAgreed</b>
+		</field>
+
+		<field converter="com.mindtree.ruc.cmn.beanmap.DateStringConverter"
+			converterDefaultDir="b-a">
+			<a properties="format=yyyy-MM-dd">parSpResuveyReqDate</a>
+			<b>surveyDetails.specResurveyReqDt</b>
+		</field>
+
+		<field converter="com.rsaame.pas.cmn.converter.IntegerStringConverter"
+			converterDefaultDir="b-a">
+			<a>parSurveyorOpinion</a>
+			<b>surveyDetails.surveyorOpinion</b>
+		</field>
+
+		<field converter="com.mindtree.ruc.cmn.beanmap.DateStringConverter"
+			converterDefaultDir="b-a">
+			<a properties="format=yyyy-MM-dd">parSRFSubmissionDate</a>
+			<b>surveyDetails.SRFDate</b>
+		</field>
+
+		<field converter="com.rsaame.pas.cmn.converter.IntegerStringConverter"
+			converterDefaultDir="b-a">
+			<a>parPointSource</a>
+			<b>surveyDetails.pointSource</b>
+		</field>
+
+		<field converter="com.mindtree.ruc.cmn.beanmap.DateStringConverter"
+			converterDefaultDir="b-a">
+			<a properties="format=yyyy-MM-dd">parRCPSentDate</a>
+			<b>surveyDetails.rcpSentDt</b>
+		</field>
+
+		<field converter="com.mindtree.ruc.cmn.beanmap.DateStringConverter"
+			converterDefaultDir="b-a">
+			<a properties="format=yyyy-MM-dd">parRCPConfirmDate</a>
+			<b>surveyDetails.rcpConfirmDt</b>
+		</field>
+
+		<field converter="com.rsaame.pas.cmn.converter.IntegerStringConverter"
+			converterDefaultDir="b-a">
+			<a>parRCPStatus</a>
+			<b>surveyDetails.rcpStatus</b>
+		</field>
+
+	</mapping>
+
+	<mapping package="com.rsaame.pas.request.vo.mapper" id="RequestToUWQVOMapper"
+		genReverse="false">
+		<class-a class="HTTP-REQUEST" />
+		<class-b class="com.rsaame.pas.vo.bus.UWQuestionsVO" />
+		<field>
+			<a collType="LIST">uwA[]</a>
+			<b collType="LIST">questions[].response</b>
+		</field>
+
+		<field converter="com.rsaame.pas.cmn.converter.ShortStringConverter"
+			converterDefaultDir="b-a">
+			<a collType="LIST">uwCodes[]</a>
+			<b collType="LIST">questions[].qId</b>
+		</field>
+	</mapping>
+
+
+	<mapping package="com.rsaame.pas.request.vo.mapper" id="RequestToParLocationMapper"
+		genReverse="false">
+		<class-a class="HTTP-REQUEST" />
+		<class-b class="com.rsaame.pas.vo.bus.LocationVO" />
+
+		<field>
+			<a>parOffice</a>
+			<b>address.officeShopNo</b>
+		</field>
+
+		<field converter="com.rsaame.pas.cmn.converter.IntegerStringConverter"
+			converterDefaultDir="b-a">
+			<a>parLocation</a>
+			<b>directorate</b>
+		</field>
+
+		<field>
+			<a>parFloor</a>
+			<b>address.floor</b>
+		</field>
+
+		<field>
+			<a>parBuildingName</a>
+			<b>address.buildingName</b>
+		</field>
+
+		<field>
+			<a>parBuildingNameOth</a>
+			<b>address.buildingName</b>
+		</field>
+
+		<field>
+			<a>parStreetName</a>
+			<b>address.streetName</b>
+		</field>
+
+		<field>
+			<a>parfreeZone</a>
+			<b>freeZone</b>
+		</field>
+
+		<field>
+			<a>parFreeZoneOth</a>
+			<b>freeZoneOthers</b>
+		</field>
+
+		<field converter="com.rsaame.pas.cmn.converter.IntegerStringConverter"
+			converterDefaultDir="b-a">
+			<a>territory</a>
+			<b>address.locOverrideTer</b>
+		</field>
+
+		<field converter="com.rsaame.pas.cmn.converter.IntegerStringConverter"
+			converterDefaultDir="b-a">
+			<a>jurisdiction</a>
+			<b>address.locOverrideJur</b>
+		</field>
+		<!-- <field> <a>paremirates</a> <b>emirates</b> </field> -->
+
+		<field converter="com.rsaame.pas.cmn.converter.IntegerStringConverter"
+			converterDefaultDir="b-a">
+			<a>paroccupancyGroup</a>
+			<b>occTradeGroup</b>
+		</field>
+	</mapping>
+
+	<!-- Request to PARUWDetailsVO mapper starts here -->
+	<mapping package="com.rsaame.pas.request.vo.mapper" id="RequestToPARUWDetailsVO"
+		genReverse="false">
+		<class-a class="HTTP-REQUEST" />
+		<class-b class="com.rsaame.pas.vo.bus.PARUWDetailsVO" />
+
+		<field converter="com.rsaame.pas.cmn.converter.IntegerStringConverter"
+			converterDefaultDir="b-a">
+			<a>parConstructionYear</a>
+			<b>ageOfBuilding</b>
+		</field>
+
+		<field converter="com.rsaame.pas.cmn.converter.IntegerStringConverter"
+			converterDefaultDir="b-a">
+			<a>parLocation</a>
+			<b>directorate</b>
+		</field>
+
+
+		<field converter="com.rsaame.pas.cmn.converter.IntegerStringConverter"
+			converterDefaultDir="b-a">
+			<a>parConstructionType</a>
+			<b>constructionType</b>
+		</field>
+
+		<field converter="com.rsaame.pas.cmn.converter.IntegerStringConverter"
+			converterDefaultDir="b-a">
+			<a>parHazardNT</a>
+			<b>hazardousNature</b>
+		</field>
+
+		<field converter="com.rsaame.pas.cmn.converter.DoubleStringConverter"
+			converterDefaultDir="b-a">
+			<a>parEMLper</a>
+			<b>emlPrc</b>
+		</field>
+
+		<field converter="com.rsaame.pas.cmn.converter.DoubleStringConverter"
+			converterDefaultDir="b-a">
+			<a>parEMLsi</a>
+			<b>emlSI</b>
+		</field>
+
+		<field converter="com.rsaame.pas.cmn.converter.IntegerStringConverter"
+			converterDefaultDir="b-a">
+			<a>hazardLevel</a>
+			<b>hazardLevel</b>
+		</field>
+
+		<field converter="com.rsaame.pas.cmn.converter.IntegerStringConverter"
+			converterDefaultDir="b-a">
+			<a>riCategory</a>
+			<b>categoryRI</b>
+		</field>
+	</mapping>
+
+	<!-- Mapping for PAR Ends -->
+
+	<!-- Mapping for Tasks Starts -->
+	<mapping package="com.rsaame.pas.pojo.mapper" id="PaginatedResultToTaskListVOMapper"
+		genReverse="false">
+		<class-a class="com.rsaame.kaizen.framework.model.PaginatedResult" />
+		<class-b class="com.rsaame.pas.vo.app.TaskListVO" />
+		<field ref="TaskPojoToTaskVOMapper" mapper-type="ARRAY">
+			<a>objectArray</a>
+			<b>taskVO</b>
+		</field>
+
+		<field>
+			<a>numberOfRecords</a>
+			<b>numberOfRecords</b>
+		</field>
+
+		<field>
+			<a>recordsPerPage</a>
+			<b>recordsPerPage</b>
+		</field>
+
+		<field>
+			<a>currentPage</a>
+			<b>currentPage</b>
+		</field>
+	</mapping>
+
+	<mapping package="com.rsaame.pas.pojo.mapper" id="TaskPojoToTaskVOMapper"
+		genReverse="false">
+		<class-a class="com.rsaame.kaizen.taskmanager.model.TTrnTask" />
+		<class-b class="com.rsaame.pas.vo.bus.TaskVO" />
+
+		<field>
+			<a>tskId</a>
+			<b>taskID</b>
+		</field>
+
+		<field>
+			<a>tskShortDesc</a>
+			<b>taskName</b>
+		</field>
+
+		<field converter="com.mindtree.ruc.cmn.beanmap.DateStringConverter"
+			converterDefaultDir="b-a">
+			<a properties="format=dd/MM/yyyy hh:mm:ss a">taskCreatedDate</a>
+			<b>createdDate</b>
+		</field>
+
+		<field>
+			<a>taskCreatedBy</a>
+			<b>createdBy</b>
+		</field>
+
+		<field>
+			<a>taskAssignedBy</a>
+			<b>assignedBy</b>
+		</field>
+
+		<field>
+			<a>taskAssignedTo</a>
+			<b>assignedTo</b>
+		</field>
+
+		<field>
+			<a>taskStatus</a>
+			<b>Status</b>
+		</field>
+
+		<field>
+			<a>taskPriority</a>
+			<b>Priority</b>
+		</field>
+
+		<field>
+			<a>taskCategory</a>
+			<b>category</b>
+		</field>
+
+		<field converter="com.mindtree.ruc.cmn.beanmap.DateStringConverter"
+			converterDefaultDir="b-a">
+			<a properties="format=dd/MM/yyyy hh:mm:ss a">taskDueDate</a>
+			<b>dueDate</b>
+		</field>
+
+		<field>
+			<a>tskShortDesc</a>
+			<b>desc</b>
+		</field>
+
+		<field>
+			<a>locationName</a>
+			<b>location</b>
+		</field>
+
+	</mapping>
+
+	<mapping package="com.rsaame.pas.pojo.mapper" id="TaskListVOToTtrnTaskMapper"
+		genReverse="false">
+		<class-a class="com.rsaame.pas.vo.app.TaskListVO" />
+		<class-b class="com.rsaame.kaizen.taskmanager.model.TTrnTask" />
+		<field>
+			<a>currentPage</a>
+			<b>currentPage</b>
+		</field>
+	</mapping>
+	<!-- Mapping for Tasks Ends -->
+
+	<!-- SRequest to Public Liability Mappper -->
+
+	<mapping package="com.rsaame.pas.request.vo.mapper" id="RequestToPublicLiabilityVOMapper"
+		genReverse="false">
+		<class-a class="HTTP-REQUEST" />
+		<class-b class="com.rsaame.pas.vo.bus.PublicLiabilityVO" />
+
+		<field converter="com.rsaame.pas.cmn.converter.DoubleStringConverter"
+			converterDefaultDir="b-a">
+			<a>plAnnualTO_over</a>
+			<b>sumInsuredDets.sumInsured</b>
+		</field>
+
+		<field converter="com.rsaame.pas.cmn.converter.DoubleStringConverter"
+			converterDefaultDir="b-a">
+			<a>plDeductible</a>
+			<b>sumInsuredDets.deductible</b>
+		</field>
+
+		<field converter="com.rsaame.pas.cmn.converter.DoubleStringConverter"
+			converterDefaultDir="b-a">
+			<a>plLimitOfIndem</a>
+			<b>indemnityAmtLimit</b>
+		</field>
+
+		<field converter="com.rsaame.pas.cmn.converter.IntegerStringConverter"
+			converterDefaultDir="b-a">
+			<a>plSumInsBasis</a>
+			<b>sumInsuredBasis</b>
+		</field>
+	</mapping>
+
+	<!-- Request to Location Mapper -->
+	<mapping package="com.rsaame.pas.request.vo.mapper" id="RequestToLocationVOMapper"
+		genReverse="false">
+		<class-a class="HTTP-REQUEST" />
+		<class-b class="com.rsaame.pas.vo.bus.LocationVO" />
+
+		<field>
+			<a>officeShopNo</a>
+			<b>address.officeShopNo</b>
+		</field>
+
+		<field converter="com.rsaame.pas.cmn.converter.IntegerStringConverter"
+			converterDefaultDir="b-a">
+			<a>location</a>
+			<b>directorate</b>
+		</field>
+
+		<field>
+			<a>floor</a>
+			<b>address.floor</b>
+		</field>
+
+		<field>
+			<a>buildingName3</a>
+			<b>address.buildingName</b>
+		</field>
+
+		<field>
+			<a>buildingName</a>
+			<b>riskGroupName</b>
+		</field>
+
+		<field>
+			<a>buildingNameOth</a>
+			<b>address.buildingName</b>
+		</field>
+
+		<field>
+			<a>streetName</a>
+			<b>address.streetName</b>
+		</field>
+
+		<field>
+			<a>freeZone</a>
+			<b>freeZone</b>
+		</field>
+
+		<field>
+			<a>freeZoneOth</a>
+			<b>freeZoneOthers</b>
+		</field>
+
+		<field converter="com.rsaame.pas.cmn.converter.IntegerStringConverter"
+			converterDefaultDir="b-a">
+			<a>territory</a>
+			<b>address.locOverrideTer</b>
+		</field>
+
+		<field converter="com.rsaame.pas.cmn.converter.IntegerStringConverter"
+			converterDefaultDir="b-a">
+			<a>jurisdiction</a>
+			<b>address.locOverrideJur</b>
+		</field>
+
+		<field converter="com.rsaame.pas.cmn.converter.IntegerStringConverter"
+			converterDefaultDir="b-a">
+			<a>occupancyGroup</a>
+			<b>occTradeGroup</b>
+		</field>
+
+		<field converterDefaultDir="a-b">
+			<a>riskGroupId</a>
+			<b>riskGroupId</b>
+		</field>
+	</mapping>
+
+	<!-- Request To PLUWDetailsVO Mapper -->
+	<!-- <mapping package="com.rsaame.pas.request.vo.mapper" id="RequestToPLUWDetailsVOMapper" 
+		genReverse="false"> <class-a class="HTTP-REQUEST" /> <class-b class="com.rsaame.pas.vo.bus.PLUWDetailsVO" 
+		/> <field converter="com.mindtree.ruc.cmn.beanmap.DateStringConverter" converterDefaultDir="a-b"> 
+		<a></a> <b>uwMinDetails.startDate</b> </field> <field converter="com.mindtree.ruc.cmn.beanmap.DateStringConverter" 
+		converterDefaultDir="a-b"> <a></a> <b>uwMinDetails.endDate</b> </field> <field 
+		converterDefaultDir="a-b"> <a></a> <b>uwMinDetails.status</b> </field> </mapping> -->
+
+	<!-- **************Mapping for Request to Money************* -->
+
+	<mapping package="com.rsaame.pas.request.vo.mapper" id="RequestToMoneyVOMapper"
+		genReverse="false">
+		<class-a class="HTTP-REQUEST" />
+		<class-b class="com.rsaame.pas.vo.bus.MoneyVO" />
+
+		<field converter="com.rsaame.pas.cmn.converter.DoubleStringConverter"
+			converterDefaultDir="b-a">
+			<a>commission</a>
+			<b>commission</b>
+		</field>
+
+		<field converter="com.rsaame.pas.cmn.converter.LongStringConverter"
+			converterDefaultDir="b-a">
+			<a collType="LIST">cashId[]</a>
+			<b collType="LIST">contentsList[].riskId</b>
+		</field>
+
+		<field converter="com.mindtree.ruc.cmn.beanmap.DateStringConverter"
+			converterDefaultDir="b-a">
+			<a collType="LIST">cashVSD[]</a>
+			<b collType="LIST">sumInsuredDets[].vsd</b>
+		</field>
+
+		<field converter="com.rsaame.pas.cmn.converter.DoubleStringConverter"
+			converterDefaultDir="b-a">
+			<a collType="LIST">moneySI[]</a>
+			<b collType="LIST">sumInsuredDets[].sumInsured</b>
+		</field>
+
+		<field converter="com.rsaame.pas.cmn.converter.DoubleStringConverter"
+			converterDefaultDir="b-a">
+			<a collType="LIST">moneyDeductible[]</a>
+			<b collType="LIST">sumInsuredDets[].deductible</b>
+		</field>
+
+		<field converter="com.rsaame.pas.cmn.converter.BigDecimalStringConverter"
+			converterDefaultDir="b-a">
+			<a collType="LIST">moneySI[]</a>
+			<b collType="LIST">contentsList[].cover</b>
+		</field>
+
+		<field converter="com.rsaame.pas.cmn.converter.BigDecimalStringConverter"
+			converterDefaultDir="b-a">
+			<a collType="LIST">moneyDeductible[]</a>
+			<b collType="LIST">contentsList[].deductibles</b>
+		</field>
+
+		<field converter="com.rsaame.pas.cmn.converter.IntegerStringConverter"
+			converterDefaultDir="b-a">
+			<a collType="LIST">riskType[]</a>
+			<b collType="LIST">contentsList[].riskType</b>
+		</field>
+
+
+		<field converter="com.rsaame.pas.cmn.converter.IntegerStringConverter"
+			converterDefaultDir="b-a">
+			<a collType="LIST">riskCategory[]</a>
+			<b collType="LIST">contentsList[].riskCat</b>
+		</field>
+
+
+		<field converter="com.rsaame.pas.cmn.converter.IntegerStringConverter"
+			converterDefaultDir="b-a">
+			<a collType="LIST">riskSubCategory[]</a>
+			<b collType="LIST">contentsList[].riskSubCat</b>
+		</field>
+
+		<field converter="com.rsaame.pas.cmn.converter.LongStringConverter"
+			converterDefaultDir="b-a">
+			<a collType="LIST">lsobhId[]</a>
+			<b collType="LIST">safeDetails[].id</b>
+		</field>
+
+		<field converter="com.mindtree.ruc.cmn.beanmap.DateStringConverter"
+			converterDefaultDir="b-a">
+			<a collType="LIST">lsobhVSD[]</a>
+			<b collType="LIST">safeDetails[].vsd</b>
+		</field>
+
+		<field converterDefaultDir="a-b">
+			<a collType="LIST">moneyMake[]</a>
+			<b collType="LIST">safeDetails[].Make</b>
+		</field>
+
+		<field converter="com.rsaame.pas.cmn.converter.DoubleStringConverter"
+			converterDefaultDir="b-a">
+			<a collType="LIST">moneyWeight[]</a>
+			<b collType="LIST">safeDetails[].weight</b>
+		</field>
+
+		<field converter="com.rsaame.pas.cmn.converter.DoubleStringConverter"
+			converterDefaultDir="b-a">
+			<a collType="LIST">moneyHeight[]</a>
+			<b collType="LIST">safeDetails[].height</b>
+		</field>
+
+		<field converter="com.rsaame.pas.cmn.converter.DoubleStringConverter"
+			converterDefaultDir="b-a">
+			<a collType="LIST">moneyWidth[]</a>
+			<b collType="LIST">safeDetails[].width</b>
+		</field>
+
+		<field converterDefaultDir="a-b">
+			<a collType="LIST">moneyAnchored[]</a>
+			<b collType="LIST">safeDetails[].anchored</b>
+		</field>
+
+		<field converter="com.mindtree.ruc.cmn.beanmap.BooleanStringConverter"
+			converterDefaultDir="b-a">
+			<a>drink</a>
+			<b>cashInResidence</b>
+		</field>
+
+		<field converter="com.mindtree.ruc.cmn.beanmap.BooleanStringConverter"
+			converterDefaultDir="b-a">
+			<a>businessHrs</a>
+			<b>excessCashInSafe</b>
+		</field>
+
+		<field converter="com.rsaame.pas.cmn.converter.LongStringConverter"
+			converterDefaultDir="b-a">
+			<a collType="LIST">ciaerId[]</a>
+			<b collType="LIST">cashResDetails[].id</b>
+		</field>
+
+		<field converter="com.mindtree.ruc.cmn.beanmap.DateStringConverter"
+			converterDefaultDir="b-a">
+			<a collType="LIST">ciaerVSD[]</a>
+			<b collType="LIST">cashResDetails[].vsd</b>
+		</field>
+
+		<field converterDefaultDir="a-b">
+			<a collType="LIST">empName[]</a>
+			<b collType="LIST">cashResDetails[].empName</b>
+		</field>
+
+		<field converterDefaultDir="a-b">
+			<a collType="LIST">occupation[]</a>
+			<b collType="LIST">cashResDetails[].occupation</b>
+		</field>
+
+		<field converter="com.rsaame.pas.cmn.converter.DoubleStringConverter"
+			converterDefaultDir="b-a">
+			<a collType="LIST">amount[]</a>
+			<b collType="LIST">cashResDetails[].sumInsuredDets.sumInsured</b>
+		</field>
+	</mapping>
+
+	<mapping package="com.rsaame.pas.gen.mapper" id="PolicyVOToCashCustomerPOJO">
+		<class-a class="com.rsaame.pas.vo.bus.PolicyVO" />
+		<class-b class="com.rsaame.pas.gen.domain.TMasCashCustomerQuo" />
+
+		<!-- <field converter="com.rsaame.pas.cmn.converter.IntegerShortConverter" 
+			converterDefaultDir="a-b"> <a>generalInfo.claimsHistory.otherBusinessClient</a> 
+			<b>cshBusType</b> </field> -->
+		<field converter="com.rsaame.pas.cmn.converter.BigDecimalStringConverter"
+			converterDefaultDir="b-a">
+			<a>generalInfo.claimsHistory.lossExpQuantum</a>
+			<b>cshLossAmt</b>
+		</field>
+
+		<field converter="com.rsaame.pas.cmn.converter.IntegerBigDecimalConverter"
+			converterDefaultDir="b-a">
+			<a>generalInfo.claimsHistory.lossExp</a>
+			<b>cshLossRatio</b>
+		</field>
+
+		<field>
+			<a>policyNo</a>
+			<b>id.cshPolicyId</b>
+		</field>
+
+
+		<field>
+			<a>validityStartDate</a>
+			<b>id.cshValidityStartDate</b>
+		</field>
+
+
+		<field>
+			<a>generalInfo.insured.name</a>
+			<b>cshEName1</b>
+		</field>
+
+		<field>
+			<a>generalInfo.insured.arabicName</a>
+			<b>cshAName1</b>
+		</field>
+
+		<field>
+			<a>generalInfo.insured.address.poBox</a>
+			<b>cshPoboxNo</b>
+		</field>
+
+		<field>
+			<a>generalInfo.insured.emailId</a>
+			<b>cshEEmailId</b>
+		</field>
+
+		<field>
+			<a>generalInfo.insured.address.territory</a>
+			<b>cshTerritory</b>
+		</field>
+
+		<field>
+			<a>generalInfo.insured.address.country</a>
+			<b>cshCountry</b>
+		</field>
+
+		<field>
+			<a>generalInfo.insured.tradeLicenseNo</a>
+			<b>cshECoRegnNo</b>
+		</field>
+
+
+
+		<field converter="com.rsaame.pas.cmn.converter.IntegerStringConverter"
+			converterDefaultDir="b-a">
+			<a>generalInfo.additionalInfo.laws</a>
+			<b>cshLaws</b>
+		</field>
+
+		<field>
+			<a>generalInfo.additionalInfo.regulatoryBody</a>
+			<b>cshRegulatoryBody</b>
+		</field>
+
+		<field>
+			<a>generalInfo.additionalInfo.affinityRefNo</a>
+			<b>cshAffinityRefNo</b>
+		</field>
+
+		<field>
+			<a>authInfoVO.intAccExecCode</a>
+			<b>cshIntAccExecCode</b>
+		</field>
+
+		<field>
+			<a>authInfoVO.extAccExecCode</a>
+			<b>cshExtAccExecCode</b>
+		</field>
+
+		<field>
+			<a>generalInfo.insured.phoneNo</a>
+			<b>cshEPhoneNo</b>
+		</field>
+
+		<field>
+			<a>generalInfo.insured.mobileNo</a>
+			<b>cshEGsmNo</b>
+		</field>
+
+		<field>
+			<a>generalInfo.insured.address.address</a>
+			<b>cshEAddress1</b>
+		</field>
+
+		<field>
+			<a>generalInfo.insured.city</a>
+			<b>cshCity</b>
+		</field>
+
+		<field converter="com.rsaame.pas.cmn.converter.IntegerShortConverter"
+			converterDefaultDir="a-b">
+			<a>generalInfo.insured.busType</a>
+			<b>cshBusType</b>
+		</field>
+
+		<field>
+			<a>generalInfo.additionalInfo.faxNumber</a>
+			<b>cshFaxNo</b>
+		</field>
+
+		<field>
+			<a>generalInfo.additionalInfo.dateOfEst</a>
+			<b>cshDtEstablishment</b>
+		</field>
+
+		<field>
+			<a>generalInfo.additionalInfo.placeOfEst</a>
+			<b>cshPlaceEstablishment</b>
+		</field>
+
+		<field>
+			<a>generalInfo.additionalInfo.payTerms</a>
+			<b>cshAIdCardNo</b>
+		</field>
+
+		<field converter="com.rsaame.pas.cmn.converter.IntegerShortConverter"
+			converterDefaultDir="a-b">
+			<a>generalInfo.insured.nationality</a>
+			<b>cshNationality</b>
+		</field>
+
+		<field>
+			<a>generalInfo.insured.busDescription</a>
+			<b>cshBusiness</b>
+		</field>
+
+		<field>
+			<a>generalInfo.insured.address.country</a>
+			<b>cshCountry</b>
+		</field>
+
+		<!-- TO DO Market Adj Load and Market Adj Discount -->
+		<!-- <field> <a>generalInfo.claimsHistory.</a> <b></b> </field> -->
+	</mapping>
+
+
+
+	<mapping package="com.rsaame.pas.gen.mapper" id="PolicyVOToMasInsuredPOJO">
+		<class-a class="com.rsaame.pas.vo.bus.PolicyVO" />
+		<class-b class="com.rsaame.pas.gen.domain.TMasInsured" />
+
+		<field>
+			<a>generalInfo.insured.insuredId</a>
+			<b>insInsuredCode</b>
+		</field>
+
+
+		<field>
+			<a>generalInfo.insured.name</a>
+			<b>insEFirstName</b>
+		</field>
+
+		<field>
+			<a>generalInfo.insured.address.poBox</a>
+			<b>insEZipCode</b>
+		</field>
+
+
+		<field>
+			<a>generalInfo.sourceOfBus.brokerName</a>
+			<b>insBrCode</b>
+		</field>
+
+
+		<field>
+			<a>generalInfo.sourceOfBus.directSubAgent</a>
+			<b>insAgentCode</b>
+		</field>
+
+		<field>
+			<a>generalInfo.sourceOfBus.distributionChannel</a>
+			<b>insDistributionChnl</b>
+		</field>
+
+		<field>
+			<a>generalInfo.additionalInfo.remarks</a>
+			<b>insRemarks</b>
+		</field>
+
+		<!-- TO DO Market Adj Load and Market Adj Discount -->
+		<!-- <field> <a>generalInfo.claimsHistory.</a> <b></b> </field> -->
+	</mapping>
+
+
+	<!-- Start :: Mapping for Bean to GeneralInfoVo -->
+
+	<mapping package="com.rsaame.pas.pojo.mapper" id="TMasCashCustQuoToGenVOMapper">
+		<class-a class="com.rsaame.pas.gen.domain.TMasCashCustomerQuo" />
+		<class-b class="com.rsaame.pas.vo.bus.GeneralInfoVO" />
+		<field>
+			<a>cshLossAmt</a>
+			<b>claimsHistory.lossExpQuantum</b>
+		</field>
+		<field converter="com.rsaame.pas.cmn.converter.IntegerBigDecimalConverter"
+			converterDefaultDir="a-b">
+			<a>cshLossRatio</a>
+			<b>claimsHistory.lossExp</b>
+		</field>
+		<field>
+			<a>cshEName1</a>
+			<b>insured.name</b>
+		</field>
+		<field>
+			<a>cshPoboxNo</a>
+			<b>insured.address.poBox</b>
+		</field>
+		<field>
+			<a>cshAName1</a>
+			<b>insured.arabicName</b>
+		</field>
+		<field>
+			<a>cshEAddress1</a>
+			<b>insured.address.address</b>
+		</field>
+		<field>
+			<a>cshEAddress1</a>
+			<b>insured.address.address</b>
+		</field>
+		<field converter="com.rsaame.pas.cmn.converter.IntegerShortConverter"
+			converterDefaultDir="b-a">
+			<a>cshNationality</a>
+			<b>insured.nationality</b>
+		</field>
+		<field>
+			<a>cshCity</a>
+			<b>insured.city</b>
+		</field>
+		<field>
+			<a>cshAffinityRefNo</a>
+			<b>additionalInfo.affinityRefNo</b>
+		</field>
+		<field>
+			<a>cshFaxNo</a>
+			<b>additionalInfo.faxNumber</b>
+		</field>
+		<field>
+			<a>cshDtEstablishment</a>
+			<b>additionalInfo.dateOfEst</b>
+		</field>
+		<field>
+			<a>cshPlaceEstablishment</a>
+			<b>additionalInfo.placeOfEst</b>
+		</field>
+		<field>
+			<a>cshEIdCardNo</a>
+			<b>additionalInfo.payTerms</b>
+		</field>
+		<field>
+			<a>cshTerritory</a>
+			<b>insured.address.territory</b>
+		</field>
+		<field>
+			<a>cshCountry</a>
+			<b>insured.address.country</b>
+		</field>
+		<field converter="com.rsaame.pas.cmn.converter.IntegerStringConverter"
+			converterDefaultDir="a-b">
+			<a>cshLaws</a>
+			<b>additionalInfo.laws</b>
+		</field>
+		<field>
+			<a>cshECoRegnNo</a>
+			<b>insured.tradeLicenseNo</b>
+		</field>
+		<field>
+			<a>cshEGsmNo</a>
+			<b>insured.mobileNo</b>
+		</field>
+		<field>
+			<a>cshEPhoneNo</a>
+			<b>insured.phoneNo</b>
+		</field>
+		<field>
+			<a>cshEEmailId</a>
+			<b>insured.emailId</b>
+		</field>
+		<field converter="com.rsaame.pas.cmn.converter.IntegerShortConverter"
+			converterDefaultDir="b-a">
+			<a>cshBusType</a>
+			<b>insured.busType</b>
+		</field>
+		<field>
+			<a>cshBusiness</a>
+			<b>insured.busDescription</b>
+		</field>
+		<field>
+			<a>cshRegulatoryBody</a>
+			<b>additionalInfo.regulatoryBody</b>
+		</field>
+	</mapping>
+
+	<mapping package="com.rsaame.pas.pojo.mapper" id="TMasInsuredQuoToGenVOMapper">
+		<class-a class="com.rsaame.pas.gen.domain.TMasInsured" />
+		<class-b class="com.rsaame.pas.vo.bus.GeneralInfoVO" />
+		<field>
+			<a>insInsuredCode</a>
+			<b>insured.insuredId</b>
+		</field>
+
+		<field>
+			<a>insEZipCode</a>
+			<b>insured.address.poBox</b>
+		</field>
+		<field>
+			<a>insBrCode</a>
+			<b>sourceOfBus.brokerName</b>
+		</field>
+		<field>
+			<a>insAgentCode</a>
+			<b>sourceOfBus.directSubAgent</b>
+		</field>
+		<field>
+			<a>insDistributionChnl</a>
+			<b>sourceOfBus.distributionChannel</b>
+		</field>
+		<field>
+			<a>insEFirstName</a>
+			<b>insured.name</b>
+		</field>
+		<field>
+			<a>insEPhoneNo</a>
+			<b>insured.phoneNo</b>
+		</field>
+		<field>
+			<a>insEMobileNo</a>
+			<b>insured.mobileNo</b>
+		</field>
+		<field>
+			<a>insEEmailId</a>
+			<b>insured.emailId</b>
+		</field>
+		<field>
+			<a>insDtCollectionKyc</a>
+			<b>additionalInfo.dateOfcollectionOfKYC</b>
+		</field>
+		<field>
+			<a>insExpiryDate</a>
+			<b>additionalInfo.tradeLicenseExpDate</b>
+		</field>
+		<field>
+			<a>insStatus</a>
+			<b>additionalInfo.insuredStatus</b>
+		</field>
+		<field>
+			<a>insRemarks</a>
+			<b>additionalInfo.remarks</b>
+		</field>
+	</mapping>
+
+	<mapping package="com.rsaame.pas.pojo.mapper" id="PolicyQuoToGenVOMap">
+		<class-a class="com.rsaame.pas.dao.model.TTrnPolicyQuo" />
+		<class-b class="com.rsaame.pas.vo.bus.GeneralInfoVO" />
+		<field converter="com.rsaame.pas.cmn.converter.IntegerShortConverter"
+			converterDefaultDir="b-a">
+			<a>polReasonCode</a>
+			<b>additionalInfo.specialityType</b>
+		</field>
+		<field converter="com.rsaame.pas.cmn.converter.LongIntegerConverter"
+			converterDefaultDir="b-a">
+			<a>polCoverNoteNo</a>
+			<b>additionalInfo.rsaSpacialIndicator</b>
+		</field>
+		<field>
+			<a>polDistributionChnl</a>
+			<b>sourceOfBus.distributionChannel</b>
+		</field>
+		<field converter="com.rsaame.pas.cmn.converter.IntegerByteConverter"
+			converterDefaultDir="b-a">
+			<a>polSourceOfBusiness</a>
+			<b>claimsHistory.sourceOfBusiness</b>
+		</field>
+		<field converter="com.rsaame.pas.cmn.converter.IntegerShortConverter"
+			converterDefaultDir="b-a">
+			<a>polBusinessType</a>
+			<b>insured.busType</b>
+		</field>
+		<field converter="com.rsaame.pas.cmn.converter.LongIntegerConverter"
+			converterDefaultDir="b-a">
+			<a>polLinkingId</a>
+			<b>additionalInfo.policyId</b>
+		</field>
+	</mapping>
+
+	<mapping package="com.rsaame.pas.pojo.mapper" id="PolicyQuoToSchemVOMap">
+		<class-a class="com.rsaame.pas.dao.model.TTrnPolicyQuo" />
+		<class-b class="com.rsaame.pas.vo.bus.SchemeVO" />
+		<field>
+			<a>polCoverNoteHour</a>
+			<b>schemeCode</b>
+		</field>
+		<field converter="com.rsaame.pas.cmn.converter.IntegerShortConverter"
+			converterDefaultDir="b-a">
+			<a>polTarCode</a>
+			<b>tariffCode</b>
+		</field>
+		<field converter="com.rsaame.pas.cmn.converter.ShortStringConverter"
+			converterDefaultDir="a-b">
+			<a>polPolicyType</a>
+			<b>policyType</b>
+		</field>
+		<field converter="com.rsaame.pas.cmn.converter.IntegerShortConverter"
+			converterDefaultDir="b-a">
+			<a>polPolicyType</a>
+			<b>policyCode</b>
+		</field>
+		<field>
+			<a>polEffectiveDate</a>
+			<b>effDate</b>
+		</field>
+		<field>
+			<a>polExpiryDate</a>
+			<b>expiryDate</b>
+		</field>
+	</mapping>
+	<!-- End :: Mapping for Bean to GeneralInfoVo -->
+
+	<!-- Start :: WCSectionDAO : TMasOccupancy to TTrnWctplUnnamedPersonQuo 
+		mapper -->
+
+	<mapping package="com.rsaame.pas.pojo.mapper" id="TMasOccToTTrnWctplUPQuoMapper">
+		<class-a class="com.rsaame.pas.dao.model.TMasOccupancy" />
+		<class-b class="com.rsaame.pas.dao.model.TTrnWctplUnnamedPersonQuo" />
+		<field converter="com.rsaame.pas.cmn.converter.LongIntegerConverter"
+			converterDefaultDir="a-b">
+			<a>ocpRskCode</a>
+			<b>wupRskCode</b>
+		</field>
+		<field converter="com.rsaame.pas.cmn.converter.IntegerShortConverter"
+			converterDefaultDir="a-b">
+			<a>ocpRtCode</a>
+			<b>wupRtCode</b>
+		</field>
+		<field converter="com.rsaame.pas.cmn.converter.IntegerShortConverter"
+			converterDefaultDir="a-b">
+			<a>ocpRcCode</a>
+			<b>wupRcCode</b>
+		</field>
+		<field>
+			<a>ocpRiRskCode</a>
+			<b>wupRiRskCode</b>
+		</field>
+		<field converter="com.rsaame.pas.cmn.converter.LongIntegerConverter"
+			converterDefaultDir="a-b">
+			<a>ocpTradeCode</a>
+			<b>wupTradeGroup</b>
+		</field>
+	</mapping>
+
+	<!-- End :: WCSectionDAO : TMasOccupancy to TTrnWctplUnnamedPersonQuo mapper -->
+	<!-- Start: Mapping Request to WCVO -->
+	<mapping package="com.rsaame.pas.request.vo.mapper" id="RequestToWCVOMapper"
+		genReverse="false">
+		<class-a class="HTTP-REQUEST" />
+		<class-b class="com.rsaame.pas.vo.bus.WCVO" />
+
+		<field converter="com.rsaame.pas.cmn.converter.DoubleStringConverter"
+			converterDefaultDir="b-a">
+			<a>commission</a>
+			<b>commission</b>
+		</field>
+
+		<field converter="com.rsaame.pas.cmn.converter.IntegerStringConverter"
+			converterDefaultDir="b-a">
+			<a>employeeType</a>
+			<b>empType</b>
+		</field>
+
+		<field converter="com.rsaame.pas.cmn.converter.IntegerStringConverter"
+			converterDefaultDir="b-a">
+			<a>quote_name_noOfEmployee</a>
+			<b>noOfEmp</b>
+		</field>
+
+		<field converter="com.rsaame.pas.cmn.converter.DoubleStringConverter"
+			converterDefaultDir="b-a">
+			<a>quote_name_annualWageroll</a>
+			<b>wageroll</b>
+		</field>
+
+		<field converter="com.rsaame.pas.cmn.converter.DoubleStringConverter"
+			converterDefaultDir="b-a">
+			<a>deductible</a>
+			<b>deductibles</b>
+		</field>
+
+		<field converter="com.rsaame.pas.cmn.converter.BigDecimalStringConverter"
+			converterDefaultDir="b-a">
+			<a>limit</a>
+			<b>limit</b>
+		</field>
+
+		<field converter="com.mindtree.ruc.cmn.beanmap.BooleanStringConverter"
+			converterDefaultDir="b-a">
+			<a>24HourPACoverHiddenValue</a>
+			<b>wcCovers.PACover</b>
+		</field>
+
+	</mapping>
+	<!-- End: Mapping Request to WCVO -->
+
+
+	<!-- Mapping for Search Insured Starts -->
+
+	<mapping id="RequestToSearchInsuredVOMapper" genReverse="false">
+		<class-a class="HTTP-REQUEST" />
+		<class-b class="com.rsaame.pas.vo.app.SearchInsuredVO" />
+		<field>
+			<a>insuredsearch_name_insuredid</a>
+			<b>insuredId</b>
+		</field>
+
+		<field>
+			<a>insuredsearch_name_email</a>
+			<b>emailId</b>
+		</field>
+
+		<field>
+			<a>insuredsearch_name_phone</a>
+			<b>phoneNo</b>
+		</field>
+
+		<field>
+			<a>insuredsearch_name_mobile</a>
+			<b>mobileNo</b>
+		</field>
+
+		<field>
+			<a>insuredsearch_name_quotepolno</a>
+			<b>policyQuoteNo</b>
+		</field>
+
+		<field>
+			<a>insuredsearch_name_pobox</a>
+			<b>poBox</b>
+		</field>
+
+		<field>
+			<a>insuredsearch_name_completeName</a>
+			<b>completeName</b>
+		</field>
+	</mapping>
+
+	<mapping id="SearchInsuredVOToCustomerBOMapper" genReverse="true">
+		<class-a class="com.rsaame.pas.vo.app.SearchInsuredVO" />
+		<class-b class="com.rsaame.kaizen.customer.model.CustomerBO" />
+		<field>
+			<a>insuredId</a>
+			<b>customerId</b>
+		</field>
+
+		<field>
+			<a>emailId</a>
+			<b>emailId</b>
+		</field>
+
+		<field>
+			<a>phoneNo</a>
+			<b>phoneNo</b>
+		</field>
+
+		<field>
+			<a>mobileNo</a>
+			<b>mobileNo</b>
+		</field>
+
+		<field>
+			<a>policyQuoteNo</a>
+			<b>policyQuoteNo</b>
+		</field>
+
+		<field>
+			<a>poBox</a>
+			<b>poBoxNo</b>
+		</field>
+
+		<field>
+			<a>completeName</a>
+			<b>completeName</b>
+		</field>
+
+		<field>
+			<a>city</a>
+			<b>city</b>
+		</field>
+
+		<field>
+			<a>distributionChannel</a>
+			<b>distributionChannel</b>
+		</field>
+
+		<field>
+			<a>brokerName</a>
+			<b>brokerName</b>
+		</field>
+
+		<field>
+			<a>creationDate</a>
+			<b>creationDate</b>
+		</field>
+
+		<field>
+			<a>locationCode</a>
+			<b>locationCode</b>
+		</field>
+
+		<field>
+			<a>locationName</a>
+			<b>locationName</b>
+		</field>
+
+	</mapping>
+
+	<mapping id="PaginatedResultToSearchInsuredSummaryVOMapper"
+		genReverse="false">
+		<class-a class="com.rsaame.kaizen.framework.model.PaginatedResult" />
+		<class-b class="com.rsaame.pas.vo.app.SearchInsuredSummaryVO" />
+
+		<field ref="SearchInsuredVOToCustomerBOMapper" mapper-type="ARRAY">
+			<a>objectArray</a>
+			<b>insuredArray</b>
+		</field>
+
+		<field>
+			<a>numberOfRecords</a>
+			<b>numberOfRecords</b>
+		</field>
+
+		<field>
+			<a>recordsPerPage</a>
+			<b>recordsPerPage</b>
+		</field>
+
+		<field>
+			<a>currentPage</a>
+			<b>currentPage</b>
+		</field>
+	</mapping>
+	<!-- Mapping for Search Insured Ends -->
+
+	<mapping package="com.rsaame.pas.pojo.mapper" id="PremiumSummaryVOToVTrnPasPremium"
+		genReverse="true">
+		<class-a class="com.rsaame.pas.vo.app.PremiumSummaryVO" />
+		<class-b class="com.rsaame.pas.dao.model.VTrnPasPremiumSummary" />
+
+		<field>
+			<a>linkingId</a>
+			<b>id.linkingId</b>
+		</field>
+
+		<field>
+			<a>policyId</a>
+			<b>id.policyId</b>
+		</field>
+
+		<field>
+			<a>endtId</a>
+			<b>id.endtId</b>
+		</field>
+
+		<field>
+			<a>class_</a>
+			<b>id.class_</b>
+		</field>
+
+		<field>
+			<a>secId</a>
+			<b>id.secId</b>
+		</field>
+		<field>
+			<a>secName</a>
+			<b>id.secName</b>
+		</field>
+
+		<field>
+			<a>locationId</a>
+			<b>id.locationId</b>
+		</field>
+
+		<field>
+			<a>locationName</a>
+			<b>id.locationName</b>
+		</field>
+
+		<field>
+			<a>coverId</a>
+			<b>id.coverId</b>
+		</field>
+
+		<field>
+			<a>commission</a>
+			<b>commission</b>
+		</field>
+
+		<field>
+			<a>coverSiAmt</a>
+			<b>coverSiAmt</b>
+		</field>
+
+		<field>
+			<a>coverPrmAmt</a>
+			<b>coverPrmAmt</b>
+		</field>
+
+		<field>
+			<a>valStartDate</a>
+			<b>valStartDate</b>
+		</field>
+
+		<field>
+			<a>valExpDate</a>
+			<b>valExpDate</b>
+		</field>
+
+		<field>
+			<a>status</a>
+			<b>status</b>
+		</field>
+
+		<field>
+			<a>polQuoFlag</a>
+			<b>polQuoFlag</b>
+		</field>
+	</mapping>
+
+
+	<mapping package="com.rsaame.pas.pojo.mapper" id="InsuredVOToCustomerInsuredMapper"
+		genReverse="false">
+		<class-a class="com.rsaame.pas.vo.bus.InsuredVO" />
+		<class-b class="com.rsaame.kaizen.customer.model.CustomerInsured" />
+
+		<field>
+			<a>insuredId</a>
+			<b>insuredId</b>
+		</field>
+	</mapping>
+
+
+	<mapping id="PaginatedResultToInsuredHistoryListVOMapper"
+		genReverse="false">
+		<class-a class="com.rsaame.kaizen.framework.model.PaginatedResult" />
+		<class-b class="com.rsaame.pas.vo.app.InsuredHistoryListVO" />
+
+		<field ref="CustomerInsuredHistoryToInsuredHistoryVOMapper"
+			mapper-type="ARRAY">
+			<a>objectArray</a>
+			<b>insuredHistoryArray</b>
+		</field>
+
+		<field>
+			<a>numberOfRecords</a>
+			<b>numberOfRecords</b>
+		</field>
+
+		<field>
+			<a>recordsPerPage</a>
+			<b>recordsPerPage</b>
+		</field>
+
+		<field>
+			<a>currentPage</a>
+			<b>currentPage</b>
+		</field>
+	</mapping>
+
+
+	<mapping id="CustomerInsuredHistoryToInsuredHistoryVOMapper"
+		genReverse="false">
+		<class-a class="com.rsaame.kaizen.customer.model.CustomerInsuredHistory" />
+		<class-b class="com.rsaame.pas.vo.app.InsuredHistoryVO" />
+		<field>
+			<a>engFirstName</a>
+			<b>name</b>
+		</field>
+
+		<field>
+			<a>engZipCode</a>
+			<b>poBox</b>
+		</field>
+
+		<field>
+			<a>customerStatusDesc</a>
+			<b>insuredStatusDesc</b>
+		</field>
+
+		<field>
+			<a>engEmailId</a>
+			<b>emailId</b>
+		</field>
+
+		<field>
+			<a>engMobileNo</a>
+			<b>mobileNo</b>
+		</field>
+
+		<field>
+			<a>customerTypeDesc</a>
+			<b>insuredTypeDesc</b>
+		</field>
+
+		<field>
+			<a>engAddress</a>
+			<b>address</b>
+		</field>
+
+		<field>
+			<a>comp_id.insuredId</a>
+			<b>insuredId</b>
+		</field>
+
+		<field>
+			<a>transactionDateTime</a>
+			<b>transactionDate</b>
+		</field>
+
+		<field>
+			<a>transactionDateTime</a>
+			<b>lastModifiedDate</b>
+		</field>
+
+		<field>
+			<a>lastModifiedByUserName</a>
+			<b>lastModifiedBy</b>
+		</field>
+	</mapping>
+
+	<!-- EndorsmentVO to TTrnEndorsementDetails POJO mapper starts here -->
+	<mapping package="com.rsaame.pas.pojo.mapper" id="EndorsementVOToTTrnEndorsementDetails"
+		genReverse="true">
+		<class-a class=" com.rsaame.pas.vo.bus.EndorsmentVO" />
+		<class-b class="com.rsaame.pas.dao.model.TTrnEndorsementDetail" />
+
+		<field>
+			<a>policyId</a>
+			<b>id.edlPolicyId</b>
+		</field>
+
+		<field>
+			<a>endtId</a>
+			<b>id.edlEndorsementId</b>
+		</field>
+
+		<field>
+			<a>endNo</a>
+			<b>id.edlEndNo</b>
+		</field>
+
+		<field>
+			<a>slNo</a>
+			<b>id.edlSerialNo</b>
+		</field>
+
+		<field>
+			<a>endText</a>
+			<b>edlText</b>
+		</field>
+
+		<!-- <field> -->
+		<!-- <a></a> -->
+		<!-- <b>edlPreparedBy</b> -->
+		<!-- </field> -->
+
+		<!-- <field> -->
+		<!-- <a></a> -->
+		<!-- <b>edlPreparedDt</b> -->
+		<!-- </field> -->
+
+		<!-- <field> -->
+		<!-- <a></a> -->
+		<!-- <b>edlModifiedBy</b> -->
+		<!-- </field> -->
+
+		<!-- <field> -->
+		<!-- <a></a> -->
+		<!-- <b>edlModifiedDt</b> -->
+		<!-- </field> -->
+
+		<!-- <field> -->
+		<!-- <a></a> -->
+		<!-- <b>edlOldValue</b> -->
+		<!-- </field> -->
+
+		<!-- <field> -->
+		<!-- <a></a> -->
+		<!-- <b>edlNewValue</b> -->
+		<!-- </field> -->
+
+	</mapping>
+	<!-- EndorsmentVO to TTrnEndorsementDetails POJO mapper ends here -->
+
+	<!-- Mapping for EE starts -->
+	<!-- Start : Mapping Request to EquipmentVo -->
+	<mapping package="com.rsaame.pas.request.vo.mapper" id="RequestToEEVOMapper"
+		genReverse="false">
+
+		<class-a class="HTTP-REQUEST" />
+		<class-b class="com.rsaame.pas.vo.bus.EEVO" />
+
+		<field converter="com.rsaame.pas.cmn.converter.DoubleStringConverter"
+			converterDefaultDir="b-a">
+			<a>commission</a>
+			<b>commission</b>
+		</field>
+
+		<field>
+			<a collType="LIST">eeDropdownEquipmenttype[]</a>
+			<b collType="LIST">equipmentDtls[].equipmentType</b>
+		</field>
+
+		<field converter="com.rsaame.pas.cmn.converter.DoubleStringConverter"
+			converterDefaultDir="b-a">
+			<a collType="LIST">eeTextNewreplacevalue[]</a>
+			<b collType="LIST">equipmentDtls[].sumInsuredDetails.sumInsured</b>
+		</field>
+
+		<field>
+			<a collType="LIST">eeTextEquipdes[]</a>
+			<b collType="LIST">equipmentDtls[].equipmentDesc</b>
+		</field>
+
+		<field converter="com.rsaame.pas.cmn.converter.DoubleStringConverter"
+			converterDefaultDir="b-a">
+			<a collType="LIST">eeDropdownDeductible[]</a>
+			<b collType="LIST">equipmentDtls[].sumInsuredDetails.deductible</b>
+		</field>
+
+		<field>
+			<a collType="LIST">eeTextYearofmake[]</a>
+			<b collType="LIST">equipmentDtls[].yearOfMake</b>
+		</field>
+
+		<field>
+			<a collType="LIST">eeTextSerialnumber[]</a>
+			<b collType="LIST">equipmentDtls[].serialNumber</b>
+		</field>
+
+		<field converter="com.rsaame.pas.cmn.converter.IntegerStringConverter"
+			converterDefaultDir="b-a">
+			<a collType="LIST">eeTextQuantity[]</a>
+			<b collType="LIST">equipmentDtls[].quantity</b>
+		</field>
+		<field converter="com.rsaame.pas.cmn.converter.LongStringConverter"
+			converterDefaultDir="b-a">
+			<a collType="LIST">contentId[]</a>
+			<b collType="LIST">equipmentDtls[].contentId</b>
+		</field>
+
+
+	</mapping>
+	<!-- End : Mapping Request to EquipmentVo -->
+	<!-- Request to EEUWDetailsVO mapper starts here -->
+	<mapping package="com.rsaame.pas.request.vo.mapper" id="RequestToEEUWDetailsVO"
+		genReverse="false">
+		<class-a class="HTTP-REQUEST" />
+		<class-b class="com.rsaame.pas.vo.bus.EEUWDetailsVO" />
+
+		<field converter="com.rsaame.pas.cmn.converter.DoubleStringConverter"
+			converterDefaultDir="b-a">
+			<a>eeUnderDetailsEml</a>
+			<b>emlPrc</b>
+		</field>
+
+		<field converter="com.rsaame.pas.cmn.converter.DoubleStringConverter"
+			converterDefaultDir="b-a">
+			<a>eeUnderDetailsEmlSi</a>
+			<b>emlSI</b>
+		</field>
+
+		<field converter="com.rsaame.pas.cmn.converter.DoubleStringConverter"
+			converterDefaultDir="b-a">
+			<a>eeUnderDetailsBisl</a>
+			<b>emlBIPrc</b>
+		</field>
+
+		<field converter="com.rsaame.pas.cmn.converter.DoubleStringConverter"
+			converterDefaultDir="b-a">
+			<a>eeUnderDetailsBi</a>
+			<b>emlBI</b>
+		</field>
+
+	</mapping>
+	<!-- Request to EEUWDetailsVO mapper ends here -->
+	<!-- Start : Mapping EEUWDetailsVO to TTrnContentQuo -->
+	<mapping package="com.rsaame.pas.pojo.mapper" id="EEUWDetailsVOToContentPojoMapper"
+		genReverse="true">
+		<class-a class="com.rsaame.pas.vo.bus.EEUWDetailsVO" />
+		<class-b class="com.rsaame.pas.dao.model.TTrnContentQuo" />
+		<field converter="com.rsaame.pas.cmn.converter.BigDecimalDoubleConverter"
+			converterDefaultDir="b-a">
+			<a>emlPrc</a>
+			<b>cntMplFirePerc</b>
+		</field>
+
+		<field converter="com.rsaame.pas.cmn.converter.BigDecimalDoubleConverter"
+			converterDefaultDir="b-a">
+			<a>emlSI</a>
+			<b>cntMplFire</b>
+		</field>
+
+		<field converter="com.rsaame.pas.cmn.converter.BigDecimalDoubleConverter"
+			converterDefaultDir="b-a">
+			<a>emlBIPrc</a>
+			<b>cntMplFloodPerc</b>
+		</field>
+
+		<field converter="com.rsaame.pas.cmn.converter.BigDecimalDoubleConverter"
+			converterDefaultDir="b-a">
+			<a>emlBI</a>
+			<b>cntMplFlood</b>
+		</field>
+
+	</mapping>
+	<!-- End : Mapping EEUWDetailsVO to TTrnContentQuo -->
+
+	<!-- Start : Mapping EquipmentVO to TTrnContentQuo -->
+	<mapping package="com.rsaame.pas.pojo.mapper" id="EquipmentVOToContentPojoMapper"
+		genReverse="true">
+		<class-a class="com.rsaame.pas.vo.bus.EquipmentVO" />
+		<class-b class="com.rsaame.pas.dao.model.TTrnContentQuo" />
+		<field converter="com.rsaame.pas.cmn.converter.IntegerStringConverter"
+			converterDefaultDir="b-a">
+			<a collType="LIST">equipmentType</a>
+			<b>cntRiskSubDtl</b>
+		</field>
+
+
+		<field>
+			<a collType="LIST">equipmentDesc</a>
+			<b>cntDescription</b>
+		</field>
+
+		<field converter="com.rsaame.pas.cmn.converter.ShortStringConverter"
+			converterDefaultDir="b-a">
+			<a collType="LIST">yearOfMake</a>
+			<b>cntYearOfMan</b>
+		</field>
+
+		<field converter="com.rsaame.pas.cmn.converter.LongStringConverter"
+			converterDefaultDir="b-a">
+			<a collType="LIST">serialNumber</a>
+			<b>cntEqptSerialNo</b>
+		</field>
+
+		<field converter="com.rsaame.pas.cmn.converter.IntegerBigDecimalConverter"
+			converterDefaultDir="b-a">
+			<a collType="LIST">quantity</a>
+			<b>cntQty</b>
+		</field>
+
+	</mapping>
+	<!-- End : Mapping EquipmentVO to TTrnContentQuo -->
+	<!-- Mapping for EE ends -->
+<mapping package="com.rsaame.pas.request.vo.mapper"  id="RequestToGenerateRenewalsSearchCriteriaVOMapper"
+		genReverse="false">
+		<class-a class="HTTP-REQUEST" />
+		<class-b class="com.rsaame.pas.vo.bus.GenerateRenewalsSearchCriteriaVO" />
+		<field>
+			<a>transClazz</a>
+			<b>clazz</b>
+		</field>
+
+		<field>
+			<a>transPolicyNo</a>
+			<b>policyNo</b>
+		</field>
+
+		<field converter="com.mindtree.ruc.cmn.beanmap.DateStringConverter"
+			converterDefaultDir="b-a">
+			<a properties="format=yyyy-MM-dd">transTransactionFrom</a>
+			<b>transactionFrom</b>
+		</field>
+
+		<field converter="com.mindtree.ruc.cmn.beanmap.DateStringConverter"
+			converterDefaultDir="b-a">
+			<a properties="format=yyyy-MM-dd">transTransactionTo</a>
+			<b>transactionTo</b>
+		</field>
+
+		<field>
+			<a>transInsuredName</a>
+			<b>insuredName</b>
+		</field>
+
+		<field>
+			<a>transBrokerName</a>
+			<b>brokerName</b>
+		</field>
+
+		<field>
+			<a>transScheme</a>
+			<b>scheme</b>
+		</field>
+
+		<field converter="com.mindtree.ruc.cmn.beanmap.BooleanStringConverter"
+			converterDefaultDir="b-a">
+			<a>transAllDirect</a>
+			<b>allDirect</b>
+		</field>
+		
+		<field>
+			<a>transExpiresIn</a>
+			<b>noOfDays</b>
+		</field>
+						
+		<field>
+			<a>transBranch</a>
+			<b>branch</b>
+		</field>
+</mapping>	
+<mapping package="com.rsaame.pas.request.vo.mapper"  id="RequestToPrintRenewalsSearchCriteriaVOMapper"
+		genReverse="false">
+		<class-a class="HTTP-REQUEST" />
+		<class-b class="com.rsaame.pas.vo.bus.PrintRenewalsSearchCriteriaVO" />
+		<field>
+			<a>transClazz</a>
+			<b>clazz</b>
+		</field>
+
+		<field>
+			<a>transPolicyNo</a>
+			<b>policyNo</b>
+		</field>
+
+		<field converter="com.mindtree.ruc.cmn.beanmap.DateStringConverter"
+			converterDefaultDir="b-a">
+			<a properties="format=yyyy-MM-dd">transTransactionFrom</a>
+			<b>transactionFrom</b>
+		</field>
+
+		<field converter="com.mindtree.ruc.cmn.beanmap.DateStringConverter"
+			converterDefaultDir="b-a">
+			<a properties="format=yyyy-MM-dd">transTransactionTo</a>
+			<b>transactionTo</b>
+		</field>
+
+		<field>
+			<a>transInsuredName</a>
+			<b>insuredName</b>
+		</field>
+
+		<field>
+			<a>transBrokerName</a>
+			<b>brokerName</b>
+		</field>
+
+		<field>
+			<a>transScheme</a>
+			<b>scheme</b>
+		</field>
+
+		<field converter="com.mindtree.ruc.cmn.beanmap.BooleanStringConverter"
+			converterDefaultDir="b-a">
+			<a>transAllDirect</a>
+			<b>allDirect</b>
+		</field>
+		
+		<field>
+			<a>transWithEmailID</a>
+			<b>withEmailID</b>
+		</field>
+		
+		<field>
+			<a>transNotPrinted</a>
+			<b>notYetPrinted</b>
+		</field>	
+						
+		<field>
+			<a>transBranch</a>
+			<b>branch</b>
+		</field>
+</mapping>	
+
+<!-- Mapping for DOS -->
+<mapping package="com.rsaame.pas.request.vo.mapper" id="RequestToDeteriorationOfStockVOMapper" genReverse="false">
+	<class-a class="HTTP-REQUEST" />
+	<class-b class="com.rsaame.pas.vo.bus.DeteriorationOfStockVO" />
+	<field converter="com.rsaame.pas.cmn.converter.DoubleStringConverter"
+			converterDefaultDir="b-a">
+			<a>commission</a>
+			<b>commission</b>
+	</field>
+	<field>
+			<a collType="LIST">dosStockType[]</a>
+			<b collType="LIST">deteriorationOfStockDetails[].deteriorationOfStockType</b>
+	</field>
+	<field>
+			<a collType="LIST">dosDescription[]</a>
+			<b collType="LIST">deteriorationOfStockDetails[].deteriorationOfStockDesc</b>
+	</field>
+	<field converter="com.rsaame.pas.cmn.converter.IntegerStringConverter" converterDefaultDir="b-a">
+			<a collType="LIST">dosQuantity[]</a>
+			<b collType="LIST">deteriorationOfStockDetails[].deteriorationOfStockQuantity</b>
+	</field>
+	<field converter="com.rsaame.pas.cmn.converter.DoubleStringConverter" converterDefaultDir="b-a">
+			<a collType="LIST">dosValue[]</a>
+			<b collType="LIST">deteriorationOfStockDetails[].sumInsuredDetails.sumInsured</b>
+	</field>
+	<field converter="com.rsaame.pas.cmn.converter.DoubleStringConverter" converterDefaultDir="b-a">
+			<a collType="LIST">dosDeductible[]</a>
+			<b collType="LIST">deteriorationOfStockDetails[].sumInsuredDetails.deductible</b>
+	</field>
+	<field converter="com.rsaame.pas.cmn.converter.DoubleStringConverter" converterDefaultDir="b-a">
+			<a>dosEMLper</a>
+			<b>deteriorationOfStockUWDetails.emlPercentage</b>
+	</field>
+	<field converter="com.rsaame.pas.cmn.converter.DoubleStringConverter" converterDefaultDir="b-a">
+			<a>dosEMLsi</a>
+			<b>deteriorationOfStockUWDetails.emlSI</b>
+	</field>
+	<field converter="com.rsaame.pas.cmn.converter.DoubleStringConverter" converterDefaultDir="b-a">
+			<a>UnderDetailsBi</a>
+			<b>deteriorationOfStockUWDetails.emlBIPercentage</b>
+	</field>
+	<field converter="com.rsaame.pas.cmn.converter.DoubleStringConverter" converterDefaultDir="b-a">
+			<a>UnderDetailsBisl</a>
+			<b>deteriorationOfStockUWDetails.emlBI</b>
+	</field>
+</mapping>
+
+<!-- Start : Mapping DeteriorationOfStockUWDetailsVO to TTrnContentQuo -->
+	<mapping package="com.rsaame.pas.pojo.mapper" id="DeteriorationOfStockUWDetailsVOToContentPojoMapper"
+		genReverse="true">
+		<class-a class="com.rsaame.pas.vo.bus.DeteriorationOfStockUWDetailsVO" />
+		<class-b class="com.rsaame.pas.dao.model.TTrnContentQuo" />
+		<field converter="com.rsaame.pas.cmn.converter.BigDecimalDoubleConverter"
+			converterDefaultDir="b-a">
+			<a>emlPercentage</a>
+			<b>cntMplFirePerc</b>
+		</field>
+
+		<field converter="com.rsaame.pas.cmn.converter.BigDecimalDoubleConverter"
+			converterDefaultDir="b-a">
+			<a>emlSI</a>
+			<b>cntMplFire</b>
+		</field>
+
+		<field converter="com.rsaame.pas.cmn.converter.BigDecimalDoubleConverter"
+			converterDefaultDir="b-a">
+			<a>emlBIPercentage</a>
+			<b>cntMplFloodPerc</b>
+		</field>
+
+		<field converter="com.rsaame.pas.cmn.converter.BigDecimalDoubleConverter"
+			converterDefaultDir="b-a">
+			<a>emlBI</a>
+			<b>cntMplFlood</b>
+		</field>
+
+	</mapping>
+	<!-- End : Mapping DeteriorationOfStockUWDetailsVO to TTrnContentQuo -->
+	
+</mappings>

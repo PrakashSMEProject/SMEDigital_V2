@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Jun 7, 2012 4:36:09 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.rsaame.pas.dao.model.TTrnSectionLocationQuo" table="T_TRN_SECTION_LOCATION">
+        <composite-id name="id" class="com.rsaame.pas.dao.model.TTrnSectionLocationQuoId">
+            <key-property name="tslPolLinkingId" type="long">
+                <column name="TSL_POL_LINKING_ID" precision="16" scale="0" />
+            </key-property>
+            <key-property name="tslPolEndtNo" type="long">
+                <column name="TSL_POL_ENDT_NO" precision="16" scale="0" />
+            </key-property>
+            <key-property name="tslSecId" type="short">
+                <column name="TSL_SEC_ID" precision="4" scale="0" />
+            </key-property>
+            <key-property name="tslLocId" type="long">
+                <column name="TSL_LOC_ID" precision="10" scale="0" />
+            </key-property>
+        </composite-id>
+        <property name="tslActiveFlag" type="string">
+            <column name="TSL_ACTIVE_FLAG" length="1" />
+        </property>
+        <property name="tslValidityStartDate" type="java.sql.Timestamp">
+            <column name="TSL_VALIDITY_START_DATE" length="7" />
+        </property>
+        <property name="tslValidityExpiryDate" type="java.sql.Timestamp">
+            <column name="TSL_VALIDITY_EXPIRY_DATE" length="7" not-null="true" />
+        </property>
+        <property name="tslPreparedBy" type="java.lang.Integer">
+            <column name="TSL_PREPARED_BY" precision="8" scale="0" />
+        </property>
+        <property name="tslPreparedDt" type="date">
+            <column name="TSL_PREPARED_DT" length="7" />
+        </property>
+        <property name="tslModifiedBy" type="java.lang.Integer">
+            <column name="TSL_MODIFIED_BY" precision="8" scale="0" />
+        </property>
+        <property name="tslModifiedDt" type="date">
+            <column name="TSL_MODIFIED_DT" length="7" />
+        </property>
+        <property name="tslBasicRiskId" type="java.lang.Long">
+            <column name="TSL_BASIC_RISK_ID" precision="10" scale="0" />
+        </property>
+    </class>
+</hibernate-mapping>

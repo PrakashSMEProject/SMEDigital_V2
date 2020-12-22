@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Apr 12, 2012 12:55:02 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.rsaame.pas.dao.model.TTrnTempConExcWar" table="T_TRN_TEMP_CON_EXC_WAR">
+        <composite-id name="id" class="com.rsaame.pas.dao.model.TTrnTempConExcWarId">
+            <key-property name="tempPolicyId" type="java.lang.Long">
+                <column name="TEMP_POLICY_ID" precision="16" scale="0" />
+            </key-property>
+            <key-property name="tempEndtId" type="java.lang.Long">
+                <column name="TEMP_ENDT_ID" precision="16" scale="0" />
+            </key-property>
+            <key-property name="tempSecId" type="java.lang.Short">
+                <column name="TEMP_SEC_ID" precision="4" scale="0" />
+            </key-property>
+            <key-property name="tempCode" type="java.lang.Short">
+                <column name="TEMP_CODE" precision="4" scale="0" />
+            </key-property>
+            <key-property name="tempFlag" type="string">
+                <column name="TEMP_FLAG" length="1" />
+            </key-property>
+        </composite-id>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class name="com.rsaame.pas.dao.model.LookUpView" table="SS_V_MAS_LOOKUP">
+  		<composite-id >
+            <key-property name="category" type="string">
+                <column name="CATEGORY" length="23" />
+            </key-property>
+            <key-property name="level1" type="string">
+                <column name="level_1" length="3" />
+            </key-property>
+            <key-property name="level2" type="string">
+                <column name="level_2" length="3" />
+            </key-property>
+            <key-property name="code" type="big_decimal">
+                <column name="CODE" precision="22" scale="0" />
+            </key-property>
+            <key-property name="description" type="string">
+                <column name="DESCRIPTION" length="600" />
+            </key-property>
+        </composite-id>
+   </class>
+
+<query name="getDescrptionList">
+  from LookUpView lookup where lookup.category=:identifier and lookup.level1=:level1 and lookup.level2=:level2
+  </query>
+  
+
+  
+  <query name="getDescriptionForCode">
+  from LookUpView lookup where lookup.category=:identifier and lookup.code=:code
+  </query>
+  
+</hibernate-mapping>

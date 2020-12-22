@@ -1,0 +1,64 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated May 20, 2013 11:08:43 AM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.rsaame.pas.dao.model.TMasPromotionalCode" table="T_MAS_PROMOTIONAL_CODE">
+        <id name="proCode" type="string">
+            <column name="PRO_CODE" length="30" />
+            <!-- generator class="assigned" /-->
+        </id> 
+        <!-- composite-id name="proid" class="com.rsaame.pas.dao.model.TMasPromotionalId">
+        	 <key-property name="proId" type="long">
+                <column name="PRO_ID" precision="22" scale="0" />
+            </key-property>
+            <key-property name="proCode" type="string">
+                <column name="PRO_CODE" length="30" />
+            </key-property>
+           
+        </composite-id-->
+        <property name="proType" type="string">
+            <column name="PRO_TYPE" length="15" />
+        </property>
+        <property name="proPtCode" type="big_decimal">
+            <column name="PRO_PT_CODE" precision="22" scale="0" />
+        </property>
+        <property name="proClassCode" type="big_decimal">
+            <column name="PRO_CLASS_CODE" precision="22" scale="0" />
+        </property>
+        <property name="proDiscPerc" type="big_decimal">
+            <column name="PRO_DISC_PERC" precision="22" scale="0" />
+        </property>
+        <property name="proADesc" type="string">
+            <column name="PRO_A_DESC" length="1000" />
+        </property>
+        <property name="proEDesc" type="string">
+            <column name="PRO_E_DESC" length="1000" />
+        </property>
+        <property name="proStartDate" type="timestamp">
+            <column name="PRO_START_DATE" length="7" />
+        </property>
+        <property name="proEndDate" type="timestamp">
+            <column name="PRO_END_DATE" length="7" />
+        </property>
+        <property name="proPreparedBy" type="java.lang.Integer">
+            <column name="PRO_PREPARED_BY" precision="8" scale="0" />
+        </property>
+        <property name="proPreparedDate" type="date">
+            <column name="PRO_PREPARED_DATE" length="7" />
+        </property>
+        <property name="proModifiedBy" type="java.lang.Integer">
+            <column name="PRO_MODIFIED_BY" precision="8" scale="0" />
+        </property>
+        <property name="proModifiedDate" type="date">
+            <column name="PRO_MODIFIED_DATE" length="7" />
+        </property>
+<!--         <set name="TMasPartnerMgmts" table="T_MAS_PARTNER_MGMT" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="PMM_PRO_CODE" length="30" />
+            </key>
+            <one-to-many class="com.rsaame.pas.dao.model.TMasPartnerMgmt" />
+        </set> -->
+      
+    </class>
+</hibernate-mapping>

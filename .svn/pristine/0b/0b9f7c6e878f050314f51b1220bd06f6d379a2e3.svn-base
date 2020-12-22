@@ -1,0 +1,108 @@
+<html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=Generator content="Microsoft Word 14 (filtered)">
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;}
+@font-face
+	{font-family:Tahoma;
+	panose-1:2 11 6 4 3 5 4 4 2 4;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:10.0pt;
+	margin-left:0in;
+	line-height:115%;
+	font-size:11.0pt;
+	font-family:"Calibri","sans-serif";}
+a:link, span.MsoHyperlink
+	{color:blue;
+	text-decoration:underline;}
+a:visited, span.MsoHyperlinkFollowed
+	{color:purple;
+	text-decoration:underline;}
+p.MsoAcetate, li.MsoAcetate, div.MsoAcetate
+	{mso-style-link:"Balloon Text Char";
+	margin:0in;
+	margin-bottom:.0001pt;
+	font-size:8.0pt;
+	font-family:"Tahoma","sans-serif";}
+p.MsoNoSpacing, li.MsoNoSpacing, div.MsoNoSpacing
+	{margin:0in;
+	margin-bottom:.0001pt;
+	font-size:11.0pt;
+	font-family:"Calibri","sans-serif";}
+span.BalloonTextChar
+	{mso-style-name:"Balloon Text Char";
+	mso-style-link:"Balloon Text";
+	font-family:"Tahoma","sans-serif";}
+@page WordSection1
+	{size:8.5in 11.0in;
+	margin:1.0in 1.0in 1.0in 1.0in;}
+div.WordSection1
+	{page:WordSection1;}
+-->
+p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:10.0pt;
+	margin-left:0in;
+	line-height:115%;
+	font-size:11.0pt;
+	font-family:"Calibri","sans-serif";}
+@page WordSection1{
+	size:8.5in 11.0in;
+	margin:1.0in 1.0in 1.0in 1.0in;
+}
+div.WordSection1{
+	page:WordSection1;
+}
+p.MsoNoSpacing, li.MsoNoSpacing, div.MsoNoSpacing{
+	margin:0in;
+	margin-bottom:.0001pt;
+	font-size:11.0pt;
+	font-family:"Calibri","sans-serif";
+}
+	p.MsoNormal, li.MsoNormal, div.MsoNormal{
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:10.0pt;
+	margin-left:0in;
+	line-height:115%;
+	font-size:11.0pt;
+	font-family:"Calibri","sans-serif";
+	}
+</style>
+
+</head>
+
+<body lang=EN-US link=blue vlink=purple>
+
+<div class=WordSection1>
+
+<p class=MsoNormal>Dear <b>%INSUREDNAME%</b>,</p>
+
+<p class=MsoNormal>Thank you for contacting RSA's Motor Claims Service.</p>
+
+<p class=MsoNormal>Should you have used this service to register your car insurance claim, our Claims Team will contact you within the next 24 hours on a working day to confirm your claim registration number and the process. If you are registering your claim on a Friday or Saturday, we will contact you on the next working day.</p> 
+
+<p class=MsoNormal>For any other enquiries, our Claims Customer Service will contact you shortly.</p>
+
+<p class=MsoNormal>In the meantime, should you wish to contact us directly, you can reach us on the RSA Car Insurance Claims Helpline on 800 774. Our operating hours are Sunday to Thursday from 8am to 6pm.</p><br/> 
+
+<p class=MsoNormal>Thank you.<br/>
+RSA Motor Claims Team<br/></p> 
+
+<p class=MsoNoSpacing>&nbsp;</p>
+
+</div>
+
+</body>
+
+</html>

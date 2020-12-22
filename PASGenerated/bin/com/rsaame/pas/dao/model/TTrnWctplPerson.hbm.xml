@@ -1,0 +1,215 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Mar 24, 2014 10:58:01 AM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.rsaame.pas.dao.model.TTrnWctplPersonQuo" table="T_TRN_WCTPL_PERSON">
+        <composite-id name="id" class="com.rsaame.pas.dao.model.TTrnWctplPersonQuoId">
+            <key-property name="wprId" type="long">
+                <column name="WPR_ID" precision="16" scale="0" />
+            </key-property>
+            <key-property name="wprValidityStartDate" type="java.sql.Timestamp">
+                <column name="WPR_VALIDITY_START_DATE" length="7" />
+            </key-property>
+        </composite-id>
+        <property name="wprPolicyId" type="java.lang.Long">
+            <column name="WPR_POLICY_ID" precision="16" scale="0">
+                <comment>WPR_POLICY_ID</comment>
+            </column>
+        </property>
+        <property name="wprBasicRiskId" type="java.lang.Long">
+            <column name="WPR_BASIC_RISK_ID" precision="16" scale="0">
+                <comment>WPR_BASIC_RISK_ID</comment>
+            </column>
+        </property>
+        <property name="wprRskCode" type="java.lang.Long">
+            <column name="WPR_RSK_CODE" precision="16" scale="0">
+                <comment>WPR_RSK_CODE</comment>
+            </column>
+        </property>
+        <property name="wprRtCode" type="java.lang.Long">
+            <column name="WPR_RT_CODE" precision="16" scale="0">
+                <comment>WPR_RT_CODE</comment>
+            </column>
+        </property>
+        <property name="wprRcCode" type="java.lang.Long">
+            <column name="WPR_RC_CODE" precision="16" scale="0">
+                <comment>WPR_RC_CODE</comment>
+            </column>
+        </property>
+        <property name="wprAName" type="string">
+            <column name="WPR_A_NAME" length="60">
+                <comment>WPR_A_NAME</comment>
+            </column>
+        </property>
+        <property name="wprEName" type="string">
+            <column name="WPR_E_NAME" length="60">
+                <comment>WPR_E_NAME</comment>
+            </column>
+        </property>
+        <property name="wprAAddress1" type="string">
+            <column name="WPR_A_ADDRESS1" length="40">
+                <comment>WPR_A_ADDRESS1</comment>
+            </column>
+        </property>
+        <property name="wprEAddress1" type="string">
+            <column name="WPR_E_ADDRESS1" length="120">
+                <comment>WPR_E_ADDRESS1</comment>
+            </column>
+        </property>
+        <property name="wprAAddress2" type="string">
+            <column name="WPR_A_ADDRESS2" length="40">
+                <comment>WPR_A_ADDRESS2</comment>
+            </column>
+        </property>
+        <property name="wprEAddress2" type="string">
+            <column name="WPR_E_ADDRESS2" length="40">
+                <comment>WPR_E_ADDRESS2</comment>
+            </column>
+        </property>
+        <property name="wprAAddress3" type="string">
+            <column name="WPR_A_ADDRESS3" length="40">
+                <comment>WPR_A_ADDRESS3</comment>
+            </column>
+        </property>
+        <property name="wprEAddress3" type="string">
+            <column name="WPR_E_ADDRESS3" length="40">
+                <comment>WPR_E_ADDRESS3</comment>
+            </column>
+        </property>
+        <property name="wprZip" type="string">
+            <column name="WPR_ZIP" length="10">
+                <comment>WPR_ZIP</comment>
+            </column>
+        </property>
+        <property name="wprTelephone" type="java.lang.Long">
+            <column name="WPR_TELEPHONE" precision="16" scale="0">
+                <comment>WPR_TELEPHONE</comment>
+            </column>
+        </property>
+        <property name="wprFax" type="java.lang.Long">
+            <column name="WPR_FAX" precision="16" scale="0">
+                <comment>WPR_FAX</comment>
+            </column>
+        </property>
+        <property name="wprGsm" type="java.lang.Long">
+            <column name="WPR_GSM" precision="16" scale="0">
+                <comment>WPR_GSM</comment>
+            </column>
+        </property>
+        <property name="wprEmail" type="string">
+            <column name="WPR_EMAIL" length="30">
+                <comment>WPR_EMAIL</comment>
+            </column>
+        </property>
+        <property name="wprAge" type="java.lang.Long">
+            <column name="WPR_AGE" precision="16" scale="0">
+                <comment>WPR_AGE</comment>
+            </column>
+        </property>
+        <property name="wprSumInsured" type="big_decimal">
+            <column name="WPR_SUM_INSURED" precision="16" scale="3">
+                <comment>WPR_SUM_INSURED</comment>
+            </column>
+        </property>
+       <property name="wprStatus" type="java.lang.Byte">
+            <column name="WPR_STATUS" precision="2" scale="0">
+                <comment>WPR_STATUS</comment>
+            </column>
+        </property>
+        <property name="wprEmploymentType" type="java.lang.Short">
+            <column name="WPR_EMPLOYMENT_TYPE" precision="3" scale="0">
+                <comment>WPR_EMPLOYMENT_TYPE</comment>
+            </column>
+        </property>
+        <property name="wprEmployerEName" type="string">
+            <column name="WPR_EMPLOYER_E_NAME" length="60">
+                <comment>WPR_EMPLOYER_E_NAME</comment>
+            </column>
+        </property>
+        <property name="wprEmployerAName" type="string">
+            <column name="WPR_EMPLOYER_A_NAME" length="60">
+                <comment>WPR_EMPLOYER_A_NAME</comment>
+            </column>
+        </property>
+        <property name="wprValidityExpiryDate" type="java.sql.Timestamp">
+            <column name="WPR_VALIDITY_EXPIRY_DATE" length="7" not-null="true">
+                <comment>WPR_VALIDITY_EXPIRY_DATE</comment>
+            </column>
+        </property>
+        <property name="wprEndtId" type="java.lang.Long">
+            <column name="WPR_ENDT_ID" precision="16" scale="0">
+                <comment>WPR_ENDT_ID</comment>
+            </column>
+        </property>
+        <property name="wprRiRskCode" type="java.lang.Integer">
+            <column name="WPR_RI_RSK_CODE" precision="5" scale="0">
+                <comment>WPR_RI_RSK_CODE</comment>
+            </column>
+        </property>
+        <property name="wprBasicRskCode" type="java.lang.Integer">
+            <column name="WPR_BASIC_RSK_CODE" precision="5" scale="0">
+                <comment>WPR_BASIC_RSK_CODE</comment>
+            </column>
+        </property>
+        <property name="wprSalary" type="big_decimal">
+            <column name="WPR_SALARY" precision="16" scale="3">
+                <comment>WPR_SALARY</comment>
+            </column>
+        </property>
+        <property name="wprPreparedBy" type="java.lang.Integer">
+            <column name="WPR_PREPARED_BY" precision="8" scale="0">
+                <comment>WPR_PREPARED_BY</comment>
+            </column>
+        </property>
+        <property name="wprPreparedDt" type="date">
+            <column name="WPR_PREPARED_DT" length="7">
+                <comment>WPR_PREPARED_DT</comment>
+            </column>
+        </property>
+        <property name="wprModifiedBy" type="java.lang.Integer">
+            <column name="WPR_MODIFIED_BY" precision="8" scale="0">
+                <comment>WPR_MODIFIED_BY</comment>
+            </column>
+        </property>
+        <property name="wprModifiedDt" type="date">
+            <column name="WPR_MODIFIED_DT" length="7">
+                <comment>WPR_MODIFIED_DT</comment>
+            </column>
+        </property>
+        <property name="wprStartDate" type="date">
+            <column name="WPR_START_DATE" length="7" />
+        </property>
+        <property name="wprEndDate" type="date">
+            <column name="WPR_END_DATE" length="7" />
+        </property>
+        <property name="wprHazard" type="java.lang.Long">
+            <column name="WPR_HAZARD" precision="16" scale="0" />
+        </property>
+        <property name="wprTradeGroup" type="java.lang.Long">
+            <column name="WPR_TRADE_GROUP" precision="16" scale="0" />
+        </property>
+        <property name="wprBldId" type="java.lang.Long">
+            <column name="WPR_BLD_ID" precision="10" scale="0">
+                <comment>'To store section1 Building ID'</comment>
+            </column>
+        </property>
+        <property name="wprTerCode" type="java.lang.Short">
+            <column name="WPR_TER_CODE" precision="4" scale="0" />
+        </property>
+        <property name="wprJurCode" type="java.lang.Short">
+            <column name="WPR_JUR_CODE" precision="4" scale="0" />
+        </property>
+        <property name="wprFreeZone" type="string">
+            <column name="WPR_FREE_ZONE" length="50" />
+        </property>
+        <property name="wprJurDesc" type="string">
+            <column name="WPR_JUR_DESC" length="600" />
+        </property>
+        <property name="wprEmpLiabLmt" type="big_decimal">
+            <column name="WPR_EMP_LIAB_LMT" precision="16" scale="3">
+                <comment>Employer s Liability Limit</comment>
+            </column>
+        </property>
+    </class>
+</hibernate-mapping>

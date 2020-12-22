@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Mar 20, 2012 5:22:58 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.rsaame.pas.dao.model.VTrnBldWbdQuo" table="V_TRN_BLD_WBD_QUO">
+        <composite-id name="key" class="com.rsaame.pas.dao.model.VTrnBldWbdQuoId">
+            <key-property name="endtId" type="java.lang.Long">
+                <column name="ENDT_ID" precision="16" scale="0" />
+            </key-property>
+            <key-property name="linkingId" type="java.lang.Long">
+                <column name="LINKING_ID" precision="16" scale="0" />
+            </key-property>
+             <key-property name="id" type="big_decimal">
+                <column name="ID" precision="22" scale="0" />
+            </key-property>
+          </composite-id>
+           <property name="policyId" type="java.lang.Long">
+                <column name="POLICY_ID" precision="16" scale="0" />
+            </property>
+           
+            <property name="occTradeGrp" type="big_decimal">
+                <column name="OCC_TRADE_GRP" precision="22" scale="0" />
+            </property>
+            <property name="dirCode" type="big_decimal">
+                <column name="DIR_CODE" precision="22" scale="0" />
+            </property>
+            <property name="freeZone" type="string">
+                <column name="FREE_ZONE" length="50" />
+            </property>
+            <property name="flatNo" type="string">
+                <column name="FLAT_NO" length="40" />
+            </property>
+            <property name="floorNo" type="string">
+                <column name="FLOOR_NO" length="40" />
+            </property>
+            <property name="description" type="string">
+                <column name="DESCRIPTION" length="2000" />
+            </property>
+            <property name="name" type="string">
+                <column name="NAME" length="60" />
+            </property>
+            <property name="streetName" type="string">
+                <column name="STREET_NAME" length="120" />
+            </property>
+            <property name="terCode" type="big_decimal">
+                <column name="TER_CODE" precision="22" scale="0" />
+            </property>
+            <property name="jurCode" type="big_decimal">
+                <column name="JUR_CODE" precision="22" scale="0" />
+            </property>
+            <property name="validityStartDate" type="java.sql.Timestamp">
+                <column name="VALIDITY_START_DATE" length="7" />
+            </property>
+            <property name="flag" type="string">
+                <column name="FLAG" length="3" />
+            </property>
+        
+    </class>
+</hibernate-mapping>

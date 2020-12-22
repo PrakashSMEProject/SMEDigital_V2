@@ -1,0 +1,115 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 2, 2013 3:53:14 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.rsaame.pas.dao.model.VRenewalStatusReportPas" table="V_RENEWAL_STATUS_REPORT_PAS">
+        <composite-id name="id" class="com.rsaame.pas.dao.model.VRenewalStatusReportPasId">
+         	
+           <key-property name="policyNo" type="java.lang.Long">
+                <column name="POLICY_NO" precision="22" scale="0" />
+			</key-property>
+		   <key-property name="polClassCode" type="java.lang.Integer">
+                <column name="POL_CLASS_CODE" precision="22" scale="0" />
+            </key-property>
+                     
+        </composite-id>
+			<property name="quotationNo" type="java.lang.Long">
+                <column name="QUOTATION_NO" precision="16" scale="0" />
+            </property>
+            <property name="polPolicyType" type="java.lang.Integer">
+                <column name="POL_POLICY_TYPE" precision="22" scale="0" />
+            </property>
+            <property name="ptEDesc" type="string">
+                <column name="PT_E_DESC" length="100" />
+            </property>
+            <property name="polLocationCode" type="java.lang.Integer">
+                <column name="POL_LOCATION_CODE" precision="22" scale="0" />
+            </property>           
+                  
+            <property name="insuredName" type="string">
+                <column name="INSURED_NAME" length="305" />
+            </property>
+            <property name="brCode" type="java.lang.Integer">
+                <column name="BR_CODE" precision="22" scale="0" />
+            </property>
+            <property name="quoExpiryDate" type="date">
+                <column name="POLICY_EXPIRY_DATE" length="7" />
+            </property>
+           <property name="totalPremium" type="big_decimal">
+                <column name="PREVIOUS_PREMIUM" precision="22" scale="0" />
+            </property>         
+            <property name="effectiveDate" type="date">
+                <column name="POLICY_START_DATE" length="7" />
+            </property>
+            <property name="newTotalPremium" type="big_decimal">
+                <column name="NEW_TOTAL_PREMIUM" precision="22" scale="0" />
+            </property>
+            <property name="brName" type="string">
+                <column name="BROKER" length="60" />
+            </property>
+            <property name="licensedBy" type="string">
+                <column name="LICENSED_BY" length="60" />
+            </property>
+         
+            <property name="polRenTermTxt" type="string">
+                <column name="POL_REN_TERM_TXT" length="250" />
+            </property>
+ 			<property name="polSchemeCode" type="java.lang.Integer">
+                <column name="POL_SCHEME_CODE" precision="22" scale="0" />
+
+            </property>
+            <property name="polStatus" type="java.lang.Integer">
+                <column name="POL_STATUS_ID" precision="22" scale="0" />
+            </property>
+            <property name="polStatusDesc" type="string">
+                <column name="RENEWAL_STATUS" length="60" />
+            </property>
+            <property name="polDistributionChnl" type="java.lang.Integer">
+                <column name="POL_DISTRIBUTION_CHNL" precision="22" scale="0" />
+            </property>
+            <property name="scheme" type="string">
+                <column name="SCHEME" length="60" />
+            </property>
+			<property name="claimCount" type="java.lang.Integer">
+                <column name="CLAIM_COUNT" precision="22" scale="0" />
+            </property>
+            <property name="claimCount2" type="java.lang.Integer">
+                <column name="CLAIM_COUNT2" precision="22" scale="0" />
+            </property>
+            <property name="claimCount3" type="java.lang.Integer">
+                <column name="CLAIM_COUNT3" precision="22" scale="0" />
+            </property>
+            <property name="claimCount4" type="java.lang.Integer">
+                <column name="CLAIM_COUNT4" precision="22" scale="0" />
+            </property>
+            <property name="claimCount5" type="java.lang.Integer">
+                <column name="CLAIM_COUNT5" precision="22" scale="0" />
+            </property>
+            <property name="claimAmount" type="big_decimal">
+                <column name="CLAIM_AMOUNT" precision="22" scale="0" />
+            </property>
+			 <property name="osAmt" type="big_decimal">
+                <column name="OUTSTANDING_PREMIUM" precision="22" scale="0" />
+            </property>
+            <property name="reason" type="string">
+                <column name="REASON" length="250" />
+            </property>
+            
+            
+            <property name="locEDesc" type="string">
+                <column name="LOC_E_DESC" length="60" />
+            </property>
+			<property name="facRi" type="string">
+                <column name="FAC_RI" length="3" />
+            </property>
+			
+			<property name="specialty" type="string">
+                <column name="SPECIALTY" length="50" />
+            </property>
+			 <property name="clEDesc" type="string">
+                <column name="CL_E_DESC" length="60" />
+            </property>
+            
+    </class>
+</hibernate-mapping>

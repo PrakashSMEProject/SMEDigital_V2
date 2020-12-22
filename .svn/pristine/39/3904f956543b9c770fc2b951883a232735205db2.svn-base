@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+xmlns="http://com/rsaame/pas/b2c/ws" 
+targetNamespace="http://com/rsaame/pas/b2c/ws"
+xmlns:Q2="http://com/rsaame/pas/b2c/ws/homeInsuranceDetails">
+
+<xs:import schemaLocation="HomeInsuranceDetails.xsd" namespace="http://com/rsaame/pas/b2c/ws/homeInsuranceDetails"></xs:import>
+
+ <xs:element name="HomeCreateModifyQuoteResponse">
+	<xs:complexType>
+		<xs:sequence>
+			<xs:element name="premiumValue" type="xs:decimal"
+				minOccurs="0"  form="qualified"/>
+			<xs:element name="quoteId" type="xs:long" minOccurs="0"  form="qualified"/>
+		</xs:sequence>
+	</xs:complexType>
+</xs:element>
+
+ <xs:element name="HomeCreateModifyQuoteRequest">
+	<xs:complexType>
+		<xs:sequence>
+			<xs:element name="homeInsuranceDetails" type="Q2:homeInsuranceDetails"
+				minOccurs="0"  form="qualified"/>
+			<xs:element name="opIdentifier" type="xs:string"
+				minOccurs="0"  form="qualified"/>
+		</xs:sequence>
+	</xs:complexType>
+</xs:element>
+
+</xs:schema>
+

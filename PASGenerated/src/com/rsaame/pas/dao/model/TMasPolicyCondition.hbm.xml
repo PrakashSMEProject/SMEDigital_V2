@@ -1,0 +1,79 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated May 17, 2012 10:24:39 AM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.rsaame.pas.dao.model.TMasPolicyCondition" table="T_MAS_POLICY_CONDITION">
+        <composite-id name="id" class="com.rsaame.pas.dao.model.TMasPolicyConditionId">
+            <key-property name="pcClCode" type="short">
+                <column name="PC_CL_CODE" precision="4" scale="0" />
+            </key-property>
+            <key-property name="pcPtCode" type="short">
+                <column name="PC_PT_CODE" precision="4" scale="0" />
+            </key-property>
+            <key-property name="pcCode" type="short">
+                <column name="PC_CODE" precision="4" scale="0" />
+            </key-property>
+            <key-property name="pcCovCode" type="int">
+                <column name="PC_COV_CODE" precision="5" scale="0" />
+            </key-property>
+            <key-property name="pcSchCode" type="int">
+                <column name="PC_SCH_CODE" precision="5" scale="0" />
+            </key-property>
+        </composite-id>
+        <property name="pcAText" type="string">
+            <column name="PC_A_TEXT" length="2000" />
+        </property>
+        <property name="pcEText" type="string">
+            <column name="PC_E_TEXT" length="2000" />
+        </property>
+        <property name="pcDefaultInd" type="java.lang.Integer">
+            <column name="PC_DEFAULT_IND" precision="1" scale="0" />
+        </property>
+        <property name="pcCtCode" type="java.lang.Integer">
+            <column name="PC_CT_CODE" precision="5" scale="0" />
+        </property>
+        <property name="pcCstCode" type="java.lang.Integer">
+            <column name="PC_CST_CODE" precision="5" scale="0" />
+        </property>
+        <property name="pcUserCode" type="java.lang.Integer">
+            <column name="PC_USER_CODE" precision="5" scale="0" />
+        </property>
+        <property name="pcPhrCode" type="java.lang.Integer">
+            <column name="PC_PHR_CODE" precision="5" scale="0" />
+        </property>
+        <property name="pcAmount" type="string">
+            <column name="PC_AMOUNT" length="100" />
+        </property>
+        <property name="pcPreparedBy" type="java.lang.Integer">
+            <column name="PC_PREPARED_BY" precision="8" scale="0" />
+        </property>
+        <property name="pcPreparedDt" type="date">
+            <column name="PC_PREPARED_DT" length="7" />
+        </property>
+        <property name="pcModifiedBy" type="java.lang.Integer">
+            <column name="PC_MODIFIED_BY" precision="8" scale="0" />
+        </property>
+        <property name="pcModifiedDt" type="date">
+            <column name="PC_MODIFIED_DT" length="7" />
+        </property>
+        <property name="pcDocRef" type="string">
+            <column name="PC_DOC_REF" length="200" />
+        </property>
+        <property name="pcDocFlag" type="java.lang.Boolean">
+            <column name="PC_DOC_FLAG" precision="1" scale="0" />
+        </property>
+        <property name="pcPrintFlag" type="java.lang.Boolean">
+            <column name="PC_PRINT_FLAG" precision="1" scale="0" />
+        </property>
+          <property name="pcEffectiveDate" type="date">
+            <column name="PC_EFFECTIVE_DATE" length="7" />
+        </property>
+        <property name="pcExpiryDate" type="date">
+            <column name="PC_EXPIRY_DATE" length="7" />
+        </property>
+        <property name="pcOldCode" type="int">
+            <column name="PC_OLD_CODE" precision="5" scale="0" />
+        </property>
+    </class>
+</hibernate-mapping>

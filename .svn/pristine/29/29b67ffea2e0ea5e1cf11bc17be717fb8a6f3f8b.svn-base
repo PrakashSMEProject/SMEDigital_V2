@@ -1,0 +1,65 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Mar 29, 2012 12:35:51 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.rsaame.pas.dao.model.VMasPasFetchBasicDtls" table="V_MAS_PAS_FETCH_BASIC_DTLS">
+        <composite-id name="id" class="com.rsaame.pas.dao.model.VMasPasFetchBasicDtlsId">
+            <key-property name="secId" type="java.lang.Short">
+                <column name="SEC_ID" precision="4" scale="0" />
+            </key-property>
+            <key-property name="prClCode" type="java.lang.Short">
+                <column name="PR_CL_CODE" precision="4" scale="0" />
+            </key-property>
+            <key-property name="prCovCode" type="java.lang.Short">
+                <column name="PR_COV_CODE" precision="4" scale="0" />
+            </key-property>
+            <key-property name="prCtCode" type="java.lang.Short">
+                <column name="PR_CT_CODE" precision="4" scale="0" />
+            </key-property>
+            <key-property name="prCstCode" type="java.lang.Short">
+                <column name="PR_CST_CODE" precision="4" scale="0" />
+            </key-property>
+            <key-property name="prRskCode" type="java.lang.Integer">
+                <column name="PR_RSK_CODE" precision="5" scale="0" />
+            </key-property>
+            <key-property name="prRtCode" type="java.lang.Integer">
+                <column name="PR_RT_CODE" precision="5" scale="0" />
+            </key-property>
+            <key-property name="prRcCode" type="java.lang.Integer">
+                <column name="PR_RC_CODE" precision="5" scale="0" />
+            </key-property>
+            <key-property name="prRscCode" type="java.lang.Integer">
+                <column name="PR_RSC_CODE" precision="5" scale="0" />
+            </key-property>
+            <key-property name="prCompulsoryExcess" type="big_decimal">
+                <column name="PR_COMPULSORY_EXCESS" precision="8" scale="3" />
+            </key-property>
+            <key-property name="prTariff" type="java.lang.Integer">
+                <column name="PR_TARIFF" precision="6" scale="0" />
+            </key-property>
+            <key-property name="prSumInsured" type="big_decimal">
+                <column name="PR_SUM_INSURED" precision="22" scale="0" />
+            </key-property>
+            <key-property name="prLimit" type="big_decimal">
+                <column name="PR_LIMIT" precision="22" scale="0" />
+            </key-property>
+            <key-property name="prAggLimit" type="big_decimal">
+                <column name="PR_AGG_LIMIT" precision="22" scale="0" />
+            </key-property>
+            <key-property name="pcrEDesc" type="string">
+                <column name="PCR_E_DESC" length="500" />
+            </key-property>
+            <key-property name="secNumPersons" type="java.lang.Short">
+                <column name="SEC_NUM_PERSONS" precision="4" scale="0" />
+            </key-property>
+             <key-property name="covDesc" type="string">
+                <column name="COV_DESC" length="500"  />
+            </key-property>
+        </composite-id>
+    </class>
+    <query name="getBasicDetailsList">
+  		from VMasPasFetchBasicDtls vfbd where vfbd.id.secId = :secId and vfbd.id.prClCode = :clCode and vfbd.id.prTariff = :tar
+  	</query>
+    
+</hibernate-mapping>

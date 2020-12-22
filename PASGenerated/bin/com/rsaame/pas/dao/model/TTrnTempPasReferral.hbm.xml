@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Mar 14, 2012 11:33:04 AM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.rsaame.pas.dao.model.TTrnTempPasReferral" table="T_TRN_TEMP_PAS_REFERRAL">
+        <composite-id name="id" class="com.rsaame.pas.dao.model.TTrnTempPasReferralId">
+            <key-property name="tprPolLinkingId" type="java.lang.Long">
+                <column name="TPR_POL_LINKING_ID" precision="16" scale="0" />
+            </key-property>
+            <key-property name="tprSecId" type="java.lang.Short">
+                <column name="TPR_SEC_ID" precision="4" scale="0" />
+            </key-property>
+            <key-property name="tprLocationId" type="java.lang.Long">
+                <column name="TPR_LOCATION_ID" precision="16" scale="0" />
+            </key-property>
+        </composite-id>
+         <property name="tprRefText" type="string">
+                <column name="TPR_REF_TEXT" length="4000" />
+         </property>
+         <property name="tprUserId" type="int">
+			<column name="USER_ID_FK" precision="6" scale="0" />
+		</property>
+		<property name="tprUserRole" type="string">
+			<column name="ROLE_FK" length="4000" />
+		</property>
+           
+    </class>
+</hibernate-mapping>

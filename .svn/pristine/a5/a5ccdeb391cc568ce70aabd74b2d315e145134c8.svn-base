@@ -1,0 +1,103 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping>
+	<class name="com.rsaame.pas.dao.model.TMasControl" table="T_MAS_CONTROL"
+		lazy="false">
+
+		<id name="ctlCtyCode" type="java.lang.Integer" column="CTL_CTY_CODE">
+
+			<generator class="assigned" />
+		</id>
+
+		<property name="ctlCoAName" type="java.lang.String" column="CTL_CO_A_NAME"
+			length="100" />
+		<property name="ctlCoEName" type="java.lang.String" column="CTL_CO_E_NAME"
+			length="100" />
+		<property name="ctlCoAAddress1" type="java.lang.String"
+			column="CTL_CO_A_ADDRESS_1" length="60" />
+		<property name="ctlCoEAddress1" type="java.lang.String"
+			column="CTL_CO_E_ADDRESS_1" length="60" />
+		<property name="ctlCoAAddress2" type="java.lang.String"
+			column="CTL_CO_A_ADDRESS_2" length="60" />
+		<property name="ctlCoEAddress2" type="java.lang.String"
+			column="CTL_CO_E_ADDRESS_2" length="60" />
+		<property name="ctlCoAAddress3" type="java.lang.String"
+			column="CTL_CO_A_ADDRESS_3" length="60" />
+		<property name="ctlCoEAddress3" type="java.lang.String"
+			column="CTL_CO_E_ADDRESS_3" length="60" />
+		<property name="ctlCoAAddress4" type="java.lang.String"
+			column="CTL_CO_A_ADDRESS_4" length="60" />
+		<property name="ctlCoEAddress4" type="java.lang.String"
+			column="CTL_CO_E_ADDRESS_4" length="60" />
+		<property name="ctlCoAAddress5" type="java.lang.String"
+			column="CTL_CO_A_ADDRESS_5" length="60" />
+		<property name="ctlCoEAddress5" type="java.lang.String"
+			column="CTL_CO_E_ADDRESS_5" length="60" />
+		<property name="ctlCoZip" type="java.lang.String" column="CTL_CO_ZIP"
+			length="10" />
+		<property name="ctlCoEmail" type="java.lang.String" column="CTL_CO_EMAIL"
+			length="30" />
+		<property name="ctlCoFax" type="java.lang.String" column="CTL_CO_FAX"
+			length="30" />
+		<property name="ctlPhoneNo" type="java.lang.String" column="CTL_PHONE_NO"
+			length="30" />
+		<property name="ctlWebSiteAddress" type="java.lang.String"
+			column="CTL_WEB_SITE_ADDRESS" length="100" />
+		<property name="ctlCoRegnNo" type="java.lang.String" column="CTL_CO_REGN_NO"
+			length="30" />
+		<property name="ctlCoCode" type="java.lang.Integer" column="CTL_CO_CODE"
+			length="8" />
+		<property name="ctlPreparedBy" type="java.lang.Integer"
+			column="CTL_PREPARED_BY" length="8" />
+		<property name="ctlPreparedDt" type="java.sql.Timestamp"
+			column="CTL_PREPARED_DT" length="7" />
+		<property name="ctlModifiedBy" type="java.lang.Integer"
+			column="CTL_MODIFIED_BY" length="8" />
+		<property name="ctlModifiedDt" type="java.sql.Timestamp"
+			column="CTL_MODIFIED_DT" length="7" />
+		<property name="ctlTax" type="java.lang.String" column="CTL_TAX"
+			length="10" />
+		<property name="ctlPremium" type="java.lang.Integer" column="CTL_PREMIUM"
+			length="8" />
+		<property name="ctlCurrency" type="java.lang.String" column="CTL_CURRENCY"
+			length="10" />
+		<property name="ctlFormat" type="java.lang.String" column="CTL_FORMAT"
+			length="10" />
+		<property name="ctlExpPeriod" type="java.lang.Integer"
+			column="CTL_EXP_PERIOD" length="8" />
+		<property name="ctlChassis" type="java.lang.String" column="CTL_CHASSIS"
+			length="10" />
+		<property name="ctlEngNo" type="java.lang.Long" column="CTL_ENG_NO"
+			length="10" />
+		<property name="ctlRgnText" type="java.lang.String" column="CTL_RGN_TEXT"
+			length="30" />
+		<property name="ctlRegCode" type="java.lang.Integer" column="CTL_REG_CODE"
+			length="5" />
+
+		<property name="ctlBrCode" type="java.lang.Integer" column="CTL_BR_CODE"
+			length="5" />
+
+		<property name="ctlDefCountry" type="java.lang.Integer"
+			column="CTL_DEF_COUNTRY" length="5" />
+
+		<property name="ctlDebbrok" type="java.lang.Integer" column="CTL_DEBBROK"
+			length="1" />
+
+		<property name="regnNo" type="java.lang.String" column="CTL_REGN_NO"
+			length="30" />
+		<!--// ADM 24.02.2011 Release 4.1 MultiBranching Indicator -->
+		<property name="multiBranchInd" type="java.lang.String"
+			column="CTL_MULTI_BRANCH_IND" length="30" />
+
+		<!-- Associations -->
+
+
+	</class>
+	
+	<query name="getControlList">
+ 	 from TMasControl lookup where lookup.ctlCtyCode=:identifier
+ 	 </query>
+</hibernate-mapping>

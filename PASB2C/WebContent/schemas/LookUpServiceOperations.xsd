@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+ <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+ xmlns="http://com/pas/ws/lookUpRequest" 
+ targetNamespace="http://com/pas/ws/lookUpRequest"
+ elementFormDefault="qualified">   
+      <xsd:element name="LookUpRequest">  
+           <xsd:complexType>  
+                <xsd:sequence>  
+                     <xsd:element name="lob" type="xsd:string">
+                     	<xsd:annotation>
+                     		<xsd:documentation>Select Home or Travel</xsd:documentation>
+                     	</xsd:annotation></xsd:element>  
+                </xsd:sequence>  
+           </xsd:complexType>  
+      </xsd:element>  
+      <xsd:element name="LookUpResponse">  
+           <xsd:complexType>  
+                <xsd:sequence>   
+                     <xsd:element name="relationList" type="xsd:anyType" nillable="false" minOccurs="0" maxOccurs="unbounded"/>
+                     <xsd:element name="nationalityList" type="xsd:anyType" nillable="false" minOccurs="0" maxOccurs="unbounded"/>
+                     <xsd:element name="typeOfTripList" type="xsd:anyType" nillable="false" minOccurs="0" maxOccurs="unbounded"/>
+                     <xsd:element name="ownershipStatusList" type="xsd:anyType" nillable="false" minOccurs="0" maxOccurs="unbounded"/>
+                     <xsd:element name="contentList" type="xsd:anyType" nillable="false" minOccurs="0" maxOccurs="unbounded"/>
+                     <xsd:element name="personalPossesionList" type="xsd:anyType" nillable="false" minOccurs="0" maxOccurs="unbounded"/>
+                     <xsd:element name="emiratesList" type="xsd:anyType" nillable="false" minOccurs="0" maxOccurs="unbounded"/>
+                     <xsd:element name="rewardProgrammeList" type="xsd:anyType" nillable="false" minOccurs="0" maxOccurs="unbounded"/>
+                     <xsd:element name="areaList" type="xsd:anyType" nillable="false" minOccurs="0" maxOccurs="unbounded"/>
+                     <xsd:element name="propertyTypeList" type="xsd:anyType" nillable="false" minOccurs="0" maxOccurs="unbounded"/>
+                     <xsd:element name="mortgageeNameList" type="xsd:anyType" nillable="false" minOccurs="0" maxOccurs="unbounded"/>
+                </xsd:sequence>  
+           </xsd:complexType>  
+      </xsd:element>  
+ </xsd:schema>

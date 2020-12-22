@@ -1,0 +1,70 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Mar 7, 2012 5:39:17 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.rsaame.pas.dao.model.TTrnGaccCashDetailsQuo" table="T_TRN_GACC_CASH_DETAILS">
+        <composite-id name="id" class="com.rsaame.pas.dao.model.TTrnGaccCashDetailsQuoId">
+            <key-property name="gcdId" type="long">
+                <column name="GCD_ID" precision="16" scale="0" />
+            </key-property>
+            <key-property name="gcdValidityStartDate" type="java.sql.Timestamp">
+                <column name="GCD_VALIDITY_START_DATE" length="7" />
+            </key-property>
+        </composite-id>
+        <property name="gcdGchId" type="long">
+            <column name="GCD_GCH_ID" precision="16" scale="0" not-null="true" />
+        </property>
+        <property name="gcdPolPolicyId" type="long">
+            <column name="GCD_POL_POLICY_ID" precision="16" scale="0" not-null="true" />
+        </property>
+        <property name="gcdPolEndtId" type="long">
+            <column name="GCD_POL_ENDT_ID" precision="16" scale="0" not-null="true" />
+        </property>
+        <property name="gcdValidityExpiryDate" type="java.sql.Timestamp">
+            <column name="GCD_VALIDITY_EXPIRY_DATE" length="7" not-null="true" />
+        </property>
+        <property name="gcdSafeDwrMake" type="string">
+            <column name="GCD_SAFE_DWR_MAKE" length="100" />
+        </property>
+        <property name="gcdSafeDwrWeightKg" type="big_decimal">
+            <column name="GCD_SAFE_DWR_WEIGHT_KG" precision="22" scale="0" />
+        </property>
+        <property name="gcdSafeDwrHeightCms" type="big_decimal">
+            <column name="GCD_SAFE_DWR_HEIGHT_CMS" precision="22" scale="0" />
+        </property>
+        <property name="gcdSafeDwrWidthCms" type="big_decimal">
+            <column name="GCD_SAFE_DWR_WIDTH_CMS" precision="22" scale="0" />
+        </property>
+        <property name="gcdSafeDwrAnchoredFlag" type="string">
+            <column name="GCD_SAFE_DWR_ANCHORED_FLAG" length="1" />
+        </property>
+        <property name="gcdCashResEmpEName" type="string">
+            <column name="GCD_CASH_RES_EMP_E_NAME" length="200" />
+        </property>
+        <property name="gcdCashResEmpAName" type="string">
+            <column name="GCD_CASH_RES_EMP_A_NAME" length="200" />
+        </property>
+        <property name="gcdCashResOccupation" type="string">
+            <column name="GCD_CASH_RES_OCCUPATION" length="200" />
+        </property>
+        <property name="gcdCashResAmt" type="big_decimal">
+            <column name="GCD_CASH_RES_AMT" precision="22" scale="0" />
+        </property>
+        <property name="gcdPreparedBy" type="java.lang.Integer">
+            <column name="GCD_PREPARED_BY" precision="8" scale="0" />
+        </property>
+        <property name="gcdPreparedDt" type="date">
+            <column name="GCD_PREPARED_DT" length="7" />
+        </property>
+        <property name="gcdModifiedBy" type="java.lang.Integer">
+            <column name="GCD_MODIFIED_BY" precision="8" scale="0" />
+        </property>
+        <property name="gcdModifiedDt" type="date">
+            <column name="GCD_MODIFIED_DT" length="7" />
+        </property>
+                 <property name="gcdStatus" type="java.lang.Byte">
+            <column name="GCD_STATUS" precision="2" scale="0" />
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,146 @@
+#ErrrorCodes for WebServices
+SBSWS_ERR_001=Mandated values not provided.
+SBSWS_ERR_002=Date is not in the format yyyy-mm-dd.
+SBSWS_ERR_003=Field contains non-numeric values.
+
+SBSWS_ERR_004=Field contains value less than or equal to  zero.
+SBSWS_ERR_005=Field does not contain appropriate values.
+SBSWS_ERR_006=Field contains value less than zero.
+#SBSWS_ERR_007=Capital Sum Insured Should not be maximum 4 times Annual Salary
+SBSWS_ERR_008=Date is not in the format dd/mm/yyyy.
+#SBSWS_ERR_009=Please provide valid Number.
+#SBSWS_ERR_010=Number of Employees cannot be blank.
+#SBSWS_ERR_011=Annual Turnover cannot be blank.
+#SBSWS_ERR_013=PublicLiabilityLimit is mandatory.
+#SBSWS_ERR_012=VAT Registration Number cannot be blank
+SBSWS_ERR_014=Valid code is not provided.
+SBSWS_ERR_015=Value in field is greater than 50.
+SBSWS_ERR_016=Property Content Value in Property all risk section not present.Machinery Breakdown limit can be provided only with Property Content Value in Property all risk section. 
+SBSWS_ERR_017=Property all risk not covered. Business Interruption can be processed only with Property all risk section.
+#SBSWS_ERR_018=Request is not in proper format.
+SBSWS_ERR_019=Base sections not present. Request cannot be processed without Property all risk, Personal Liability or Worker's compensation sections.
+SBSWS_ERR_020=Property all risk not covered. Electronic Equipment can  be processed only with Property all risk section.
+SBSWS_ERR_021=Property all risk not covered. Machinery Breakdown can be processed only with Property all risk section.
+#SBSWS_ERR_022=Please provide valid code.
+SBSWS_ERR_022=Field contains non-alpha numeric values.
+SBSWS_ERR_023=Invalid email id provided.
+SBSWS_ERR_024=Machinery Breakdown not covered. Deterioration of Stock can be processed only with Machinery Breakdown.
+#SBSWS_ERR_025=Employee or Annual turnover is mandatory.
+SBSWS_ERR_026=Policy term is not one year.
+#SBSWS_ERR_027=Annual turnover should be numeric.
+SBSWS_ERR_028=Field length exceeds 30 characters.
+#SBSWS_ERR_029=Estimated Annual Carryings cannot be more than 2000000
+#SBSWS_ERR_030=moneyInTransitLimit cannot be more than 250000.
+#SBSWS_ERR_040=The value 12.50%  moneyInTransitLimit and Estimated Annual Carryings should match.
+#SBSWS_ERR_041=Please provide value less than 10000 .
+#SBSWS_ERR_042=The value 0.50% Estimated Annual Carryings should match..
+#SBSWS_ERR_043=moneyInTransitLimit cannot be more than Estimated Annual Carryings.
+SBSWS_ERR_044=Quotation creation date is not today's date.
+SBSWS_ERR_045=Date is not current date.
+SBSWS_ERR_046=Named Employees Detail is empty.
+#SBSWS_ERR_047=Check Limit Of Indemnity Amount .
+#SBSWS_ERR_048=Length should not exceed 150 characters.
+SBSWS_ERR_049=Field length exceeds 60 characters.
+SBSWS_ERR_050=Field length exceeds 200 characters.
+SBSWS_ERR_051=Field contains special characters.
+SBSWS_ERR_052=Field length exceeds 10 characters.
+SBSWS_ERR_053=Field length exceeds 15 digits.
+#SBSWS_ERR_054=Mobile or phone should be numeric.
+#SBSWS_ERR_055=Length of Loss of experience quantum should not exceed 15.
+#SBSWS_ERR_056=Employer's Liability is mandatory.
+#SBSWS_ERR_057=Check Employee Liability value.
+#SBSWS_ERR_058=Total annual Wageroll is Mandatory.
+#SBSWS_ERR_059=Total annual Wageroll is Numeric.
+#SBSWS_ERR_060=Total annual Wageroll should not exceed more than 10 digits.
+#SBSWS_ERR_061=AdminHeadCount or NonAdminHeadCount is mandatory.
+#SBSWS_ERR_062=AdminHeadCount or NonAdminHeadCount Should be Numeric.
+#SBSWS_ERR_063=Length of AdminHeadCount or NonAdminHeadCount cannot exceed 9 number.
+#SBSWS_ERR_064=Check Number of Employee equal to AdminHeadCount or NonAdminHeadCount.
+#SBSWS_ERR_065=Business Interruption input is Mandatory.
+#SBSWS_ERR_066=Amount is mandatory.
+SBSWS_ERR_068=Estimated Annual Carryings not covered. Money In Transit Limit or Money In Locked Safe can be processed only with Estimated Annual Carryings.
+#SBSWS_ERR_067=Cannot be less than and greater than zero.
+SBSWS_ERR_069=Field length exceeds 10 digits.
+#SBSWS_ERR_070=City Should be numeric.
+#SBSWS_ERR_071=Country is mandatory.
+#SBSWS_ERR_072=Enter value 1 only.
+SBSWS_ERR_073=Field length exceeds 6 digits.
+SBSWS_ERR_074=Field length exceeds 16 digits.
+SBSWS_ERR_075=Property all risk or Personal Liability sections are not covered. Fidelity Guarantee can be processed only with Property all risk or Personal Liability.
+#SBSWS_ERR_078=Property all risk or Personal Liability sections are not covered. FidelityGuarantee can be processed only  with Property all risk or Personal Liability.
+#SBSWS_ERR_079=Date should be in yyyy-MM-dd format.
+#SBSWS_ERR_080=Length of Annual amount should not exceed 16 digits.
+#SBSWS_ERR_081=Employee Type is mandatory.
+#SBSWS_ERR_082=MachineryBreakdownLimit is mandatory.
+#SBSWS_ERR_083=Length of MachineryBreakdownLimit should not exceed 10
+#SBSWS_ERR_084=StockGuaranteeLimit is mandatory.
+#SBSWS_ERR_085=Length of StockGuaranteeLimit should not exceed 10
+#SBSWS_ERR_086=PAR and BI  sum insured cann't exceed  10000000.
+#SBSWS_ERR_087=PAR Content Value is empty and MachineryBreakdownLimit amount can't be added. 
+#SBSWS_ERR_088=MachineryBreakdownLimit sum insured can't exceed 250000.
+#SBSWS_ERR_089= MachineryBreakdownlimit exceeds PropertyContentValue. MachineryBreakdownlimit should not be more than PropertyContentValue in Property all Risk section.
+SBSWS_ERR_090= Date value is greater than 90 days from current date.
+#SBSWS_ERR_093=Amount cannot be MachineryBreakdownLimit ,PAR content amount is not exist. 
+#SBSWS_WRN_001=Fiedility guarantee amount exceed the available limit.Not covered.
+
+#Money Section Warning
+SBSWS_MNY_01=Amount provided is not less than or equal to 0.50% of Estimated Annual Carryings amount.
+SBSWS_MNY_02=Field value exceeds 10000.
+
+#SBSWS_MNY_03=Amount provided is not less than or equal to 0.50% of Estimated Annual Carryings amount.
+#SBSWS_MNY_04=MoneyInLockedDrawer value should not be greater than 10000.
+SBSWS_MNY_05=Field amount exceeds 250000.
+SBSWS_MNY_06=Amount provided is not less than or equal to 12.50% of Estimated Annual Carryings amount.
+#SBSWS_MNY_07=moneyInTransitLimit cannot be more than 250000.
+#SBSWS_MNY_08=moneyInTransitLimit cannot be more than Estimated Annual Carryings.
+3#SWS_MNY_09=The value 12.50%  moneyInTransitLimit and Estimated Annual Carryings should match.
+SBSWS_MNY_10=Estimated Annual Carryings field amount exceeds 2000000
+
+#GPA Section warning
+SBSWS_GPA_001=Group personal Accident Capital Sum Insured field amount exceeds 1000000.
+SBSWS_GPA_002=Group personal Accident Capital Sum Insured amount is greater than 4 times Annual salary amount.
+SBSWS_GPA_003=Age limit is not between 18 and 60 years.
+#Travel Section warning
+SBSWS_TRL_001=Travel Sum Insured field amount exceeds 50,000.
+#FG section
+SBSWS_FG_001=Employee Sum Insured field amount exceeds 250000.
+SBSWS_FG_002=Fidelity Guarantee aggregateLimit field amount exceeds 1000000.
+#EE section
+SBSWS_EE_001=Total EE EquipmentLimit field amount exceeds 1000000.
+SBSWS_EE_002=Portable EquipmentLimit field amount exceeds 1000000.
+SBSWS_EE_003=Computer BreakDown Limit field amount exceeds 1000000.
+#MB Section
+SBSWS_MB_001=Machinery breakdown Sum insured field value exceeds 250000.
+SBSWS_MB_002=Machinery Breakdown limit exceeds Property Content Value. Machinery Breakdown limit should not be more than Property Content Value in Property all Risk section.
+#DOS Section
+SBSWS_DOS_001=Deterioration of Stock Sum insured field value exceeds 250000.
+#BI Section
+SBSWS_BI_001=Sum of Property all risk and Business Interruption section limits exceeds 10000000.
+
+SBSWS_EXPN_500=System error occurred. Retry once and please contact your system administrator if the error persists. Transaction reference number is 
+SBSWS_EXPN_501= Unable to retrieve the quote.Please try after some time.
+
+#Get Quote DB fields check error
+SBSWS_ERR_096=The selected quotation is not available for processing. Please contact your system administrator.
+
+#Accept Quote DB fields check error
+SBSWS_ERR_094=Trade License document is not uploaded. Please contact your system administrator.
+SBSWS_ERR_095=Quotation is not in active status.Please contact your system administrator.
+SBSWS_ERR_097=Premium previously calculated does not match the current premium
+
+#Update Quote Error message
+SBSWS_ERR_081=The quotation number passed is not valid.
+SBSWS_ERR_082=Quotation is not in active or pending status.Please contact your system administrator.
+SBSWS_ERR_098=Quotation is not active or in pending status. Please wait for sometime.
+
+#Create Policy Error message
+SBSWS_ERR_099=Another Create Policy Request is in process. Please wait for sometime.
+SBSWS_ERR_100=Quote is already converted to Policy.
+
+## Added for JLT Renewal #11424
+SBSWS_ERR_101=Please Send Either Quote No OR Policy No/Expiry Policy Year To Retrieve The Renewal Quote
+SBSWS_ERR_102=The Renewal Quotation Is Not Available For Given Policy No And Policy Year. Please Provide Correct Policy No With Correct Expirying Policy Year.
+SBSWS_ERR_103=Renewal Quote Effective Date Should Not Be Same Or Before Policy Expiry Date.
+SBSWS_ERR_104=Policy Not Found For Given Policy No and Policy Year.
+SBSWS_ERR_105=Policy Not Found For Given Document Id.
+SBSWS_ERR_106=Claim Amount Can Not Be Less Than Actual Claim Amount Of Policy.

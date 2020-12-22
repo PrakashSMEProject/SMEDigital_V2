@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+xmlns="http://com/rsaame/pas/b2c/ws/travelInsuranceDetails" 
+targetNamespace="http://com/rsaame/pas/b2c/ws/travelInsuranceDetails">
+
+<xs:complexType name="travelInsuranceDetails">
+    <xs:sequence>
+      <xs:element name="created" type="xs:dateTime" minOccurs="0"/>
+      <xs:element name="defaultTariff" type="xs:int" minOccurs="0"/>
+      <xs:element name="endDate" type="xs:dateTime" minOccurs="0"/>
+      <xs:element name="endEffectiveDate" type="xs:dateTime" minOccurs="0"/>
+      <xs:element name="endStartDate" type="xs:dateTime" minOccurs="0"/>
+      <xs:element name="endtEffectiveDate" type="xs:dateTime" minOccurs="0"/>
+      <xs:element name="endtId" type="xs:long" minOccurs="0"/>
+      <xs:element name="endtNo" type="xs:long" minOccurs="0"/>
+      <xs:element name="generalInfo" type="generalInsuranceDetails" minOccurs="0"/>
+      <xs:element name="isQuote" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="paymentVO" type="paymentDetails" minOccurs="0"/>
+      <xs:element name="polCustomerId" type="xs:long" minOccurs="0"/>
+      <xs:element name="polDocumentId" type="xs:string" minOccurs="0"/>
+      <xs:element name="polEffectiveDate" type="xs:dateTime" minOccurs="0"/>
+      <xs:element name="polExchangeRate" type="xs:decimal" minOccurs="0"/>
+      <xs:element name="polExpiryDate" type="xs:dateTime" minOccurs="0"/>
+      <xs:element name="polLinkingId" type="xs:long" minOccurs="0"/>
+      <xs:element name="policyExtensionPeriod" type="xs:long" minOccurs="0"/>
+      <xs:element name="policyNo" type="xs:long" minOccurs="0"/>
+      <xs:element name="policyTerm" type="xs:int" minOccurs="0"/>
+      <xs:element name="policyType" type="xs:int" minOccurs="0"/>
+      <xs:element name="premiumVO" type="premiumDetails" minOccurs="0"/>
+      <xs:element name="processedDate" type="xs:dateTime" minOccurs="0"/>
+      <xs:element name="quoteNo" type="xs:long" minOccurs="0"/>
+      <xs:element name="scheme" type="schemeDetails" minOccurs="0"/>
+      <xs:element name="sectionId" type="xs:short" minOccurs="0"/>
+      <xs:element name="startDate" type="xs:dateTime" minOccurs="0"/>
+      <xs:element name="travelDetailsVO" type="travelDetails" minOccurs="0"/>
+      <xs:element name="travelPackageList" type="travelPackageDetails" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="validityStartDate" type="xs:dateTime" minOccurs="0"/>
+      <xs:element name="vsd" type="xs:dateTime" minOccurs="0"/>
+      <xs:element name="policyId" type="xs:long" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="generalInsuranceDetails">
+    <xs:sequence>
+      <xs:element name="insured" type="insuredDetails" minOccurs="0"/>
+      <xs:element name="questionsVO" type="uwQuestionDetails" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="insuredDetails">
+    <xs:sequence>
+      <xs:element name="address" type="xs:string" minOccurs="0"/>
+      <xs:element name="affinityRefNo" type="xs:string" minOccurs="0"/>
+      <xs:element name="arabicName" type="xs:string" minOccurs="0"/>
+      <xs:element name="busDescription" type="xs:string" minOccurs="0"/>
+      <xs:element name="busType" type="xs:int" minOccurs="0"/>
+      <xs:element name="ccgCode" type="xs:int" minOccurs="0"/>
+      <xs:element name="city" type="xs:int" minOccurs="0"/>
+      <xs:element name="country" type="xs:int" minOccurs="0"/>
+      <xs:element name="dateOfEst" type="xs:dateTime" minOccurs="0"/>
+      <xs:element name="dateOfcollectionOfKYC" type="xs:dateTime" minOccurs="0"/>
+      <xs:element name="emailId" type="xs:string" minOccurs="0"/>
+      <xs:element name="emirates" type="xs:int" minOccurs="0"/>
+      <xs:element name="faxNumber" type="xs:long" minOccurs="0"/>
+      <xs:element name="firstName" type="xs:string" minOccurs="0"/>
+      <xs:element name="guestCardNo" type="xs:string" minOccurs="0"/>
+      <xs:element name="howDidYouHear" type="xs:string" minOccurs="0"/>
+      <xs:element name="insuredCode" type="xs:long" minOccurs="0"/>
+      <xs:element name="insuredId" type="xs:long" minOccurs="0"/>
+      <xs:element name="insuredStatus" type="xs:int" minOccurs="0"/>
+      <xs:element name="issueLoc" type="xs:int" minOccurs="0"/>
+      <xs:element name="lastName" type="xs:string" minOccurs="0"/>
+      <xs:element name="laws" type="xs:string" minOccurs="0"/>
+      <xs:element name="matchExists" type="xs:string" minOccurs="0"/>
+      <xs:element name="mobileNo" type="xs:string" minOccurs="0"/>
+      <xs:element name="name" type="xs:string" minOccurs="0"/>
+      <xs:element name="nationality" type="xs:int" minOccurs="0"/>
+      <xs:element name="noOfEmployees" type="xs:int" minOccurs="0"/>
+      <xs:element name="payTerms" type="xs:string" minOccurs="0"/>
+      <xs:element name="phoneNo" type="xs:string" minOccurs="0"/>
+      <xs:element name="placeOfEst" type="xs:string" minOccurs="0"/>
+      <xs:element name="poBox" type="xs:string" minOccurs="0"/>
+      <xs:element name="policyId" type="xs:int" minOccurs="0"/>
+      <xs:element name="processingLoc" type="xs:int" minOccurs="0"/>
+      <xs:element name="regulatoryBody" type="xs:int" minOccurs="0"/>
+      <xs:element name="remarks" type="xs:string" minOccurs="0"/>
+      <xs:element name="royaltyType" type="xs:int" minOccurs="0"/>
+      <xs:element name="rsaSpacialIndicator" type="xs:int" minOccurs="0"/>
+      <xs:element name="specialityType" type="xs:int" minOccurs="0"/>
+      <xs:element name="territory" type="xs:int" minOccurs="0"/>
+      <xs:element name="tradeLicenseExpDate" type="xs:dateTime" minOccurs="0"/>
+      <xs:element name="tradeLicenseNo" type="xs:string" minOccurs="0"/>
+      <xs:element name="turnover" type="xs:long" minOccurs="0"/>
+      <xs:element name="updateMaster" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="website" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="uwQuestionDetails">
+    <xs:sequence>
+      <xs:element name="questions" type="xs:string" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="paymentDetails">
+    <xs:sequence>
+      <xs:element name="amount" type="xs:double" minOccurs="0"/>
+      <xs:element name="bankCode" type="xs:int" minOccurs="0"/>
+      <xs:element name="chequeDt" type="xs:dateTime" minOccurs="0"/>
+      <xs:element name="chequeNo" type="xs:long" minOccurs="0"/>
+      <xs:element name="creditCardNo" type="xs:int" minOccurs="0"/>
+      <xs:element name="expiryDate" type="xs:dateTime" minOccurs="0"/>
+      <xs:element name="payModeCode" type="xs:byte" minOccurs="0"/>
+      <xs:element name="paymentMode" type="xs:string" minOccurs="0"/>
+      <xs:element name="premium" type="xs:double" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="premiumDetails">
+    <xs:sequence>
+      <xs:element name="currency" type="xs:string" minOccurs="0"/>
+      <xs:element name="discOrLoadAmt" type="xs:decimal" minOccurs="0"/>
+      <xs:element name="discOrLoadPerc" type="xs:double" minOccurs="0"/>
+      <xs:element name="govtTax" type="xs:double"/>
+      <xs:element name="lossRatio" type="xs:double"/>
+      <xs:element name="minPremium" type="xs:decimal" minOccurs="0"/>
+      <xs:element name="policyFees" type="xs:double"/>
+      <xs:element name="premiumAmt" type="xs:double"/>
+      <xs:element name="premiumAmtActual" type="xs:double"/>
+      <xs:element name="promoDiscPerc" type="xs:double" minOccurs="0"/>
+      <xs:element name="specialDiscount" type="xs:double"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="schemeDetails">
+    <xs:sequence>
+      <xs:element name="effDate" type="xs:dateTime" minOccurs="0"/>
+      <xs:element name="expiryDate" type="xs:dateTime" minOccurs="0"/>
+      <xs:element name="id" type="xs:int" minOccurs="0"/>
+      <xs:element name="policyType" type="xs:string" minOccurs="0"/>
+      <xs:element name="schemeCode" type="xs:int" minOccurs="0"/>
+      <xs:element name="schemeName" type="xs:string" minOccurs="0"/>
+      <xs:element name="tariffCode" type="xs:int" minOccurs="0"/>
+      <xs:element name="tariffName" type="xs:string" minOccurs="0"/>
+      <xs:element name="tariffRateType" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="travelDetails">
+    <xs:sequence>
+      <xs:element name="endDate" type="xs:dateTime" minOccurs="0"/>
+      <xs:element name="startDate" type="xs:dateTime" minOccurs="0"/>
+      <xs:element name="travelLocation" type="xs:string" minOccurs="0"/>
+      <xs:element name="travelPeriod" type="xs:int" minOccurs="0"/>
+      <xs:element name="travelerDetailsList" type="travelerDetails" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="travelerDetails">
+    <xs:sequence>
+      <xs:element name="dateOfBirth" type="xs:dateTime" minOccurs="0"/>
+      <xs:element name="gprId" type="xs:decimal" minOccurs="0"/>
+      <xs:element name="name" type="xs:string" minOccurs="0"/>
+      <xs:element name="nationality" type="xs:short" minOccurs="0"/>
+      <xs:element name="relation" type="xs:byte" minOccurs="0"/>
+      <xs:element name="vsd" type="xs:dateTime" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="travelPackageDetails">
+    <xs:sequence>
+      <xs:element name="covers" type="coverDetails" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="isSelected" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="packageName" type="xs:string" minOccurs="0"/>
+      <xs:element name="recommended" type="xs:boolean"/>
+      <xs:element name="tariffCode" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="coverDetails">
+    <xs:sequence>
+      <xs:element name="coverCodes" type="cover" minOccurs="0"/>
+      <xs:element name="coverDesc" type="xs:string" minOccurs="0"/>
+      <xs:element name="coverName" type="xs:string" minOccurs="0"/>
+      <xs:element name="currency" type="xs:string" minOccurs="0"/>
+      <xs:element name="discOrLoadAmt" type="xs:decimal" minOccurs="0"/>
+      <xs:element name="discOrLoadPerc" type="xs:double" minOccurs="0"/>
+      <xs:element name="isCovered" type="xs:string" minOccurs="0"/>
+      <xs:element name="minPremium" type="xs:decimal" minOccurs="0"/>
+      <xs:element name="premiumAmt" type="xs:double"/>
+      <xs:element name="premiumAmtActual" type="xs:double"/>
+      <xs:element name="promoDiscPerc" type="xs:double" minOccurs="0"/>
+      <xs:element name="riskCodes" type="riskDetails" minOccurs="0"/>
+      <xs:element name="sumInsured" type="sumInsuredDetails" minOccurs="0"/>
+      <xs:element name="tariffCode" type="xs:int" minOccurs="0"/>
+      <xs:element name="vsd" type="xs:dateTime" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="cover">
+    <xs:sequence>
+      <xs:element name="covCode" type="xs:short"/>
+      <xs:element name="covCriteriaCode" type="xs:int" minOccurs="0"/>
+      <xs:element name="covSubTypeCode" type="xs:short"/>
+      <xs:element name="covTypeCode" type="xs:short"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="riskDetails">
+    <xs:sequence>
+      <xs:element name="basicRskCode" type="xs:int" minOccurs="0"/>
+      <xs:element name="basicRskId" type="xs:decimal" minOccurs="0"/>
+      <xs:element name="riskCat" type="xs:int" minOccurs="0"/>
+      <xs:element name="riskCode" type="xs:int" minOccurs="0"/>
+      <xs:element name="riskType" type="xs:int" minOccurs="0"/>
+      <xs:element name="rskId" type="xs:decimal" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="sumInsuredDetails">
+    <xs:sequence>
+      <xs:element name="cash_Id" type="xs:long" minOccurs="0"/>
+      <xs:element name="deductible" type="xs:double" minOccurs="0"/>
+      <xs:element name="identifier" type="xs:int" minOccurs="0"/>
+      <xs:element name="promoCover" type="xs:boolean"/>
+      <xs:element name="sumInsured" type="xs:double" minOccurs="0"/>
+      <xs:element name="vsd" type="xs:dateTime" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  
+    
+</xs:schema>

@@ -1,0 +1,466 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Feb 27, 2012 4:17:13 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.rsaame.pas.dao.model.TTrnPolicyQuo" table="T_TRN_POLICY">
+        <comment>Policy transactions</comment>
+        <composite-id name="id" class="com.rsaame.pas.dao.model.TTrnPolicyQuoId">
+            <key-property name="polPolicyId" type="long">
+                <column name="POL_POLICY_ID" precision="16" scale="0" />
+            </key-property>
+            <key-property name="polEndtId" type="long">
+                <column name="POL_ENDT_ID" precision="16" scale="0" />
+            </key-property>
+        </composite-id>
+        <property name="polLocationCode" type="short">
+            <column name="POL_LOCATION_CODE" precision="4" scale="0" not-null="true">
+                <comment>POL_LOCATION_CODE</comment>
+            </column>
+        </property>
+        <property name="polClassCode" type="short">
+            <column name="POL_CLASS_CODE" precision="4" scale="0" not-null="true">
+                <comment>POL_CLASS_CODE</comment>
+            </column>
+        </property>
+        <property name="polDocumentCode" type="short">
+            <column name="POL_DOCUMENT_CODE" precision="4" scale="0" not-null="true">
+                <comment>POL_DOCUMENT_CODE</comment>
+            </column>
+        </property>
+        <property name="polPolicyNo" type="long">
+            <column name="POL_POLICY_NO" precision="16" scale="0" not-null="true">
+                <comment>POL_POLICY_NO</comment>
+            </column>
+        </property>
+        <property name="polPolicyYear" type="short">
+            <column name="POL_POLICY_YEAR" precision="4" scale="0" not-null="true">
+                <comment>POL_POLICY_YEAR</comment>
+            </column>
+        </property>
+        <property name="polRefPolicyNo" type="java.lang.Long">
+            <column name="POL_REF_POLICY_NO" precision="16" scale="0">
+                <comment>POL_REF_POLICY_NO</comment>
+            </column>
+        </property>
+        <property name="polRefPolicyYear" type="java.lang.Short">
+            <column name="POL_REF_POLICY_YEAR" precision="4" scale="0">
+                <comment>POL_REF_POLICY_YEAR</comment>
+            </column>
+        </property>
+        <property name="polPolicyType" type="short">
+            <column name="POL_POLICY_TYPE" precision="4" scale="0" not-null="true">
+                <comment>POL_POLICY_TYPE</comment>
+            </column>
+        </property>
+        <property name="polProposalNo" type="long">
+            <column name="POL_PROPOSAL_NO" precision="10" scale="0" not-null="true">
+                <comment>POL_PROPOSAL_NO</comment>
+            </column>
+        </property>
+        <property name="polProposalDate" type="date">
+            <column name="POL_PROPOSAL_DATE" length="7" not-null="true">
+                <comment>POL_PROPOSAL_DATE</comment>
+            </column>
+        </property>
+        <property name="polIssueDate" type="java.sql.Timestamp">
+            <column name="POL_ISSUE_DATE" length="7" not-null="true">
+                <comment>POL_ISSUE_DATE</comment>
+            </column>
+        </property>
+        <property name="polExpiryDate" type="java.sql.Timestamp">
+            <column name="POL_EXPIRY_DATE" length="7" not-null="true">
+                <comment>POL_EXPIRY_DATE</comment>
+            </column>
+        </property>
+        <property name="polCustomerId" type="long">
+            <column name="POL_CUSTOMER_ID" precision="12" scale="0" not-null="true">
+                <comment>POL_CUSTOMER_ID</comment>
+            </column>
+        </property>
+        <property name="polSourceOfBusiness" type="byte">
+            <column name="POL_SOURCE_OF_BUSINESS" precision="2" scale="0" not-null="true">
+                <comment>POL_SOURCE_OF_BUSINESS</comment>
+            </column>
+        </property>
+        <property name="polAgentId" type="java.lang.Long">
+            <column name="POL_AGENT_ID" precision="12" scale="0">
+                <comment>POL_AGENT_ID</comment>
+            </column>
+        </property>
+        <property name="polCommisionId" type="big_decimal">
+            <column name="POL_COMMISION_ID" precision="8" scale="5">
+                <comment>POL_COMMISION_ID</comment>
+            </column>
+        </property>
+        <property name="polCoinsuranceIndicator" type="boolean">
+            <column name="POL_COINSURANCE_INDICATOR" precision="1" scale="0" not-null="true">
+                <comment>POL_COINSURANCE_INDICATOR</comment>
+            </column>
+        </property>
+        <property name="polCoinsuranceType" type="boolean">
+            <column name="POL_COINSURANCE_TYPE" precision="1" scale="0" not-null="true">
+                <comment>POL_COINSURANCE_TYPE</comment>
+            </column>
+        </property>
+        <property name="polCoverNoteNo" type="java.lang.Long">
+            <column name="POL_COVER_NOTE_NO" precision="12" scale="0">
+                <comment>POL_COVER_NOTE_NO</comment>
+            </column>
+        </property>
+        <property name="polCoverNoteDate" type="date">
+            <column name="POL_COVER_NOTE_DATE" length="7">
+                <comment>POL_COVER_NOTE_DATE</comment>
+            </column>
+        </property>
+        <property name="polPremium" type="big_decimal">
+            <column name="POL_PREMIUM" precision="16" scale="3" not-null="true">
+                <comment>POL_PREMIUM</comment>
+            </column>
+        </property>
+        <property name="polGovernmentTax" type="big_decimal">
+            <column name="POL_GOVERNMENT_TAX" precision="10" scale="3" not-null="true">
+                <comment>POL_GOVERNMENT_TAX</comment>
+            </column>
+        </property>
+        <property name="polPolicyFees" type="big_decimal">
+            <column name="POL_POLICY_FEES" precision="10" scale="3" not-null="true">
+                <comment>POL_POLICY_FEES</comment>
+            </column>
+        </property>
+        <property name="polCurrencyCode" type="short">
+            <column name="POL_CURRENCY_CODE" precision="3" scale="0" not-null="true">
+                <comment>POL_CURRENCY_CODE</comment>
+            </column>
+        </property>
+        <property name="polExchangeRate" type="big_decimal">
+            <column name="POL_EXCHANGE_RATE" precision="12" scale="6" not-null="true">
+                <comment>POL_EXCHANGE_RATE</comment>
+            </column>
+        </property>
+        <property name="polProcessedDate" type="java.sql.Timestamp">
+            <column name="POL_PROCESSED_DATE" length="7" not-null="true">
+                <comment>POL_PROCESSED_DATE</comment>
+            </column>
+        </property>
+        <property name="polStatus" type="byte">
+            <column name="POL_STATUS" precision="2" scale="0" not-null="true">
+                <comment>POL_STATUS</comment>
+            </column>
+        </property>
+        <property name="polFinancialIntInd" type="byte">
+            <column name="POL_FINANCIAL_INT_IND" precision="2" scale="0" not-null="true">
+                <comment>POL_FINANCIAL_INT_IND</comment>
+            </column>
+        </property>
+        <property name="polApprovedBy" type="java.lang.Integer">
+            <column name="POL_APPROVED_BY" precision="6" scale="0">
+                <comment>POL_APPROVED_BY</comment>
+            </column>
+        </property>
+        <property name="polUserId" type="int">
+            <column name="POL_USER_ID" precision="6" scale="0" not-null="true">
+                <comment>POL_USER_ID</comment>
+            </column>
+        </property>
+        <property name="polEffectiveDate" type="java.sql.Timestamp">
+            <column name="POL_EFFECTIVE_DATE" length="7" not-null="true">
+                <comment>POL_EFFECTIVE_DATE</comment>
+            </column>
+        </property>
+        <property name="polPrintDate" type="java.sql.Timestamp">
+            <column name="POL_PRINT_DATE" length="7">
+                <comment>POL_PRINT_DATE</comment>
+            </column>
+        </property>
+        <property name="polCutCode" type="java.lang.Short">
+            <column name="POL_CUT_CODE" precision="3" scale="0">
+                <comment>POL_CUT_CODE</comment>
+            </column>
+        </property>
+        <property name="polSpecialType" type="java.lang.Short">
+            <column name="POL_SPECIAL_TYPE" precision="3" scale="0">
+                <comment>POL_SPECIAL_TYPE</comment>
+            </column>
+        </property>
+        <property name="polCoverNoteHour" type="java.lang.Integer">
+            <column name="POL_COVER_NOTE_HOUR" precision="5" scale="0">
+                <comment>POL_COVER_NOTE_HOUR</comment>
+            </column>
+        </property>
+        <property name="polCoverNoteMin" type="java.lang.Byte">
+            <column name="POL_COVER_NOTE_MIN" precision="2" scale="0">
+                <comment>POL_COVER_NOTE_MIN</comment>
+            </column>
+        </property>
+        <property name="polIssueHour" type="java.lang.Integer">
+            <column name="POL_ISSUE_HOUR" precision="8" scale="0">
+                <comment>POL_ISSUE_HOUR</comment>
+            </column>
+        </property>
+        <property name="polIssueMin" type="big_decimal">
+            <column name="POL_ISSUE_MIN" precision="16" scale="3">
+                <comment>POL_ISSUE_MIN</comment>
+            </column>
+        </property>
+        <property name="polEffectiveHour" type="java.lang.Byte">
+            <column name="POL_EFFECTIVE_HOUR" precision="2" scale="0">
+                <comment>POL_EFFECTIVE_HOUR</comment>
+            </column>
+        </property>
+        <property name="polEffectiveMin" type="string">
+            <column name="POL_EFFECTIVE_MIN" length="30">
+                <comment>POL_EFFECTIVE_MIN</comment>
+            </column>
+        </property>
+        <property name="polExpiryHour" type="java.lang.Long">
+            <column name="POL_EXPIRY_HOUR" precision="16" scale="0">
+                <comment>POL_EXPIRY_HOUR</comment>
+            </column>
+        </property>
+        <property name="polExpiryMin" type="java.lang.Long">
+            <column name="POL_EXPIRY_MIN" precision="16" scale="0">
+                <comment>POL_EXPIRY_MIN</comment>
+            </column>
+        </property>
+        <property name="polCertificateNo" type="java.lang.Long">
+            <column name="POL_CERTIFICATE_NO" precision="10" scale="0">
+                <comment>POL_CERTIFICATE_NO</comment>
+            </column>
+        </property>
+        <property name="polCertificateDate" type="date">
+            <column name="POL_CERTIFICATE_DATE" length="7">
+                <comment>POL_CERTIFICATE_DATE</comment>
+            </column>
+        </property>
+        <property name="polValidityStartDate" type="java.sql.Timestamp">
+            <column name="POL_VALIDITY_START_DATE" length="7" not-null="true">
+                <comment>POL_VALIDITY_START_DATE</comment>
+            </column>
+        </property>
+        <property name="polValidityExpiryDate" type="java.sql.Timestamp">
+            <column name="POL_VALIDITY_EXPIRY_DATE" length="7" not-null="true">
+                <comment>POL_VALIDITY_EXPIRY_DATE</comment>
+            </column>
+        </property>
+        <property name="polEndtEffectiveDate" type="java.sql.Timestamp">
+            <column name="POL_ENDT_EFFECTIVE_DATE" length="7">
+                <comment>POL_ENDT_EFFECTIVE_DATE</comment>
+            </column>
+        </property>
+        <property name="polEndtExpiryDate" type="java.sql.Timestamp">
+            <column name="POL_ENDT_EXPIRY_DATE" length="7">
+                <comment>POL_ENDT_EXPIRY_DATE</comment>
+            </column>
+        </property>
+        <property name="polRatingType" type="java.lang.Byte">
+            <column name="POL_RATING_TYPE" precision="2" scale="0">
+                <comment>POL_RATING_TYPE</comment>
+            </column>
+        </property>
+        <property name="polCcgCode" type="java.lang.Integer">
+            <column name="POL_CCG_CODE" precision="5" scale="0">
+                <comment>POL_CCG_CODE</comment>
+            </column>
+        </property>
+        <property name="polEndtNo" type="java.lang.Long">
+            <column name="POL_ENDT_NO" precision="16" scale="0">
+                <comment>POL_ENDT_NO</comment>
+            </column>
+        </property>
+        <property name="polCtyCode" type="int">
+            <column name="POL_CTY_CODE" precision="5" scale="0" not-null="true">
+                <comment>POL_CTY_CODE</comment>
+            </column>
+        </property>
+        <property name="polRegCode" type="int">
+            <column name="POL_REG_CODE" precision="5" scale="0" not-null="true">
+                <comment>POL_REG_CODE</comment>
+            </column>
+        </property>
+        <property name="polPolicyTerm" type="java.lang.Integer">
+            <column name="POL_POLICY_TERM" precision="5" scale="0">
+                <comment>POL_POLICY_TERM</comment>
+            </column>
+        </property>
+        <property name="polRefPolicyId" type="java.lang.Long">
+            <column name="POL_REF_POLICY_ID" precision="16" scale="0">
+                <comment>POL_REF_POLICY_ID</comment>
+            </column>
+        </property>
+        <property name="polAccexecCode" type="java.lang.Integer">
+            <column name="POL_ACCEXEC_CODE" precision="5" scale="0">
+                <comment>POL_ACCEXEC_CODE</comment>
+            </column>
+        </property>
+        <property name="polInsuredId" type="java.lang.Long">
+            <column name="POL_INSURED_ID" precision="16" scale="0">
+                <comment>POL_INSURED_ID</comment>
+            </column>
+        </property>
+        <property name="polQuotationNo" type="java.lang.Long">
+            <column name="POL_QUOTATION_NO" precision="16" scale="0">
+                <comment>POL_QUOTATION_NO</comment>
+            </column>
+        </property>
+        <property name="polQuotationDate" type="date">
+            <column name="POL_QUOTATION_DATE" length="7">
+                <comment>POL_QUOTATION_DATE</comment>
+            </column>
+        </property>
+        <property name="polBrCode" type="java.lang.Short">
+            <column name="POL_BR_CODE" precision="4" scale="0">
+                <comment>POL_BR_CODE</comment>
+            </column>
+        </property>
+        <property name="polDctCode" type="java.lang.Byte">
+            <column name="POL_DCT_CODE" precision="2" scale="0">
+                <comment>POL_DCT_CODE</comment>
+            </column>
+        </property>
+        <property name="polPreparedBy" type="java.lang.Integer">
+            <column name="POL_PREPARED_BY" precision="8" scale="0">
+                <comment>POL_PREPARED_BY</comment>
+            </column>
+        </property>
+        <property name="polPreparedDt" type="java.sql.Timestamp">
+            <column name="POL_PREPARED_DT" length="7">
+                <comment>POL_PREPARED_DT</comment>
+            </column>
+        </property>
+        <property name="polModifiedBy" type="java.lang.Integer">
+            <column name="POL_MODIFIED_BY" precision="8" scale="0">
+                <comment>POL_MODIFIED_BY</comment>
+            </column>
+        </property>
+        <property name="polModifiedDt" type="java.sql.Timestamp">
+            <column name="POL_MODIFIED_DT" length="7">
+                <comment>POL_MODIFIED_DT</comment>
+            </column>
+        </property>
+        <property name="polPostedDate" type="date">
+            <column name="POL_POSTED_DATE" length="7" />
+        </property>
+        <property name="polRefreshDate" type="date">
+            <column name="POL_REFRESH_DATE" length="7" />
+        </property>
+        <property name="polConcPolicyNo" type="string">
+            <column name="POL_CONC_POLICY_NO" length="30" />
+        </property>
+        <property name="polSocCode" type="java.lang.Short">
+            <column name="POL_SOC_CODE" precision="3" scale="0" />
+        </property>
+        <property name="polTarCode" type="java.lang.Short">
+            <column name="POL_TAR_CODE" precision="3" scale="0" />
+        </property>
+        <property name="polRenTermTxt" type="string">
+            <column name="POL_REN_TERM_TXT" length="4000" />
+        </property>
+        <property name="polOtherInsurerCode" type="java.lang.Integer">
+            <column name="POL_OTHER_INSURER_CODE" precision="8" scale="0" />
+        </property>
+        <property name="polBusinessType" type="java.lang.Short">
+            <column name="POL_BUSINESS_TYPE" precision="3" scale="0" />
+        </property>
+        <property name="polApprovalDate" type="java.sql.Timestamp">
+            <column name="POL_APPROVAL_DATE" length="7" />
+        </property>
+        <property name="polSuspendTransaction" type="string">
+            <column name="POL_SUSPEND_TRANSACTION" length="1" />
+        </property>
+        <property name="polInsuredCode" type="java.lang.Long">
+            <column name="POL_INSURED_CODE" precision="16" scale="0" />
+        </property>
+        <property name="polDistributionChnl" type="java.lang.Integer">
+            <column name="POL_DISTRIBUTION_CHNL" precision="5" scale="0" />
+        </property>
+        <property name="polRenewalCount" type="java.lang.Short">
+            <column name="POL_RENEWAL_COUNT" precision="4" scale="0" />
+        </property>
+        <property name="polNajExpDate" type="date">
+            <column name="POL_NAJ_EXP_DATE" length="7">
+                <comment>'Najmnet Exported Date'</comment>
+            </column>
+        </property>
+        <property name="polReasonCode" type="java.lang.Short">
+            <column name="POL_REASON_CODE" precision="3" scale="0" />
+        </property>
+        <property name="polApprovedInd" type="string">
+            <column name="POL_APPROVED_IND" length="1" />
+        </property>
+        <property name="polLinkingId" type="java.lang.Long">
+            <column name="POL_LINKING_ID" precision="16" scale="0">
+                <comment>'Policy Linking ID for Package policy'</comment>
+            </column>
+        </property>
+        <property name="polRenClmCount" type="java.lang.Long">
+            <column name="POL_REN_CLM_COUNT" precision="16" scale="0" />
+        </property>
+        <property name="polSbsInd" type="java.lang.Boolean">
+            <column name="POL_SBS_IND" precision="1" scale="0">
+                <comment>'SBS FLAG'</comment>
+            </column>
+        </property>
+        <property name="polProcLocCode" type="java.lang.Integer">
+            <column name="POL_PROC_LOC_CODE" precision="5" scale="0" />
+        </property>
+        <property name="polPepCode" type="java.lang.Short">
+            <column name="POL_PEP_CODE" precision="4" scale="0">
+                <comment>Column used for PEP Handling</comment>
+            </column>
+        </property>
+        <property name="polPymntDueDate" type="date">
+            <column name="POL_PYMNT_DUE_DATE" length="7">
+                <comment>Column used for Debtors Handling</comment>
+            </column>
+        </property>
+        <property name="polPpwDate" type="date">
+            <column name="POL_PPW_DATE" length="7">
+                <comment>Column used for Debtors Handling</comment>
+            </column>
+        </property>
+        <property name="polFgnCurrPrm" type="big_decimal">
+            <column name="POL_FGN_CURR_PRM" precision="16" scale="3" />
+        </property>
+        <property name="polAutoCession" type="java.lang.Character">
+            <column name="POL_AUTO_CESSION" length="1">
+                <comment>'Auto cede option for Marine policy'</comment>
+            </column>
+        </property>
+        <property name="polPromoCode" type="string">
+            <column name="POL_PROMO_CODE" length="20" />
+        </property>
+        <property name="polVatTax" type="big_decimal">
+            <column name="POL_VAT_AMOUNT" precision="16" scale="2" >
+                <comment>For Vat amount </comment>
+            </column>
+        </property>  
+       <property name="polVatTaxPerc" type="big_decimal">
+            <column name="POL_VAT_RATE" precision="16" scale="2" >
+                <comment>For Vat Percent </comment>
+            </column>
+        </property>
+        <property name="polVatRegNo" type="string">
+            <column name="POL_VAT_REGN_NO" length="50" />
+        </property>
+        <property name="polvatCode" type="java.lang.Integer">
+            <column name="POL_VAT_CODE" precision="2" scale="0">
+                <comment>POL_VAT_CODE</comment>
+            </column>
+        </property>
+        
+        <property name="polVattableAmt" type="big_decimal">
+            <column name="POL_VATABLE_PRM" precision="16" scale="2" >
+                <comment>For Vat Amount </comment>
+            </column>
+        </property>
+        <!-- CTS - 29.09.2020 - JLT Renewals UAT Change - JLT Renewal Terms Flag - Starts-->
+        <property name="polRenewalBasis" type="java.lang.Integer">
+            <column name="POL_RENEWAL_BASIS" length = "2" >
+                <comment>POL_RENEWAL_BASIS </comment>
+            </column>
+        </property>
+        <!-- CTS - 29.09.2020 - JLT Renewals UAT Change - JLT Renewal Terms Flag - Ends-->
+        
+    </class>
+</hibernate-mapping>

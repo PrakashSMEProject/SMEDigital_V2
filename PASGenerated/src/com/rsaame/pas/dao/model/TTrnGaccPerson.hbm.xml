@@ -1,0 +1,220 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Jun 26, 2012 2:50:48 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.rsaame.pas.dao.model.TTrnGaccPersonQuo" table="T_TRN_GACC_PERSON">
+        <composite-id name="id" class="com.rsaame.pas.dao.model.TTrnGaccPersonQuoId">
+            <key-property name="gprId" type="long">
+                <column name="GPR_ID" precision="16" scale="0" />
+            </key-property>
+            <key-property name="gprValidityStartDate" type="java.sql.Timestamp">
+                <column name="GPR_VALIDITY_START_DATE" length="7" />
+            </key-property>
+        </composite-id>
+        <property name="gprPolicyId" type="java.lang.Long">
+            <column name="GPR_POLICY_ID" precision="16" scale="0">
+                <comment>GPR_POLICY_ID</comment>
+            </column>
+        </property>
+        <property name="gprBasicRiskId" type="java.lang.Long">
+            <column name="GPR_BASIC_RISK_ID" precision="16" scale="0">
+                <comment>GPR_BASIC_RISK_ID</comment>
+            </column>
+        </property>
+        <property name="gprRskCode" type="java.lang.Long">
+            <column name="GPR_RSK_CODE" precision="16" scale="0">
+                <comment>GPR_RSK_CODE</comment>
+            </column>
+        </property>
+        <property name="gprRtCode" type="java.lang.Long">
+            <column name="GPR_RT_CODE" precision="16" scale="0">
+                <comment>GPR_RT_CODE</comment>
+            </column>
+        </property>
+        <property name="gprRcCode" type="java.lang.Long">
+            <column name="GPR_RC_CODE" precision="16" scale="0">
+                <comment>GPR_RC_CODE</comment>
+            </column>
+        </property>
+        <property name="gprAName" type="string">
+            <column name="GPR_A_NAME" length="60">
+                <comment>GPR_A_NAME</comment>
+            </column>
+        </property>
+        <property name="gprEName" type="string">
+            <column name="GPR_E_NAME" length="60">
+                <comment>GPR_E_NAME</comment>
+            </column>
+        </property>
+        <property name="gprAAddress1" type="string">
+            <column name="GPR_A_ADDRESS1" length="40">
+                <comment>GPR_A_ADDRESS1</comment>
+            </column>
+        </property>
+        <property name="gprEAddress1" type="string">
+            <column name="GPR_E_ADDRESS1" length="120">
+                <comment>GPR_E_ADDRESS1</comment>
+            </column>
+        </property>
+        <property name="gprAAddress2" type="string">
+            <column name="GPR_A_ADDRESS2" length="40">
+                <comment>GPR_A_ADDRESS2</comment>
+            </column>
+        </property>
+        <property name="gprEAddress2" type="string">
+            <column name="GPR_E_ADDRESS2" length="40">
+                <comment>GPR_E_ADDRESS2</comment>
+            </column>
+        </property>
+        <property name="gprAAddress3" type="string">
+            <column name="GPR_A_ADDRESS3" length="40">
+                <comment>GPR_A_ADDRESS3</comment>
+            </column>
+        </property>
+        <property name="gprEAddress3" type="string">
+            <column name="GPR_E_ADDRESS3" length="40">
+                <comment>GPR_E_ADDRESS3</comment>
+            </column>
+        </property>
+        <property name="gprZip" type="string">
+            <column name="GPR_ZIP" length="10">
+                <comment>GPR_ZIP</comment>
+            </column>
+        </property>
+        <property name="gprTelephone" type="java.lang.Long">
+            <column name="GPR_TELEPHONE" precision="16" scale="0">
+                <comment>GPR_TELEPHONE</comment>
+            </column>
+        </property>
+        <property name="gprFax" type="java.lang.Long">
+            <column name="GPR_FAX" precision="16" scale="0">
+                <comment>GPR_FAX</comment>
+            </column>
+        </property>
+        <property name="gprGsm" type="java.lang.Long">
+            <column name="GPR_GSM" precision="16" scale="0">
+                <comment>GPR_GSM</comment>
+            </column>
+        </property>
+        <property name="gprEmail" type="string">
+            <column name="GPR_EMAIL" length="30">
+                <comment>GPR_EMAIL</comment>
+            </column>
+        </property>
+        <property name="gprAge" type="java.lang.Short">
+            <column name="GPR_AGE" precision="3" scale="0">
+                <comment>GPR_AGE</comment>
+            </column>
+        </property>
+        <property name="gprOcCode" type="java.lang.Short">
+            <column name="GPR_OC_CODE" precision="4" scale="0">
+                <comment>GPR_OC_CODE</comment>
+            </column>
+        </property>
+        <property name="gprSumInsured" type="big_decimal">
+            <column name="GPR_SUM_INSURED" precision="16" scale="3">
+                <comment>GPR_SUM_INSURED</comment>
+            </column>
+        </property>
+        <property name="gprStatus" type="java.lang.Byte">
+            <column name="GPR_STATUS" precision="16" scale="3">
+                <comment>GPR_STATUS</comment>
+            </column>
+        </property>
+        <property name="gprValidityExpiryDate" type="java.sql.Timestamp">
+            <column name="GPR_VALIDITY_EXPIRY_DATE" length="7" not-null="true">
+                <comment>GPR_VALIDITY_EXPIRY_DATE</comment>
+            </column>
+        </property>
+        <property name="gprEndtId" type="java.lang.Long">
+            <column name="GPR_ENDT_ID" precision="16" scale="0">
+                <comment>GPR_ENDT_ID</comment>
+            </column>
+        </property>
+        <property name="gprRiRskCode" type="java.lang.Integer">
+            <column name="GPR_RI_RSK_CODE" precision="5" scale="0">
+                <comment>GPR_RI_RSK_CODE</comment>
+            </column>
+        </property>
+        <property name="gprBasicRskCode" type="java.lang.Integer">
+            <column name="GPR_BASIC_RSK_CODE" precision="5" scale="0">
+                <comment>GPR_BASIC_RSK_CODE</comment>
+            </column>
+        </property>
+        <property name="gprGender" type="java.lang.Character">
+            <column name="GPR_GENDER" length="1">
+                <comment>GPR_GENDER</comment>
+            </column>
+        </property>
+        <property name="gprRelation" type="java.lang.Byte">
+            <column name="GPR_RELATION" precision="2" scale="0">
+                <comment>GPR_RELATION</comment>
+            </column>
+        </property>
+        <property name="gprRetroactiveDate" type="date">
+            <column name="GPR_RETROACTIVE_DATE" length="7">
+                <comment>GPR_RETROACTIVE_DATE</comment>
+            </column>
+        </property>
+        <property name="gprSalary" type="big_decimal">
+            <column name="GPR_SALARY" precision="16" scale="3">
+                <comment>GPR_SALARY</comment>
+            </column>
+        </property>
+        <property name="gprPreparedBy" type="java.lang.Integer">
+            <column name="GPR_PREPARED_BY" precision="8" scale="0">
+                <comment>GPR_PREPARED_BY</comment>
+            </column>
+        </property>
+        <property name="gprPreparedDt" type="java.sql.Timestamp">
+            <column name="GPR_PREPARED_DT" length="7">
+                <comment>GPR_PREPARED_DT</comment>
+            </column>
+        </property>
+        <property name="gprModifiedBy" type="java.lang.Integer">
+            <column name="GPR_MODIFIED_BY" precision="8" scale="0">
+                <comment>GPR_MODIFIED_BY</comment>
+            </column>
+        </property>
+        <property name="gprModifiedDt" type="java.sql.Timestamp">
+            <column name="GPR_MODIFIED_DT" length="7">
+                <comment>GPR_MODIFIED_DT</comment>
+            </column>
+        </property>
+        <property name="gprStartDate" type="date">
+            <column name="GPR_START_DATE" length="7" />
+        </property>
+        <property name="gprEndDate" type="date">
+            <column name="GPR_END_DATE" length="7" />
+        </property>
+        <property name="gprDateOfBirth" type="date">
+            <column name="GPR_DATE_OF_BIRTH" length="7" />
+        </property>
+        <property name="gprDescription" type="string">
+            <column name="GPR_DESCRIPTION" length="200" />
+        </property>
+        <property name="gprPersonId" type="string">
+            <column name="GPR_PERSON_ID" length="50" />
+        </property>
+        <property name="gprDateOfJoining" type="date">
+            <column name="GPR_DATE_OF_JOINING" length="7" />
+        </property>
+        <property name="gprBldId" type="java.lang.Long">
+            <column name="GPR_BLD_ID" precision="10" scale="0">
+                <comment>'To store section1 Building ID'</comment>
+            </column>
+        </property>
+        <property name="gprTradeGroup" type="java.lang.Long">
+            <column name="GPR_TRADE_GROUP" precision="16" scale="0" />
+        </property>
+        <property name="gprAgrLmt" type="big_decimal">
+            <column name="GPR_AGR_LMT" precision="16" scale="3" />
+        </property>
+        <property name="gprNtyEDesc" type="java.lang.Short">
+            <column name="GPR_NTY_E_DESC" precision="4" scale="0">
+                <comment>To capture nationality detail</comment>
+            </column>
+        </property>
+    </class>
+</hibernate-mapping>

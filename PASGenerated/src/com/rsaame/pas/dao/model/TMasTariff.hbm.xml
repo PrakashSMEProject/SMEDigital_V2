@@ -1,0 +1,62 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Feb 18, 2012 3:49:05 AM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.rsaame.pas.dao.model.TMasTariff" table="T_MAS_TARIFF">
+        <id name="tarCode" type="short">
+            <column name="TAR_CODE" precision="3" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <property name="tarADesc" type="string">
+            <column name="TAR_A_DESC" length="60" />
+        </property>
+        <property name="tarEDesc" type="string">
+            <column name="TAR_E_DESC" length="60" />
+        </property>
+        <property name="tarPreparedBy" type="java.lang.Integer">
+            <column name="TAR_PREPARED_BY" precision="8" scale="0" />
+        </property>
+        <property name="tarPreparedDt" type="date">
+            <column name="TAR_PREPARED_DT" length="7" />
+        </property>
+        <property name="tarModifiedBy" type="java.lang.Integer">
+            <column name="TAR_MODIFIED_BY" precision="8" scale="0" />
+        </property>
+        <property name="tarModifiedDt" type="date">
+            <column name="TAR_MODIFIED_DT" length="7" />
+        </property>
+        <property name="tarEffectiveDate" type="date">
+            <column name="TAR_EFFECTIVE_DATE" length="7" />
+        </property>
+        <property name="tarExpiryDate" type="date">
+            <column name="TAR_EXPIRY_DATE" length="7" />
+        </property>
+        <property name="tarStatus" type="java.lang.Byte">
+            <column name="TAR_STATUS" precision="2" scale="0" />
+        </property>
+        <property name="tarManualRating" type="java.lang.Boolean">
+            <column name="TAR_MANUAL_RATING" precision="1" scale="0" />
+        </property>
+        <property name="tarLocationCode" type="big_decimal">
+            <column name="TAR_LOCATION_CODE" precision="38" scale="0" />
+        </property>
+        <property name="tarDefaultPolType" type="java.lang.Integer">
+            <column name="TAR_DEFAULT_POL_TYPE" precision="5" scale="0" />
+        </property>
+        <property name="tarConfigInd" type="java.lang.Boolean">
+            <column name="TAR_CONFIG_IND" precision="1" scale="0" />
+        </property>
+        <property name="tarConfigDate" type="date">
+            <column name="TAR_CONFIG_DATE" length="7" />
+        </property>
+        <property name="tarPrePkgFlag" type="string">
+            <column name="TAR_PRE_PKG_FLAG" length="1" />
+        </property>
+    </class>
+    
+    
+    <query name="getTarLocationCode">
+  SELECT tarLocationCode FROM TMasTariff tarrifMaster where tarrifMaster.tarCode =:tarrifCode
+  </query>
+</hibernate-mapping>

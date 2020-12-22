@@ -1,0 +1,13 @@
+<taglib>
+	<tlib-version>1.0</tlib-version>
+	<jsp-version>1.2</jsp-version>
+	<short-name>Underwriter Questions Tag</short-name>
+	<!-- Tag specifies how you are going to reference the tag library from the JSP page -->
+	<uri>http://www.rsa.com/consolidatedReferralMesageTag</uri>
+	<tag>
+		<description>Underwriter question tag is used to fetch questions</description>
+		<name>refTxt</name>
+		<tag-class>com.rsaame.pas.referral.ui.ConsolidatedReferralMessageTagHandler</tag-class>
+			<body-content>empty</body-content>
+	</tag>
+</taglib>

@@ -1,0 +1,76 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated May 17, 2012 10:25:33 AM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.rsaame.pas.dao.model.TMasPolicyWarranty" table="T_MAS_POLICY_WARRANTY">
+        <composite-id name="id" class="com.rsaame.pas.dao.model.TMasPolicyWarrantyId">
+            <key-property name="pwClCode" type="short">
+                <column name="PW_CL_CODE" precision="4" scale="0" />
+            </key-property>
+            <key-property name="pwPtCode" type="short">
+                <column name="PW_PT_CODE" precision="4" scale="0" />
+            </key-property>
+            <key-property name="pwCode" type="short">
+                <column name="PW_CODE" precision="4" scale="0" />
+            </key-property>
+            <key-property name="pwCovCode" type="int">
+                <column name="PW_COV_CODE" precision="5" scale="0" />
+            </key-property>
+            <key-property name="pwSchCode" type="int">
+                <column name="PW_SCH_CODE" precision="5" scale="0" />
+            </key-property>
+        </composite-id>
+        <property name="pwAText" type="string">
+            <column name="PW_A_TEXT" length="2000" />
+        </property>
+        <property name="pwEText" type="string">
+            <column name="PW_E_TEXT" length="2000" />
+        </property>
+        <property name="pwDefaultInd" type="java.lang.Integer">
+            <column name="PW_DEFAULT_IND" precision="1" scale="0" />
+        </property>
+        <property name="pwCtCode" type="java.lang.Integer">
+            <column name="PW_CT_CODE" precision="5" scale="0" />
+        </property>
+        <property name="pwCstCode" type="java.lang.Integer">
+            <column name="PW_CST_CODE" precision="5" scale="0" />
+        </property>
+        <property name="pwUserCode" type="java.lang.Integer">
+            <column name="PW_USER_CODE" precision="5" scale="0" />
+        </property>
+        <property name="pwPhrCode" type="java.lang.Integer">
+            <column name="PW_PHR_CODE" precision="5" scale="0" />
+        </property>
+        <property name="pwAmount" type="string">
+            <column name="PW_AMOUNT" length="2000"  />
+        </property>
+        <property name="pwPreparedBy" type="java.lang.Integer">
+            <column name="PW_PREPARED_BY" precision="8" scale="0" />
+        </property>
+        <property name="pwPreparedDt" type="date">
+            <column name="PW_PREPARED_DT" length="7" />
+        </property>
+        <property name="pwModifiedBy" type="java.lang.Integer">
+            <column name="PW_MODIFIED_BY" precision="8" scale="0" />
+        </property>
+        <property name="pwModifiedDt" type="date">
+            <column name="PW_MODIFIED_DT" length="7" />
+        </property>
+        <property name="pwDocRef" type="string">
+            <column name="PW_DOC_REF" length="200" />
+        </property>
+        <property name="pwDocFlag" type="java.lang.Boolean">
+            <column name="PW_DOC_FLAG" precision="1" scale="0" />
+        </property>
+        <property name="pwEffectiveDate" type="date">
+            <column name="PW_EFFECTIVE_DATE" length="7" />
+        </property>
+        <property name="pwExpiryDate" type="date">
+            <column name="PW_EXPIRY_DATE" length="7" />
+        </property>
+        <property name="pwOldCode" type="int">
+            <column name="PW_OLD_CODE" precision="5" scale="0" />
+        </property>
+    </class>
+</hibernate-mapping>

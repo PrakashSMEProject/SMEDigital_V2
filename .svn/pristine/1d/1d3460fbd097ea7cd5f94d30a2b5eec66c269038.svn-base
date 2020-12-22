@@ -1,0 +1,64 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Feb 3, 2012 8:32:48 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.rsaame.pas.dao.model.TMasCommisionType" table="T_MAS_COMMISION_TYPE">
+        <composite-id name="id" class="com.rsaame.pas.dao.model.TMasCommisionTypeId">
+            <key-property name="comCode" type="int">
+                <column name="COM_CODE" precision="5" scale="0" />
+            </key-property>
+            <key-property name="comClCode" type="int">
+                <column name="COM_CL_CODE" precision="5" scale="0" />
+            </key-property>
+        </composite-id>
+        <property name="comADesc" type="string">
+            <column name="COM_A_DESC" length="100" not-null="true" />
+        </property>
+        <property name="comEDesc" type="string">
+            <column name="COM_E_DESC" length="100" not-null="true" />
+        </property>
+        <property name="comPerc" type="big_decimal">
+            <column name="COM_PERC" precision="8" scale="5" not-null="true" />
+        </property>
+        <property name="comPtCode" type="java.lang.Integer">
+            <column name="COM_PT_CODE" precision="5" scale="0" />
+        </property>
+        <property name="comPreparedBy" type="java.lang.Integer">
+            <column name="COM_PREPARED_BY" precision="8" scale="0" />
+        </property>
+        <property name="comPreparedDt" type="date">
+            <column name="COM_PREPARED_DT" length="7" />
+        </property>
+        <property name="comModifiedBy" type="java.lang.Integer">
+            <column name="COM_MODIFIED_BY" precision="8" scale="0" />
+        </property>
+        <property name="comModifiedDt" type="date">
+            <column name="COM_MODIFIED_DT" length="7" />
+        </property>
+        <property name="comInterType" type="java.lang.Byte">
+            <column name="COM_INTER_TYPE" precision="2" scale="0" />
+        </property>
+        <property name="comInterCode" type="java.lang.Integer">
+            <column name="COM_INTER_CODE" precision="8" scale="0" />
+        </property>
+        <property name="comType" type="java.lang.Short">
+            <column name="COM_TYPE" precision="3" scale="0" />
+        </property>
+        <property name="comEffDate" type="date">
+            <column name="COM_EFF_DATE" length="7" />
+        </property>
+        <property name="comExpDate" type="date">
+            <column name="COM_EXP_DATE" length="7" />
+        </property>
+        <property name="comScheme" type="java.lang.Integer">
+            <column name="COM_SCHEME" precision="5" scale="0" />
+        </property>
+        <property name="comDocument" type="java.lang.Integer">
+            <column name="COM_DOCUMENT" precision="5" scale="0" />
+        </property>
+        <property name="comChannelName" type="string">
+            <column name="COM_CHANNEL_NAME" length="15" />
+        </property>
+    </class>
+</hibernate-mapping>

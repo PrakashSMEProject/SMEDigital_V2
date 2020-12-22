@@ -1,0 +1,259 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 28, 2012 10:51:09 AM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.rsaame.pas.dao.model.TTrnVehicleQuo" table="T_TRN_VEHICLE_QUO">
+        <composite-id name="id" class="com.rsaame.pas.dao.model.TTrnVehicleQuoId">
+            <key-property name="vehId" type="long">
+                <column name="VEH_ID" precision="10" scale="0" />
+            </key-property>
+            <key-property name="vehValidityStartDate" type="date">
+                <column name="VEH_VALIDITY_START_DATE" length="7" />
+            </key-property>
+        </composite-id>
+        <property name="vehRskCode" type="java.lang.Integer">
+            <column name="VEH_RSK_CODE" precision="5" scale="0">
+                <comment>VEH_RSK_CODE</comment>
+            </column>
+        </property>
+        <property name="vehTypeCode" type="java.lang.Short">
+            <column name="VEH_TYPE_CODE" precision="4" scale="0">
+                <comment>VEH_TYPE_CODE</comment>
+            </column>
+        </property>
+        <property name="vehClassCode" type="java.lang.Short">
+            <column name="VEH_CLASS_CODE" precision="4" scale="0">
+                <comment>VEH_CLASS_CODE</comment>
+            </column>
+        </property>
+        <property name="vehMakeCode" type="java.lang.Short">
+            <column name="VEH_MAKE_CODE" precision="4" scale="0">
+                <comment>VEH_MAKE_CODE</comment>
+            </column>
+        </property>
+        <property name="vehModelCode" type="java.lang.Short">
+            <column name="VEH_MODEL_CODE" precision="4" scale="0">
+                <comment>VEH_MODEL_CODE</comment>
+            </column>
+        </property>
+        <property name="vehYearOfMan" type="date">
+            <column name="VEH_YEAR_OF_MAN" length="7">
+                <comment>VEH_YEAR_OF_MAN</comment>
+            </column>
+        </property>
+        <property name="vehNoOfCyl" type="java.lang.Short">
+            <column name="VEH_NO_OF_CYL" precision="3" scale="0">
+                <comment>VEH_NO_OF_CYL</comment>
+            </column>
+        </property>
+        <property name="vehDateOfRegn" type="date">
+            <column name="VEH_DATE_OF_REGN" length="7">
+                <comment>VEH_DATE_OF_REGN</comment>
+            </column>
+        </property>
+        <property name="vehEngineNo" type="string">
+            <column name="VEH_ENGINE_NO" length="20">
+                <comment>VEH_ENGINE_NO</comment>
+            </column>
+        </property>
+        <property name="vehChassisNo" type="string">
+            <column name="VEH_CHASSIS_NO" length="30">
+                <comment>VEH_CHASSIS_NO</comment>
+            </column>
+        </property>
+        <property name="vehRegnNoText" type="string">
+            <column name="VEH_REGN_NO_TEXT" length="10">
+                <comment>VEH_REGN_NO_TEXT</comment>
+            </column>
+        </property>
+        <property name="vehRegnNoNumber" type="java.lang.Long">
+            <column name="VEH_REGN_NO_NUMBER" precision="10" scale="0">
+                <comment>VEH_REGN_NO_NUMBER</comment>
+            </column>
+        </property>
+        <property name="vehColor" type="java.lang.Integer">
+            <column name="VEH_COLOR" precision="5" scale="0">
+                <comment>VEH_COLOR</comment>
+            </column>
+        </property>
+        <property name="vehTonnage" type="java.lang.Integer">
+            <column name="VEH_TONNAGE" precision="5" scale="0">
+                <comment>VEH_TONNAGE</comment>
+            </column>
+        </property>
+        <property name="vehCc" type="java.lang.Integer">
+            <column name="VEH_CC" precision="5" scale="0">
+                <comment>VEH_CC</comment>
+            </column>
+        </property>
+        <property name="vehSeats" type="java.lang.Short">
+            <column name="VEH_SEATS" precision="4" scale="0">
+                <comment>VEH_SEATS</comment>
+            </column>
+        </property>
+        <property name="vehStartDate" type="date">
+            <column name="VEH_START_DATE" length="7">
+                <comment>VEH_START_DATE</comment>
+            </column>
+        </property>
+        <property name="vehEndDate" type="date">
+            <column name="VEH_END_DATE" length="7">
+                <comment>VEH_END_DATE</comment>
+            </column>
+        </property>
+        <property name="vehNcbYears" type="java.lang.Byte">
+            <column name="VEH_NCB_YEARS" precision="2" scale="0">
+                <comment>VEH_NCB_YEARS</comment>
+            </column>
+        </property>
+        <property name="vehNcbRefNo" type="string">
+            <column name="VEH_NCB_REF_NO" length="20">
+                <comment>VEH_NCB_REF_NO</comment>
+            </column>
+        </property>
+        <property name="vehNcbOldPolicyNo" type="string">
+            <column name="VEH_NCB_OLD_POLICY_NO" length="60">
+                <comment>VEH_NCB_OLD_POLICY_NO</comment>
+            </column>
+        </property>
+        <property name="vehNcbOldCompany" type="java.lang.Integer">
+            <column name="VEH_NCB_OLD_COMPANY" precision="8" scale="0">
+                <comment>VEH_NCB_OLD_COMPANY</comment>
+            </column>
+        </property>
+        <property name="vehVpCode" type="java.lang.Short">
+            <column name="VEH_VP_CODE" precision="3" scale="0">
+                <comment>VEH_VP_CODE</comment>
+            </column>
+        </property>
+        <property name="vehStatus" type="java.lang.Byte">
+            <column name="VEH_STATUS" precision="2" scale="0">
+                <comment>VEH_STATUS</comment>
+            </column>
+        </property>
+        <property name="vehValidityExpiryDate" type="date">
+            <column name="VEH_VALIDITY_EXPIRY_DATE" length="7" not-null="true">
+                <comment>VEH_VALIDITY_EXPIRY_DATE</comment>
+            </column>
+        </property>
+        <property name="vehOriginalCost" type="big_decimal">
+            <column name="VEH_ORIGINAL_COST" precision="16" scale="3">
+                <comment>VEH_ORIGINAL_COST</comment>
+            </column>
+        </property>
+        <property name="vehEndtId" type="big_decimal">
+            <column name="VEH_ENDT_ID" precision="16" scale="3">
+                <comment>VEH_ENDT_ID</comment>
+            </column>
+        </property>
+        <property name="vehRiRskCode" type="java.lang.Integer">
+            <column name="VEH_RI_RSK_CODE" precision="5" scale="0">
+                <comment>VEH_RI_RSK_CODE</comment>
+            </column>
+        </property>
+        <property name="vehPolicyId" type="java.lang.Long">
+            <column name="VEH_POLICY_ID" precision="16" scale="0">
+                <comment>VEH_POLICY_ID</comment>
+            </column>
+        </property>
+        <property name="vehIev" type="big_decimal">
+            <column name="VEH_IEV" precision="16" scale="3">
+                <comment>VEH_IEV</comment>
+            </column>
+        </property>
+        <property name="vehPreparedBy" type="java.lang.Integer">
+            <column name="VEH_PREPARED_BY" precision="8" scale="0">
+                <comment>VEH_PREPARED_BY</comment>
+            </column>
+        </property>
+        <property name="vehPreparedDt" type="date">
+            <column name="VEH_PREPARED_DT" length="7">
+                <comment>VEH_PREPARED_DT</comment>
+            </column>
+        </property>
+        <property name="vehModifiedBy" type="java.lang.Integer">
+            <column name="VEH_MODIFIED_BY" precision="8" scale="0">
+                <comment>VEH_MODIFIED_BY</comment>
+            </column>
+        </property>
+        <property name="vehModifiedDt" type="date">
+            <column name="VEH_MODIFIED_DT" length="7">
+                <comment>VEH_MODIFIED_DT</comment>
+            </column>
+        </property>
+        <property name="vehSubCategory" type="java.lang.Integer">
+            <column name="VEH_SUB_CATEGORY" precision="5" scale="0" />
+        </property>
+        <property name="vehBodyType" type="java.lang.Short">
+            <column name="VEH_BODY_TYPE" precision="3" scale="0" />
+        </property>
+        <property name="vehModelEDesc" type="string">
+            <column name="VEH_MODEL_E_DESC" length="200" />
+        </property>
+        <property name="vehModelADesc" type="string">
+            <column name="VEH_MODEL_A_DESC" length="200" />
+        </property>
+        <property name="vehHpEDesc" type="string">
+            <column name="VEH_HP_E_DESC" length="200" />
+        </property>
+        <property name="vehHpADesc" type="string">
+            <column name="VEH_HP_A_DESC" length="200" />
+        </property>
+        <property name="vehHpDate" type="date">
+            <column name="VEH_HP_DATE" length="7" />
+        </property>
+        <property name="vehHpAmount" type="big_decimal">
+            <column name="VEH_HP_AMOUNT" precision="16" scale="3" />
+        </property>
+        <property name="vehCertNo" type="string">
+            <column name="VEH_CERT_NO" length="50" />
+        </property>
+        <property name="vehCertStartDate" type="date">
+            <column name="VEH_CERT_START_DATE" length="7" />
+        </property>
+        <property name="vehCertEndDate" type="date">
+            <column name="VEH_CERT_END_DATE" length="7" />
+        </property>
+        <property name="vehUseCode" type="java.lang.Short">
+            <column name="VEH_USE_CODE" precision="3" scale="0" />
+        </property>
+        <property name="vehHpCode" type="java.lang.Integer">
+            <column name="VEH_HP_CODE" precision="8" scale="0" />
+        </property>
+        <property name="vehPa" type="java.lang.Short">
+            <column name="VEH_PA" precision="4" scale="0" />
+        </property>
+        <property name="vehPl" type="java.lang.Short">
+            <column name="VEH_PL" precision="4" scale="0" />
+        </property>
+        <property name="vehCustomId" type="java.lang.Long">
+            <column name="VEH_CUSTOM_ID" precision="12" scale="0" />
+        </property>
+        <property name="vehRegnTextNew" type="string">
+            <column name="VEH_REGN_TEXT_NEW" length="10" />
+        </property>
+        <property name="vehRedbookKey" type="string">
+            <column name="VEH_REDBOOK_KEY" length="8" />
+        </property>
+        <property name="vehRedbookDesc" type="string">
+            <column name="VEH_REDBOOK_DESC" length="100" />
+        </property>
+        <property name="vehBadgeDesc" type="string">
+            <column name="VEH_BADGE_DESC" length="100" />
+        </property>
+        <property name="vehBldId" type="java.lang.Long">
+            <column name="VEH_BLD_ID" precision="10" scale="0">
+                <comment>'To store section1 Building ID'</comment>
+            </column>
+        </property>
+        <property name="vehMovFrmInsurr" type="java.lang.Boolean">
+            <column name="VEH_MOV_FRM_INSURR" precision="1" scale="0">
+                <comment>Flag to indicate if vehicle is moved from another insurer</comment>
+            </column>
+        </property>
+        <property name="vehSeqNo" type="java.lang.Integer">
+            <column name="VEH_SEQ_NO" precision="9" scale="0" />
+        </property>
+    </class>
+</hibernate-mapping>

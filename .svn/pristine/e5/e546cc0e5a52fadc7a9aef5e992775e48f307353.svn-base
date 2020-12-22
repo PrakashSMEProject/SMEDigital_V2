@@ -1,0 +1,72 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Mar 14, 2012 3:21:54 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.rsaame.pas.dao.model.TMasUser" table="T_MAS_USER">
+        <id name="userId" type="int">
+            <column name="USER_ID" precision="8" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <property name="loginId" type="string">
+            <column name="LOGIN_ID" length="30" unique="true" />
+        </property>
+        <property name="country" type="java.lang.Short">
+            <column name="COUNTRY" precision="4" scale="0" />
+        </property>
+        <property name="branch" type="java.lang.Integer">
+            <column name="BRANCH" precision="8" scale="0" />
+        </property>
+        <property name="profile" type="string">
+            <column name="PROFILE" length="20" />
+        </property>
+        <property name="userEName" type="string">
+            <column name="USER_E_NAME" length="60" />
+        </property>
+        <property name="userAName" type="string">
+            <column name="USER_A_NAME" length="60" />
+        </property>
+        <property name="employeeId" type="java.lang.Integer">
+            <column name="EMPLOYEE_ID" precision="8" scale="0" />
+        </property>
+        <property name="brokerId" type="java.lang.Short">
+            <column name="BROKER_ID" precision="4" scale="0" />
+        </property>
+        <property name="agentId" type="java.lang.Long">
+            <column name="AGENT_ID" precision="12" scale="0" />
+        </property>
+        <property name="defaultModule" type="java.lang.Byte">
+            <column name="DEFAULT_MODULE" precision="2" scale="0" />
+        </property>
+        <property name="defaultApprover" type="java.lang.Integer">
+            <column name="DEFAULT_APPROVER" precision="8" scale="0" />
+        </property>
+        <property name="password" type="string">
+            <column name="PASSWORD" length="50" />
+        </property>
+        <property name="loginAttempts" type="java.lang.Boolean">
+            <column name="LOGIN_ATTEMPTS" precision="1" scale="0" />
+        </property>
+        <property name="userEmailId" type="string">
+            <column name="USER_EMAIL_ID" length="50" />
+        </property>
+        <property name="userMobNo" type="string">
+            <column name="USER_MOB_NO" length="16" />
+        </property>
+        <property name="statusId" type="java.lang.Byte">
+            <column name="STATUS_ID" precision="2" scale="0" />
+        </property>
+        <property name="passwordModifiedDt" type="date">
+            <column name="PASSWORD_MODIFIED_DT" length="7" />
+        </property>
+        <property name="defDistributionChnl" type="java.lang.Integer">
+            <column name="DEF_DISTRIBUTION_CHNL" precision="5" scale="0" />
+        </property>
+        <property name="usrFgnRoundMin" type="java.lang.Short">
+            <column name="USR_FGN_ROUND_MIN" precision="3" scale="0" />
+        </property>
+        <property name="usrFgnRoundMax" type="java.lang.Short">
+            <column name="USR_FGN_ROUND_MAX" precision="3" scale="0" />
+        </property>
+    </class>
+</hibernate-mapping>

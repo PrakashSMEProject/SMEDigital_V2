@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Feb 10, 2012 5:52:40 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.rsaame.pas.dao.model.VParBldDeductibles" table="V_PAR_BLD_DEDUCTIBLES">
+        <composite-id name="id" class="com.rsaame.pas.dao.model.VParBldDeductiblesId">
+            <key-property name="compulsoryExcess" type="big_decimal">
+                <column name="COMPULSORY_EXCESS" precision="8" scale="3" />
+            </key-property>
+            <key-property name="rtCode" type="int">
+                <column name="RT_CODE" precision="5" scale="0" />
+            </key-property>
+        </composite-id>
+    </class>
+</hibernate-mapping>

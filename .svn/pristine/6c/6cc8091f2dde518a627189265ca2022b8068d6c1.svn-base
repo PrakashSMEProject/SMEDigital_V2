@@ -1,0 +1,53 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>ITS</groupId>
+	<artifactId>ITS-004404</artifactId>
+	<version>1.0</version>
+	<packaging>pom</packaging>
+	<modules>	
+		<module>PASCommon</module>
+		<module>PASVO</module>
+		<module>PASGenerated</module>
+		<module>PASServices</module>
+		<module>PASKaizenOverrides</module>
+		<module>PASWrappers</module>
+		<module>PAS</module>
+		<module>PASB2C</module>
+		<module>ePlatformEar</module>
+	</modules>
+	<build>
+		<resources>
+			<resource>
+				<directory>src</directory>
+			
+			</resource>
+		</resources>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-ear-plugin</artifactId>
+				<version>2.4</version>
+				<configuration>
+					<webResources>
+						<resource>
+							<directory>WebContent</directory>
+						</resource>
+					</webResources>
+				</configuration>
+			</plugin>
+			<plugin>
+			<groupId>org.codehaus.mojo</groupId>
+			<artifactId>sonar-maven-plugin</artifactId>
+			<version>2.3</version>
+				<configuration>
+					<toolVersion>4.0</toolVersion>
+					<buildConfigurations>Release,Debug</buildConfigurations>
+					<rebuild>true</rebuild>
+				</configuration>
+			</plugin>
+		</plugins>
+		<sourceDirectory>src</sourceDirectory>
+		<outputDirectory>target\classes</outputDirectory>
+	</build>
+</project>

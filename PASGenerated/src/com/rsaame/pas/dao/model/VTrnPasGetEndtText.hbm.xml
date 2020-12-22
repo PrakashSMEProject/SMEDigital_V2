@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Apr 18, 2012 3:51:05 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.rsaame.pas.dao.model.VTrnPasGetEndtText" table="V_TRN_PAS_GET_ENDT_TEXT">
+        <composite-id name="id" class="com.rsaame.pas.dao.model.VTrnPasGetEndtTextId">
+            <key-property name="policyId" type="java.lang.Long">
+                <column name="EDL_POLICY_ID" precision="16" scale="0" />
+            </key-property>
+            <key-property name="polEndtId" type="java.lang.Long">
+                <column name="EDL_ENDORSEMENT_ID" precision="16" scale="0" />
+            </key-property>
+            <key-property name="polLinkingId" type="java.lang.Long">
+                <column name="POL_LINKING_ID" precision="16" scale="0" />
+            </key-property>
+            <key-property name="polEndtNo" type="java.lang.Long">
+                <column name="POL_ENDT_NO" precision="16" scale="0" />
+            </key-property>
+            
+            <key-property name="edlSerialNo" type="java.lang.Long">
+                <column name="EDL_SERIAL_NO" precision="5" scale="0" />
+            </key-property>
+            <key-property name="endtPreparedDt" type="java.sql.Timestamp">
+                <column name="EDL_PREPARED_DT" length="7" />
+            </key-property> 
+            
+        </composite-id>
+         <property name="endtText" type="string">
+                <column name="EDL_TEXT" length="2000" />
+            </property>
+            <property name="endtPreparedBy" type="java.lang.Integer">
+                <column name="EDL_PREPARED_BY" precision="8" scale="0"/>
+            </property>
+       <!-- <property name="endtPreparedDt" type="java.sql.Timestamp">
+                <column name="EDL_PREPARED_DT" length="7" />
+            </property>  -->
+            <property name="endtModifiedBy" type="java.lang.Integer">
+                <column name="EDL_MODIFIED_BY" precision="8" scale="0"/>
+            </property>
+            <property name="endtModifiedDt" type="java.sql.Timestamp">
+                <column name="EDL_MODIFIED_DT" length="7" />
+            </property>
+                        
+            <property name="edlSecId" type="java.lang.Integer">
+                <column name="EDL_SEC_ID" precision="5" scale="0" />
+            </property>
+            
+            
+    </class>
+</hibernate-mapping>

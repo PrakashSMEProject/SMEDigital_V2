@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Jul 3, 2013 6:48:09 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.rsaame.pas.dao.model.TTrnSms" table="T_TRN_SMS">
+        <id name="trnSmsId" type="long">
+            <column name="TRN_SMS_ID" precision="16" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <property name="trnSmsPolicyId" type="long">
+            <column name="TRN_SMS_POLICY_ID" precision="16" scale="0" not-null="true" />
+        </property>
+        <property name="trnSmsEndtId" type="long">
+            <column name="TRN_SMS_ENDT_ID" precision="16" scale="0" not-null="true" />
+        </property>
+        <property name="trnSmsLocCode" type="java.lang.Short">
+            <column name="TRN_SMS_LOC_CODE" precision="4" scale="0" />
+        </property>
+        <property name="trnSmsMode" type="string">
+            <column name="TRN_SMS_MODE" length="1" not-null="true" />
+        </property>
+        <property name="trnSmsLevel" type="byte">
+            <column name="TRN_SMS_LEVEL" precision="2" scale="0" not-null="true" />
+        </property>
+        <property name="trnSmsStatus" type="java.lang.Byte">
+            <column name="TRN_SMS_STATUS" precision="2" scale="0" />
+        </property>
+        <property name="trnSmsGsmNo" type="string">
+            <column name="TRN_SMS_GSM_NO" length="16" />
+        </property>
+        <property name="trnSmsEText" type="string">
+            <column name="TRN_SMS_E_TEXT" length="200" />
+        </property>
+        <property name="trnSmsAText" type="string">
+            <column name="TRN_SMS_A_TEXT" length="200" />
+        </property>
+        <property name="trnSmsLangType" type="string">
+            <column name="TRN_SMS_LANG_TYPE" length="1" />
+        </property>
+        <property name="trnSmsSubDate" type="date">
+            <column name="TRN_SMS_SUB_DATE" length="7" />
+        </property>
+        <property name="trnSmsSentDate" type="date">
+            <column name="TRN_SMS_SENT_DATE" length="7" />
+        </property>
+        <property name="trnSmsRemarks" type="string">
+            <column name="TRN_SMS_REMARKS" length="100" />
+        </property>
+        <property name="trnSmsSubmittedBy" type="string">
+            <column name="TRN_SMS_SUBMITTED_BY" length="5" />
+        </property>
+    </class>
+</hibernate-mapping>

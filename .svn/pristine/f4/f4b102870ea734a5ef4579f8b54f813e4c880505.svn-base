@@ -1,0 +1,921 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<validations xmlns="http://types.validation.util.common.rsaame.com">
+
+	<!-- Validation for Account Management Service  -->
+
+	<transaction name="services.valiadteClientId">
+		<bean type="com.rsaame.common.ams.vo.ClientVO">
+			<field name="clientSeqNo">
+				<validation type="required">
+					<errorKey>ams.emptyClientSeqNo</errorKey>
+				</validation>
+			</field>
+		</bean>
+	</transaction>
+
+	<transaction name="services.valiadteClientIdAndHierchy">
+		<bean type="com.rsaame.common.ams.vo.ClientVO">
+			<field name="clientSeqNo">
+				<validation type="required">
+					<errorKey>ams.emptyClientSeqNo</errorKey>
+				</validation>
+			</field>
+		</bean>
+	</transaction>
+
+
+
+	<transaction name="services.validateDivisionId">
+		<bean type="com.rsaame.common.ams.vo.DivisionVO">
+			<field name="divisionId">
+				<validation type="required">
+					<errorKey>ams.emptyDivisionId</errorKey>
+				</validation>
+			</field>
+		</bean>
+	</transaction>
+
+	<transaction name="services.validateAppId">
+		<bean type="com.rsaame.common.ams.vo.ApplicationVO">
+			<field name="appId">
+				<validation type="required">
+					<errorKey>common.emptyAppId</errorKey>
+				</validation>
+			</field>
+		</bean>
+	</transaction>
+
+	<transaction name="services.validateRoleId">
+		<bean type="com.rsaame.common.rms.vo.RoleVO">
+			<field name="roleId">
+				<validation type="required">
+					<errorKey>rms.emptyRoleId</errorKey>
+				</validation>
+			</field>
+		</bean>
+	</transaction>
+
+	<transaction name="services.validateRoleName">
+		<bean type="com.rsaame.common.rms.vo.RoleVO">
+			<field name="roleName">
+				<validation type="required">
+					<errorKey>rms.emptyRoleName</errorKey>
+				</validation>
+
+				<validation type="maxLength">
+					<parameter name="length">
+						<name>length</name>
+						<value>100</value>
+					</parameter>
+					<errorKey>ams.roleNameLengthExceeded</errorKey>
+				</validation>
+
+			</field>
+		</bean>
+	</transaction>
+
+	<transaction name="services.validateRoleHierLevel">
+		<bean type="com.rsaame.common.rms.vo.RoleVO">
+			<field name="roleHierLevel">
+				<validation type="required">
+					<errorKey>rms.emptyRoleHierLevel</errorKey>
+				</validation>
+			</field>
+		</bean>
+	</transaction>
+	
+	<transaction name="services.validateRoleType">
+		<bean type="com.rsaame.common.rms.vo.RoleVO">
+			<field name="roleType">
+				<validation type="required">
+					<errorKey>rms.emptyRoleType</errorKey>
+				</validation>
+			</field>
+		</bean>
+	</transaction>
+
+<!-- Validations are related to User Management Service of KeenanCommon begins here -->
+
+	<!-- Validation of the entire set of attributes of UserVO -->
+	<transaction name="tx_uservo_required">
+		<bean type="com.rsaame.common.ums.vo.UserVO">
+			<field name="userNo">
+				<validation type="required">
+					<errorKey>ums.userNoRequired</errorKey>
+				</validation>
+			</field>
+			<field name="groupCode">
+				<validation type="required">
+					<errorKey>ums.groupCodeRequired</errorKey>
+				</validation>
+			</field>
+			<field name="loginName">
+				<validation type="required">
+					<errorKey>ums.loginNameRequired</errorKey>
+				</validation>
+			</field>
+			<field name="userDesc">
+				<validation type="required">
+					<errorKey>ums.userDescriptionRequired</errorKey>
+				</validation>
+			</field>
+			<field name="statusActive">
+				<validation type="required">
+					<errorKey>ums.statusActiveRequired</errorKey>
+				</validation>
+			</field>
+			<field name="firstName">
+				<validation type="required">
+					<errorKey>ums.firstNameRequired</errorKey>
+				</validation>
+			</field>
+			<field name="lastName">
+				<validation type="required">
+					<errorKey>ums.lastNameRequired</errorKey>
+				</validation>
+			</field>
+			<field name="empEmailAddress">
+				<validation type="required">
+					<errorKey>ums.empEmailAddressRequired</errorKey>
+				</validation>
+				<validation type="emailPattern">
+  		           <errorKey>emailAddress.invalid</errorKey>
+  		       </validation>
+			</field>
+		</bean>
+	</transaction>
+
+	<!-- Validations for the individual attributes of the UserVO -->
+	<transaction name="tx_userno_required">
+		<bean type="com.rsaame.common.ums.vo.UserVO">
+			<field name="userNo">
+				<validation type="required">
+					<errorKey>ums.userNoRequired</errorKey>
+				</validation>
+			</field>
+		</bean>
+	</transaction>
+
+	<transaction name="tx_password_required">
+		<bean type="com.rsaame.common.ums.vo.UserVO">
+			<field name="password">
+				<validation type="required">
+					<errorKey>ums.passwordRequired</errorKey>
+				</validation>
+			</field>
+		</bean>
+	</transaction>
+
+	<transaction name="tx_groupcode_required">
+		<bean type="com.rsaame.common.ums.vo.UserVO">
+			<field name="groupCode">
+				<validation type="required">
+					<errorKey>ums.groupCodeRequired</errorKey>
+				</validation>
+			</field>
+		</bean>
+	</transaction>
+
+	<transaction name="tx_loginname_required">
+		<bean type="com.rsaame.common.ums.vo.UserVO">
+			<field name="loginName">
+				<validation type="required">
+					<errorKey>ums.loginNameRequired</errorKey>
+				</validation>
+			</field>
+		</bean>
+	</transaction>
+
+	<transaction name="tx_email_required">
+		<bean type="com.rsaame.common.ums.vo.UserVO">
+			<field name="empEmailAddress">
+				<validation type="required">
+					<errorKey>ums.empEmailAddressRequired</errorKey>
+				</validation>
+				<validation type="emailPattern">
+  		           <errorKey>emailAddress.invalid</errorKey>
+  		       </validation>
+			</field>
+		</bean>
+	</transaction>
+
+	<transaction name="tx_statusactive_required">
+		<bean type="com.rsaame.common.ums.vo.UserVO">
+			<field name="statusActive">
+				<validation type="required">
+					<errorKey>ums.statusActiveRequired</errorKey>
+				</validation>
+			</field>
+		</bean>
+	</transaction>
+
+	<transaction name="tx_firstname_required">
+		<bean type="com.rsaame.common.ums.vo.UserVO">
+			<field name="firstName">
+				<validation type="required">
+					<errorKey>ums.firstNameRequired</errorKey>
+				</validation>
+			</field>
+		</bean>
+	</transaction>
+
+	<transaction name="tx_lastname_required">
+		<bean type="com.rsaame.common.ums.vo.UserVO">
+			<field name="lastName">
+				<validation type="required">
+					<errorKey>ums.lastNameRequired</errorKey>
+				</validation>
+			</field>
+		</bean>
+	</transaction>
+
+	<transaction name="tx_userdesc_required">
+		<bean type="com.rsaame.common.ums.vo.UserVO">
+			<field name="userDesc">
+				<validation type="required">
+					<errorKey>ums.userDescRequired</errorKey>
+				</validation>
+			</field>
+		</bean>
+	</transaction>
+
+	<transaction name="tx_createdby_required">
+		<bean type="com.rsaame.common.ums.vo.UserVO">
+			<field name="createdBy">
+				<validation type="required">
+					<errorKey>ums.createdByRequired</errorKey>
+				</validation>
+			</field>
+		</bean>
+	</transaction>
+
+	<!-- Validations for the entire set of nested attributes of the UserProfileVO -->
+	<transaction name="tx_userprofilevo_required">
+		<bean type="com.rsaame.common.ums.vo.ProfileVO">
+			<field name="userVO.userNo">
+				<validation type="required">
+					<errorKey>ums.userNoRequired</errorKey>
+				</validation>
+			</field>
+			<field name="userVO.groupCode">
+				<validation type="required">
+					<errorKey>ums.groupCodeRequired</errorKey>
+				</validation>
+			</field>
+			<field name="userVO.loginName">
+				<validation type="required">
+					<errorKey>ums.loginNameRequired</errorKey>
+				</validation>
+			</field>
+			<field name="userVO.userDesc">
+				<validation type="required">
+					<errorKey>ums.userDescriptionRequired</errorKey>
+				</validation>
+			</field>
+			<field name="userVO.statusActive">
+				<validation type="required">
+					<errorKey>ums.statusActiveRequired</errorKey>
+				</validation>
+			</field>
+			<field name="userVO.firstName">
+				<validation type="required">
+					<errorKey>ums.statusAtiveRequired</errorKey>
+				</validation>
+			</field>
+			<field name="userVO.lastName">
+				<validation type="required">
+					<errorKey>ums.statusAtiveRequired</errorKey>
+				</validation>
+			</field>
+			<field name="userVO.empEmailAddress">
+				<validation type="required">
+					<errorKey>ums.empEmailAddressRequired</errorKey>
+				</validation>
+				<validation type="emailPattern">
+  		           <errorKey>emailAddress.invalid</errorKey>
+  		       </validation>
+			</field>
+		</bean>
+	</transaction>
+
+	<!-- Validations for the individual nested attributes of the UserProfileVO -->
+	<transaction name="tx_nested_userno_required">
+		<bean type="com.rsaame.common.ums.vo.UserProfileVO">
+			<field name="userVO.userNo">
+				<validation type="required">
+					<errorKey>ums.userNoRequired</errorKey>
+				</validation>
+			</field>
+		</bean>
+	</transaction>
+
+	<transaction name="tx_nested_groupcode_required">
+		<bean type="com.rsaame.common.ums.vo.UserProfileVO">
+			<field name="userVO.groupCode">
+				<validation type="required">
+					<errorKey>ums.groupCodeRequired</errorKey>
+				</validation>
+			</field>
+		</bean>
+	</transaction>
+
+	<transaction name="tx_nested_email_required">
+		<bean type="com.rsaame.common.ums.vo.UserProfileVO">
+			<field name="userVO.empEmailAddress">
+				<validation type="required">
+					<errorKey>ums.empEmailAddressRequired</errorKey>
+				</validation>
+				<validation type="emailPattern">
+  		           <errorKey>emailAddress.invalid</errorKey>
+  		       </validation>
+			</field>
+		</bean>
+	</transaction>
+
+	<transaction name="tx_nested_loginname_required">
+		<bean type="com.rsaame.common.ums.vo.UserProfileVO">
+			<field name="userVO.loginName">
+				<validation type="required">
+					<errorKey>ums.loginNameRequired</errorKey>
+				</validation>
+			</field>
+		</bean>
+	</transaction>
+
+	<transaction name="tx_nested_password_required">
+		<bean type="com.rsaame.common.ums.vo.UserProfileVO">
+			<field name="userVO.password">
+				<validation type="required">
+					<errorKey>ums.passwordRequired</errorKey>
+				</validation>
+			</field>
+		</bean>
+	</transaction>
+
+	<transaction name="tx_nested_statusactive_required">
+		<bean type="com.rsaame.common.ums.vo.UserProfileVO">
+			<field name="userVO.statusActive">
+				<validation type="required">
+					<errorKey>ums.statusActiveRequired</errorKey>
+				</validation>
+			</field>
+		</bean>
+	</transaction>
+
+	<transaction name="tx_nested_firstname_required">
+		<bean type="com.rsaame.common.ums.vo.UserProfileVO">
+			<field name="userVO.firstName">
+				<validation type="required">
+					<errorKey>ums.firstNameRequired</errorKey>
+				</validation>
+			</field>
+		</bean>
+	</transaction>
+
+	<transaction name="tx_nested_lastname_required">
+		<bean type="com.rsaame.common.ums.vo.UserProfileVO">
+			<field name="userVO.lastName">
+				<validation type="required">
+					<errorKey>ums.lastNameRequired</errorKey>
+				</validation>
+			</field>
+		</bean>
+	</transaction>
+
+	<transaction name="tx_nested_appId_required">
+		<bean type="com.rsaame.common.ams.vo.UserProfileVO">
+			<field name="applicationVO.appId">
+				<validation type="required">
+					<errorKey>ums.appIdRequired</errorKey>
+				</validation>
+			</field>
+		</bean>
+	</transaction>
+
+	<transaction name="tx_nested_statuscode_required">
+		<bean type="com.rsaame.common.ums.vo.UserProfileVO">
+			<field name="regStatusVO.statusCode">
+				<validation type="required">
+					<errorKey>ums.statusCodeRequired</errorKey>
+				</validation>
+			</field>
+		</bean>
+	</transaction>
+
+
+
+	<!-- Validation for appId in applicationVO -->
+	<transaction name="tx_appId_required">
+		<bean type="com.rsaame.common.ams.vo.ApplicationVO">
+			<field name="appId">
+				<validation type="required">
+					<errorKey>ums.appIdRequired</errorKey>
+				</validation>
+			</field>
+		</bean>
+	</transaction>
+
+	<!-- Validation for clientSeqNo in clientVO -->
+	<transaction name="tx_clientseqno_required">
+		<bean type="com.rsaame.common.ams.vo.ClientVO">
+			<field name="clientSeqNo">
+				<validation type="required">
+					<errorKey>ums.clientSeqNoRequired</errorKey>
+				</validation>
+			</field>
+		</bean>
+	</transaction>
+
+	<transaction name="tx_acchierid_required">
+		<bean type="com.rsaame.common.ams.vo.ClientVO">
+			<field name="accHierId">
+				<validation type="required">
+					<errorKey>ums.accHierIdRequired</errorKey>
+				</validation>
+			</field>
+		</bean>
+	</transaction>
+
+
+	<!-- Validation for userAccessType in clientVO -->
+	<transaction name="tx_useraccesstype_required">
+		<bean type="com.rsaame.common.ams.vo.ClientVO">
+			<field name="userAccessType">
+				<validation type="required">
+					<errorKey>ums.userAccessTypeRequired</errorKey>
+				</validation>
+			</field>
+		</bean>
+	</transaction>
+
+	<!-- Validation for roleId in roleVO -->
+	<transaction name="tx_roleid_required">
+		<bean type="com.rsaame.common.rms.vo.RoleVO">
+			<field name="roleId">
+				<validation type="required">
+					<errorKey>ums.roleIdRequired</errorKey>
+				</validation>
+			</field>
+		</bean>
+	</transaction>
+
+	<transaction name="tx_rolename_required">
+		<bean type="com.rsaame.common.rms.vo.RoleVO">
+			<field name="roleName">
+				<validation type="required">
+					<errorKey>ums.roleNameRequired</errorKey>
+				</validation>
+			</field>
+		</bean>
+	</transaction>
+
+	<!-- Validation for statusCode in regStatusVO -->
+	<transaction name="tx_statuscode_required">
+		<bean type="com.rsaame.common.ums.vo.RegStatusVO">
+			<field name="statusCode">
+				<validation type="required">
+					<errorKey>ums.statusCodeRequired</errorKey>
+				</validation>
+			</field>
+		</bean>
+	</transaction>
+
+	<transaction name="tx_nested_forgot_password_token_required">
+		<bean type="com.rsaame.common.ums.vo.UserProfileVO">
+			<field name="regStatusVO.passwordToken">
+				<validation type="required">
+					<errorKey>ums.passwordTokenRequired</errorKey>
+				</validation>
+			</field>
+		</bean>
+	</transaction>
+	
+	<transaction name="tx_loginname_password_required">
+	<bean type="com.rsaame.common.ums.vo.UserVO">
+			<field name="loginName">
+				<validation type="required">
+					<errorKey>ums.loginNameRequired</errorKey>
+				</validation>
+			</field>
+			<field name="password">
+				<validation type="required">
+					<errorKey>ums.passwordRequired</errorKey>
+				</validation>
+			</field>
+		</bean>
+	</transaction>
+
+	<!-- Validations are related to User Management Service of KeenanCommon ends here -->
+	
+	
+		
+	<!-- Added By Phaneendra -->	
+	<!-- Validations related to ALert Dispatcher Service -->
+	
+	<!-- This is for isDeliveryChannelEnabled -->
+	
+
+	<transaction name="ads.validateAlertDefId">
+	<bean type="com.rsaame.common.alert.vo.AlertUserDelyChannelVO">
+			<field name="userNo">
+				<validation type="required">
+					<errorKey>ads.userNoRequired</errorKey>
+				</validation>
+			</field>
+			<field name="alertDefId">
+				<validation type="required">
+					<errorKey>ads.alertDefIdRequired</errorKey>
+				</validation>
+			</field>
+		<field name="delyChannelId">
+				<validation type="required">
+					<errorKey>ads.delyChannelIdRequired</errorKey>
+				</validation>
+			</field>
+		
+			</bean>
+	</transaction>
+	<!-- End of isDeliveryChannelEnabled -->
+	
+	
+	<!-- This transaction is for purgeDispatchedAlerts() -->
+
+	<transaction name="ads.validateDelyChannelIdAndHierarchy">
+	<bean type="com.rsaame.common.alert.vo.AlertRecipientVO">
+			<field name="userNo">
+				<validation type="required">
+					<errorKey>ads.userNoRequired</errorKey>
+				</validation>
+			</field>
+		
+		<field name="delyChannelId">
+				<validation type="required">
+					<errorKey>ads.delyChannelIdRequired</errorKey>
+				</validation>
+			</field>
+		
+			</bean>
+	</transaction>
+	
+<!-- end of  purgeDispatchedAlerts() -->	
+	
+	
+	<!-- This transaction is for getLatestAlerts()  -->
+
+	<transaction name="ads.validateUserNoClientSeqNoAnddelyChannelId">
+	<bean type="com.rsaame.common.alert.vo.AlertInputVO">
+			<field name="userNo">
+				<validation type="required">
+					<errorKey>ads.userNoRequired</errorKey>
+				</validation>
+			</field>
+			<field name="clientSeqNo">
+				<validation type="required">
+					<errorKey>ads.clientSeqNoRequired</errorKey>
+				</validation>
+			</field>
+		<field name="delyChannelId">
+				<validation type="required">
+					<errorKey>ads.delyChannelIdRequired</errorKey>
+				</validation>
+			</field>
+		
+			</bean>
+	</transaction>
+	<!-- End of This transaction is for getLatestAlerts() -->
+	
+	<!-- This transaction is for updateOnAlertDispatch -->
+	<transaction name="ads.validateUserNoAlertIdandDelyId">
+	<bean type="com.rsaame.common.alert.vo.AlertRecipientVO">
+			<field name="userNo">
+				<validation type="required">
+					<errorKey>ads.userNoRequired</errorKey>
+				</validation>
+			</field>
+			<field name="alertId">
+				<validation type="required">
+					<errorKey>ads.alertIdRequired</errorKey>
+				</validation>
+			</field>
+		<field name="delyChannelId">
+				<validation type="required">
+					<errorKey>ads.delyChannelIdRequired</errorKey>
+				</validation>
+			</field>
+		
+<!--		<field name="alertDelyId">-->
+<!--				<validation type="required">-->
+<!--					<errorKey>ams.emptyAlertDelyId</errorKey>-->
+<!--				</validation>-->
+<!--			</field>-->
+		
+		
+		
+			</bean>
+	</transaction>
+	
+	<!-- End of  updateOnAlertDispatch -->
+	
+	
+	
+	
+	<!-- This transaction is for deleteUserLevelAlert-->
+
+	<transaction name="ads.validateUserNoAndHierarchy">
+	<bean type="com.rsaame.common.alert.vo.AlertRecipientVO">
+			<field name="userNo">
+				<validation type="required">
+					<errorKey>ads.userNoRequired</errorKey>
+				</validation>
+			</field>
+			<field name="alertId">
+				<validation type="required">
+					<errorKey>ads.alertIdRequired</errorKey>
+				</validation>
+			</field>
+		<field name="delyChannelId">
+				<validation type="required">
+					<errorKey>ads.delyChannelIdRequired</errorKey>
+				</validation>
+			</field>
+		
+			</bean>
+	</transaction>
+	
+	<!-- End of  deleteUserLevelAlert -->
+	
+	<transaction name="ads.validateAlertClientSeqNo_UserNo_DelyChannelId_Count">
+	<bean type="com.rsaame.common.alert.vo.AlertInputVO">
+			<field name="userNo">
+				<validation type="required">
+					<errorKey>ads.userNoRequired</errorKey>
+				</validation>
+			</field>
+			<field name="clientSeqNo">
+				<validation type="required">
+					<errorKey>ads.alertIdRequired</errorKey>
+				</validation>
+			</field>
+		<field name="delyChannelId">
+				<validation type="required">
+					<errorKey>ads.delyChannelIdRequired</errorKey>
+				</validation>
+			</field>
+			
+	    <field name="count">
+				<validation type="required">
+					<errorKey>ads.alertCountRequired</errorKey>
+				</validation>
+			</field>
+		
+			</bean>
+	</transaction>
+	
+	
+	
+	<!-- End of Phaneendra -->
+
+	<!-- Validations begin for AlertSet up Setup service -->
+	
+	<transaction name="alss.validateParam">
+	<bean type="com.rsaame.common.alert.vo.AlertCustomSettingVO">
+<!--			<field name="custAlertId">-->
+<!--				<validation type="required">-->
+<!--					<errorKey>alss.custAlertIdRequired</errorKey>-->
+<!--				</validation>-->
+<!--			</field>-->
+			<field name="paramNo">
+				<validation type="required">
+					<errorKey>alss.paramNoRequired</errorKey>
+				</validation>
+			</field>
+			<field name="operatorId">
+				<validation type="required">
+					<errorKey>alss.operatorIdRequired</errorKey>
+				</validation>
+			</field>
+		
+			<field name="value">
+				<validation type="required">
+					<errorKey>alss.valueRequired</errorKey>
+				</validation>
+			</field>
+		
+		<field name="alertDefId">
+				<validation type="required">
+					<errorKey>alss.alertDefIdRequired</errorKey>
+				</validation>
+			</field>
+	
+<!--	<field name="updatedBy">-->
+<!--				<validation type="required">-->
+<!--					<errorKey>alss.updatedByRequired</errorKey>-->
+<!--				</validation>-->
+<!--			</field>-->
+	
+		
+			</bean>
+	</transaction>
+	
+	<transaction name="alss.validateAppId">
+	<bean type="com.rsaame.common.alert.vo.AlertUserDelyChannelVO">
+			<field name="appId">
+				<validation type="required">
+					<errorKey>alss.appIdRequired</errorKey>
+				</validation>
+			</field>
+			<field name="updatedBy">
+				<validation type="required">
+					<errorKey>alss.updatedByRequired</errorKey>
+				</validation>
+			</field>
+		
+		<field name="turnedOff">
+				<validation type="required">
+					<errorKey>alss.turnedOffRequired</errorKey>
+				</validation>
+			</field>
+		
+			</bean>
+	</transaction>
+	
+
+	
+	<transaction name="alss.validateUserNo">
+	<bean type="com.rsaame.common.alert.vo.AlertUserDelyChannelVO">
+			<field name="userNo">
+				<validation type="required">
+					<errorKey>alss.userNoRequired</errorKey>
+				</validation>
+			</field>
+			<field name="delyChannelId">
+				<validation type="required">
+					<errorKey>alss.delyChannelIdRequired</errorKey>
+				</validation>
+			</field>
+		
+		
+			</bean>
+	</transaction>
+	
+	
+	
+	<transaction name="alss.validateAlertId">
+	<bean type="com.rsaame.common.alert.vo.AlertCustomSettingVO">
+			<field name="custAlertId">
+				<validation type="required">
+					<errorKey>alss.custAlertIdRequired</errorKey>
+				</validation>
+			</field>
+			<field name="updatedBy">
+				<validation type="required">
+					<errorKey>alss.updatedByRequired</errorKey>
+				</validation>
+			</field>
+		
+		
+		<field name="alertDefId">
+				<validation type="required">
+					<errorKey>alss.alertDefIdRequired</errorKey>
+				</validation>
+			</field>
+		
+		
+			</bean>
+	</transaction>
+	
+	<transaction name="alss.validateAlertSettingId">
+	<bean type="com.rsaame.common.alert.vo.AlertUserPrefsVO">
+			<field name="userNo">
+				<validation type="required">
+					<errorKey>alss.userNoRequired</errorKey>
+				</validation>
+			</field>
+			<field name="clientSeqNo">
+				<validation type="required">
+					<errorKey>alss.emptyAlertIdRequired</errorKey>
+				</validation>
+			</field>
+		
+		
+		
+		<field name="turnedOff">
+				<validation type="required">
+					<errorKey>alss.turnedOffRequired</errorKey>
+				</validation>
+			</field>
+			
+			<field name="alertType">
+				<validation type="required">
+					<errorKey>alss.alertTypeRequired</errorKey>
+				</validation>
+			</field>
+			
+			<field name="alertSettingId">
+				<validation type="required">
+					<errorKey>alss.alertSettingIdRequired</errorKey>
+				</validation>
+			</field>
+		
+		
+			</bean>
+	</transaction>
+	
+	
+	
+	<transaction name="alss.validateClientSeqNo">
+	<bean type="com.rsaame.common.alert.vo.AlertUserPrefsVO">
+			<field name="userNo">
+				<validation type="required">
+					<errorKey>alss.userNoRequired</errorKey>
+				</validation>
+			</field>
+			<field name="clientSeqNo">
+				<validation type="required">
+					<errorKey>alss.alertIdRequired</errorKey>
+				</validation>
+			</field>
+		
+		
+		
+			</bean>
+	</transaction>
+	
+	
+	<transaction name="alss.validateUserAlertVO">
+	<bean type="com.rsaame.common.alert.vo.UserAlertVO">
+			<field name="accountId">
+				<validation type="required">
+					<errorKey>alss.accountIdRequired</errorKey>
+				</validation>
+			</field>
+			<field name="appId">
+				<validation type="required">
+					<errorKey>alss.appIdRequired</errorKey>
+				</validation>
+			</field>
+		
+		
+		
+			</bean>
+	</transaction>
+	
+	
+	
+	<transaction name="alss.validateAlertDefId">
+	<bean type="com.rsaame.common.alert.vo.AlertDefinitionVO">
+			<field name="alertDefId">
+				<validation type="required">
+					<errorKey>alss.alertDefIdRequired</errorKey>
+				</validation>
+			</field>
+			
+		
+			</bean>
+	</transaction>
+	
+	
+	
+	<transaction name="alss.validateOperatorId">
+	<bean type="com.rsaame.common.alert.vo.AlertCustomSettingVO">
+			<field name="userNo">
+				<validation type="required">
+					<errorKey>alss.userNoRequired</errorKey>
+				</validation>
+			</field>
+			
+			<field name="clientSeqNo">
+				<validation type="required">
+					<errorKey>alss.clientSeqNoRequired</errorKey>
+				</validation>
+			</field>
+			<field name="alertDefId">
+				<validation type="required">
+					<errorKey>alss.alertDefIdRequired</errorKey>
+				</validation>
+			</field>
+			<field name="paramNo">
+				<validation type="required">
+					<errorKey>alss.paramNoRequired</errorKey>
+				</validation>
+			</field>
+			<field name="operatorId">
+				<validation type="required">
+					<errorKey>alss.operatorIdRequired</errorKey>
+				</validation>
+			</field>
+		
+			<field name="value">
+				<validation type="required">
+					<errorKey>alss.valueRequired</errorKey>
+				</validation>
+			</field>
+		
+		
+			</bean>
+	</transaction>
+	
+	
+	
+	
+</validations>

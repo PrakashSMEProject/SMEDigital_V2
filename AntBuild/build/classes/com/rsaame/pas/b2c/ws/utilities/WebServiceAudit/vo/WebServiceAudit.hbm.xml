@@ -1,0 +1,77 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class
+		name="com.rsaame.pas.b2c.ws.utilities.WebServiceAudit.vo.WebServiceAudit"
+		table="T_TRN_WEBSERVICE_AUDIT">
+		<id name="twa_id" type="java.lang.Integer">
+			<column name="TWA_ID" />
+			<generator class="assigned">
+			</generator>
+		</id>
+		<property name="twa_transaction_ref_no" type="string">
+			<column name="TWA_TRANSACTION_REF_NO" />
+		</property>
+		<property name="twa_transaction_serreq_no" type="string">
+			<column name="TWA_TRANSACTION_SERREQ_NO" />
+		</property>
+		<property name="twa_transaction_req_type" type="string">
+			<column name="TWA_TRANSACTION_REQ_TYPE" />
+		</property>
+		<property name="twa_transaction_res_type" type="string">
+			<column name="TWA_TRANSACTION_RES_TYPE" />
+		</property>
+		<property name="twa_partner" type="string">
+			<column name="TWA_PARTNER" />
+		</property>
+		<property name="twa_user_name" type="string">
+			<column name="TWA_USER_NAME" />
+		</property>
+		<property name="twa_quote_no" type="java.lang.Integer">
+			<column name="TWA_QUOTE_NO" />
+		</property>
+		<property name="twa_policy_no" type="java.lang.Long">
+			<column name="TWA_POLICY_NO" />
+		</property>
+		<property name="twa_policy_id" type="java.lang.Long">
+			<column name="TWA_POLICY_ID" />
+		</property>
+		<property name="twa_endt_id" type="java.lang.Long">
+			<column name="TWA_ENDT_ID" />
+		</property>
+		<property name="twa_request_xml" type="clob">
+			<column name="TWA_REQUEST_XML" />
+		</property>
+		<property name="twa_response_xml" type="clob">
+			<column name="TWA_RESPONSE_XML" />
+		</property>
+		<property name="twa_created_date" type="date">
+			<column name="TWA_CREATED_DATE" />
+		</property>
+		<property name="twa_policy_type" type="java.lang.Integer">
+			<column name="TWA_POLICY_TYPE_CODE" />
+		</property>
+		<property name="twa_class_code" type="java.lang.Integer">
+			<column name="TWA_CLASS_CODE" />
+		</property>
+		<property name="twa_soap_request_xml" type="clob">
+			<column name="TWA_SOAP_REQUEST_XML" />
+		</property>
+		<property name="twa_req_start_time" type="timestamp">
+			<column name="TWA_REQ_START_TIME" />
+		</property>
+		<property name="twa_res_end_time" type="timestamp">
+			<column name="TWA_RES_END_TIME" />
+		</property>
+		<property name="twa_time_diff_in_ms" type="java.lang.Integer">
+			<column name="TWA_TIME_DIFF_IN_MS" />
+		</property>
+		<property name="twa_header_info" type="clob">
+			<column name="TWA_HDR_INFO" />
+		</property>
+		<property name="twa_client_ip" type="string">
+			<column name="TWA_CLIENT_IP" />
+		</property>
+	</class>
+</hibernate-mapping>

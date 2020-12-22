@@ -1,0 +1,109 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Jul 11, 2012 2:50:36 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+  <class name="com.rsaame.pas.dao.model.VTrnRenewalPoliciesSbs" table="V_TRN_RENEWAL_POLICIES_SBS_PAS">
+        <composite-id name="id" class="com.rsaame.pas.dao.model.VTrnRenewalPoliciesSbsId">
+            <key-property name="polLinkingId" type="java.lang.Long">
+                <column name="POL_LINKING_ID" precision="16" scale="0" />
+            </key-property>
+		</composite-id>
+			 <property name="polPolicyId" type="java.lang.Long">
+                <column name="POL_POLICY_ID" precision="16" scale="0" />
+            </property>
+            
+		    <property name="polClassCode" type="short">
+                <column name="POL_CLASS_CODE" precision="4" scale="0" />
+            </property>
+            <property name="polEndtId" type="long">
+                <column name="POL_ENDT_ID" precision="16" scale="0" />
+            </property>
+            <property name="polPolicyNo" type="long">
+                <column name="POL_POLICY_NO" precision="16" scale="0" />
+            </property>
+            <property name="polEndtNo" type="long">
+                <column name="POL_ENDT_NO" precision="16" scale="0" />
+            </property>
+            <property name="polEffectiveDate" type="date">
+                <column name="POL_EFFECTIVE_DATE" length="7" />
+            </property>
+            <property name="polEffectiveDate1" type="string">
+                <column name="POL_EFFECTIVE_DATE1" length="10" />
+            </property>
+            <property name="polExpiryDate" type="date">
+                <column name="POL_EXPIRY_DATE" length="7" />
+            </property>
+            <property name="polExpiryDate1" type="string">
+                <column name="POL_EXPIRY_DATE1" length="10" />
+            </property>
+            
+            <property name="polConcPolicyNo" type="string">
+                <column name="POL_CONC_POLICY_NO" length="30" />
+            </property>
+            <property name="polDctCode" type="short">
+                <column name="POL_DCT_CODE" precision="4" scale="0" />
+            </property>
+            <property name="polPolicyYear" type="short">
+                <column name="POL_POLICY_YEAR" precision="4" scale="0" />
+            </property>
+            <property name="polBrCode" type="short">
+                <column name="POL_BR_CODE" precision="4" scale="0" />
+            </property>
+            <property name="polDistributionChnl" type="java.lang.Integer">
+                <column name="POL_DISTRIBUTION_CHNL" precision="5" scale="0" />
+            </property>
+            <property name="polCoverNoteHour" type="java.lang.Integer">
+                <column name="POL_COVER_NOTE_HOUR" precision="5" scale="0" />
+            </property>
+            <property name="polInsuredCode" type="java.lang.Long">
+                <column name="POL_INSURED_CODE" precision="16" scale="0" />
+            </property>
+            <property name="polCcgCode" type="java.lang.Integer">
+                <column name="POL_CCG_CODE" precision="5" scale="0" />
+            </property>
+            <property name="polAgentId" type="java.lang.Long">
+                <column name="POL_AGENT_ID" precision="12" scale="0" />
+            </property>
+            <property name="polPrintDate" type="date">
+                <column name="POL_PRINT_DATE" length="7" />
+            </property>
+            <property name="polPolicyType" type="short">
+                <column name="POL_POLICY_TYPE" precision="4" scale="0" />
+            </property>
+            <property name="polLocationCode" type="java.lang.Integer">
+                <column name="POL_LOCATION_CODE" precision="4" scale="0" />
+            </property>  
+            <!--  Search Criteria :- Search Criteria based on Quotation No. -->     
+            <property name="polQuotationNo" type="long">
+                <column name="POL_QUOTATION_NO" precision="16" scale="0" />
+            </property>
+             <property name="polInsuredId" type="java.lang.Long">
+                <column name="POL_INSURED_ID" precision="16" scale="0" />
+            </property>
+              <!-- adding this to include the new fields in renewal report  -->
+                   <property name="polinsuredName" type="java.lang.String">
+                <column name="insured_name" />
+            </property> 
+            <property name="polbrokerName" type="java.lang.String">
+                <column name="broker_name"  />
+                
+            </property> 
+            <property name="polbranchName" type="java.lang.String">
+                <column name="branch_name"  />
+                
+            </property> 
+            
+            <property name="polschemaName" type="java.lang.String">
+                <column name="schema_name"  />
+                
+            </property> 
+            
+            <!-- Added to display the Base Class in generate renewal search result - BugZilla: 4188 -->
+            
+            <property name="polBaseClass" type="java.lang.String">
+             	<column name="base_class" />
+             	
+            </property>
+    </class>
+</hibernate-mapping>

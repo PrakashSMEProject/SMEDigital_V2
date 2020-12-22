@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Mar 28, 2012 11:37:40 AM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.rsaame.pas.dao.model.VMasPasFetchBasicInfo" table="V_MAS_PAS_FETCH_BASIC_INFO">
+        <composite-id name="id" class="com.rsaame.pas.dao.model.VMasPasFetchBasicInfoId">
+            <key-property name="classCode" type="java.lang.Integer">
+                <column name="CLASS_CODE" precision="5" scale="0" />
+            </key-property>
+            <key-property name="secId" type="java.lang.Short">
+                <column name="SEC_ID" precision="4" scale="0" />
+            </key-property>
+            <key-property name="bldCoveredFlag" type="string">
+                <column name="BLD_COVERED_FLAG" length="3" />
+            </key-property>
+            <key-property name="tradeGrp" type="java.lang.Integer">
+                <column name="TRADE_GRP" precision="5" scale="0" />
+            </key-property>
+            <key-property name="riCategory" type="java.lang.Integer">
+                <column name="RI_CATEGORY" precision="5" scale="0" />
+            </key-property>
+            <key-property name="hazardLevel" type="java.lang.Integer">
+                <column name="HAZARD_LEVEL" precision="5" scale="0" />
+            </key-property>
+            <key-property name="tariffCode" type="java.lang.Integer">
+                <column name="TARIFF_CODE" precision="5" scale="0" />
+            </key-property>
+            <key-property name="commission" type="big_decimal">
+                <column name="COMMISSION" precision="8" scale="5" />
+            </key-property>
+        </composite-id>
+    </class>
+</hibernate-mapping>

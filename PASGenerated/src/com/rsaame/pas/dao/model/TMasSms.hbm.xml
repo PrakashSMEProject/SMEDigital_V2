@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated May 9, 2013 10:52:30 AM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.rsaame.pas.dao.model.TMasSms" table="T_MAS_SMS">
+        <id name="smsID" type="java.lang.Long">
+            <column name="SMS_ID" precision="16" scale="0"/>
+           <generator class="increment" />
+        </id>
+        <property name="smsMode" type="java.lang.String">
+            <column name="SMS_MODE" length="6"/>
+        </property>
+        <property name="smsLevel" type="java.lang.Byte">
+            <column name="SMS_LEVEL" precision="1" scale="0" />
+        </property>
+        <property name="smsFrequency" type="java.lang.Byte">
+            <column name="SMS_FREQUENCY" precision="3" scale="0" />
+        </property>
+        <property name="smsEngBody" type="java.lang.String">
+            <column name="SMS_E_BODY" length="200"/>
+        </property>
+        <property name="smsArabicBody" type="java.lang.String">
+            <column name="SMS_A_BODY" length="200"/>
+        </property>
+        <property name="smsStatus" type="java.lang.Byte">
+            <column name="SMS_LEVEL_STATUS" precision="1" scale="0" />
+        </property>
+    </class>
+</hibernate-mapping>

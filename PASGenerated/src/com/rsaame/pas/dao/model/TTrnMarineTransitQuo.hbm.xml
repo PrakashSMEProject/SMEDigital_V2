@@ -1,0 +1,139 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Jul 10, 2012 6:11:54 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.rsaame.pas.dao.model.TTrnMarineTransitQuo" table="T_TRN_MARINE_TRANSIT_QUO">
+  		<composite-id name="id" class="com.rsaame.pas.dao.model.TTrnMarineTransitQuoId">
+            <key-property name="mtPolicyId" type="long">
+                <column name="MT_POLICY_ID" precision="16" scale="0" />
+            </key-property>
+            <key-property name="mtEndtId" type="long">
+                <column name="MT_ENDT_ID" precision="16" scale="0" />
+            </key-property>
+            <key-property name="mtDeclarationId" type="long">
+                <column name="MT_DECLARATION_ID" precision="12" scale="0" />
+            </key-property>
+            <key-property name="mtSerialNo" type="int">
+                <column name="MT_SERIAL_NO" precision="5" scale="0" />
+            </key-property>
+             <key-property name="mtValidityStartDate" type="java.sql.Timestamp">
+            	<column name="MT_VALIDITY_START_DATE" length="7" />
+            </key-property>
+        </composite-id>
+        <property name="mtModeOfTransit" type="java.lang.Short">
+            <column name="MT_MODE_OF_TRANSIT" precision="3" scale="0">
+                <comment>MT_MODE_OF_TRANSIT</comment>
+            </column>
+        </property>
+        <property name="mtAStartPlace" type="string">
+            <column name="MT_A_START_PLACE" length="60">
+                <comment>MT_A_START_PLACE</comment>
+            </column>
+        </property>
+        <property name="mtEStartPlace" type="string">
+            <column name="MT_E_START_PLACE" length="60">
+                <comment>MT_E_START_PLACE</comment>
+            </column>
+        </property>
+        <property name="mtStartCity" type="java.lang.Integer">
+            <column name="MT_START_CITY" precision="5" scale="0">
+                <comment>MT_START_CITY</comment>
+            </column>
+        </property>
+        <property name="mtStartCountry" type="java.lang.Integer">
+            <column name="MT_START_COUNTRY" precision="5" scale="0">
+                <comment>MT_START_COUNTRY</comment>
+            </column>
+        </property>
+        <property name="mtADestinationPlace" type="string">
+            <column name="MT_A_DESTINATION_PLACE" length="60">
+                <comment>MT_A_DESTINATION_PLACE</comment>
+            </column>
+        </property>
+        <property name="mtEDestinationPlace" type="string">
+            <column name="MT_E_DESTINATION_PLACE" length="60">
+                <comment>MT_E_DESTINATION_PLACE</comment>
+            </column>
+        </property>
+        <property name="mtDestinationCity" type="java.lang.Integer">
+            <column name="MT_DESTINATION_CITY" precision="5" scale="0">
+                <comment>MT_DESTINATION_CITY</comment>
+            </column>
+        </property>
+        <property name="mtDestinationCountry" type="java.lang.Integer">
+            <column name="MT_DESTINATION_COUNTRY" precision="5" scale="0">
+                <comment>MT_DESTINATION_COUNTRY</comment>
+            </column>
+        </property>
+        <property name="mtABlAwbLrNo" type="string">
+            <column name="MT_A_BL_AWB_LR_NO" length="60">
+                <comment>MT_A_BL_AWB_LR_NO</comment>
+            </column>
+        </property>
+        <property name="mtEBlAwbLrNo" type="string">
+            <column name="MT_E_BL_AWB_LR_NO" length="60">
+                <comment>MT_E_BL_AWB_LR_NO</comment>
+            </column>
+        </property>
+        <property name="mtBlAwbLrDate" type="java.sql.Timestamp">
+            <column name="MT_BL_AWB_LR_DATE" length="7">
+                <comment>MT_BL_AWB_LR_DATE</comment>
+            </column>
+        </property>
+        <property name="mtDepartureDate" type="java.sql.Timestamp">
+            <column name="MT_DEPARTURE_DATE" length="7">
+                <comment>MT_DEPARTURE_DATE</comment>
+            </column>
+        </property>
+        <property name="mtStoragePeriod" type="java.lang.Short">
+            <column name="MT_STORAGE_PERIOD" precision="3" scale="0">
+                <comment>MT_STORAGE_PERIOD</comment>
+            </column>
+        </property>
+        <property name="mtMtlCode" type="java.lang.Integer">
+            <column name="MT_MTL_CODE" precision="5" scale="0">
+                <comment>MT_MTL_CODE</comment>
+            </column>
+        </property>
+        <property name="mtStatus" type="java.lang.Byte">
+            <column name="MT_STATUS" precision="2" scale="0">
+                <comment>MT_STATUS</comment>
+            </column>
+        </property>
+        <property name="mtValidityExpiryDate" type="java.sql.Timestamp">
+            <column name="MT_VALIDITY_EXPIRY_DATE" length="7" not-null="true">
+                <comment>MT_VALIDITY_EXPIRY_DATE</comment>
+            </column>
+        </property>
+        <property name="mtPreparedBy" type="java.lang.Integer">
+            <column name="MT_PREPARED_BY" precision="8" scale="0">
+                <comment>MT_PREPARED_BY</comment>
+            </column>
+        </property>
+        <property name="mtPreparedDt" type="java.sql.Timestamp">
+            <column name="MT_PREPARED_DT" length="7">
+                <comment>MT_PREPARED_DT</comment>
+            </column>
+        </property>
+        <property name="mtModifiedBy" type="java.lang.Integer">
+            <column name="MT_MODIFIED_BY" precision="8" scale="0">
+                <comment>MT_MODIFIED_BY</comment>
+            </column>
+        </property>
+        <property name="mtModifiedDt" type="java.sql.Timestamp">
+            <column name="MT_MODIFIED_DT" length="7">
+                <comment>MT_MODIFIED_DT</comment>
+            </column>
+        </property>
+        <property name="mtStartDate" type="java.sql.Timestamp">
+            <column name="MT_START_DATE" length="7" />
+        </property>
+        <property name="mtEndDate" type="java.sql.Timestamp">
+            <column name="MT_END_DATE" length="7" />
+        </property>
+        <property name="mtBldId" type="java.lang.Long">
+            <column name="MT_BLD_ID" precision="10" scale="0" />
+        </property>
+    </class>
+</hibernate-mapping>

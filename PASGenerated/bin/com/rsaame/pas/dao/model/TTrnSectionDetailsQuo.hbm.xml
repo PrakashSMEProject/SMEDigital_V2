@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Jan 18, 2012 5:30:03 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+ <class name="com.rsaame.pas.dao.model.TTrnSectionDetailsQuo" table="T_TRN_SECTION_DETAILS_QUO">
+  <composite-id class="com.rsaame.pas.dao.model.TTrnSectionDetailsQuoId"
+   mapped="false" name="id" unsaved-value="undefined">
+   <key-property name="secPolicyId" type="long">
+    <column name="SEC_POLICY_ID" precision="16" scale="0"/>
+   </key-property>
+   <key-property name="secSecId" type="short">
+    <column name="SEC_SEC_ID" precision="4" scale="0"/>
+   </key-property>
+   <key-property name="secValidityStartDate" type="java.sql.Timestamp">
+    <column length="7" name="SEC_VALIDITY_START_DATE"/>
+   </key-property>
+  </composite-id>
+  <property generated="never" lazy="false" name="secEndtId" type="java.lang.Long">
+   <column name="SEC_ENDT_ID" precision="16" scale="0"/>
+  </property>
+  <property generated="never" lazy="false" name="secClCode" type="java.lang.Short">
+   <column name="SEC_CL_CODE" precision="4" scale="0"/>
+  </property>
+  <property generated="never" lazy="false" name="secPtCode" type="java.lang.Short">
+   <column name="SEC_PT_CODE" precision="4" scale="0"/>
+  </property>
+  <property generated="never" lazy="false" name="secCommVal" type="big_decimal">
+   <column name="SEC_COMM_VAL" precision="8" scale="5"/>
+  </property>
+  <property generated="never" lazy="false" name="secValidityExpiryDate" type="java.sql.Timestamp">
+   <column length="7" name="SEC_VALIDITY_EXPIRY_DATE"/>
+  </property>
+  <property generated="never" lazy="false" name="secNonStdText" type="string">
+   <column length="2000" name="SEC_NON_STD_TEXT"/>
+  </property>
+  <property name="secStatus" type="java.lang.Byte">
+            <column name="SEC_STATUS" precision="2" scale="0"/>
+  </property>
+ </class>
+</hibernate-mapping>

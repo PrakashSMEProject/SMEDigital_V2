@@ -1,0 +1,145 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Jul 10, 2012 6:11:54 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.rsaame.pas.dao.model.TTrnMarineHeaderQuo" table="T_TRN_MARINE_HEADER_QUO">
+        <composite-id name="id" class="com.rsaame.pas.dao.model.TTrnMarineHeaderQuoId">
+            <key-property name="mhDeclarationId" type="long">
+                <column name="MH_DECLARATION_ID" precision="12" scale="0" />
+            </key-property>
+            <key-property name="mhValidityStartDate" type="java.sql.Timestamp">
+                <column name="MH_VALIDITY_START_DATE" length="7" />
+            </key-property>
+        </composite-id>
+        <property name="mhPolicyId" type="long">
+            <column name="MH_POLICY_ID" precision="16" scale="0" not-null="true">
+                <comment>MH_POLICY_ID</comment>
+            </column>
+        </property>
+        <property name="mhEndtId" type="long">
+            <column name="MH_ENDT_ID" precision="16" scale="0" not-null="true">
+                <comment>MH_ENDT_ID</comment>
+            </column>
+        </property>
+        <property name="mhOpenId" type="long">
+            <column name="MH_OPEN_ID" precision="16" scale="0" not-null="true">
+                <comment>MH_OPEN_ID</comment>
+            </column>
+        </property>
+        <property name="mhDeclarationNo" type="java.lang.Long">
+            <column name="MH_DECLARATION_NO" precision="16" scale="0">
+                <comment>MH_DECLARATION_NO</comment>
+            </column>
+        </property>
+        <property name="mhDeclarationDate" type="java.sql.Timestamp">
+            <column name="MH_DECLARATION_DATE" length="7">
+                <comment>MH_DECLARATION_DATE</comment>
+            </column>
+        </property>
+        <property name="mhCertificateNo" type="java.lang.Long">
+            <column name="MH_CERTIFICATE_NO" precision="12" scale="0">
+                <comment>MH_CERTIFICATE_NO</comment>
+            </column>
+        </property>
+        <property name="mhCertificateDate" type="java.sql.Timestamp">
+            <column name="MH_CERTIFICATE_DATE" length="7">
+                <comment>MH_CERTIFICATE_DATE</comment>
+            </column>
+        </property>
+        <property name="mhStampDuty" type="java.lang.Integer">
+            <column name="MH_STAMP_DUTY" precision="6" scale="0">
+                <comment>MH_STAMP_DUTY</comment>
+            </column>
+        </property>
+        <property name="mhSettlementCurrency" type="java.lang.Integer">
+            <column name="MH_SETTLEMENT_CURRENCY" precision="5" scale="0">
+                <comment>MH_SETTLEMENT_CURRENCY</comment>
+            </column>
+        </property>
+        <property name="mhExchangeRate" type="big_decimal">
+            <column name="MH_EXCHANGE_RATE" precision="10" scale="4">
+                <comment>MH_EXCHANGE_RATE</comment>
+            </column>
+        </property>
+        <property name="mhSelectedTransit" type="java.lang.Integer">
+            <column name="MH_SELECTED_TRANSIT" precision="5" scale="0">
+                <comment>MH_SELECTED_TRANSIT</comment>
+            </column>
+        </property>
+        <property name="mhSettlingAgent" type="java.lang.Integer">
+            <column name="MH_SETTLING_AGENT" precision="5" scale="0">
+                <comment>MH_SETTLING_AGENT</comment>
+            </column>
+        </property>
+        <property name="mhASubjectMatterDesc" type="string">
+            <column name="MH_A_SUBJECT_MATTER_DESC" length="500">
+                <comment>MH_A_SUBJECT_MATTER_DESC</comment>
+            </column>
+        </property>
+        <property name="mhESubjectMatterDesc" type="string">
+            <column name="MH_E_SUBJECT_MATTER_DESC" length="500">
+                <comment>MH_E_SUBJECT_MATTER_DESC</comment>
+            </column>
+        </property>
+        <property name="mhStatus" type="java.lang.Byte">
+            <column name="MH_STATUS" precision="2" scale="0">
+                <comment>MH_STATUS</comment>
+            </column>
+        </property>
+        <property name="mhValidityExpiryDate" type="java.sql.Timestamp">
+            <column name="MH_VALIDITY_EXPIRY_DATE" length="7" not-null="true">
+                <comment>MH_VALIDITY_EXPIRY_DATE</comment>
+            </column>
+        </property>
+        <property name="mhATranshipment" type="string">
+            <column name="MH_A_TRANSHIPMENT" length="300">
+                <comment>MH_A_TRANSHIPMENT</comment>
+            </column>
+        </property>
+        <property name="mhETranshipment" type="string">
+            <column name="MH_E_TRANSHIPMENT" length="80">
+                <comment>MH_E_TRANSHIPMENT</comment>
+            </column>
+        </property>
+        <property name="mhESettlementLoc" type="java.lang.Integer">
+            <column name="MH_E_SETTLEMENT_LOC" precision="5" scale="0">
+                <comment>MH_E_SETTLEMENT_LOC</comment>
+            </column>
+        </property>
+        <property name="mhLcId" type="java.lang.Long">
+            <column name="MH_LC_ID" precision="12" scale="0">
+                <comment>MH_LC_ID</comment>
+            </column>
+        </property>
+        <property name="mhPreparedBy" type="java.lang.Integer">
+            <column name="MH_PREPARED_BY" precision="8" scale="0">
+                <comment>MH_PREPARED_BY</comment>
+            </column>
+        </property>
+        <property name="mhPreparedDt" type="java.sql.Timestamp">
+            <column name="MH_PREPARED_DT" length="7">
+                <comment>MH_PREPARED_DT</comment>
+            </column>
+        </property>
+        <property name="mhModifiedBy" type="java.lang.Integer">
+            <column name="MH_MODIFIED_BY" precision="8" scale="0">
+                <comment>MH_MODIFIED_BY</comment>
+            </column>
+        </property>
+        <property name="mhModifiedDt" type="java.sql.Timestamp">
+            <column name="MH_MODIFIED_DT" length="7">
+                <comment>MH_MODIFIED_DT</comment>
+            </column>
+        </property>
+        <property name="mhStartDate" type="java.sql.Timestamp">
+            <column name="MH_START_DATE" length="7" />
+        </property>
+        <property name="mhEndDate" type="java.sql.Timestamp">
+            <column name="MH_END_DATE" length="7" />
+        </property>
+        <property name="mhSingleTransitLimit" type="java.lang.Long">
+            <column name="MH_SINGLE_TRANSIT_LIMIT" precision="15" scale="0" />
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,117 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>1_paskaizenoverrides</groupId>
+	<artifactId>1_paskaizenoverrides</artifactId>
+	<name>1_paskaizenoverrides</name>
+	<version>1.0</version>
+	<packaging>jar</packaging>
+	<url>http://maven.apache.org</url>
+	
+	<properties>
+		<mpowerID>ITS-004404</mpowerID>
+		<sonar.importSources>true</sonar.importSources>
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>mtcommon</groupId>
+			<artifactId>mtcommon</artifactId>
+			<scope>provided</scope>
+			<version>1.0</version>
+		</dependency>
+		<dependency>
+			<groupId>pascommon</groupId>
+			<artifactId>pascommon</artifactId>
+			<version>1.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.acegisecurity</groupId>
+			<artifactId>acegi-security</artifactId>
+			<version>1.0.3</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>amecommon</groupId>
+			<artifactId>amecommon</artifactId>
+			<scope>provided</scope>
+			<version>1.0</version>
+		</dependency>
+
+		<dependency>
+			<groupId>ameservices</groupId>
+			<artifactId>ameservices</artifactId>
+			<scope>provided</scope>
+			<version>1.0</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-orm</artifactId>
+			<version>3.0.6.RELEASE</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-tx</artifactId>
+			<version>3.0.6.RELEASE</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-jdbc</artifactId>
+			<version>3.0.6.RELEASE</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>1.2.11</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate</artifactId>
+			<version>3.2.3.ga</version>
+			<scope>provided</scope>
+		</dependency>
+		
+
+		<dependency>
+			<groupId>javax.transaction</groupId>
+			<artifactId>jta</artifactId>
+			<version>1.1</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>j2ee</groupId>
+			<artifactId>j2ee</artifactId>
+			<version>1.0</version>
+			<scope>provided</scope>
+		</dependency>
+	</dependencies>
+
+
+	<build>
+	<resources>
+			<resource>
+				<directory>src</directory>
+			</resource>
+		</resources>
+
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>2.3.1</version>
+			</plugin>
+		</plugins>
+		<sourceDirectory>src</sourceDirectory>
+		<outputDirectory>target\classes</outputDirectory>
+	</build>
+
+</project>

@@ -1,0 +1,64 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated May 20, 2013 11:08:43 AM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.rsaame.pas.dao.model.TMasPartnerMgmt" table="T_MAS_PARTNER_MGMT">
+     <composite-id name="id" class="com.rsaame.pas.dao.model.TMasPartnerMgmtId">
+        <key-property name="pmmId" type="string">
+            <column name="PMM_ID" length="25" />
+        </key-property>
+        <key-property name="pmmPtCode" type="java.lang.Integer">
+            <column name="PMM_PT_CODE" precision="22" scale="0" />
+        </key-property>
+        <key-property name="pmmClassCode" type="java.lang.Integer">
+            <column name="PMM_CLASS_CODE" precision="22" scale="0" />
+        </key-property>
+	</composite-id>
+        <property name="pmmEName" type="string">
+            <column name="PMM_E_NAME" length="500" />
+        </property>
+        <property name="pmmAName" type="string">
+            <column name="PMM_A_NAME" length="500" />
+        </property>
+        <property name="pmmPartnerCode" type="java.lang.Integer">
+            <column name="PMM_PARTNER_CODE" length="16" />
+        </property>
+        <property name="pmmPartnerType" type="java.lang.Integer">
+            <column name="PMM_PARTNER_TYPE" length="5" />
+        </property>
+        <property name="pmmDesc" type="string">
+            <column name="PMM_DESC" length="1000" />
+        </property>
+        <property name="pmmUrl" type="string">
+            <column name="PMM_URL" length="500" />
+        </property>
+        <property name="pmmCallcentreNo" type="string">
+            <column name="PMM_CALLCENTRE_NO" length="60" />
+        </property>
+        <property name="pmmReplyToEmail" type="string">
+            <column name="PMM_REPLYTO_EMAIL" length="250" />
+        </property>
+        <property name="pmmCcEmail" type="string">
+            <column name="PMM_CC_EMAIL" length="250" />
+        </property>
+        <property name="pmmPlcyTermsURL" type="string">
+            <column name="PMM_PLCY_TERMS_URL" length="250" />
+        </property>
+        <property name="pmmStatus" type="java.lang.Integer">
+            <column name="PMM_STATUS" precision="8" scale="0" />
+        </property>
+        <property name="pmmPreparedBy" type="java.lang.Integer">
+            <column name="PMM_PREPARED_BY" precision="8" scale="0" />
+        </property>
+        <property name="pmmPreparedDate" type="date">
+            <column name="PMM_PREPARED_DATE" length="7" />
+        </property>
+        <property name="pmmModifiedBy" type="java.lang.Integer">
+            <column name="PMM_MODIFIED_BY" precision="8" scale="0" />
+        </property>
+        <property name="pmmModifiedDate" type="date">
+            <column name="PMM_MODIFIED_DATE" length="7" />
+        </property>
+    </class>
+</hibernate-mapping>

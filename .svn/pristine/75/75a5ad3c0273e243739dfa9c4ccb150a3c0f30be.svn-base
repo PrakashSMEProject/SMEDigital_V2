@@ -1,0 +1,233 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Feb 16, 2012 8:33:13 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.rsaame.pas.gen.domain.TMasInsured" table="T_MAS_INSURED">
+        <id name="insInsuredCode" type="long">
+            <column name="INS_INSURED_CODE" precision="16" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <property name="insCcgCode" type="java.lang.Short">
+            <column name="INS_CCG_CODE" precision="3" scale="0" />
+        </property>
+        <property name="insNameTitle" type="java.lang.Byte">
+            <column name="INS_NAME_TITLE" precision="2" scale="0" />
+        </property>
+        <property name="insEFirstName" type="string">
+            <column name="INS_E_FIRST_NAME" length="200" />
+        </property>
+        <property name="insAFirstName" type="string">
+            <column name="INS_A_FIRST_NAME" length="200" />
+        </property>
+        <property name="insEMiddleName" type="string">
+            <column name="INS_E_MIDDLE_NAME" length="50" />
+        </property>
+        <property name="insAMiddleName" type="string">
+            <column name="INS_A_MIDDLE_NAME" length="50" />
+        </property>
+        <property name="insELastName" type="string">
+            <column name="INS_E_LAST_NAME" length="50" />
+        </property>
+        <property name="insALastName" type="string">
+            <column name="INS_A_LAST_NAME" length="50" />
+        </property>
+        <property name="insCompanyName" type="string">
+            <column name="INS_COMPANY_NAME" length="200" />
+        </property>
+        <property name="insCompanyAddr1" type="string">
+            <column name="INS_COMPANY_ADDR1" length="200" />
+        </property>
+        <property name="insCompanyAddr2" type="string">
+            <column name="INS_COMPANY_ADDR2" length="100" />
+        </property>
+        <property name="insCompanyAddr3" type="string">
+            <column name="INS_COMPANY_ADDR3" length="100" />
+        </property>
+        <property name="insEZipCode" type="string">
+            <column name="INS_E_ZIP_CODE" length="35" />
+        </property>
+        <property name="insCtyCode" type="java.lang.Integer">
+            <column name="INS_CTY_CODE" precision="5" scale="0" />
+        </property>
+        <property name="insEMobileNo" type="string">
+            <column name="INS_E_MOBILE_NO" length="16" />
+        </property>
+        <property name="insEEmailId" type="string">
+            <column name="INS_E_EMAIL_ID" length="60" />
+        </property>
+        <property name="insFaxNo" type="java.lang.Long">
+            <column name="INS_FAX_NO" precision="16" scale="0" />
+        </property>
+        <property name="insDob" type="date">
+            <column name="INS_DOB" length="7" />
+        </property>
+        <property name="insPlaceOfBirth" type="string">
+            <column name="INS_PLACE_OF_BIRTH" length="200" />
+        </property>
+        <property name="insNationality" type="java.lang.Short">
+            <column name="INS_NATIONALITY" precision="4" scale="0" />
+        </property>
+        <property name="insOcCode" type="java.lang.Short">
+            <column name="INS_OC_CODE" precision="4" scale="0" />
+        </property>
+        <property name="insBusiness" type="string">
+            <column name="INS_BUSINESS" length="300" />
+        </property>
+        <property name="insEPassportNo" type="string">
+            <column name="INS_E_PASSPORT_NO" length="30" />
+        </property>
+        <property name="insECoRegnNo" type="string">
+            <column name="INS_E_CO_REGN_NO" length="30" />
+        </property>
+        <property name="insIntAccExecCode" type="java.lang.Integer">
+            <column name="INS_INT_ACC_EXEC_CODE" precision="8" scale="0" />
+        </property>
+        <property name="insExtAccExecCode" type="java.lang.Integer">
+            <column name="INS_EXT_ACC_EXEC_CODE" precision="8" scale="0" />
+        </property>
+        <property name="insEPhoneNo" type="string">
+            <column name="INS_E_PHONE_NO" length="16" />
+        </property>
+        <property name="insWayNo" type="string">
+            <column name="INS_WAY_NO" length="35" />
+        </property>
+        <property name="insBldgNo" type="string">
+            <column name="INS_BLDG_NO" length="35" />
+        </property>
+        <property name="insCountry" type="java.lang.Short">
+            <column name="INS_COUNTRY" precision="3" scale="0" />
+        </property>
+        <property name="insAffinityRefNo" type="string">
+            <column name="INS_AFFINITY_REF_NO" length="100" />
+        </property>
+        <property name="insCustomerType" type="string">
+            <column name="INS_CUSTOMER_TYPE" length="2" />
+        </property>
+        <property name="insExcComModes" type="string">
+            <column name="INS_EXC_COM_MODES" length="200" />
+        </property>
+        <property name="insLegalForm" type="string">
+            <column name="INS_LEGAL_FORM" length="100" />
+        </property>
+        <property name="insDtEstablishment" type="date">
+            <column name="INS_DT_ESTABLISHMENT" length="7" />
+        </property>
+        <property name="insPlaceEstablishment" type="string">
+            <column name="INS_PLACE_ESTABLISHMENT" length="100" />
+        </property>
+        <property name="insRegulatoryBody" type="java.lang.Integer">
+            <column name="INS_REGULATORY_BODY" precision="8" scale="0" />
+        </property>
+        <property name="insExternalAuditor" type="java.lang.Integer">
+            <column name="INS_EXTERNAL_AUDITOR" precision="8" scale="0" />
+        </property>
+        <property name="insDtCollectionKyc" type="date">
+            <column name="INS_DT_COLLECTION_KYC" length="7" />
+        </property>
+        <property name="insExpiryDate" type="date">
+            <column name="INS_EXPIRY_DATE" length="7" />
+        </property>
+        <property name="insSuspendCustomer" type="string">
+            <column name="INS_SUSPEND_CUSTOMER" length="1" />
+        </property>
+        <property name="insDistributionChnl" type="java.lang.Integer">
+            <column name="INS_DISTRIBUTION_CHNL" precision="5" scale="0" />
+        </property>
+        <property name="insSourceOfCust" type="java.lang.Short">
+            <column name="INS_SOURCE_OF_CUST" precision="3" scale="0" />
+        </property>
+        <property name="insBrCode" type="java.lang.Integer">
+            <column name="INS_BR_CODE" precision="4" scale="0" />
+        </property>
+        <property name="insAgentCode" type="java.lang.Long">
+            <column name="INS_AGENT_CODE" precision="12" scale="0" />
+        </property>
+        <property name="insCustomerId" type="java.lang.Long">
+            <column name="INS_CUSTOMER_ID" precision="12" scale="0" />
+        </property>
+        <property name="insRegCode" type="java.lang.Integer">
+            <column name="INS_REG_CODE" precision="5" scale="0" />
+        </property>
+        <property name="insLocCode" type="java.lang.Integer">
+            <column name="INS_LOC_CODE" precision="5" scale="0" />
+        </property>
+        <property name="insIdTypCode" type="java.lang.Short">
+            <column name="INS_ID_TYP_CODE" precision="3" scale="0" />
+        </property>
+        <property name="insIdNo" type="string">
+            <column name="INS_ID_NO" length="50" />
+        </property>
+        <property name="insMarketingFee" type="java.lang.Long">
+            <column name="INS_MARKETING_FEE" precision="10" scale="0" />
+        </property>
+        <property name="insEAddress" type="string">
+            <column name="INS_E_ADDRESS" length="200" />
+        </property>
+        <property name="insAAddress" type="string">
+            <column name="INS_A_ADDRESS" length="200" />
+        </property>
+        <property name="insHintQuestion" type="string">
+            <column name="INS_HINT_QUESTION" length="200" />
+        </property>
+        <property name="insHintAnswer" type="string">
+            <column name="INS_HINT_ANSWER" length="200" />
+        </property>
+        <property name="insPassword" type="string">
+            <column name="INS_PASSWORD" length="100" />
+        </property>
+        <property name="insStatus" type="java.lang.Integer">
+            <column name="INS_STATUS" precision="8" scale="0" />
+        </property>
+        <property name="insEFullName" type="string">
+            <column name="INS_E_FULL_NAME" length="200" />
+        </property>
+        <property name="insAFullName" type="string">
+            <column name="INS_A_FULL_NAME" length="200" />
+        </property>
+        <property name="insRemarks" type="string">
+            <column name="INS_REMARKS" length="200" />
+        </property>
+        <property name="insCity" type="java.lang.Integer">
+            <column name="INS_CITY" precision="5" scale="0" />
+        </property>
+        <property name="insPreparedBy" type="java.lang.Integer">
+            <column name="INS_PREPARED_BY" precision="8" scale="0" />
+        </property>
+        <property name="insPreparedDt" type="java.sql.Timestamp">
+            <column name="INS_PREPARED_DT" length="7" />
+        </property>
+        <property name="insModifiedBy" type="java.lang.Integer">
+            <column name="INS_MODIFIED_BY" precision="8" scale="0" />
+        </property>
+        <property name="insModifiedDt" type="java.sql.Timestamp">
+            <column name="INS_MODIFIED_DT" length="7" />
+        </property>
+        <property name="insLinkCode" type="java.lang.Long">
+            <column name="INS_LINK_CODE" precision="16" scale="0" />
+        </property>
+        <property name="insSex" type="java.lang.Character">
+            <column name="INS_SEX" length="1" />
+        </property>
+        <property name="insPostalCode" type="java.lang.Long">
+            <column name="INS_POSTAL_CODE" precision="16" scale="0" />
+        </property>
+        <property name="insTurnover" type="java.lang.Long">
+            <column name="INS_TURNOVER" precision="16" scale="0" />
+        </property>
+        <property name="insNoOfEmp" type="java.lang.Integer">
+            <column name="INS_NO_OF_EMP" precision="6" scale="0" />
+        </property>
+         <property name="insVatRegNo" type="string">
+            <column name="INS_VAT_REGN_NO" length="50" />
+        </property>
+         <!-- CTS - 21.10.2020 - CR#16903 IA Emirates CR - Starts -->
+        <property name="insNationalId" type="string">
+            <column name="INS_NATIONAL_ID" length="14" />
+        </property>
+        <property name="insEmiratesIdExpiryDate" type="java.sql.Timestamp">
+            <column name="INS_EMIRATES_ID_EXPIRY_DATE" length="7" />
+        </property>
+        <!-- CTS - 21.10.2020 - CR#16903 IA Emirates CR - End -->
+    </class>
+</hibernate-mapping>

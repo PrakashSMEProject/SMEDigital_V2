@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Mar 14, 2012 11:33:04 AM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+	<class name="com.rsaame.pas.dao.model.TTrnPasReferralDetails"
+		table="T_TRN_PAS_REFERRAL_DETAILS">
+		<composite-id name="id" class="com.rsaame.pas.dao.model.TTrnPasReferralDetailsId">
+			<key-property name="polLinkingId" type="java.lang.Long">
+				<column name="POL_LINKING_ID" precision="16" scale="0" />
+			</key-property>
+			<key-property name="refPolicyId" type="java.lang.Long">
+				<column name="REF_POLICY_ID" precision="16" scale="0" />
+			</key-property>
+			<key-property name="secId" type="java.lang.Short">
+				<column name="SEC_ID" precision="4" scale="0" />
+			</key-property>
+			<key-property name="locationId" type="java.lang.Long">
+				<column name="LOCATION_ID" precision="16" scale="0" />
+			</key-property>
+			<key-property name="refField" type="string">
+				<column name="REF_FIELD" length="100" />
+			</key-property>
+			<key-property name="refValue" type="string">
+				<column name="REF_VALUE" length="100" />
+			</key-property>
+			<key-property name="refEndId" type="java.lang.Long">
+				<column name="REF_ENDT_ID" precision="16" scale="0" />
+			</key-property>
+		</composite-id>
+		<property name="refText" type="string">
+			<column name="REF_TEXT" length="4000" />
+		</property>
+		<property name="refStatus" type="string">
+			<column name="REF_STATUS" length="15" />
+		</property>
+		<property name="refApprovedBy" type="java.lang.Integer">
+            <column name="REF_APPROVED_BY" precision="8" scale="0" />
+        </property>
+        <property name="refCreatedBy" type="java.lang.Integer">
+            <column name="REF_CREATED_BY" precision="6" scale="0" />
+        </property>
+        <property name="refCreatedDate" type="java.sql.Timestamp">
+            <column name="REF_CREATED_DATE" length="7" />
+        </property>
+         <property name="refModifiedDate" type="java.sql.Timestamp">
+            <column name="REF_MODIFIED_DATE" length="7" />
+        </property>
+	</class>
+</hibernate-mapping>

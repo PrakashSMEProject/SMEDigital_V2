@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Jun 29, 2012 4:20:05 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.rsaame.pas.dao.model.TTrnColWorkSheetQuo" table="T_TRN_COL_WORK_SHEET">
+        <composite-id name="id" class="com.rsaame.pas.dao.model.TTrnColWorkSheetQuoId">
+            <key-property name="cwsPolicyId" type="long">
+                <column name="CWS_POLICY_ID" precision="16" scale="0" />
+            </key-property>
+            <key-property name="cwsItemCode" type="short">
+                <column name="CWS_ITEM_CODE" precision="4" scale="0" />
+            </key-property>
+            <key-property name="cwsValidityStartDate" type="java.sql.Timestamp">
+                <column name="CWS_VALIDITY_START_DATE" length="7" />
+            </key-property>
+        </composite-id>
+        <property name="cwsItemAmount" type="java.lang.Long">
+            <column name="CWS_ITEM_AMOUNT" precision="12" scale="0" />
+        </property>
+        <property name="cwsEndtId" type="java.lang.Long">
+            <column name="CWS_ENDT_ID" precision="16" scale="0" />
+        </property>
+        <property name="cwsValidityExpiryDate" type="date">
+            <column name="CWS_VALIDITY_EXPIRY_DATE" length="7" />
+        </property>
+        <property name="cwsStatus" type="java.lang.Byte">
+            <column name="CWS_STATUS" precision="2" scale="0" />
+        </property>
+        <property name="cwsPreparedBy" type="java.lang.Integer">
+            <column name="CWS_PREPARED_BY" precision="8" scale="0" />
+        </property>
+        <property name="cwsPreparedDt" type="java.sql.Timestamp">
+            <column name="CWS_PREPARED_DT" length="7" />
+        </property>
+        <property name="cwsModifiedBy" type="java.lang.Integer">
+            <column name="CWS_MODIFIED_BY" precision="8" scale="0" />
+        </property>
+        <property name="cwsModifiedDt" type="date">
+            <column name="CWS_MODIFIED_DT" length="7" />
+        </property>
+        <property name="cwsDescription" type="string">
+            <column name="CWS_DESCRIPTION" length="200" />
+        </property>
+    </class>
+</hibernate-mapping>

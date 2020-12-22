@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Feb 28, 2012 5:39:19 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.rsaame.pas.dao.model.TMasOccupancy" table="T_MAS_OCCUPANCY">
+        <id name="ocpCode" type="short">
+            <column name="OCP_CODE" precision="4" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <property name="ocpADesc" type="string">
+            <column name="OCP_A_DESC" length="60" />
+        </property>
+        <property name="ocpEDesc" type="string">
+            <column name="OCP_E_DESC" length="60" />
+        </property>
+        <property name="ocpPreparedBy" type="java.lang.Integer">
+            <column name="OCP_PREPARED_BY" precision="8" scale="0" />
+        </property>
+        <property name="ocpPreparedDt" type="date">
+            <column name="OCP_PREPARED_DT" length="7" />
+        </property>
+        <property name="ocpModifiedBy" type="java.lang.Integer">
+            <column name="OCP_MODIFIED_BY" precision="8" scale="0" />
+        </property>
+        <property name="ocpModifiedDt" type="date">
+            <column name="OCP_MODIFIED_DT" length="7" />
+        </property>
+        <property name="ocpRiRskCode" type="java.lang.Integer">
+            <column name="OCP_RI_RSK_CODE" precision="5" scale="0" />
+        </property>
+        <property name="ocpRskCode" type="java.lang.Integer">
+            <column name="OCP_RSK_CODE" precision="5" scale="0" />
+        </property>
+        <property name="ocpRtCode" type="java.lang.Integer">
+            <column name="OCP_RT_CODE" precision="5" scale="0" />
+        </property>
+        <property name="ocpRcCode" type="java.lang.Integer">
+            <column name="OCP_RC_CODE" precision="5" scale="0" />
+        </property>
+        <property name="ocpRscCode" type="java.lang.Integer">
+            <column name="OCP_RSC_CODE" precision="5" scale="0" />
+        </property>
+        <property name="ocpTradeCode" type="java.lang.Integer">
+            <column name="OCP_TRADE_CODE" precision="5" scale="0" />
+        </property>
+    </class>
+</hibernate-mapping>

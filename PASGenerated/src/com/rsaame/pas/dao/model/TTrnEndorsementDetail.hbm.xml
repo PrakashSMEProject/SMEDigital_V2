@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Apr 18, 2012 2:51:48 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.rsaame.pas.dao.model.TTrnEndorsementDetail" table="T_TRN_ENDORSEMENT_DETAIL">
+        <comment>Endorsement transaction details</comment>
+        <composite-id name="id" class="com.rsaame.pas.dao.model.TTrnEndorsementDetailId">
+            <key-property name="edlPolicyId" type="java.lang.Long">
+                <column name="EDL_POLICY_ID" precision="16" scale="0" />
+            </key-property>
+            <key-property name="edlEndorsementId" type="java.lang.Long">
+                <column name="EDL_ENDORSEMENT_ID" precision="16" scale="0" />
+            </key-property>
+            <key-property name="edlEndNo" type="java.lang.Long">
+                <column name="EDL_END_NO" precision="16" scale="0" />
+            </key-property>
+            <key-property name="edlSerialNo" type="java.lang.Integer">
+                <column name="EDL_SERIAL_NO" precision="5" scale="0" />
+            </key-property>
+            <key-property name="edlSecId" type="java.lang.Integer">
+                <column name="EDL_SEC_ID" precision="8" scale="0" />
+            </key-property>
+       </composite-id>
+        <property name="edlText" type="string">
+                <column name="EDL_TEXT" length="2000" />
+            </property>
+            <property name="edlPreparedBy" type="java.lang.Integer">
+                <column name="EDL_PREPARED_BY" precision="8" scale="0" />
+            </property>
+            <property name="edlPreparedDt" type="java.sql.Timestamp">
+                <column name="EDL_PREPARED_DT" length="7" />
+            </property>
+            <property name="edlModifiedBy" type="java.lang.Integer">
+                <column name="EDL_MODIFIED_BY" precision="8" scale="0" />
+            </property>
+            <property name="edlModifiedDt" type="java.sql.Timestamp">
+                <column name="EDL_MODIFIED_DT" length="7" />
+            </property>
+            <property name="edlOldValue" type="string">
+                <column name="EDL_OLD_VALUE" length="2000" />
+            </property>
+            <property name="edlNewValue" type="string">
+                <column name="EDL_NEW_VALUE" length="2000" />
+            </property>            
+    </class>
+</hibernate-mapping>

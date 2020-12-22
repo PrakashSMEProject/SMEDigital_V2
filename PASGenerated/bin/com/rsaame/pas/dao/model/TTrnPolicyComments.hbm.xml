@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Feb 16, 2012 4:43:48 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.rsaame.pas.dao.model.TTrnPolicyComments" table="T_TRN_POLICY_COMMENTS">
+            <composite-id >
+            	<key-property name="">
+            	
+            	</key-property>
+            </composite-id>
+            <property name="pocPolicyId" type="long">
+                <column name="POC_POLICY_ID" precision="16" scale="0" />
+            </property>
+            <property name="pocEndtId" type="long">
+                <column name="POC_ENDT_ID" precision="16" scale="0" />
+            </property>
+            <property name="pocReasonCode" type="java.lang.Short">
+                <column name="POC_REASON_CODE" precision="3" scale="0" />
+            </property>
+            <property name="pocComments" type="string">
+                <column name="POC_COMMENTS" length="500" />
+            </property>
+            <property name="pocPolicyStatus" type="java.lang.Byte">
+                <column name="POC_POLICY_STATUS" precision="2" scale="0" />
+            </property>
+            <property name="pocDate" type="date">
+                <column name="POC_DATE" length="7" />
+            </property>
+            <property name="pocPreparedBy" type="java.lang.Integer">
+                <column name="POC_PREPARED_BY" precision="8" scale="0" />
+            </property>
+            <property name="pocPreparedDt" type="date">
+                <column name="POC_PREPARED_DT" length="7" />
+            </property>
+            <property name="pocModifiedBy" type="java.lang.Integer">
+                <column name="POC_MODIFIED_BY" precision="8" scale="0" />
+            </property>
+            <property name="pocModifiedDt" type="date">
+                <column name="POC_MODIFIED_DT" length="7" />
+            </property>
+            <property name="pocDocumentCode" type="java.lang.Byte">
+                <column name="POC_DOCUMENT_CODE" precision="2" scale="0" />
+            </property>
+    </class>
+</hibernate-mapping>

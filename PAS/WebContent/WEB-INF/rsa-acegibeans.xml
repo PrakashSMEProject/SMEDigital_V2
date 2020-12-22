@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans>
+	<bean id="filterChainProxy" class="org.acegisecurity.util.FilterChainProxy">
+		<property name="filterInvocationDefinitionSource">
+			<value><![CDATA[
+				PATTERN_TYPE_APACHE_ANT
+				/**=httpSessionContextIntegrationFilter,logoutFilter,authenticationProcessingFilter,securityContextHolderAwareRequestFilter,rememberMeProcessingFilter,anonymousProcessingFilter,exceptionTranslationFilter,filterInvocationInterceptor
+			]]></value>
+		</property>
+	</bean>
+
+	<bean id="httpSessionContextIntegrationFilter" class="org.acegisecurity.context.HttpSessionContextIntegrationFilter"/>
+
+	<bean id="logoutFilter" class="org.acegisecurity.ui.logout.LogoutFilter">
+		<constructor-arg value="/jsp/login/login.jsp"/> <!-- URL redirected to after logout -->
+		<constructor-arg>
+			<list>
+				<ref bean="rememberMeServices"/>
+				<bean class="org.acegisecurity.ui.logout.SecurityContextLogoutHandler"/>
+			</list>
+		</constructor-arg>
+	</bean>
+
+	<bean id="authenticationProcessingFilter" class="org.acegisecurity.ui.webapp.AuthenticationProcessingFilter">
+		<property name="authenticationManager" ref="authenticationManager"/>
+        <property name="authenticationFailureUrl"  value="/jsp/login/login.jsp?login_error=1" />
+		 <property name="defaultTargetUrl" value="/PASServlet?opType=HOME_PAGE"/> 
+		<!-- <property name="defaultTargetUrl" value="/jsp/quote/GeneralInfoPage.jsp"/> -->
+		<property name="filterProcessesUrl" value="/j_acegi_security_check"/>
+		<property name="rememberMeServices" ref="rememberMeServices"/>
+	</bean>
+    <bean id="applicationListener" class="com.rsaame.kaizen.authentication.LoginListener">
+      <property name="dataSource">
+			<ref bean="dataSource" />
+		</property>
+     </bean>
+	<bean id="securityContextHolderAwareRequestFilter" class="org.acegisecurity.wrapper.SecurityContextHolderAwareRequestFilter"/>
+
+	<bean id="rememberMeProcessingFilter" class="org.acegisecurity.ui.rememberme.RememberMeProcessingFilter">
+		<property name="authenticationManager" ref="authenticationManager"/>
+		<property name="rememberMeServices" ref="rememberMeServices"/>
+	</bean>
+
+	<bean id="anonymousProcessingFilter" class="org.acegisecurity.providers.anonymous.AnonymousProcessingFilter">
+		<property name="key" value="changeThis"/>
+		<property name="userAttribute" value="anonymousUser,ROLE_ANONYMOUS"/>
+	</bean>
+
+	<bean id="exceptionTranslationFilter" class="org.acegisecurity.ui.ExceptionTranslationFilter">
+		<property name="authenticationEntryPoint">
+			<bean class="org.acegisecurity.ui.webapp.AuthenticationProcessingFilterEntryPoint">
+				<property name="loginFormUrl" value="/jsp/login/login.jsp"/>
+				<property name="forceHttps" value="false"/>
+			</bean>
+		</property>
+		<property name="accessDeniedHandler">
+			<bean class="org.acegisecurity.ui.AccessDeniedHandlerImpl">
+				<property name="errorPage" value="/jsp/login/login.jsp"/>
+			</bean>
+		</property>
+	</bean>
+
+	<bean id="filterInvocationInterceptor" class="org.acegisecurity.intercept.web.FilterSecurityInterceptor">
+		<property name="authenticationManager" ref="authenticationManager"/>
+		<property name="accessDecisionManager">
+			<bean class="org.acegisecurity.vote.AffirmativeBased">
+				<property name="allowIfAllAbstainDecisions" value="false"/>
+				<property name="decisionVoters">
+					<list>
+						<bean class="org.acegisecurity.vote.RoleVoter">
+							<property name="rolePrefix" value=""/>
+						</bean>
+						<bean class="org.acegisecurity.vote.AuthenticatedVoter"/>
+					</list>
+				</property>
+			</bean>
+		</property>
+		<property name="objectDefinitionSource">
+			<value><![CDATA[
+				PATTERN_TYPE_APACHE_ANT
+				/jsp/login/login.jsp=IS_AUTHENTICATED_ANONYMOUSLY
+				/j_acegi_logout**=IS_AUTHENTICATED_ANONYMOUSLY
+				/static/img/**=IS_AUTHENTICATED_ANONYMOUSLY
+				/static/css/**=IS_AUTHENTICATED_ANONYMOUSLY
+				/static/js/**=IS_AUTHENTICATED_ANONYMOUSLY
+				/PASServlet*= RSA_USER_1, RSA_USER_2, RSA_USER_3, RSA_USER_4, RSA_PL_USER_5, RSA_USER_7, BROKER_USER, BROKER_PL_USER_1, BROKER_PL_USER_3, RSA_PL_USER_1,RSA_PL_USER_5_1,RSA_PL_USER_6,RSA_PL_USER_2,RSA_PL_USER_3,VIEW_SBS,VIEW_PL_USER
+			]]></value>
+		</property>
+	</bean>
+
+	<bean id="rememberMeServices" class="org.acegisecurity.ui.rememberme.TokenBasedRememberMeServices">
+		<property name="userDetailsService" ref="userDetailsService"/>
+		<property name="key" value="changeThis"/>
+	</bean>
+
+	<bean id="authenticationManager" class="org.acegisecurity.providers.ProviderManager">
+		<property name="providers">
+			<list>
+				<ref local="daoAuthenticationProvider"/>
+				<bean class="org.acegisecurity.providers.anonymous.AnonymousAuthenticationProvider">
+					<property name="key" value="changeThis"/>
+				</bean>
+				<bean class="org.acegisecurity.providers.rememberme.RememberMeAuthenticationProvider">
+					<property name="key" value="changeThis"/>
+				</bean>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="daoAuthenticationProvider" class="org.acegisecurity.providers.dao.DaoAuthenticationProvider">
+            <property name="userDetailsService" ref="userDetailsService"/>
+            <property name="passwordEncoder">
+        		<ref bean="passwordEncoder" />
+      		</property>
+      </bean>
+    
+       <bean id="passwordEncoder" class="com.rsaame.kaizen.framework.util.EncryptionUtil">
+           <property name="saltSource" value="R&amp;SA_AME"/>
+  	   </bean>
+
+      
+
+	<!-- UserDetailsService is the most commonly frequently Acegi Security interface implemented by end users -->
+	<bean id="userDetailsService" class="com.rsaame.kaizen.authentication.dao.impl.AuthenticationDAOImpl">
+            <property name="dataSource">
+                  <ref bean="dataSource"/>
+            </property>
+            <property name="usersByUsernameQuery">
+				<value>SELECT LOGIN_ID, PASSWORD, COUNTRY, BRANCH, EMPLOYEE_ID, BROKER_ID, AGENT_ID, DEFAULT_MODULE, DEFAULT_APPROVER, LOGIN_ATTEMPTS, STATUS_ID, PROFILE, USER_ID, USER_A_NAME, USER_E_NAME, USER_EMAIL_ID, USER_MOB_NO FROM T_MAS_USER WHERE UPPER(LOGIN_ID)=UPPER(?)</value>
+			</property>
+	</bean>
+
+	<!-- This bean is optional; it isn't used by any other bean as it only listens and logs -->
+	<bean id="loggerListener" class="org.acegisecurity.event.authentication.LoggerListener"/>
+
+	<bean id="dataSourceDUB" class="org.springframework.jndi.JndiObjectFactoryBean">
+        <property name="jndiName">
+			<value>AMEDataSource</value>
+		</property>
+     </bean>
+
+      <bean id="dataSourceABU" class="org.springframework.jndi.JndiObjectFactoryBean">
+        <property name="jndiName">
+			<value>Kaizen_ABU</value>
+		</property>
+     </bean>
+      <bean id="dataSourceSHA" class="org.springframework.jndi.JndiObjectFactoryBean">
+        <property name="jndiName">
+			<value>Kaizen_SHJ</value>
+		</property>
+     </bean>
+      <bean id="dataSourceJED" class="org.springframework.jndi.JndiObjectFactoryBean">
+        <property name="jndiName">
+			<value>AMEDataSource</value>
+		</property>
+     </bean>
+      <bean id="dataSourceALK" class="org.springframework.jndi.JndiObjectFactoryBean">
+        <property name="jndiName">
+			<value>AMEDataSource</value>
+		</property>
+     </bean>
+      <bean id="dataSourceRIY" class="org.springframework.jndi.JndiObjectFactoryBean">
+        <property name="jndiName">
+			<value>AMEDataSource</value>
+		</property>
+     </bean>
+      <bean id="dataSourceMUS" class="org.springframework.jndi.JndiObjectFactoryBean">
+        <property name="jndiName">
+			<value>Kaizen_OMAN</value>
+		</property>
+     </bean>
+	 <bean id="dataSourceMUS1" class="org.springframework.jndi.JndiObjectFactoryBean">
+        <property name="jndiName">
+			<value>Kaizen_OMAN</value>
+		</property>
+     </bean>
+	 <bean id="dataSourceMUS2" class="org.springframework.jndi.JndiObjectFactoryBean">
+        <property name="jndiName">
+			<value>Kaizen_OMAN</value>
+		</property>
+     </bean>
+	 <bean id="dataSourceMUS3" class="org.springframework.jndi.JndiObjectFactoryBean">
+        <property name="jndiName">
+			<value>Kaizen_OMAN</value>
+		</property>
+     </bean>
+	 <bean id="dataSourceMUS4" class="org.springframework.jndi.JndiObjectFactoryBean">
+        <property name="jndiName">
+			<value>Kaizen_OMAN</value>
+		</property>
+     </bean>
+	<bean id="dataSourceMUS5" class="org.springframework.jndi.JndiObjectFactoryBean">
+        <property name="jndiName">
+			<value>Kaizen_OMAN</value>
+		</property>
+     </bean>
+	<bean id="dataSourceMUS6" class="org.springframework.jndi.JndiObjectFactoryBean">
+        <property name="jndiName">
+			<value>Kaizen_OMAN</value>
+		</property>
+     </bean>
+	<bean id="dataSourceMUS7" class="org.springframework.jndi.JndiObjectFactoryBean">
+        <property name="jndiName">
+			<value>Kaizen_OMAN</value>
+		</property>
+     </bean>
+	<bean id="dataSourceMUS8" class="org.springframework.jndi.JndiObjectFactoryBean">
+        <property name="jndiName">
+			<value>Kaizen_OMAN</value>
+		</property>
+     </bean>
+      <bean id="dataSourceBAH" class="org.springframework.jndi.JndiObjectFactoryBean">
+        <property name="jndiName">
+			<value>Kaizen_BAH</value>
+		</property>
+     </bean>
+     
+    <bean id="dataSource" class="com.rsaame.kaizen.framework.util.RoutingDataSource">
+		<property name="targetDataSources">
+			<map>
+			 <entry key="20" value-ref="dataSourceDUB"/>
+			 <entry key="21" value-ref="dataSourceABU"/>
+			 <entry key="22" value-ref="dataSourceSHA"/>
+			 <entry key="1" value-ref="dataSourceJED"/>
+			 <entry key="3" value-ref="dataSourceALK"/>
+			 <entry key="2" value-ref="dataSourceRIY"/>
+			<entry key="30" value-ref="dataSourceMUS"/> 
+ 			 <entry key="50" value-ref="dataSourceBAH"/>
+			 <entry key="31" value-ref="dataSourceMUS1"/>
+			<entry key="32" value-ref="dataSourceMUS2"/>
+			<entry key="33" value-ref="dataSourceMUS3"/>
+			<entry key="34" value-ref="dataSourceMUS4"/>
+			<entry key="5" value-ref="dataSourceMUS5"/>
+			<entry key="302" value-ref="dataSourceMUS6"/>
+			<entry key="303" value-ref="dataSourceMUS7"/>
+			<entry key="304" value-ref="dataSourceMUS8"/>
+			</map>
+		</property>
+		<property name="defaultTargetDataSource" ref="dataSourceDUB"/>
+	</bean> 
+
+</beans>

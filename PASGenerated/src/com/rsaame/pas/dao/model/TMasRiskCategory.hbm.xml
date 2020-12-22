@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Feb 1, 2012 11:52:36 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.rsaame.pas.dao.model.TMasRiskCategory" table="T_MAS_RISK_CATEGORY" >
+        <composite-id name="id" class="com.rsaame.pas.dao.model.TMasRiskCategoryId">
+            <key-property name="rcRskCode" type="int">
+                <column name="RC_RSK_CODE" precision="5" scale="0" />
+            </key-property>
+            <key-property name="rcRtCode" type="int">
+                <column name="RC_RT_CODE" precision="5" scale="0" />
+            </key-property>
+            <key-property name="rcCode" type="int">
+                <column name="RC_CODE" precision="5" scale="0" />
+            </key-property>
+        </composite-id>
+        <property name="rcADesc" type="string">
+            <column name="RC_A_DESC" length="200" />
+        </property>
+        <property name="rcEDesc" type="string">
+            <column name="RC_E_DESC" length="200" />
+        </property>
+        <property name="rcUserCode" type="java.lang.Integer">
+            <column name="RC_USER_CODE" precision="5" scale="0" />
+        </property>
+        <property name="rcPreparedBy" type="java.lang.Integer">
+            <column name="RC_PREPARED_BY" precision="8" scale="0" />
+        </property>
+        <property name="rcPreparedDt" type="date">
+            <column name="RC_PREPARED_DT" length="7" />
+        </property>
+        <property name="rcModifiedBy" type="java.lang.Integer">
+            <column name="RC_MODIFIED_BY" precision="8" scale="0" />
+        </property>
+        <property name="rcModifiedDt" type="date">
+            <column name="RC_MODIFIED_DT" length="7" />
+        </property>
+        <set name="TMasRiskSubCategories" table="T_MAS_RISK_SUB_CATEGORY" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="RSC_RSK_CODE" precision="5" scale="0" not-null="true" />
+                <column name="RSC_RT_CODE" precision="5" scale="0" not-null="true" />
+                <column name="RSC_RC_CODE" precision="5" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="com.rsaame.pas.dao.model.TMasRiskSubCategory" />
+        </set>
+    </class>
+</hibernate-mapping>

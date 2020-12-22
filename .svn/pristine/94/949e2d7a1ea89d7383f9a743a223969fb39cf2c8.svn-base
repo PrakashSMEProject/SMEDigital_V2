@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated May 8, 2012 4:38:43 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.rsaame.pas.dao.model.TTrnReminder" table="T_TRN_REMINDER">
+        <composite-id name="id" class="com.rsaame.pas.dao.model.TTrnReminderId">
+            <key-property name="remType" type="boolean">
+                <column name="REM_TYPE" precision="1" scale="0" />
+            </key-property>
+            <key-property name="remTypeId" type="long">
+                <column name="REM_TYPE_ID" precision="16" scale="0" />
+            </key-property>
+            <key-property name="remSrlNo" type="short">
+                <column name="REM_SRL_NO" precision="3" scale="0" />
+            </key-property>
+            <key-property name="remPreparedBy" type="int">
+                <column name="REM_PREPARED_BY" precision="5" scale="0" />
+            </key-property>
+            <key-property name="remPreparedDt" type="java.sql.Timestamp">
+                <column name="REM_PREPARED_DT" length="7" />
+            </key-property>
+        </composite-id>
+        <property name="remTargetDt" type="java.sql.Timestamp">
+            <column name="REM_TARGET_DT" length="7" />
+        </property>
+        <property name="remDescription" type="string">
+            <column name="REM_DESCRIPTION" length="2000" />
+        </property>
+        <property name="remStatus" type="java.lang.Boolean">
+            <column name="REM_STATUS" precision="1" scale="0" />
+        </property>
+        <property name="emailReq" type="java.lang.Boolean">
+            <column name="REM_EMAIL_REQ" precision="1" scale="0" />
+        </property>
+    </class>
+</hibernate-mapping>

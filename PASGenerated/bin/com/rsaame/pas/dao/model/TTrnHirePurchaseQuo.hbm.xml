@@ -1,0 +1,68 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Mar 4, 2014 6:15:40 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.rsaame.pas.dao.model.TTrnHirePurchaseQuo" table="T_TRN_HIRE_PURCHASE_QUO">
+        <comment>Hire purchase details</comment>
+        <composite-id name="id" class="com.rsaame.pas.dao.model.TTrnHirePurchaseQuoId">
+            <key-property name="hpPolicyId" type="long">
+                <column name="HP_POLICY_ID" precision="16" scale="0" />
+            </key-property>
+            <key-property name="hpEndtId" type="long">
+                <column name="HP_ENDT_ID" precision="16" scale="0" />
+            </key-property>
+            <key-property name="hpValidityStartDate" type="date">
+                <column name="HP_VALIDITY_START_DATE" scale="0" />
+            </key-property>
+            <key-property name="hpCode" type="java.lang.Integer">
+                <column name="HP_CODE" precision="8" scale="0" />
+            </key-property>
+        </composite-id>
+        <property name="hpAmount" type="big_decimal">
+            <column name="HP_AMOUNT" precision="16" scale="3">
+                <comment>HP_AMOUNT</comment>
+            </column>
+        </property>
+        <property name="hpExpiryDate" type="date">
+            <column name="HP_EXPIRY_DATE" length="7">
+                <comment>HP_EXPIRY_DATE</comment>
+            </column>
+        </property>
+       <!--  <property name="hpCode" type="java.lang.Integer">
+            <column name="HP_CODE" precision="8" scale="0">
+                <comment>HP_CODE</comment>
+            </column>
+        </property> -->
+        <property name="hpValidityExpiryDate" type="date">
+            <column name="HP_VALIDITY_EXPIRY_DATE" length="7" not-null="true">
+                <comment>HP_VALIDITY_EXPIRY_DATE</comment>
+            </column>
+        </property>
+        <property name="hpStatus" type="java.lang.Byte">
+            <column name="HP_STATUS" precision="2" scale="0">
+                <comment>HP_STATUS</comment>
+            </column>
+        </property>
+        <property name="hpPreparedBy" type="java.lang.Integer">
+            <column name="HP_PREPARED_BY" precision="8" scale="0">
+                <comment>HP_PREPARED_BY</comment>
+            </column>
+        </property>
+        <property name="hpPreparedDt" type="date">
+            <column name="HP_PREPARED_DT" length="7">
+                <comment>HP_PREPARED_DT</comment>
+            </column>
+        </property>
+        <property name="hpModifiedBy" type="java.lang.Integer">
+            <column name="HP_MODIFIED_BY" precision="8" scale="0">
+                <comment>HP_MODIFIED_BY</comment>
+            </column>
+        </property>
+        <property name="hpModifiedDt" type="date">
+            <column name="HP_MODIFIED_DT" length="7">
+                <comment>HP_MODIFIED_DT</comment>
+            </column>
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mappings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="mappings.xsd">
+
+	<!-- Sample mapping for testing bean2bean mapper starts here -->
+	<!-- <mapping id="BeanAToBeanBMapper">
+		<class-a class="com.mindtree.devtools.b2b.sample.BeanA" />
+		<class-b class="com.mindtree.devtools.b2b.sample.BeanB" />
+		<field>
+			<a>intprimitive</a>
+			<b>intprimitive</b>
+		</field>
+		<field>
+			<a>date</a>
+			<b>complexObject.date</b>
+		</field>
+		<field>
+			<a>complexObject.string</a>
+			<b>str</b>
+		</field>
+		<field>
+			<a>integerObject</a>
+			<b>integerObject</b>
+		</field>
+		<field>
+			<a>str</a>
+			<b>complexObject.beanB.str</b>
+		</field>
+		<field mapper-type="LIST">
+			<a>stringList</a>
+			<b>stringList</b>
+		</field>
+		<field ref="ComplexObjectMapper">
+			<a>complexObject</a>
+			<b>complexObject</b>
+		</field>
+		<field mapper-type="LIST">
+			<a>complexObjectList</a>
+			<b>complexObjectList</b>
+		</field>
+		<field mapper-type="SET">
+			<a>complexObjectSet</a>
+			<b>complexObjectSet</b>
+		</field>
+		<field mapper-type="ARRAY">
+			<a>complexObjectArray</a>
+			<b>complexObjectArray</b>
+		</field>
+
+	</mapping>
+
+	<mapping id="ComplexObjectMapper">
+		<class-a class="com.mindtree.devtools.b2b.sample.ComplexObject" />
+		<class-b class="com.mindtree.devtools.b2b.sample.ComplexObject" />
+		<field>
+			<a>string</a>
+			<b>string</b>
+		</field>
+		<field>
+			<a>object</a>
+			<b>object</b>
+		</field>
+	</mapping>
+
+	<mapping id="SourceDestBeanMapper">
+		<class-a class="com.mindtree.devtools.b2b.sample.SourceBean" />
+		<class-b class="com.mindtree.devtools.b2b.sample.DestBean" />
+		<field ref="BeanAToBeanCMapper" mapper-type="List">
+			<a>beanAList</a>
+			<b>beanCList</b>
+		</field>
+		<field ref="BeanAToBeanCMapper" mapper-type="List">
+			<a>beanAList</a>
+			<b>beanCArray</b>
+		</field>
+		<field ref="BeanAToBeanCMapper" mapper-type="List">
+			<a>beanAList</a>
+			<b>beanCSet</b>
+		</field>
+		<field ref="BeanAToBeanCMapper" mapper-type="ARRAY">
+			<a>beanAArray</a>
+			<b>beanCArray</b>
+		</field>
+		<field ref="BeanAToBeanCMapper" mapper-type="ARRAY">
+			<a>beanAArray</a>
+			<b>beanCList</b>
+		</field>
+		<field ref="BeanAToBeanCMapper" mapper-type="ARRAY">
+			<a>beanAArray</a>
+			<b>beanCSet</b>
+		</field>
+		<field ref="BeanAToBeanCMapper" mapper-type="SET">
+			<a>beanASet</a>
+			<b>beanCSet</b>
+		</field>
+		<field ref="BeanAToBeanCMapper" mapper-type="SET">
+			<a>beanASet</a>
+			<b>beanCList</b>
+		</field>
+		<field ref="BeanAToBeanCMapper" mapper-type="SET">
+			<a>beanASet</a>
+			<b>beanCArray</b>
+		</field>
+	</mapping> -->
+
+	<mapping id="BeanAToBeanCMapper">
+		<class-a class="com.mindtree.devtools.b2b.sample.BeanA" />
+		<class-b class="com.mindtree.devtools.b2b.sample.BeanC" />
+		<field converter="com.mindtree.ruc.cmn.beanmap.DateStringConverter" converterDefaultDir="a-b">
+			<a>date</a>
+			<b properties="format=MM/dd/yyyy">string</b>
+		</field>
+		<field>
+			<a type="boolean">beanABoolean</a>
+			<b type="boolean">levelTwo.yes</b>
+		</field>
+		<field converter="com.mindtree.ruc.cmn.beanmap.DateStringConverter" converterDefaultDir="b-a">
+			<a collType="ARRAY" properties="format=MM/dd/yyyy">strArray</a>
+			<b collType="LIST">complexObjectList[].date</b>
+		</field>
+		<field>
+			<a collType="LIST">complexObjectList[0].string</a>
+			<b collType="ARRAY">complexObjectArray[1].string</b>
+		</field>
+		<field>
+			<a collType="ARRAY">complexObjectArray[0].string</a>
+			<b collType="ARRAY">complexObjectArray[2].string</b>
+		</field>
+		<field>
+			<a collType="MAP">strLevelTwoMap['KEY'].yesString</a>
+			<b collType="ARRAY">complexObjectArray[3].string</b>
+		</field>
+	</mapping>
+
+	<mapping id="RequestToFormVOMapper" genReverse="false">
+		<class-a class="HTTP-REQUEST" />
+		<class-b class="com.mindtree.devtools.b2b.sample.FormVO" />
+		<field converter="com.mindtree.ruc.cmn.beanmap.DateStringConverter" converterDefaultDir="b-a">
+			<a properties="format=MM/dd/yyyy">date</a>
+			<b>effDate</b>
+		</field>
+		<field converter="com.mindtree.ruc.cmn.beanmap.BooleanStringConverter" converterDefaultDir="b-a">
+			<a>yesso</a>
+			<b type="boolean">levelTwo.yes</b>
+		</field>
+		<field>
+			<a collType="LIST">uwq</a>
+			<b collType="LIST">uwq</b>
+		</field>
+	</mapping>
+
+	<!-- Sample mapping for testing bean2bean mapper ends here -->
+</mappings>

@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Aug 6, 2012 2:02:47 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.rsaame.pas.dao.model.TTrnRenewalBatchEplatform" table="T_TRN_RENEWAL_BATCH_EPLATFORM">     
+    	<composite-id > 
+	        <key-property name="polLinkingId" type="java.lang.Long">
+	            <column name="POL_LINKING_ID" precision="16" scale="0" />
+	        </key-property>
+	        <key-property name="policyId" type="java.lang.Long">
+	            <column name="POL_POLICY_ID" precision="16" scale="0" />
+	        </key-property>
+        </composite-id>
+        <property name="polPolicyNo" type="java.lang.Long">
+            <column name="POL_POLICY_NO" precision="16" scale="0" />
+        </property>
+        <property name="effectiveDate" type="date">
+            <column name="EFFECTIVE_DATE" length="7" />
+        </property>
+        <property name="expiryDate" type="date">
+            <column name="EXPIRY_DATE" length="7" />
+        </property>
+        <property name="policyYear" type="java.lang.Short">
+            <column name="POLICY_YEAR" precision="4" scale="0" />
+        </property>
+        <property name="requesterId" type="java.lang.Integer">
+            <column name="REQUESTER_ID" precision="8" scale="0" />
+        </property>
+        <property name="requestDate" type="date">
+            <column name="REQUEST_DATE" length="7" />
+        </property>
+        <property name="lastExecutedStep" type="java.lang.Short">
+            <column name="LAST_EXECUTED_STEP" precision="3" scale="0" />
+        </property>
+        <property name="lastProcessedDate" type="date">
+            <column name="LAST_PROCESSED_DATE" length="7" />
+        </property>
+        <property name="renQuotationNo" type="java.lang.Long">
+            <column name="REN_QUOTATION_NO" precision="16" scale="0" />
+        </property>
+        <property name="renQuotationStatus" type="string">
+            <column name="REN_QUOTATION_STATUS" length="2" />
+        </property>
+        <property name="remarks" type="string">
+            <column name="REMARKS" length="250" />
+        </property> 
+        <property name="application" type="string">
+            <column name="APPLICATION" length="30" />
+        </property>
+
+                
+    </class>
+</hibernate-mapping>

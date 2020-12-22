@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app id="WebApp_ID" version="2.4"
+ xmlns="http://java.sun.com/xml/ns/j2ee"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
+ <display-name>PAS</display-name>
+ <context-param id="appName">
+  <param-name>appName</param-name>
+  <param-value>PAS</param-value>
+ </context-param>
+ <context-param>
+  <description>The xml for acegi security configaration</description>
+  <param-name>contextConfigLocation</param-name>
+  <param-value>/WEB-INF/rsa-acegibeans.xml,/WEB-INF/batchprocess-beans.xml</param-value>
+ </context-param>
+ <filter>
+  <filter-name>ConcurrentSessionFilter</filter-name>
+  <filter-class>org.acegisecurity.concurrent.ConcurrentSessionFilter</filter-class>
+ </filter>
+ <filter>
+  <filter-name>AMEFilter</filter-name>
+  <filter-class>com.rsaame.kaizen.framework.filter.AMEFilter</filter-class>
+   <init-param>
+   <param-name>mode</param-name>
+   <param-value>SAMEORIGIN</param-value>
+  </init-param>
+ </filter>
+ <filter>
+  <description>Filters all XSS scripts</description>
+  <display-name>XSSFILTER</display-name>
+  <filter-name>XSSFILTER</filter-name>
+  <filter-class>com.rsaame.pas.web.XSSFilter</filter-class>
+ </filter>
+ <filter>
+  <filter-name>Acegi Filter Chain Proxy</filter-name>
+  <filter-class>org.acegisecurity.util.FilterToBeanProxy</filter-class>
+  <init-param>
+   <param-name>targetClass</param-name>
+   <param-value>org.acegisecurity.util.FilterChainProxy</param-value>
+  </init-param>
+ </filter>
+ <filter>
+  <filter-name>PASUserProfileInit</filter-name>
+  <filter-class>com.rsaame.pas.web.PASUserProfileInit</filter-class>
+ </filter>
+  <filter>
+  <filter-name>PASAuditLogger</filter-name>
+  <filter-class>com.rsaame.pas.web.PASAuditLogger</filter-class>
+ </filter>
+ <filter>
+  <display-name>PASContextPathFilter</display-name>
+  <filter-name>PASContextPathFilter</filter-name>
+  <filter-class>com.rsaame.pas.web.PASContextPathFilter</filter-class>
+ </filter>
+ <!-- - Acegi Filter Configuration -->
+ <filter-mapping>
+  <filter-name>AMEFilter</filter-name>
+  <url-pattern>/j_acegi_security_check</url-pattern>
+ </filter-mapping>
+ <filter-mapping>
+  <filter-name>PASContextPathFilter</filter-name>
+  <url-pattern>/j_acegi_security_check</url-pattern>
+ </filter-mapping>
+ <filter-mapping>
+  <filter-name>AMEFilter</filter-name>
+  <url-pattern>*.jsp</url-pattern>
+ </filter-mapping>
+ <filter-mapping>
+  <filter-name>PASContextPathFilter</filter-name>
+  <url-pattern>*.jsp</url-pattern>
+ </filter-mapping>
+ <filter-mapping>
+  <filter-name>AMEFilter</filter-name>
+  <url-pattern>/PASServlet</url-pattern>
+ </filter-mapping>
+<!-- Added as part of CR:Forgot password Release 3.3.2 -->
+  <filter-mapping>
+  <filter-name>AMEFilter</filter-name>
+  <url-pattern>/ForgotPasswordServlet</url-pattern>
+ </filter-mapping>
+ <filter-mapping>
+  <filter-name>AMEFilter</filter-name>
+  <url-pattern>/j_acegi_logout</url-pattern>
+ </filter-mapping>
+ <filter-mapping>
+  <filter-name>Acegi Filter Chain Proxy</filter-name>
+  <url-pattern>*.jsp</url-pattern>
+ </filter-mapping>
+ <filter-mapping>
+  <filter-name>Acegi Filter Chain Proxy</filter-name>
+  <url-pattern>*.xml</url-pattern>
+ </filter-mapping>
+ <filter-mapping>
+  <filter-name>Acegi Filter Chain Proxy</filter-name>
+  <url-pattern>/j_acegi_security_check</url-pattern>
+ </filter-mapping>
+ <filter-mapping>
+  <filter-name>Acegi Filter Chain Proxy</filter-name>
+  <url-pattern>/j_acegi_logout</url-pattern>
+ </filter-mapping>
+ <filter-mapping>
+  <filter-name>Acegi Filter Chain Proxy</filter-name>
+  <url-pattern>/PASServlet</url-pattern>
+ </filter-mapping>
+ <filter-mapping>
+  <filter-name>PASUserProfileInit</filter-name>
+  <url-pattern>/PASServlet</url-pattern>
+ </filter-mapping>
+ <filter-mapping>
+  <filter-name>PASAuditLogger</filter-name>
+  <url-pattern>/PASServlet</url-pattern>
+ </filter-mapping>
+ <filter-mapping>
+  <filter-name>XSSFILTER</filter-name>
+  <url-pattern>*.jsp</url-pattern>
+ </filter-mapping>
+ <filter-mapping>
+  <filter-name>XSSFILTER</filter-name>
+  <url-pattern>/PASServlet</url-pattern>
+ </filter-mapping>
+ <listener>
+    <listener-class>
+      org.springframework.web.context.request.RequestContextListener
+    </listener-class>
+  </listener>
+ <listener>
+  <display-name>TomcatDataSourceInitContextListener</display-name>
+  <listener-class>com.rsaame.pas.web.TomcatDataSourceInitContextListener</listener-class>
+ </listener>
+ 
+ <!-- - Loads the root application context of this web app at startup. - 
+		The application context is then available via - WebApplicationContextUtils.getWebApplicationContext(servletContext). -->
+ <listener>
+  <description>Loads the spring context</description>
+  <display-name>PAS AppContext Loader</display-name>
+  <listener-class>com.rsaame.pas.web.PASAppContextInit</listener-class>
+ </listener>
+ <!-- <servlet> <servlet-name>AMESchedularServlet</servlet-name> <servlet-class>com.rsaame.kaizen.delegate.AMESchedularServlet</servlet-class> 
+		<load-on-startup>3</load-on-startup> </servlet> <servlet-mapping> <servlet-name>AMESchedularServlet</servlet-name> 
+		<url-pattern>/AMESchedularServlet</url-pattern> </servlet-mapping> -->
+ <listener>
+  <display-name>PASLocationControlInit</display-name>
+  <listener-class>com.rsaame.pas.web.PASLocationControlInit</listener-class>
+ </listener>
+ <listener>
+  <display-name>PASSecurityContextInit</display-name>
+  <listener-class>com.rsaame.pas.web.PASSecurityContextInit</listener-class>
+ </listener>
+ <listener>
+  <listener-class>com.rsaame.kaizen.authentication.LoginListener</listener-class>
+ </listener>
+  <listener>
+  <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+ </listener>
+ <!-- Viewer Servlet Context Listener -->
+ <listener>
+  <listener-class>org.acegisecurity.ui.session.HttpSessionEventPublisher</listener-class>
+ </listener>
+ <listener>
+ 	<listener-class>com.rsaame.pas.web.PasHttpSessionListener</listener-class>
+ </listener>
+ <!-- Viewer HttpSession Listener -->
+ <servlet>
+  <description>The servlet for PAS application</description>
+  <display-name>PASServlet</display-name>
+  <servlet-name>PASServlet</servlet-name>
+  <servlet-class>com.rsaame.pas.web.PASServlet</servlet-class>
+ </servlet>
+ <!-- Added as part of Release 3.3.2 -->
+ <servlet>
+  <description>The servlet for PAS application</description>
+  <display-name>ForgotPasswordServlet</display-name>
+  <servlet-name>ForgotPasswordServlet</servlet-name>
+  <servlet-class>com.rsaame.pas.web.ForgotPasswordServlet</servlet-class>
+ </servlet>
+ <servlet-mapping>
+  <servlet-name>PASServlet</servlet-name>
+  <url-pattern>/PASServlet</url-pattern>
+ </servlet-mapping>
+<!-- Added as part of Release 3.3.2 -->
+  <servlet-mapping>
+  <servlet-name>ForgotPasswordServlet</servlet-name>
+  <url-pattern>/ForgotPasswordServlet</url-pattern>
+ </servlet-mapping>
+ <session-config>
+  <session-timeout>60</session-timeout>
+ </session-config>
+<welcome-file-list>
+<welcome-file>/jsp/login/login.jsp</welcome-file>
+</welcome-file-list>
+ <error-page>
+  <error-code>404</error-code>
+  <location>/jsp/login/login.jsp</location>
+ </error-page>
+ <error-page>
+  <error-code>500</error-code>
+  <location>/jsp/login/login.jsp</location>
+ </error-page>
+ <jsp-config>
+  <taglib>
+   <taglib-uri>http://www.rsa.com/acl</taglib-uri>
+   <taglib-location>/WEB-INF/ACLTag.tld</taglib-location>
+  </taglib>
+  <taglib>
+   <taglib-uri>http://www.rsa.com/lookUp</taglib-uri>
+   <taglib-location>/WEB-INF/lookUpTag.tld</taglib-location>
+  </taglib>
+  <taglib>
+   <taglib-uri>http://www.rsa.com/UWQtag</taglib-uri>
+   <taglib-location>/WEB-INF/UWQTag.tld</taglib-location>
+  </taglib>
+  <taglib>
+   <taglib-uri>http://www.rsa.com/riskcovertag</taglib-uri>
+   <taglib-location>/WEB-INF/RiskCoverTag.tld</taglib-location>
+  </taglib>
+  <taglib>
+   <taglib-uri>http://www.rsa.com/tags</taglib-uri>
+   <taglib-location>/WEB-INF/pastags.tld</taglib-location>
+  </taglib>
+  <taglib>
+   <taglib-uri>http://www.rsa.com/consolidatedReferralMesageTag</taglib-uri>
+   <taglib-location>/WEB-INF/consolidatedReferralMessageTag.tld</taglib-location>
+  </taglib>
+ </jsp-config>
+ <resource-ref id="ResourceRef_oracledb">
+  <description>Oracle Datasource example</description>
+  <res-ref-name>AMEDataSource</res-ref-name>
+  <res-type>javax.sql.DataSource</res-type>
+  <res-auth>Container</res-auth>
+ </resource-ref>
+</web-app>

@@ -1,0 +1,176 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Mar 3, 2012 11:52:19 AM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.rsaame.pas.dao.model.TTrnGaccBuildingQuo" table="T_TRN_GACC_BUILDING_QUO">
+        <composite-id name="id" class="com.rsaame.pas.dao.model.TTrnGaccBuildingQuoId">
+            <key-property name="gbdId" type="long">
+                <column name="GBD_ID" precision="16" scale="0" />
+            </key-property>
+            <key-property name="gbdValidityStartDate" type="java.sql.Timestamp">
+                <column name="GBD_VALIDITY_START_DATE" length="7" />
+            </key-property>
+        </composite-id>
+        <property name="gbdPolicyId" type="java.lang.Long">
+            <column name="GBD_POLICY_ID" precision="16" scale="0">
+                <comment>GBD_POLICY_ID</comment>
+            </column>
+        </property>
+        <property name="gbdRskCode" type="java.lang.Long">
+            <column name="GBD_RSK_CODE" precision="16" scale="0">
+                <comment>GBD_RSK_CODE</comment>
+            </column>
+        </property>
+        <property name="gbdConstructionCode" type="java.lang.Long">
+            <column name="GBD_CONSTRUCTION_CODE" precision="16" scale="0">
+                <comment>GBD_CONSTRUCTION_CODE</comment>
+            </column>
+        </property>
+        <property name="gbdStartDate" type="date">
+            <column name="GBD_START_DATE" length="7">
+                <comment>GBD_START_DATE</comment>
+            </column>
+        </property>
+        <property name="gbdEndDate" type="date">
+            <column name="GBD_END_DATE" length="7">
+                <comment>GBD_END_DATE</comment>
+            </column>
+        </property>
+        <property name="gbdFlatNo" type="java.lang.Long">
+            <column name="GBD_FLAT_NO" precision="16" scale="0">
+                <comment>GBD_FLAT_NO</comment>
+            </column>
+        </property>
+        <property name="gbdNo" type="string">
+            <column name="GBD_NO" length="30">
+                <comment>GBD_NO</comment>
+            </column>
+        </property>
+        <property name="gbdEName" type="string">
+            <column name="GBD_E_NAME" length="500">
+                <comment>GBD_E_NAME</comment>
+            </column>
+        </property>
+        <property name="gbdAName" type="string">
+            <column name="GBD_A_NAME" length="500">
+                <comment>GBD_A_NAME</comment>
+            </column>
+        </property>
+        <property name="gbdWayNo" type="java.lang.Long">
+            <column name="GBD_WAY_NO" precision="16" scale="0">
+                <comment>GBD_WAY_NO</comment>
+            </column>
+        </property>
+        <property name="gbdEStreetName" type="string">
+            <column name="GBD_E_STREET_NAME" length="60">
+                <comment>GBD_E_STREET_NAME</comment>
+            </column>
+        </property>
+        <property name="gbdAStreetName" type="string">
+            <column name="GBD_A_STREET_NAME" length="60">
+                <comment>GBD_A_STREET_NAME</comment>
+            </column>
+        </property>
+        <property name="gbdBlockNo" type="java.lang.Long">
+            <column name="GBD_BLOCK_NO" precision="16" scale="0">
+                <comment>GBD_BLOCK_NO</comment>
+            </column>
+        </property>
+        <property name="gbdDirCode" type="java.lang.Long">
+            <column name="GBD_DIR_CODE" precision="16" scale="0">
+                <comment>GBD_DIR_CODE</comment>
+            </column>
+        </property>
+        <property name="gbdMunCode" type="java.lang.Long">
+            <column name="GBD_MUN_CODE" precision="16" scale="0">
+                <comment>GBD_MUN_CODE</comment>
+            </column>
+        </property>
+        <property name="gbdAAddress1" type="string">
+            <column name="GBD_A_ADDRESS1" length="40">
+                <comment>GBD_A_ADDRESS1</comment>
+            </column>
+        </property>
+        <property name="gbdEAddress1" type="string">
+            <column name="GBD_E_ADDRESS1" length="120">
+                <comment>GBD_E_ADDRESS1</comment>
+            </column>
+        </property>
+        <property name="gbdZip" type="string">
+            <column name="GBD_ZIP" length="10">
+                <comment>GBD_ZIP</comment>
+            </column>
+        </property>
+        <property name="gbdSumInsured" type="big_decimal">
+            <column name="GBD_SUM_INSURED" precision="16" scale="3">
+                <comment>GBD_SUM_INSURED</comment>
+            </column>
+        </property>
+        <property name="gbdStatus" type="java.lang.Byte">
+            <column name="GBD_STATUS" precision="2" scale="0">
+                <comment>GBD_STATUS</comment>
+            </column>
+        </property>
+        <property name="gbdValidityExpiryDate" type="java.sql.Timestamp">
+            <column name="GBD_VALIDITY_EXPIRY_DATE" length="7" not-null="true">
+                <comment>GBD_VALIDITY_EXPIRY_DATE</comment>
+            </column>
+        </property>
+        <property name="gbdBusinessCode" type="java.lang.Long">
+            <column name="GBD_BUSINESS_CODE" precision="16" scale="0">
+                <comment>GBD_BUSINESS_CODE</comment>
+            </column>
+        </property>
+        <property name="gbdEndtId" type="java.lang.Long">
+            <column name="GBD_ENDT_ID" precision="16" scale="0">
+                <comment>GBD_ENDT_ID</comment>
+            </column>
+        </property>
+        <property name="gbdRiRskCode" type="java.lang.Integer">
+            <column name="GBD_RI_RSK_CODE" precision="5" scale="0">
+                <comment>GBD_RI_RSK_CODE</comment>
+            </column>
+        </property>
+        <property name="gbdPremiseType" type="java.lang.Boolean">
+            <column name="GBD_PREMISE_TYPE" precision="1" scale="0">
+                <comment>GBD_PREMISE_TYPE</comment>
+            </column>
+        </property>
+        <property name="gbdCbCode" type="java.lang.Integer">
+            <column name="GBD_CB_CODE" precision="5" scale="0">
+                <comment>GBD_CB_CODE</comment>
+            </column>
+        </property>
+        <property name="gbdRetroactiveDate" type="date">
+            <column name="GBD_RETROACTIVE_DATE" length="7">
+                <comment>GBD_RETROACTIVE_DATE</comment>
+            </column>
+        </property>
+        <property name="gbdPreparedBy" type="java.lang.Integer">
+            <column name="GBD_PREPARED_BY" precision="8" scale="0">
+                <comment>GBD_PREPARED_BY</comment>
+            </column>
+        </property>
+        <property name="gbdPreparedDt" type="java.sql.Timestamp">
+            <column name="GBD_PREPARED_DT" length="7">
+                <comment>GBD_PREPARED_DT</comment>
+            </column>
+        </property>
+        <property name="gbdModifiedBy" type="java.lang.Integer">
+            <column name="GBD_MODIFIED_BY" precision="8" scale="0">
+                <comment>GBD_MODIFIED_BY</comment>
+            </column>
+        </property>
+        <property name="gbdModifiedDt" type="java.sql.Timestamp">
+            <column name="GBD_MODIFIED_DT" length="7">
+                <comment>GBD_MODIFIED_DT</comment>
+            </column>
+        </property>
+        <property name="gbdBldId" type="java.lang.Long">
+            <column name="GBD_BLD_ID" precision="10" scale="0">
+                <comment>'To store section1 Building ID'</comment>
+            </column>
+        </property>
+    </class>
+</hibernate-mapping>

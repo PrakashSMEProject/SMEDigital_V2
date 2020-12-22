@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Jun 11, 2014 11:57:56 AM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.rsaame.pas.dao.model.TMasUserDetail" table="T_MAS_USER_DETAIL">
+        <id name="userId" type="java.lang.Integer">
+            <column name="USER_ID" precision="8" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <property name="loginId" type="string">
+            <column name="LOGIN_ID" length="30" />
+        </property>
+        <property name="dob" type="date">
+            <column name="DOB" length="7" />
+        </property>
+        <property name="lastName" type="string">
+            <column name="LAST_NAME" length="30" />
+        </property>
+    </class>
+</hibernate-mapping>

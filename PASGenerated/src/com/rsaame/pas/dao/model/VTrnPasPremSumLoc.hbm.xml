@@ -1,0 +1,58 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Aug 16, 2012 7:36:09 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.rsaame.pas.dao.model.VTrnPasPremSumLoc" table="V_TRN_PAS_PREM_SUM_LOC" >
+        <composite-id name="id" class="com.rsaame.pas.dao.model.VTrnPasPremSumLocId">
+            <key-property name="coverSiAmt" type="big_decimal">
+                <column name="COVER_SI_AMT" precision="22" scale="0" />
+            </key-property>
+            <key-property name="coverPrmAmt" type="big_decimal">
+                <column name="COVER_PRM_AMT" precision="22" scale="0" />
+            </key-property>
+            <key-property name="linkingId" type="java.lang.Long">
+                <column name="LINKING_ID" precision="16" scale="0" />
+            </key-property>
+            <key-property name="endtId" type="java.lang.Long">
+                <column name="ENDT_ID" precision="16" scale="0" />
+            </key-property>
+            <key-property name="class_" type="java.lang.Short">
+                <column name="CLASS" precision="4" scale="0" />
+            </key-property>
+            <key-property name="secId" type="java.lang.Short">
+                <column name="SEC_ID" precision="4" scale="0" />
+            </key-property>
+            <key-property name="secName" type="string">
+                <column name="SEC_NAME" length="200" />
+            </key-property>
+            <key-property name="locationId" type="java.lang.Long">
+                <column name="LOCATION_ID" precision="10" scale="0" />
+            </key-property>
+            <key-property name="locationName" type="string">
+                <column name="LOCATION_NAME" length="60" />
+            </key-property>
+            <key-property name="commission" type="big_decimal">
+                <column name="COMMISSION" precision="22" scale="0" />
+            </key-property>
+            <key-property name="valStartDate" type="date">
+                <column name="VAL_START_DATE" length="7" />
+            </key-property>
+            <key-property name="valExpDate" type="date">
+                <column name="VAL_EXP_DATE" length="7" />
+            </key-property>
+            <key-property name="status" type="big_decimal">
+                <column name="STATUS" precision="22" scale="0" />
+            </key-property>
+            <key-property name="polQuoFlag" type="java.lang.Character">
+                <column name="POL_QUO_FLAG" length="1" />
+            </key-property>
+            <key-property name="prmBasicRskCode" type="java.lang.Integer">
+                <column name="PRM_BASIC_RSK_CODE" precision="5" scale="0" />
+            </key-property>
+            <key-property name="prmBasicRskId" type="big_decimal">
+                <column name="PRM_BASIC_RSK_ID" precision="20" scale="0" />
+            </key-property>
+        </composite-id>
+    </class>
+</hibernate-mapping>

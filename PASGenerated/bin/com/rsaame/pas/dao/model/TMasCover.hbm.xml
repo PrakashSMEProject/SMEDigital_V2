@@ -1,0 +1,74 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Feb 1, 2012 11:52:36 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.rsaame.pas.dao.model.TMasCover" table="T_MAS_COVER" >
+        <composite-id name="id" class="com.rsaame.pas.dao.model.TMasCoverId">
+            <key-property name="covClCode" type="short">
+                <column name="COV_CL_CODE" precision="4" scale="0" />
+            </key-property>
+            <key-property name="covPtCode" type="short">
+                <column name="COV_PT_CODE" precision="4" scale="0" />
+            </key-property>
+            <key-property name="covCode" type="short">
+                <column name="COV_CODE" precision="4" scale="0" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="TMasPolicyType" class="com.rsaame.pas.dao.model.TMasPolicyType" update="false" insert="false" fetch="select">
+            <column name="COV_CL_CODE" precision="4" scale="0" not-null="true" />
+            <column name="COV_PT_CODE" precision="4" scale="0" not-null="true" />
+        </many-to-one>
+        <property name="covADesc" type="string">
+            <column name="COV_A_DESC" length="200" />
+        </property>
+        <property name="covEDesc" type="string">
+            <column name="COV_E_DESC" length="200" />
+        </property>
+        <property name="covPlusOrMinusFlag" type="java.lang.Boolean">
+            <column name="COV_PLUS_OR_MINUS_FLAG" precision="1" scale="0" />
+        </property>
+        <property name="covUserCode" type="java.lang.Short">
+            <column name="COV_USER_CODE" precision="4" scale="0" />
+        </property>
+        <property name="covRiDisplayCode" type="java.lang.Boolean">
+            <column name="COV_RI_DISPLAY_CODE" precision="1" scale="0" />
+        </property>
+        <property name="covSitypeCode" type="java.lang.Byte">
+            <column name="COV_SITYPE_CODE" precision="2" scale="0" />
+        </property>
+        <property name="covMinAge" type="java.lang.Short">
+            <column name="COV_MIN_AGE" precision="3" scale="0" />
+        </property>
+        <property name="covMaxAge" type="java.lang.Short">
+            <column name="COV_MAX_AGE" precision="3" scale="0" />
+        </property>
+        <property name="covMinTerm" type="java.lang.Short">
+            <column name="COV_MIN_TERM" precision="3" scale="0" />
+        </property>
+        <property name="covMaxTerm" type="java.lang.Short">
+            <column name="COV_MAX_TERM" precision="3" scale="0" />
+        </property>
+        <property name="covMinSi" type="big_decimal">
+            <column name="COV_MIN_SI" precision="16" scale="3" />
+        </property>
+        <property name="covMaxSi" type="big_decimal">
+            <column name="COV_MAX_SI" precision="16" scale="3" />
+        </property>
+        <property name="covEShortDesc" type="string">
+            <column name="COV_E_SHORT_DESC" length="10" />
+        </property>
+        <property name="covPreparedBy" type="java.lang.Integer">
+            <column name="COV_PREPARED_BY" precision="8" scale="0" />
+        </property>
+        <property name="covPreparedDt" type="date">
+            <column name="COV_PREPARED_DT" length="7" />
+        </property>
+        <property name="covModifiedBy" type="java.lang.Integer">
+            <column name="COV_MODIFIED_BY" precision="8" scale="0" />
+        </property>
+        <property name="covModifiedDt" type="date">
+            <column name="COV_MODIFIED_DT" length="7" />
+        </property>
+    </class>
+</hibernate-mapping>

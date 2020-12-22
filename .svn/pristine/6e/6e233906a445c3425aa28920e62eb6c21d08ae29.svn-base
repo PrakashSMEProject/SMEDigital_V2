@@ -1,0 +1,153 @@
+<taglib>
+	<tlib-version>1.0</tlib-version>
+	<jsp-version>1.2</jsp-version>
+	<short-name>LookUp Custom Tag</short-name>
+	<!-- Tag specifies how you are going to reference the tag library from the JSP page -->
+	<uri>http://www.rsa.com/lookUp</uri>
+	<tag>
+		<description>Look up tag is used to fetch description for the codes</description>
+		<name>lookUpTag</name>
+		<tag-class>com.rsaame.pas.lookup.ui.LookUpTagHandler</tag-class>
+			<body-content>empty</body-content>
+	
+			<attribute>
+				<name>inputType</name>
+				<required>true</required>
+				<description>Describes input type to be displayed on JSP.</description>
+				<rtexprvalue>false</rtexprvalue>
+			</attribute>
+			
+			<attribute>
+				<name>level1</name>
+				<required>false</required>
+				<description>Level 1 filter.</description>
+				<rtexprvalue>true</rtexprvalue>
+			</attribute>
+			
+			<attribute>
+				<name>level2</name>
+				<required>false</required>
+				<description>Level 2 filter.</description>
+				<rtexprvalue>true</rtexprvalue>
+			</attribute>
+			
+			<attribute>
+				<name>tagName</name>
+				<required>true</required>
+				<description>Describes name of the tag.</description>
+				<rtexprvalue>true</rtexprvalue>
+			</attribute>
+		
+			<attribute>
+				<name>tagId</name>
+				<required>false</required>
+				<description>Describes id of the tag.</description>
+				<rtexprvalue>true</rtexprvalue>
+			</attribute>
+		
+			<attribute>
+				<name>identifier</name>
+				<required>true</required>
+				<description>Describes identifier to fetch drop down list.</description>
+				<rtexprvalue>false</rtexprvalue>
+			</attribute>
+		
+			<attribute>
+				<name>code</name>
+				<required>false</required>
+				<description>Describes code for which description needs to be fetched</description>
+				<rtexprvalue>true</rtexprvalue>
+			</attribute>
+			
+			<attribute>
+				<name>format</name>
+				<required>false</required>
+				<description>Describes format for which needs to be converted</description>
+				<rtexprvalue>true</rtexprvalue>
+			</attribute>
+		
+			<attribute>
+				<name>disabledFlag</name>
+				<required>false</required>
+				<description>Describes whether tag should be disabled or not.</description>
+				<rtexprvalue>true</rtexprvalue>
+			</attribute>
+		
+			<attribute>
+				<name>defaultValue</name>
+				<required>false</required>
+				<description>Describes the default value for tag.</description>
+				
+				<rtexprvalue>true</rtexprvalue>
+			</attribute>
+		
+			
+			<attribute>
+				<name>style</name>
+				<required>false</required>
+				<description>Describes style , if any, to be included for tag.</description>
+				<rtexprvalue>false</rtexprvalue>
+			</attribute>
+			
+			<attribute>
+				<name>mandatoryFlag</name>
+				<required>false</required>
+				<description>Describes mandatory property for textbox</description>
+				<rtexprvalue>false</rtexprvalue>
+			</attribute>
+			<attribute>
+				<name>missingMessage</name>
+				<required>false</required>
+				<description>Describes message to be shown when value is missing</description>
+				<rtexprvalue>false</rtexprvalue>
+			</attribute>
+			
+			<attribute>
+				<name>regExp</name>
+				<required>false</required>
+				<description>Describes regular expression to be verified on textbox value</description>
+				<rtexprvalue>false</rtexprvalue>
+			</attribute>
+			
+			<attribute>
+				<name>invalidMessage</name>
+				<required>false</required>
+				<description>Describes message if there is validation error</description>
+				<rtexprvalue>false</rtexprvalue>
+			</attribute>
+			
+			<attribute>
+				<name>autocomplete</name>
+				<required>false</required>
+				<description>Describes mandatory flag for dropdown</description>
+				<rtexprvalue>false</rtexprvalue>
+			</attribute>
+			<attribute>
+				<name>onChange</name>
+				<required>false</required>
+				<description>Describes onchange event for dropdown</description>
+				<rtexprvalue>true</rtexprvalue>
+			</attribute>
+			
+			<attribute>
+				<name>tagClass</name>
+				<required>false</required>
+				<description>Describes style class for input element</description>
+				<rtexprvalue>false</rtexprvalue>
+			</attribute>
+			<attribute>
+				<name>value</name>
+				<required>false</required>
+				<description>Describes onchange event for dropdown</description>
+				<rtexprvalue>true</rtexprvalue>
+			</attribute>
+			<attribute>
+				<name>onload</name>
+				<required>false</required>
+				<description>Describes onLoad event for dropdown</description>
+				<rtexprvalue>true</rtexprvalue>
+			</attribute>
+			
+			
+		</tag>
+</taglib>  

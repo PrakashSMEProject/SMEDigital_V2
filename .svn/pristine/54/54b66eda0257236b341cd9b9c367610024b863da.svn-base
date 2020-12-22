@@ -1,0 +1,1236 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<validations xmlns="http://beans.validation.cmn.ruc.mindtree.com">
+
+	<!-- Sample configuration -->
+	<transaction name="SaveBasicInfo">
+		<bean type="com.rsaame.pas.vo.bus.PolicyVO">
+			<field name="generalInfo.insured.name">
+				<validation type="mandatory">
+					<errorKey>pas.name.required</errorKey>
+				</validation>
+				<validation type="maxLength">
+					<parameter>
+						<name>length</name>
+						<value>100</value>
+					</parameter>
+					<errorKey>pas.name.length</errorKey>
+				</validation>
+
+				<!-- <validation type="allowedSpecialChars">
+					<parameter>
+						<name>charSets</name>
+						<value>,._-</value>
+					</parameter>
+					<errorKey>pas.name.allowedspecialchars</errorKey>
+				</validation> -->
+			</field>
+
+			<field name="generalInfo.insured.address.address">
+				<validation type="mandatory">
+					<errorKey>pas.address.required</errorKey>
+				</validation>
+				<validation type="maxLength">
+					<parameter>
+						<name>length</name>
+						<value>200</value>
+					</parameter>
+					<errorKey>pas.address.length</errorKey>
+				</validation>
+			</field>
+
+			<field name="generalInfo.insured.address.poBox">
+				<validation type="mandatory">
+					<errorKey>pas.pobox.required</errorKey>
+				</validation>
+				<validation type="maxLength">
+					<parameter>
+						<name>length</name>
+						<value>30</value>
+					</parameter>
+					<errorKey>pas.pobox.length</errorKey>
+				</validation>
+			</field>
+
+			<!-- Commented Emirates Field Validation as it has been removed from the 
+				screen -->
+			<!-- <field name="generalInfo.insured.address.emirates"> <validation type="mandatory"> 
+				<errorKey>pas.emirates.required</errorKey> </validation> </field> <field 
+				name="generalInfo.insured.address.country"> <validation type="mandatory"> 
+				<errorKey>pas.country.required</errorKey> </validation> </field> -->
+
+			<field name="generalInfo.insured.city">
+				<validation type="mandatory">
+					<errorKey>pas.city.required</errorKey>
+				</validation>
+			</field>
+
+			<field name="generalInfo.insured.busType">
+				<validation type="mandatory">
+					<errorKey>pas.businesstype.required</errorKey>
+				</validation>
+			</field>
+
+			<!-- <field name="insured.busDescription"> <validation type="mandatory"> 
+				<errorKey>pas.businessdesc.required</errorKey> </validation> </field> <field 
+				name="jurisdiction"> <validation type="mandatory"> <errorKey>pas.jurisdiction.required</errorKey> 
+				</validation> </field> -->
+
+
+			<!-- Distribution channel - server side validation is commented as distribution channel option
+				will not be available for broker login
+				<field name="generalInfo.sourceOfBus.distributionChannel">
+					<validation type="mandatory">
+						<errorKey>pas.distchannel.required</errorKey>
+					</validation>
+				</field>
+			-->
+		
+			<field name="scheme.schemeCode">
+				<validation type="mandatory">
+					<errorKey>pas.schemecode.required</errorKey>
+				</validation>
+			</field>
+
+			<field name="scheme.tariffCode">
+				<validation type="mandatory">
+					<errorKey>pas.tariff.required</errorKey>
+				</validation>
+			</field>
+
+			<field name="scheme.policyCode">
+				<validation type="mandatory">
+					<errorKey>pas.policytype.required</errorKey>
+				</validation>
+			</field>
+
+			<field name="policyTerm">
+				<validation type="mandatory">
+					<errorKey>pas.policyterm.required</errorKey>
+				</validation>
+			</field>
+		</bean>
+	</transaction>
+
+	<!-- Mapping for Search Transaction Starts -->
+	<transaction name="SearchQuotePolicy">
+		<bean type="com.rsaame.pas.vo.bus.SearchTransactionCriteriaVO">
+			<field name="transaction.quoteNo">
+				<validation type="numberOnly">
+					<errorKey>pas.searchTransaction.quoteNo</errorKey>
+				</validation>
+			</field>
+
+			<field name="transaction.policyNo">
+				<validation type="numberOnly">
+					<errorKey>pas.searchTransaction.policyNo</errorKey>
+				</validation>
+			</field>
+
+			<field name="transaction.transactionFrom">
+				<validation type="validDate">
+				<parameter>
+				        <name>criteria</name>
+						<value>todayOrBefore</value>
+				</parameter>
+					<errorKey>pas.searchTransaction.transactionDateFromValid</errorKey>
+				</validation>
+			</field>
+
+			<field name="transaction.transactionTo">
+				<validation type="validDate">
+				<parameter>
+				        <name>criteria</name>
+						<value>todayOrBefore</value>
+				</parameter>
+					<errorKey>pas.searchTransaction.transactionDateToValid</errorKey>
+				</validation>
+			</field>
+
+			<beanValidation validatorClass="compareDatesForTransaction" />
+
+		</bean>
+	</transaction>
+	<!-- Mapping for Search Transaction Ends -->
+	<!-- Mapping for PAR Save starts -->
+	
+	<transaction name="CommissionValidator">
+		<bean type="com.rsaame.pas.vo.bus.SectionVO">
+			<field name="commission">
+				<validation type="mandatory">
+					<errorKey>commission.required</errorKey>
+				</validation>
+			</field>
+		</bean>
+	</transaction>
+	
+	
+	<transaction name="ParLocationSave">
+		<bean type="com.rsaame.pas.vo.bus.LocationVO">
+<!-- 			<field name="address.officeShopNo"> -->
+<!-- 				<validation type="mandatory"> -->
+<!-- 					<errorKey>par.officeShopNumber.required</errorKey> -->
+<!-- 				</validation> -->
+<!-- 			</field> -->
+<!-- 			<field name="address.floor"> -->
+<!-- 			<validation type="mandatory"> -->
+<!-- 					<errorKey>par.floor.required</errorKey> -->
+<!-- 				</validation> -->
+<!-- 			</field> -->
+			<!--  <field name="address.buildingName"> 
+			 <validation type="mandatory"> 
+				<errorKey>par.buildingName.required</errorKey>
+				</validation> 
+			</field> -->
+			<!-- <field name="freeZone">
+				<validation type="mandatory">
+					<errorKey>par.freeZone.required</errorKey>
+				</validation>
+			</field> -->
+			<field name="occTradeGroup">
+				<validation type="mandatory">
+					<errorKey>par.occTradeGroup.required</errorKey>
+				</validation>
+			</field>
+			<field name="directorate">
+				<validation type="mandatory">
+					<errorKey>par.directorate.required</errorKey>
+				</validation>
+			</field>
+		</bean>
+	</transaction>
+
+
+	 <!-- <transaction name="ParSave">
+		 <bean type="com.rsaame.pas.vo.bus.ParVO">
+			<field name="covers.propertyCoversDetails[].deductibles">
+				<validation type="mandatory">
+					<errorKey>par.deductibles.required</errorKey>
+				</validation>
+			</field>
+		</bean> 
+	</transaction> -->
+	<transaction name="PARUWDetails">
+		<bean type="com.rsaame.pas.vo.bus.PARUWDetailsVO">
+			<field name="directorate">
+				<validation type="mandatory">
+					<errorKey>par.directorate.required</errorKey>
+				</validation>
+			</field>
+			<!-- <field name="uwMinDetails.startDt">
+				<validation type="mandatory">
+					<errorKey>par.startDt.required</errorKey>
+				</validation>
+			</field>
+			<field name="uwMinDetails.endDt">
+				<validation type="mandatory">
+					<errorKey>par.endDt.required</errorKey>
+				</validation>
+			</field> -->
+			<!-- <field name="hazardLevel">
+				<validation type="mandatory">
+					<errorKey>par.hazardLevel.required</errorKey>
+				</validation>
+			</field>
+			<field name="categoryRI">
+				<validation type="mandatory">
+					<errorKey>par.categoryRI.required</errorKey>
+				</validation>
+			</field> -->
+		</bean>
+	</transaction>
+	
+	
+	
+
+
+
+	<!-- Mapping for PAR Save ends -->
+
+
+	<!-- Mapping for PAR bean validators starts -->
+	<transaction name="SumInsuredValidation">
+		<bean type="com.rsaame.pas.vo.bus.SectionVO">
+<!-- 
+			<beanValidation validatorClass="sumInsuredPerLocationValidator" />
+			<beanValidation validatorClass="sumInsuredForAllLocationValidator" /> -->
+		</bean>
+	</transaction>
+
+	<!-- Mapping for PAR bean validator ends -->
+
+
+	<!-- Mapping for the PL field validators starts -->
+
+	<transaction name="PLLocationSave">
+		<bean type="com.rsaame.pas.vo.bus.LocationVO">
+<!-- 			<field name="address.officeShopNo"> -->
+<!-- 				<validation type="mandatory"> -->
+<!-- 					<errorKey>pl.office.shop.required</errorKey> -->
+<!-- 				</validation> -->
+<!-- 			</field> -->
+<!-- 			<field name="directorate"> -->
+<!-- 				<validation type="mandatory"> -->
+<!-- 					<errorKey>pl.location.name.required</errorKey> -->
+<!-- 				</validation> -->
+<!-- 			</field> -->
+			<!-- <field name="address.buildingName">
+				<validation type="mandatory">
+					<errorKey>pl.building.name.required</errorKey>
+				</validation>
+			</field> -->
+			<!-- <field name="freeZone">
+				<validation type="mandatory">
+					<errorKey>pl.freezone.required</errorKey>
+				</validation>
+			</field> -->
+			<field name="address.locOverrideTer">
+				<validation type="mandatory">
+					<errorKey>pl.territory.required</errorKey>
+				</validation>
+			</field>
+			<field name="address.locOverrideJur">
+				<validation type="mandatory">
+					<errorKey>pl.jurisdiction.required</errorKey>
+				</validation>
+			</field>
+			<field name="occTradeGroup">
+				<validation type="mandatory">
+					<errorKey>pl.occupancy.tradegroup.required</errorKey>
+				</validation>
+			</field>
+		</bean>
+	</transaction>
+
+	<!-- <transaction name="PLUWDetailsValidator">
+		<bean type="com.rsaame.pas.vo.bus.PLUWDetails">
+			<field name="hazardLevel">
+				<validation type="mandatory">
+					<errorKey>pl.hazard.level.required</errorKey>
+				</validation>
+			</field>
+		</bean>
+	</transaction> -->
+
+	<transaction name="PLSaveValidator">
+		<bean type="com.rsaame.pas.vo.bus.PublicLiabilityVO">
+			<!-- <field name="sumInsuredDets.sumInsured">
+				<validation type="mandatory">
+					<errorKey>pl.suminsured.required</errorKey>
+				</validation>
+			</field> -->
+			<field name="indemnityAmtLimit">
+				<validation type="mandatory">
+					<errorKey>pl.indemnityAmtLimit.required</errorKey>
+				</validation>
+			</field>
+			<field name="sumInsuredBasis">
+				<validation type="mandatory">
+					<errorKey>pl.sumInsuredBasis.required</errorKey>
+				</validation>
+			</field>
+			<field name="sumInsuredDets.deductible">
+				<validation type="mandatory">
+					<errorKey>pl.sumInsuredDets.deductible.required</errorKey>
+				</validation>
+			</field>
+		</bean>
+	</transaction>
+	<!-- Mapping for the PL field validators ends -->
+	
+	<!-- Mapping for the Money Section field validators starts -->
+	
+	 <transaction name="CommissionValidator">
+		<bean type="com.rsaame.pas.vo.bus.SectionVO">
+			<!-- <field name="commission">
+				<validation type="mandatory">
+					<errorKey>commission.required</errorKey>
+				</validation>
+			</field> -->
+		</bean>
+	</transaction> 
+	
+	<transaction name="MoneyPageSaveValidator">
+		<bean type="com.rsaame.pas.vo.bus.MoneyVO">
+			<field name="sumInsuredDets[].sumInsured">
+				<validation type="mandatory">
+					<errorKey>money.details.required</errorKey>
+				</validation>
+			</field>
+			<field name="sumInsuredDets[].deductible">
+				<validation type="mandatory">
+					<errorKey>money.details.required</errorKey>
+				</validation>
+			</field>
+			<field name="cashInResidence">
+				<validation type="mandatory">
+					<errorKey>money.cashInResidence.required</errorKey>
+				</validation>
+			</field>
+			<field name="safeDetails[].Make">
+				<validation type="mandatory">
+					<errorKey>money.make.required</errorKey>
+				</validation>
+			</field>
+			<field name="safeDetails[].weight">
+				<validation type="mandatory">
+					<errorKey>money.weight.required</errorKey>
+				</validation>
+			</field>
+			<field name="safeDetails[].height">
+				<validation type="mandatory">
+					<errorKey>money.height.required</errorKey>
+				</validation>
+			</field>
+			<field name="safeDetails[].width">
+				<validation type="mandatory">
+					<errorKey>money.width.required</errorKey>
+				</validation>
+			</field>
+			<field name="cashResDetails[].empName">
+				<validation type="mandatory">
+					<errorKey>money.empname.required</errorKey>
+				</validation>
+			</field>
+			<field name="cashResDetails[].occupation">
+				<validation type="mandatory">
+					<errorKey>money.occupation.required</errorKey>
+				</validation>
+			</field>
+			<field name="cashResDetails[].sumInsuredDets">
+				<validation type="mandatory">
+					<errorKey>money.sumInsuredDets.required</errorKey>
+				</validation>
+			</field>
+		</bean>
+	</transaction>
+	
+	<!-- Mapping for the Money Section field validators ends -->
+	
+	<!--  Validation for WC fields starts here -->
+	
+	<transaction name="WCPageValidator">
+		<bean type="com.rsaame.pas.vo.bus.WCVO">
+			<field name="empTypeDetails[].empType">
+				<validation type="mandatory">
+					<errorKey>wc.empType.required</errorKey>
+				</validation>
+			</field>
+			<field name="empTypeDetails[].noOfEmp">
+				<validation type="mandatory">
+					<errorKey>wc.noOfEmp.required</errorKey>
+				</validation>
+			</field>
+			<field name="empTypeDetails[].wageroll">
+				<validation type="mandatory">
+					<errorKey>wc.wageroll.required</errorKey>
+				</validation>
+			</field>
+			<field name="empTypeDetails[].deductibles">
+				<validation type="mandatory">
+					<errorKey>wc.deductibles.required</errorKey>
+				</validation>
+			</field>
+			<field name="empTypeDetails[].limit">
+				<validation type="mandatory">
+					<errorKey>wc.limit.required</errorKey>
+				</validation>
+			</field>
+			<field name="wcCovers.PACover">
+				<validation type="mandatory">
+					<errorKey>wc.pacover.required</errorKey>
+				</validation>
+			</field>
+		</bean>
+	</transaction>
+	
+	
+	<!--  Validation for New task fields starts here -->
+	
+	<transaction name="NewTaskValidator">
+		<bean type="com.rsaame.pas.vo.bus.TaskVO">
+			<field name="taskName">
+				<validation type="mandatory">
+					<errorKey>task.taskName.required</errorKey>
+				</validation>
+			</field>
+			<field name="assignedTo">
+				<validation type="mandatory">
+					<errorKey>task.assignedTo.required</errorKey>
+				</validation>
+			</field>
+			<field name="dueDate">
+				<validation type="validDate">
+				<parameter>
+				        <name>criteria</name>
+						<value>after</value>
+				</parameter>
+					<errorKey>task.dueDate.required</errorKey>
+				</validation>
+			</field>
+			<field name="Priority">
+				<validation type="mandatory">
+					<errorKey>task.Priority.required</errorKey>
+				</validation>
+			</field>
+			<field name="desc">
+				<validation type="mandatory">
+					<errorKey>task.desc.required</errorKey>
+				</validation>
+			</field>
+		</bean>
+	</transaction>
+	
+	<!--Validations for view single task   -->
+	<transaction name="ViewTaskValidator">
+	<bean type="com.rsaame.pas.vo.bus.TaskVO">
+		<field name="dueDate">
+			<validation type="validDate">
+				<parameter>
+				<name>criteria</name>
+				<value>todayOrAfter</value>
+				</parameter>
+				<errorKey>task.dueDate.valid</errorKey>
+			</validation>
+		</field>
+	</bean>
+	</transaction>
+	
+	<!-- Mapping for Search Insured Starts -->
+	<transaction name="SearchInsured">
+		<bean type="com.rsaame.pas.vo.app.SearchInsuredVO">
+			<field name="insuredId">
+				<validation type="numberOnly">
+					<errorKey>pas.insuredSearch.insuredId</errorKey>
+				</validation>
+			</field>
+
+			<field name="phoneNo">
+				<validation type="numberOnly">
+					<errorKey>pas.insuredSearch.phoneNo</errorKey>
+				</validation>
+			</field>
+
+			<field name="mobileNo">
+				<validation type="numberOnly">
+					<errorKey>pas.insuredSearch.mobileNo</errorKey>
+				</validation>
+			</field>
+			
+			<field name="policyQuoteNo">
+				<validation type="numberOnly">
+					<errorKey>pas.insuredSearch.policyQuoteNo</errorKey>
+				</validation>
+			</field>
+
+			<field name="emailId">
+				<validation type="email">
+					<errorKey>pas.insuredSearch.emailId</errorKey>
+				</validation>
+			</field>
+		</bean>
+	</transaction>
+	<!-- Mapping for Search Insured Ends -->
+	<transaction name="CheckIfTradeLicenseUploaded">
+	<bean type="com.rsaame.pas.vo.bus.PolicyVO">
+		<beanValidation validatorClass="CheckForTradeLicense"></beanValidation>
+	</bean>
+	</transaction>
+	
+	<!--  Validation for BI fields starts here. Anveshan-->
+	
+	<transaction name="BISaveValidator">
+		<bean type="com.rsaame.pas.vo.bus.BIVO">
+			<field name="indemnityPeriod">
+				<validation type="mandatory">
+					<errorKey>bi.indemnityPeriod.required</errorKey>
+				</validation>
+			</field>
+			<field name="deductible">
+				<validation type="mandatory">
+					<errorKey>bi.deductibles.required</errorKey>
+				</validation>
+			</field>
+		</bean>
+	</transaction>
+	<!--  Validation for EE fields starts here.-->
+	<transaction name="EESaveValidator">
+		<bean type="com.rsaame.pas.vo.bus.EquipmentVO">
+
+			<field name="equipmentType">
+				<validation type="mandatory">
+					<errorKey>ee.equipmentType.required</errorKey>
+				</validation>
+			</field>
+			<!-- <field name="equipmentDesc">
+				<validation type="mandatory">
+					<errorKey>ee.equipmentDesc.required</errorKey>
+				</validation>
+			</field> -->
+			<!-- <field name="equipmentDtls.yearOfMake">
+				<validation type="mandatory">
+					<errorKey>ee.yearOfMake.required</errorKey>
+				</validation>
+			</field>
+
+			<field name="equipmentDtls.serialNumber">
+				<validation type="mandatory">
+					<errorKey>ee.serialNumber.required</errorKey>
+				</validation>
+			</field>
+			<field name="equipmentDtls.quantity">
+				<validation type="mandatory">
+					<errorKey>ee.quantity.required</errorKey>
+				</validation>
+			</field> -->
+			<field name="sumInsuredDetails.sumInsured">
+				<validation type="mandatory">
+					<errorKey>ee.newReplacementVal.required</errorKey>
+				</validation>
+			</field>
+			<field name="sumInsuredDetails.deductible">
+				<validation type="mandatory">
+					<errorKey>ee.deductibles.required</errorKey>
+				</validation>
+			</field>
+
+		</bean>
+	</transaction>
+	
+	<!-- Mapping for Travel Baggage save validation Starts here -->
+	<transaction name="TravelBaggagePageSaveValidator">
+		<bean type="com.rsaame.pas.vo.bus.TravellingEmployeeVO">
+			<field name="name">
+				<validation type="mandatory">
+					<errorKey>travellingEmployee.name.required</errorKey>
+				</validation>
+			</field>
+			<field name="dateOfBirth">
+				<validation type="mandatory">
+					<errorKey>travellingEmployee.dateOfBirth.required</errorKey>
+				</validation>
+			</field>
+			<field name="sumInsuredDtl.sumInsured">
+				<validation type="mandatory">
+					<errorKey>travellingEmployee.limit.required</errorKey>
+				</validation>
+			</field>
+			<field name="sumInsuredDtl.deductible">
+				<validation type="mandatory">
+					<errorKey>travellingEmployee.deductible.required</errorKey>
+				</validation>
+			</field>
+		</bean>
+	</transaction>
+	<!-- Mapping for Travel Baggage save validation ends here -->
+	
+	
+	<!-- Mapping for Machinery Breakdown save validation Starts here -->
+	<transaction name="MBSaveValidator">
+		<bean type="com.rsaame.pas.vo.bus.MachineDetailsVO">
+			<field name="machineryType">
+				<validation type="mandatory">
+					<errorKey>machineDetails.machineryType.required</errorKey>
+				</validation>
+			</field>
+			<!-- <field name="machineDescription">
+				<validation type="mandatory">
+					<errorKey>machineDetails.machineDescription.required</errorKey>
+				</validation>
+			</field> -->
+			<!-- <field name="yearOfMake">
+				<validation type="mandatory">
+					<errorKey>machineDetails.yearOfMake.required</errorKey>
+				</validation>
+			</field> -->
+			<field name="sumInsuredVO.deductible">
+				<validation type="mandatory">
+					<errorKey>machineDetails.deductible.required</errorKey>
+				</validation>
+			</field>
+			
+			<field name="sumInsuredVO.sumInsured">
+				<validation type="mandatory">
+					<errorKey>machineDetails.sumInsured.required</errorKey>
+				</validation>
+			</field>
+		</bean>
+	</transaction>
+	<!-- Mapping for Machinery Breakdown save validation ends here -->
+ <!-- Mapping for Generate Renewals Starts -->
+ <transaction name="generateRenewalsValidator">
+  <bean type="com.rsaame.pas.vo.bus.GenerateRenewalsSearchCriteriaVO">
+   <field name="policyNo"> 
+    <validation type="numberOnly">
+     <errorKey>pas.renewal.policyNo</errorKey>
+    </validation>
+   </field>
+   <field name="noOfDays"> 
+	<validation type="numberOnly">
+		<errorKey>pas.renewal.transExpiresIn</errorKey>
+	</validation>
+   </field>
+   <field name="transactionFrom">
+    <validation type="validDate">
+    <parameter>
+    	<name>criteria</name>
+    	<value>todayOrAfter</value>
+    </parameter>
+     <errorKey>pas.renewal.transactionDateFromValid</errorKey>
+    </validation>
+   </field>
+   <field name="transactionTo">
+    <validation type="validDate">
+    <parameter>
+    	<name>criteria</name>
+      	<value>todayOrAfter</value>
+    </parameter>
+     <errorKey>pas.renewal.transactionDateToValid</errorKey>
+    </validation>
+   </field>
+   <beanValidation validatorClass="compareDatesForRenewals" />
+  </bean>
+ </transaction>
+ <!-- Mapping for Generate Renewals Ends -->
+ <!-- Mapping for Print Renewals Starts -->
+ <transaction name="printRenewalsValidator">
+  <bean type="com.rsaame.pas.vo.bus.PrintRenewalsSearchCriteriaVO">
+   <field name="policyNo"> <!-- In the VO it is string, check if it is correct -->
+    <validation type="numberOnly">
+     <errorKey>pas.renewal.policyNo</errorKey>
+    </validation>
+   </field>
+   <field name="transactionFrom">
+    <validation type="validDate">
+    <parameter>
+    	<name>criteria</name>
+      	<value>todayOrAfter</value>
+    </parameter>
+     <errorKey>pas.renewal.transactionDateFromValid</errorKey>
+    </validation>
+   </field>
+   <field name="transactionTo">
+    <validation type="validDate">
+    <parameter>
+    	<name>criteria</name>
+      	<value>todayOrAfter</value>
+    </parameter>
+     <errorKey>pas.renewal.transactionDateToValid</errorKey>
+    </validation>
+   </field>
+   <beanValidation validatorClass="compareDatesForRenewals" />
+  </bean>
+ </transaction>
+ <!-- Mapping for Print Renewals Ends -->
+
+	<!-- Mapping for Goods In Transit save validation Starts here -->
+	<transaction name="GoodsInTransitSaveValidator">
+		<bean type="com.rsaame.pas.vo.bus.GoodsInTransitVO">
+			<field name="singleTransitLimit">
+				<validation type="mandatory">
+					<errorKey>git.singleTransitLimit.required</errorKey>
+				</validation>
+			</field>
+			<field name="estimatedAnnualCarryValue">
+				<validation type="mandatory">
+					<errorKey>git.estimatedAnnualCarryValue.required</errorKey>
+				</validation>
+			</field>
+			<field name="voyageFrom">
+				<validation type="mandatory">
+					<errorKey>git.voyageFrom.required</errorKey>
+				</validation>
+			</field>
+			<field name="voyageTo">
+				<validation type="mandatory">
+					<errorKey>git.voyageTo.required</errorKey>
+				</validation>
+			</field>
+			<field name="deductible">
+				<validation type="mandatory">
+					<errorKey>git.deductible.required</errorKey>
+				</validation>
+			</field> 
+			<!-- <field name="settlmentCurrency">
+				<validation type="mandatory">
+					<errorKey>git.settlmentCurrency.required</errorKey>
+				</validation>
+			</field>
+			<field name="exchangeRate">
+				<validation type="mandatory">
+					<errorKey>git.exchangeRate.required</errorKey>
+				</validation>
+			</field>
+			<field name="settlingAgent">
+				<validation type="mandatory">
+					<errorKey>git.settlingAgent.required</errorKey>
+				</validation>
+			</field>
+			<field name="settlingLocation">
+				<validation type="mandatory">
+					<errorKey>git.settlingLocation.required</errorKey>
+				</validation>
+			</field> -->
+			<!-- <field name="commodityDtls[].modeOfTransit">
+				<validation type="mandatory">
+					<errorKey>git.modeOfTransit.required</errorKey>
+				</validation>
+			</field>
+			<field name="commodityDtls[].voyageFrom">
+				<validation type="mandatory">
+					<errorKey>git.voyageFrom.required</errorKey>
+				</validation>
+			</field>
+			<field name="commodityDtls[].voyageTo">
+				<validation type="mandatory">
+					<errorKey>git.voyageTo.required</errorKey>
+				</validation>
+			</field>
+			<field name="commodityDtls[].commodityType">
+				<validation type="mandatory">
+					<errorKey>git.commodityType.required</errorKey>
+				</validation>
+			</field>
+			<field name="commodityDtls[].goodsDescription">
+				<validation type="mandatory">
+					<errorKey>git.goodsDescription.required</errorKey>
+				</validation>
+			</field>
+			<field name="commodityDtls[].siBasis">
+				<validation type="mandatory">
+					<errorKey>git.siBasis.required</errorKey>
+				</validation>
+			</field>
+			<field name="commodityDtls[].deductible">
+				<validation type="mandatory">
+					<errorKey>git.deductible.required</errorKey>
+				</validation>
+			</field> -->
+		</bean>
+	</transaction>
+	
+	
+	<transaction name="CommodityDetailsSaveValidator">
+		<bean type="com.rsaame.pas.vo.bus.CommodityDetailsVO">
+			
+			 <field name="modeOfTransit">
+				<validation type="mandatory">
+					<errorKey>git.modeOfTransit.required</errorKey>
+				</validation>
+			</field>
+			<!-- <field name="voyageFrom">
+				<validation type="mandatory">
+					<errorKey>git.voyageFrom.required</errorKey>
+				</validation>
+			</field>
+			<field name="voyageTo">
+				<validation type="mandatory">
+					<errorKey>git.voyageTo.required</errorKey>
+				</validation>
+			</field> -->
+			<field name="commodityType">
+				<validation type="mandatory">
+					<errorKey>git.commodityType.required</errorKey>
+				</validation>
+			</field>
+			<!-- <field name="goodsDescription">
+				<validation type="mandatory">
+					<errorKey>git.goodsDescription.required</errorKey>
+				</validation>
+			</field> -->
+			<!-- <field name="siBasis">
+				<validation type="mandatory">
+					<errorKey>git.siBasis.required</errorKey>
+				</validation>
+			</field> -->
+			<!-- <field name="deductible">
+				<validation type="mandatory">
+					<errorKey>git.deductible.required</errorKey>
+				</validation>
+			</field>  -->
+		</bean>
+	</transaction>
+	<!-- Mapping for Goods In Transit save validation ends here -->
+	
+	<!-- Mapping for Group personal Accident save validation Starts here -->
+	<transaction name="GroupPersonalAccidentSaveValidator">
+		<bean type="com.rsaame.pas.vo.bus.GroupPersonalAccidentVO">
+			<field name="aggregateLimit">
+				<validation type="mandatory">
+					<errorKey>groupPersonalAccident.aggregateLimit.required</errorKey>
+				</validation>
+			</field>
+			<field name="gpaDeductible">
+				<validation type="mandatory">
+					<errorKey>groupPersonalAccident.gpaDeductible.required</errorKey>
+				</validation>
+			</field> 
+		</bean>
+	</transaction>	
+	<transaction name="GPAUnnamedSaveValidator">
+		<bean type="com.rsaame.pas.vo.bus.GPAUnnammedEmpVO">
+			<field name="unnammedEmployeeType">
+				<validation type="mandatory">
+					<errorKey>groupPersonalAccident.unnammedEmployeeType.required</errorKey>
+				</validation>
+			</field>
+			<field name="unnammedNumberOfEmloyee">
+				<validation type="mandatory">
+					<errorKey>groupPersonalAccident.unnammedNumberOfEmloyee.required</errorKey>
+				</validation>
+			</field>
+			<!-- <field name="unnammedAnnualSalary">
+				<validation type="mandatory">
+					<errorKey>groupPersonalAccident.unnammedAnnualSalary.required</errorKey>
+				</validation>
+			</field> -->
+			<field name="sumInsuredDetails.sumInsured">
+				<validation type="mandatory">
+					<errorKey>groupPersonalAccident.sumInsured.required</errorKey>
+				</validation>
+			</field>
+		</bean>
+	</transaction>
+	<transaction name="GPANamedSaveValidator">
+		<bean type="com.rsaame.pas.vo.bus.GPANammedEmpVO">
+			<field name="nameOfEmployee">
+				<validation type="mandatory">
+					<errorKey>groupPersonalAccident.nameOfEmployee.required</errorKey>
+				</validation>
+			</field>
+			<field name="employeeType">
+				<validation type="mandatory">
+					<errorKey>groupPersonalAccident.employeeType.required</errorKey>
+				</validation>
+			</field>
+			<field name="nammedEmpGender">
+				<validation type="mandatory">
+					<errorKey>groupPersonalAccident.nammedEmpGender.required</errorKey>
+				</validation>
+			</field>
+			<field name="nammedEmpDob">
+				<validation type="mandatory">
+					<errorKey>groupPersonalAccident.nammedEmpDob.required</errorKey>
+				</validation>
+			</field>
+			<field name="nammedEmpDesignation">
+				<validation type="mandatory">
+					<errorKey>groupPersonalAccident.nammedEmpDesignation.required</errorKey>
+				</validation>
+			</field> 
+			<field name="nammedEmpAnnualSalary">
+				<validation type="mandatory">
+					<errorKey>groupPersonalAccident.nammedEmpAnnualSalary.required</errorKey>
+				</validation>
+			</field>
+			<field name="sumInsuredDetails.sumInsured">
+				<validation type="mandatory">
+					<errorKey>groupPersonalAccident.sumInsured.required</errorKey>
+				</validation>
+			</field>
+		</bean>
+	</transaction>
+	<!-- Mapping for Group personal Accident save validation ends here -->
+	<!-- Mapping for Deterioration of Stock save validaation starts here -->
+	<transaction name="DeteriorationOfStockSaveValidator">
+	<bean type="com.rsaame.pas.vo.bus.DeteriorationOfStockDetailsVO">
+	<field name="deteriorationOfStockType">
+				<validation type="mandatory">
+					<errorKey>deteriorationOfStock.stockType.required</errorKey>
+				</validation>
+	</field>
+	<!-- <field name="deteriorationOfStockDesc">
+				<validation type="mandatory">
+					<errorKey>deteriorationOfStock.stockDesc.required</errorKey>
+				</validation>
+	</field>
+	<field name="deteriorationOfStockQuantity">
+				<validation type="mandatory">
+					<errorKey>deteriorationOfStock.stockQuantity.required</errorKey>
+				</validation>
+	</field> -->
+	<field name="sumInsuredDetails.sumInsured">
+				<validation type="mandatory">
+					<errorKey>deteriorationOfStock.stockValue.required</errorKey>
+				</validation>
+	</field>	
+	<field name="sumInsuredDetails.deductible">
+				<validation type="mandatory">
+					<errorKey>deteriorationOfStock.stockDeductible.required</errorKey>
+				</validation>
+	</field>	
+	</bean>
+	</transaction>
+	<!-- Mapping for Fidelity of Stock save validaation starts here -->
+	<transaction name="FidelityValidator">
+	<bean type="com.rsaame.pas.vo.bus.FidelityVO">
+	<field name="aggregateLimit">
+				<validation type="mandatory">
+					<errorKey>fidelity.aggregateLimit.required</errorKey>
+				</validation>
+	</field>
+	<field name="deductible">
+				<validation type="mandatory">
+					<errorKey>fidelity.deductible.required</errorKey>
+				</validation>
+	</field>
+	
+	
+	</bean>
+	</transaction>
+	
+	<transaction name="FidelityNammedEmployeesValidator">
+	<bean type="com.rsaame.pas.vo.bus.FidelityNammedEmployeeDetailsVO">
+	<field name="empName">
+				<validation type="mandatory">
+					<errorKey>fidelity.empName.required</errorKey>
+				</validation>
+	</field>
+	<field name="empDesignation">
+				<validation type="mandatory">
+					<errorKey>fidelity.empDesignation.required</errorKey>
+				</validation>
+	</field>
+	<field name="limitPerPerson">
+				<validation type="mandatory">
+					<errorKey>fidelity.limitPerPerson.required</errorKey>
+				</validation>
+	</field>
+	<field name="empType">
+				<validation type="mandatory">
+					<errorKey>fidelity.empType.required</errorKey>
+				</validation>
+	</field>
+	
+	</bean>
+	</transaction>
+	<transaction name="FidelityUnnammedEmployeeValidator">
+	<bean type="com.rsaame.pas.vo.bus.FidelityUnnammedEmployeeVO">
+	<field name="empType">
+				<validation type="mandatory">
+					<errorKey>fidelity.empType.required</errorKey>
+				</validation>
+	</field>
+	<field name="totalNumberOfEmployee">
+				<validation type="mandatory">
+					<errorKey>fidelity.totalNumberOfEmployee.required</errorKey>
+				</validation>
+	</field>
+	<field name="limitPerPerson">
+				<validation type="mandatory">
+					<errorKey>fidelity.limitPerPerson.required</errorKey>
+				</validation>
+	</field>
+	</bean>
+	</transaction>
+	
+	<transaction name="TravelDetailsValidator">
+		<bean type="com.rsaame.pas.vo.bus.TravelInsuranceVO">
+			<field name="scheme.effDate">
+				<validation type="mandatory">
+					<errorKey>travelDetails.startDate.required</errorKey>
+					
+				</validation>
+				
+				<validation type="validDate">
+				
+					<parameter>
+				        <name>criteria</name>
+						<value>after</value>
+					</parameter>
+					<errorKey>travelDetails.startDate.validDate</errorKey>
+					
+				</validation>
+			</field>
+			
+			<field name="scheme.expiryDate">
+				<validation type="mandatory">
+					<errorKey>travelDetails.endDate.required</errorKey>
+				</validation>
+				
+				<validation type="validDate">
+					<parameter>
+				        <name>criteria</name>
+						<value>after</value>
+					</parameter>
+					<errorKey>travelDetails.endDate.validDate</errorKey>
+				</validation>
+			</field>
+			
+			<field name="policyTerm">
+				<validation type="mandatory">
+					<errorKey>travelDetails.travelPeriod.required</errorKey>
+				</validation>
+			</field>
+			
+			<field name="travelDetailsVO.travelLocation">
+				<validation type="mandatory">
+					<errorKey>travelDetails.travelLocation.required</errorKey>
+				</validation>
+			</field>
+		</bean>
+	</transaction>
+	
+	
+	
+	
+	
+	<transaction name="TravelerDetailsValidator">
+		<bean type="com.rsaame.pas.vo.bus.TravelerDetailsVO">
+			<field name="name">
+				<validation type="mandatory">
+					<errorKey>travelerDetails.name.required</errorKey>
+				</validation>
+			</field>
+			
+			<field name="dateOfBirth">
+				<validation type="mandatory">
+					<errorKey>travelerDetails.dateOfBirth.required</errorKey>
+				</validation>
+				
+				<validation type="validDate">
+					<parameter>
+				        <name>criteria</name>
+						<value>before</value>
+					</parameter>
+				<errorKey>travelerDetails.dateOfBirth.validDate</errorKey>
+				</validation>
+			</field>
+			
+			<field name="relation">
+				<validation type="mandatory">
+					<errorKey>travelerDetails.relation.required</errorKey>
+				</validation>
+			</field>
+			
+			<field name="nationality">
+				<validation type="mandatory">
+					<errorKey>travelerDetails.nationality.required</errorKey>
+				</validation>
+			</field>
+		
+		</bean>
+	
+	</transaction>
+	
+	<transaction name="CommonGeneralInfoSaveValidator">
+	<bean type="com.rsaame.pas.vo.bus.PolicyDataVO">
+			<field name="generalInfo.insured.firstName">
+				<validation type="mandatory">
+					<errorKey>pas.firstname.required</errorKey>
+				</validation>
+				<validation type="maxLength">
+					<parameter>
+						<name>length</name>
+						<value>100</value>
+					</parameter>
+					<errorKey>pas.firstname.length</errorKey>
+				</validation>
+
+				<!-- <validation type="allowedSpecialChars">
+					<parameter>
+						<name>charSets</name>
+						<value>,._-</value>
+					</parameter>
+					<errorKey>pas.name.allowedspecialchars</errorKey>
+				</validation> -->
+			</field>
+			
+			<field name="generalInfo.insured.lastName">
+				<validation type="mandatory">
+					<errorKey>pas.lastname.required</errorKey>
+				</validation>
+				<validation type="maxLength">
+					<parameter>
+						<name>length</name>
+						<value>100</value>
+					</parameter>
+					<errorKey>pas.lastname.length</errorKey>
+				</validation>
+
+				<!-- <validation type="allowedSpecialChars">
+					<parameter>
+						<name>charSets</name>
+						<value>,._-</value>
+					</parameter>
+					<errorKey>pas.name.allowedspecialchars</errorKey>
+				</validation> -->
+			</field>
+
+			<field name="generalInfo.insured.mobileNo">
+				<validation type="mandatory">
+					<errorKey>pas.mobile.required</errorKey>
+				</validation>
+				<validation type="maxLength">
+					<parameter>
+						<name>length</name>
+						<value>13</value>
+					</parameter>
+					<errorKey>pas.mobile.length</errorKey>
+				</validation>
+				
+			</field>
+
+			<field name="generalInfo.insured.address.poBox">
+				<validation type="mandatory">
+					<errorKey>pas.pobox.required</errorKey>
+				</validation>
+				<validation type="maxLength">
+					<parameter>
+						<name>length</name>
+						<value>6</value>
+					</parameter>
+					<errorKey>pas.pobox.maxlength</errorKey>
+				</validation>
+			</field>
+
+			<field name="generalInfo.insured.address.emirates"> <validation type="mandatory"> 
+				<errorKey>pas.emirates.required</errorKey> </validation> 
+				
+			</field>
+			
+			<field 
+				name="generalInfo.insured.address.country"> <validation type="mandatory"> 
+				<errorKey>pas.country.required</errorKey> </validation> 
+			</field>
+
+			<field name="generalInfo.insured.nationality">
+				<validation type="mandatory">
+					<errorKey>pas.nationality.required</errorKey>
+				</validation>
+			</field>
+	
+	</bean>
+	</transaction>
+	
+	<transaction name="HomeGeneralInfoSaveValidator">
+	<bean type="com.rsaame.pas.vo.bus.PolicyDataVO">
+
+		
+			<field name="scheme.schemeCode">
+				<validation type="mandatory">
+					<errorKey>pas.schemecode.required</errorKey>
+				</validation>
+			</field>
+
+			<field name="scheme.tariffCode">
+				<validation type="mandatory">
+					<errorKey>pas.tariff.required</errorKey>
+				</validation>
+			</field>
+
+			<field name="scheme.policyType">
+				<validation type="mandatory">
+					<errorKey>pas.policytype.required</errorKey>
+				</validation>
+			</field>
+
+			<field name="scheme.effDate">
+				<validation type="mandatory">
+					<errorKey>pas.effdate.required</errorKey>
+				</validation>
+			</field>
+	
+	</bean>
+	</transaction>
+	
+</validations>

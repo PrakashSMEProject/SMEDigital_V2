@@ -1,0 +1,103 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Feb 3, 2012 4:02:13 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.rsaame.pas.dao.model.TMasPolicyRating" table="T_MAS_POLICY_RATING" >
+        <composite-id name="id" class="com.rsaame.pas.dao.model.TMasPolicyRatingId">
+            <key-property name="prClCode" type="short">
+                <column name="PR_CL_CODE" precision="4" scale="0" />
+            </key-property>
+            <key-property name="prPtCode" type="short">
+                <column name="PR_PT_CODE" precision="4" scale="0" />
+            </key-property>
+            <key-property name="prCovCode" type="short">
+                <column name="PR_COV_CODE" precision="4" scale="0" />
+            </key-property>
+            <key-property name="prCtCode" type="short">
+                <column name="PR_CT_CODE" precision="4" scale="0" />
+            </key-property>
+            <key-property name="prCstCode" type="short">
+                <column name="PR_CST_CODE" precision="4" scale="0" />
+            </key-property>
+            <key-property name="prRskCode" type="int">
+                <column name="PR_RSK_CODE" precision="5" scale="0" />
+            </key-property>
+            <key-property name="prRtCode" type="int">
+                <column name="PR_RT_CODE" precision="5" scale="0" />
+            </key-property>
+            <key-property name="prRcCode" type="int">
+                <column name="PR_RC_CODE" precision="5" scale="0" />
+            </key-property>
+            <key-property name="prRscCode" type="int">
+                <column name="PR_RSC_CODE" precision="5" scale="0" />
+            </key-property>
+            <key-property name="prRateEffectiveDate" type="date">
+                <column name="PR_RATE_EFFECTIVE_DATE" length="7" />
+            </key-property>
+            <key-property name="prTariff" type="int">
+                <column name="PR_TARIFF" precision="6" scale="0" />
+            </key-property>
+            <key-property name="prSbsPolicyType" type="short">
+                <column name="PR_SBS_POLICY_TYPE" precision="4" scale="0" />
+            </key-property>
+        </composite-id>
+        <property name="prPremRate" type="big_decimal">
+            <column name="PR_PREM_RATE" precision="8" scale="3" />
+        </property>
+        <property name="prPremOrDiscFlag" type="java.lang.Boolean">
+            <column name="PR_PREM_OR_DISC_FLAG" precision="1" scale="0" />
+        </property>
+        <property name="prMinimumPrem" type="big_decimal">
+            <column name="PR_MINIMUM_PREM" precision="8" scale="3" />
+        </property>
+        <property name="prCompulsoryExcess" type="big_decimal">
+            <column name="PR_COMPULSORY_EXCESS" precision="8" scale="3" />
+        </property>
+        <property name="prFnCode" type="java.lang.Integer">
+            <column name="PR_FN_CODE" precision="5" scale="0" />
+        </property>
+        <property name="prRateExpiryDate" type="date">
+            <column name="PR_RATE_EXPIRY_DATE" length="7" />
+        </property>
+        <property name="prMandatoryInd" type="java.lang.Boolean">
+            <column name="PR_MANDATORY_IND" precision="1" scale="0" />
+        </property>
+        <property name="prCompulsoryExcessRate" type="big_decimal">
+            <column name="PR_COMPULSORY_EXCESS_RATE" precision="6" scale="3" />
+        </property>
+        <property name="prPreparedBy" type="java.lang.Integer">
+            <column name="PR_PREPARED_BY" precision="8" scale="0" />
+        </property>
+        <property name="prPreparedDt" type="date">
+            <column name="PR_PREPARED_DT" length="7" />
+        </property>
+        <property name="prModifiedBy" type="java.lang.Integer">
+            <column name="PR_MODIFIED_BY" precision="8" scale="0" />
+        </property>
+        <property name="prModifiedDt" type="date">
+            <column name="PR_MODIFIED_DT" length="7" />
+        </property>
+        <property name="prRateType" type="java.lang.Byte">
+            <column name="PR_RATE_TYPE" precision="2" scale="0" />
+        </property>
+        <property name="prDisplayCover" type="java.lang.Boolean">
+            <column name="PR_DISPLAY_COVER" precision="1" scale="0" />
+        </property>
+        <property name="prEditStatus" type="java.lang.Character">
+            <column name="PR_EDIT_STATUS" length="1" />
+        </property>
+        <property name="prCovDispInd" type="java.lang.Boolean">
+            <column name="PR_COV_DISP_IND" precision="1" scale="0" />
+        </property>
+        <property name="prSumInsured" type="big_decimal">
+            <column name="PR_SUM_INSURED" precision="22" scale="0" />
+        </property>
+        <property name="prLimit" type="big_decimal">
+            <column name="PR_LIMIT" precision="22" scale="0" />
+        </property>
+        <property name="prAggLimit" type="big_decimal">
+            <column name="PR_AGG_LIMIT" precision="22" scale="0" />
+        </property>
+    </class>
+</hibernate-mapping>

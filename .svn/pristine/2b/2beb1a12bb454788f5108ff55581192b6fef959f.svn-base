@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+xmlns="http://com/rsaame/pas/b2c/ws" 
+targetNamespace="http://com/rsaame/pas/b2c/ws"
+xmlns:Q1="http://com/rsaame/pas/b2c/ws/travelPackage"
+xmlns:Q2="http://com/rsaame/pas/b2c/ws/coverDetailsList" >
+<xs:import schemaLocation="TravelPackage.xsd" namespace="http://com/rsaame/pas/b2c/ws/travelPackage"></xs:import>
+<xs:import schemaLocation="CoverDetailsList.xsd" namespace="http://com/rsaame/pas/b2c/ws/coverDetailsList"></xs:import>
+
+  <xs:element name="ProductDetailsRequest">  
+           <xs:complexType>  
+                <xs:sequence>  
+                     <xs:element name="lob" type="xs:string">
+                     <xs:annotation>
+                     		<xs:documentation>Select Home or Travel</xs:documentation>
+                     	</xs:annotation></xs:element>  
+                     <xs:element name="schemeCd" type="xs:long" form="qualified"/>
+                     <xs:element name="tariffCd" type="xs:long" form="qualified"/>
+                </xs:sequence>  
+           </xs:complexType>  
+      </xs:element>  
+      <xs:element name="ProductDetailsResponse">  
+           <xs:complexType>  
+                <xs:sequence>               
+                <xs:element name="travelPackage" type="Q1:travelPackage" minOccurs="0" form="qualified"/>              
+                <xs:element name="coverDetailsList" type="Q2:coverDetailsList" minOccurs="0" form="qualified"/>
+                </xs:sequence>  
+           </xs:complexType>  
+      </xs:element>  
+</xs:schema>

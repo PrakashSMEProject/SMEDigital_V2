@@ -1,0 +1,163 @@
+<?xml version="1.0"?>
+<web-app id="WebApp_ID" version="2.4"
+ xmlns="http://java.sun.com/xml/ns/j2ee"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee   http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
+ <display-name>ePlatform B2C</display-name>
+ <!-- listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener
+ <servlet-mapping>
+		<servlet-name>default</servlet-name>
+		<url-pattern>*.js</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>default</servlet-name>
+		<url-pattern>*.css</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>default</servlet-name>
+		<url-pattern>*.jpg</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>default</servlet-name>
+		<url-pattern>*.png</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>default</servlet-name>
+		<url-pattern>*.gif</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>default</servlet-name>
+		<url-pattern>*.htm</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping> 
+		<servlet-name>spring</servlet-name>
+		<url-pattern>/static/*</url-pattern>
+	</servlet-mapping>
+	<filter>
+		<filter-name>PaymentResponseFilter</filter-name>
+		<filter-class>com.rsaame.pas.b2c.filters.PaymentResponseFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>PaymentResponseFilter</filter-name>
+		<url-pattern>/thankyou.jsp</url-pattern>
+	</filter-mapping>-->
+  <filter>
+  <description>Filters all WebService Requests</description>
+  <display-name>WEBSERVICE FILTER</display-name>
+  <filter-name>WEBSERVICE FILTER</filter-name>
+  <filter-class>com.rsaame.pas.b2c.WsAuthentication.filters.WebServiceFilter</filter-class>
+ </filter>
+ <filter-mapping>
+  <filter-name>WEBSERVICE FILTER</filter-name>
+  <url-pattern>/rsaservices/*</url-pattern>
+  <dispatcher>FORWARD</dispatcher>
+  <dispatcher>REQUEST</dispatcher>
+ </filter-mapping>  
+ <filter>
+  <description>Filters all XSS scripts</description>
+  <display-name>XSSFILTER</display-name>
+  <filter-name>XSSFILTER</filter-name>
+  <filter-class>com.rsaame.pas.web.XSSFilter</filter-class>
+ </filter>
+ <filter-mapping>
+  <filter-name>XSSFILTER</filter-name>
+  <url-pattern>/</url-pattern>
+ </filter-mapping>
+ <filter-mapping>
+  <filter-name>XSSFILTER</filter-name>
+  <url-pattern>*.do</url-pattern>
+ </filter-mapping>
+ <!-- context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>/WEB-INF/controllerConfigContext.xml,classpath:config/applicationContext.xml</param-value>
+	</context-param-->
+ <listener>
+  <display-name>TomcatDataSourceInitContextListener</display-name>
+  <listener-class>com.rsaame.pas.web.TomcatDataSourceInitContextListener</listener-class>
+ </listener>
+ <listener>
+  <description>Loads the spring context</description>
+  <display-name>PAS AppContext Loader</display-name>
+  <listener-class>com.rsaame.pas.web.PASAppContextInit</listener-class>
+ </listener>
+  <listener>
+  	<display-name>PASLocationControlInit</display-name>
+  	<listener-class>com.rsaame.pas.web.PASLocationControlInit</listener-class>
+ </listener>
+ <listener>
+ 	<listener-class>com.rsaame.pas.web.PasHttpSessionListener</listener-class>
+ </listener>
+ <servlet>
+  <servlet-name>spring</servlet-name>
+  <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+  <init-param>
+   <param-name>contextConfigLocation</param-name>
+   <param-value>/WEB-INF/controllerConfigContext.xml</param-value>
+  </init-param>
+  <load-on-startup>1</load-on-startup>
+ </servlet>
+ <!-- webservices start -->
+ <servlet>
+  <servlet-name>webservices</servlet-name>
+  <servlet-class>org.springframework.ws.transport.http.MessageDispatcherServlet</servlet-class>
+  <init-param>
+   <param-name>transformWsdlLocations</param-name>
+   <param-value>true</param-value>
+  </init-param>
+  <init-param>
+   <param-name>contextConfigLocation</param-name>
+   <param-value>/WEB-INF/spring-ws-config.xml</param-value>
+  </init-param>
+  <load-on-startup>1</load-on-startup>
+ </servlet>
+ <servlet-mapping>
+  <servlet-name>spring</servlet-name>
+  <url-pattern>/</url-pattern>
+ </servlet-mapping>
+ <servlet-mapping>
+  <servlet-name>spring</servlet-name>
+  <url-pattern>*.do</url-pattern>
+ </servlet-mapping>
+ <servlet-mapping>
+  <servlet-name>webservices</servlet-name>
+  <url-pattern>*.wsdl</url-pattern>
+ </servlet-mapping>
+ <servlet-mapping>
+  <servlet-name>webservices</servlet-name>
+  <url-pattern>/endpoints/*</url-pattern>
+ </servlet-mapping>
+ <error-page>
+  <error-code>404</error-code>
+  <location>/index.jsp</location>
+ </error-page>
+ <error-page>
+  <error-code>500</error-code>
+  <location>/index.jsp</location>
+ </error-page>
+ <jsp-config>
+  <taglib>
+   <taglib-uri>http://www.rsa.com/lookUp</taglib-uri>
+   <taglib-location>/WEB-INF/lookUpTag.tld</taglib-location>
+  </taglib>
+  <taglib>
+   <taglib-uri>http://www.rsa.com/productComparison</taglib-uri>
+   <taglib-location>/WEB-INF/productComparisonTag.tld</taglib-location>
+  </taglib>
+  <taglib>
+   <taglib-uri>http://www.rsa.com/riskcovertag</taglib-uri>
+   <taglib-location>/WEB-INF/RiskCoverTag.tld</taglib-location>
+  </taglib>
+  <taglib>
+   <taglib-uri>http://www.rsa.com/optionalCoverTag</taglib-uri>
+   <taglib-location>/WEB-INF/OptionalCoverTag.tld</taglib-location>
+  </taglib>
+ </jsp-config>
+ <!-- webservices start END-->
+ <resource-ref id="ResourceRef_oracledb">
+  <description>Oracle Datasource example</description>
+  <res-ref-name>AMEDataSource</res-ref-name>
+  <res-type>javax.sql.DataSource</res-type>
+  <res-auth>Container</res-auth>
+ </resource-ref>
+</web-app>

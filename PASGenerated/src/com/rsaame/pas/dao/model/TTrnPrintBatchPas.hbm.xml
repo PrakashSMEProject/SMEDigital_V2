@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Oct 23, 2012 3:45:13 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.rsaame.pas.dao.model.TTrnPrintBatchPas" table="T_TRN_PRINT_BATCH_PAS">
+        <composite-id name="id" class="com.rsaame.pas.dao.model.TTrnPrintBatchPasId">
+            <key-property name="prnBatchReqId" type="long">
+                <column name="PRN_BATCH_REQ_ID" precision="16" scale="0" />
+            </key-property>
+            <key-property name="polLinkingId" type="long">
+                <column name="POL_LINKING_ID" precision="16" scale="0" />
+            </key-property>
+            <key-property name="policyId" type="long">
+                <column name="POL_POLICY_ID" precision="16" scale="0" />
+            </key-property>
+        </composite-id>
+        <property name="polPolicyNo" type="java.lang.Long">
+            <column name="POL_POLICY_NO" precision="16" scale="0" />
+        </property>
+        <property name="polValidityStartDate" type="date">
+            <column name="POL_VALIDITY_START_DATE" length="7" />
+        </property>
+        <property name="polEndtId" type="long">
+            <column name="POL_ENDT_ID" precision="16" scale="0" not-null="true" />
+        </property>
+        <property name="renQuoNo" type="java.lang.Long">
+            <column name="REN_QUO_NO" precision="16" scale="0" />
+        </property>
+        <property name="prnLocation" type="string">
+            <column name="PRN_LOCATION" length="8" />
+        </property>
+        <property name="requesterId" type="java.lang.Integer">
+            <column name="REQUESTER_ID" precision="8" scale="0" />
+        </property>
+        <property name="requestDate" type="date">
+            <column name="REQUEST_DATE" length="7" />
+        </property>
+        <property name="processedDate" type="date">
+            <column name="PROCESSED_DATE" length="7" />
+        </property>
+        <property name="prnStatus" type="string">
+            <column name="PRN_STATUS" length="2" />
+        </property>
+        <property name="remarks" type="string">
+            <column name="REMARKS" length="250" />
+        </property>
+    </class>
+</hibernate-mapping>

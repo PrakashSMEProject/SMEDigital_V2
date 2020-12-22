@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+xmlns="http://com/rsaame/pas/b2c/ws" 
+xmlns:Q1="http://com/rsaame/pas/b2c/ws/travelInsuranceDetails"
+targetNamespace="http://com/rsaame/pas/b2c/ws">
+<xs:import schemaLocation="TravelInsuranceDetails.xsd" namespace="http://com/rsaame/pas/b2c/ws/travelInsuranceDetails"></xs:import>
+  <xs:element name="TravelConvertToPolicyRequest">
+  <xs:complexType>
+    <xs:sequence>
+      <xs:element name="isCreate" type="xs:boolean" minOccurs="0" form="qualified"/>
+      <xs:element name="travelInsuranceDetails" type="Q1:travelInsuranceDetails" minOccurs="0" form="qualified"/>
+    </xs:sequence>
+  </xs:complexType>
+  </xs:element>
+
+  <xs:element name="TravelConvertToPolicyResponse">
+  <xs:complexType>
+    <xs:sequence>
+      <xs:element name="travelInsuranceDetails" type="Q1:travelInsuranceDetails" minOccurs="0" form="qualified"/>
+    </xs:sequence>
+  </xs:complexType>
+  </xs:element>
+
+</xs:schema>
+

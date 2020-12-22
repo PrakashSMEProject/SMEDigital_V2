@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated May 20, 2013 11:08:43 AM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.rsaame.pas.dao.model.TMasPromoDiscCover" table="T_MAS_PROMO_DISC_COVER" >
+        <composite-id name="id" class="com.rsaame.pas.dao.model.TMasPromoDiscCoverId">
+            <key-property name="pdcProCode" type="string">
+                <column name="PDC_PROMO_CODE" length="30" />
+            </key-property>
+            <key-property name="pdcSchemeCode" type="big_decimal">
+                <column name="PDC_SCHEME_CODE" precision="22" scale="0" />
+            </key-property>
+            <key-property name="pdcPerc" type="big_decimal">
+                <column name="PDC_PERC" precision="22" scale="0" />
+            </key-property>
+            <key-property name="pdcCovCode" type="big_decimal">
+                <column name="PDC_COV_CODE" precision="22" scale="0" />
+            </key-property>
+            <key-property name="pdcCtCode" type="big_decimal">
+                <column name="PDC_CT_CODE" precision="22" scale="0" />
+            </key-property>
+             <key-property name="pdcPreparedBy" type="java.lang.Integer">
+                <column name="PDC_PREPARED_BY" precision="8" scale="0" />
+            </key-property>
+            <key-property name="pdcPreparedDate" type="date">
+                <column name="PDC_PREPARED_DATE" length="7" />
+            </key-property>
+            <key-property name="pdcModifiedBy" type="java.lang.Integer">
+                <column name="PDC_MODIFIED_BY" precision="8" scale="0" />
+            </key-property>
+            <key-property name="pdcModifiedDate" type="date">
+                <column name="PDC_MODIFIED_DATE" length="7" />
+            </key-property>
+         
+          </composite-id> 
+            
+           
+         
+    </class>
+</hibernate-mapping>

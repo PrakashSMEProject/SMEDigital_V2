@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Jan 13, 2012 2:35:19 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+ <class name="com.rsaame.pas.dao.model.TTrnRoleFunScrSecPriv" table="T_TRN_ROLE_FUN_SCR_SEC_PRIV">
+  <composite-id
+   class="com.rsaame.pas.dao.model.TTrnRoleFunScrSecPrivId"
+   mapped="false" name="id" unsaved-value="undefined">
+   <key-property name="roleFk" type="string">
+    <column length="50" name="ROLE_FK"/>
+   </key-property>
+   <key-property name="functionFk" type="string">
+    <column length="20" name="FUNCTION_FK"/>
+   </key-property>
+   <key-property name="screenFk" type="string">
+    <column length="20" name="SCREEN_FK"/>
+   </key-property>
+   <key-property name="sectionFk" type="string">
+    <column length="20" name="SECTION_FK"/>
+   </key-property>
+  </composite-id>
+  <property generated="never" lazy="false" name="privilegeFk" type="string">
+   <column length="20" name="PRIVILEGE_FK" not-null="true"/>
+  </property>
+  <property generated="never" lazy="false" name="rsrPreparedBy" type="big_decimal">
+   <column name="RSR_PREPARED_BY" precision="22" scale="0"/>
+  </property>
+  <property generated="never" lazy="false" name="rsrPreparedDt" type="date">
+   <column length="7" name="RSR_PREPARED_DT"/>
+  </property>
+  <property generated="never" lazy="false" name="rsrModifiedBy" type="big_decimal">
+   <column name="RSR_MODIFIED_BY" precision="22" scale="0"/>
+  </property>
+  <property generated="never" lazy="false" name="rsrModifiedDt" type="date">
+   <column length="7" name="RSR_MODIFIED_DT"/>
+  </property>
+  <property generated="never" lazy="false" name="product" type="string">
+   <column length="100" name="PRODUCT"/>
+  </property>
+ </class>
+ <query name="getRoleFunScrSecPriv">
+  from TTrnRoleFunScrSecPriv authDetails where authDetails.product=:product
+  </query>
+</hibernate-mapping>

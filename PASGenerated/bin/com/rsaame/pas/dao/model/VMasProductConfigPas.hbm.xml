@@ -1,0 +1,158 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated May 10, 2013 6:59:16 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.rsaame.pas.dao.model.VMasProductConfigPas" table="V_MAS_PRODUCT_CONFIG_PAS">
+        <composite-id>
+        	<key-property name="pcId" type="java.lang.Integer">
+                <column name="PC_ID" precision="4" scale="0" />
+            </key-property>
+            
+            <key-property name="pcTariff" type="java.lang.Integer">
+                <column name="PC_TARIFF" precision="6" scale="0" />
+            </key-property>
+            
+            <key-property name="pcScheme" type="java.lang.Integer">
+                <column name="PC_SCHEME" precision="6" scale="0" />
+            </key-property>
+            
+        </composite-id>    
+        
+            <property name="pcClCode" type="java.lang.Integer">
+                <column name="PC_CL_CODE" precision="4" scale="0" />
+            </property>
+            
+            <property name="pcPtCode" type="java.lang.Integer">
+                <column name="PC_PT_CODE" precision="4" scale="0" />
+            </property>
+            
+            <property name="pcCovCode" type="java.lang.Integer">
+                <column name="PC_COV_CODE" precision="4" scale="0" />
+            </property>
+            
+            <property name="pcCtCode" type="java.lang.Integer">
+                <column name="PC_CT_CODE" precision="4" scale="0" />
+            </property>
+            
+            <property name="pcCstCode" type="java.lang.Integer">
+                <column name="PC_CST_CODE" precision="4" scale="0" />
+            </property>
+            
+            <property name="pcBasicRskCode" type="java.lang.Integer">
+                <column name="PC_BASIC_RSK_CODE" precision="5" scale="0" />
+            </property>
+            
+            <property name="pcRskCode" type="java.lang.Integer">
+                <column name="PC_RSK_CODE" precision="5" scale="0" />
+            </property>
+            
+            <property name="pcRtCode" type="java.lang.Integer">
+                <column name="PC_RT_CODE" precision="5" scale="0" />
+            </property>
+            
+            <property name="pcRcCode" type="java.lang.Integer">
+                <column name="PC_RC_CODE" precision="5" scale="0" />
+            </property>
+            
+            <property name="pcRscCode" type="java.lang.Integer">
+                <column name="PC_RSC_CODE" precision="5" scale="0" />
+            </property>
+<!--             
+            <property name="pcSecId" type="int">
+                <column name="PC_SEC_ID" precision="6" scale="0" />
+            </property>
+            
+            <property name="pcCriCode" type="java.lang.Integer">
+                <column name="PC_CRI_CODE" precision="6" scale="0" />
+            </property>
+  -->           
+            <property name="pcDispItem" type="string">
+                <column name="PC_DISP_ITEM" length="50" />
+            </property>
+            
+            <property name="pcDispItemPos" type="big_decimal">
+                <column name="PC_DISP_ITEM_POS" precision="22" scale="0" />
+            </property>
+            
+            <property name="pcDisplayValue" type="string">
+                <column name="PC_DISPLAY_VALUE" length="50" />
+            </property>
+            
+            <property name="pcHelpMsg" type="string">
+                <column name="PC_HELP_MSG" length="200" />
+            </property>
+            
+            <property name="pcEDesc" type="string">
+                <column name="PC_E_DESC" length="2000" />
+            </property>
+            
+            <property name="prSumInsured" type="big_decimal">
+                <column name="PR_SUM_INSURED" precision="22" scale="0" />
+            </property>
+            
+            <property name="prCompulsoryExcess" type="big_decimal">
+                <column name="PR_COMPULSORY_EXCESS" precision="22" scale="0" />
+            </property>
+            
+            <property name="prLimit" type="big_decimal">
+                <column name="PR_LIMIT" precision="22" scale="0" />
+            </property>
+            
+            <property name="prMandatoryInd" type="java.lang.Boolean">
+                <column name="PR_MANDATORY_IND" precision="1" scale="0" />
+            </property>
+            
+            <property name="pcMappingFld" type="string">
+                <column name="PC_MAPPING_FLD" length="50" />
+            </property>
+            
+            <property name="defaultTariffCode" type="string">
+                <column name="DEFAULT_TARIFF_CODE" length="40" />
+            </property>
+            
+            <property name="defaultTariffDesc" type="string">
+                <column name="DEFAULT_TARIFF_DESC" length="40" />
+            </property>
+             <property name="pcOrder" type="java.lang.Integer">
+                <column name="PC_ORDER" precision="5" scale="0" />
+            </property>
+              <property name="prcStartDate" type="date">
+            <column name="PRC_START_DATE" length="7" />
+        </property>
+          <property name="prcEndDate" type="date">
+            <column name="PRC_END_DATE" length="7" />
+        </property>
+          <property name="prRateExpiryDate" type="date">
+            <column name="PR_RATE_EXPIRY_DATE" length="7" />
+        </property>
+         <property name="prRateEffectiveDate" type="date">
+            <column name="PR_RATE_EFFECTIVE_DATE" length="7" />
+        </property>
+           <property name="prcDisplayInd" type="java.lang.Integer">
+                <column name="PRC_DISPLAY_IND" precision="20" scale="0" />
+            </property>
+            <property name="prcBToCDisplayInd" type="java.lang.Integer">
+                <column name="PRC_B2C_DISP_IND" precision="20" scale="0" />
+            </property>
+    </class>
+
+
+	<query name="getRiskCoverDetails">
+		FROM VMasProductConfigPas productConfig
+		WHERE
+		productConfig.pcScheme=:scheme AND productConfig.pcPtCode=:policyType
+		AND productConfig.pcTariff=:tariff
+		ORDER BY productConfig.pcCovCode,
+		productConfig.pcCtCode, productConfig.pcId
+	</query>
+	
+	<!-- query without using scheme code -->
+	<query name="getRiskDetails">
+		FROM VMasProductConfigPas productConfig
+		WHERE productConfig.pcPtCode=:policyType
+		AND productConfig.pcTariff=:tariff
+		ORDER BY productConfig.pcCovCode,
+		productConfig.pcCtCode, productConfig.pcId
+	</query>
+</hibernate-mapping>

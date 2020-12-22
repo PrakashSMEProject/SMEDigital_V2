@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Apr 26, 2013 7:14:14 PM by Hibernate Tools 3.4.0.CR1 -->
+<!-- Created in Phase 3
+	For new view created which hold the task detail in case of referal.
+	It also holds the LOB name -->
+<hibernate-mapping>
+    <class name="com.rsaame.pas.dao.model.VTaskListPas" table="V_TASK_LIST_PAS">
+    	<composite-id >
+    		<key-property name="taskId" type="java.lang.Long">
+    			<column name="TASKID" precision="16" scale="0" />
+            </key-property>
+            
+            <key-property name="taskName" type="java.lang.String">
+                 <column name="TASKNAME" />
+            </key-property>            
+            
+            <key-property name="polPolicyType" type="java.lang.Integer">
+                <column name="POL_POLICY_TYPE" />
+            </key-property>         
+        	<key-property name="lob" type="java.lang.String">
+            	<column name="LOB" />
+        	</key-property>
+        	<key-property name="dateCreated" type="java.util.Date">
+            	<column name="DATE_CREATED" length="7"/>
+        	</key-property>
+        	<key-property name="createdBy" type="java.lang.Integer">
+            	<column name="CREATED_BY" precision="5" scale="0"/>
+        	</key-property>
+        	<key-property name="assignedBy" type="java.lang.Integer">
+            	<column name="ASSIGNED_BY" precision="5" scale="0"/>
+        	</key-property>
+        	<key-property name="assignTo" type="java.lang.Integer">
+            	<column name="ASSIGN_TO" precision="5" scale="0"/>
+        	</key-property>
+        	<key-property name="status" type="java.lang.Byte">
+            	<column name="STATUS" />
+        	</key-property>
+        	<key-property name="priority" type="java.lang.Byte">
+            	<column name="PRIORITY" />
+        	</key-property>
+        	<key-property name="category" type="java.lang.Byte">
+            	<column name="CATEGORY" />
+        	</key-property>
+        	<key-property name="dueDate" type="java.util.Date">
+            	<column name="DUE_DATE" length="7"/>
+        	</key-property>
+        	<key-property name="tskBrCode" type="java.lang.Long">
+    			<column name="TSK_BR_CODE" precision="16" scale="0" />
+            </key-property>
+            <key-property name="transType" type="java.lang.String">
+    			<column name="TRANSACTION_TYPE" />
+            </key-property>
+        </composite-id>
+    </class>
+</hibernate-mapping>

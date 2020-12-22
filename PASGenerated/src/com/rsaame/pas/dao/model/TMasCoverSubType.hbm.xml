@@ -1,0 +1,67 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Feb 1, 2012 11:52:36 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.rsaame.pas.dao.model.TMasCoverSubType" table="T_MAS_COVER_SUB_TYPE" >
+        <composite-id name="id" class="com.rsaame.pas.dao.model.TMasCoverSubTypeId">
+            <key-property name="cstClCode" type="short">
+                <column name="CST_CL_CODE" precision="4" scale="0" />
+            </key-property>
+            <key-property name="cstPtCode" type="short">
+                <column name="CST_PT_CODE" precision="4" scale="0" />
+            </key-property>
+            <key-property name="cstCovCode" type="short">
+                <column name="CST_COV_CODE" precision="4" scale="0" />
+            </key-property>
+            <key-property name="cstCtCode" type="short">
+                <column name="CST_CT_CODE" precision="4" scale="0" />
+            </key-property>
+            <key-property name="cstCode" type="short">
+                <column name="CST_CODE" precision="4" scale="0" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="TMasCoverType" class="com.rsaame.pas.dao.model.TMasCoverType" update="false" insert="false" fetch="select">
+            <column name="CST_CL_CODE" precision="4" scale="0" not-null="true" />
+            <column name="CST_PT_CODE" precision="4" scale="0" not-null="true" />
+            <column name="CST_COV_CODE" precision="4" scale="0" not-null="true" />
+            <column name="CST_CT_CODE" precision="4" scale="0" not-null="true" />
+        </many-to-one>
+        <property name="cstADesc" type="string">
+            <column name="CST_A_DESC" length="200" />
+        </property>
+        <property name="cstEDesc" type="string">
+            <column name="CST_E_DESC" length="200" />
+        </property>
+        <property name="cstColumnReference" type="string">
+            <column name="CST_COLUMN_REFERENCE" length="100" />
+        </property>
+        <property name="cstValueFrom" type="big_decimal">
+            <column name="CST_VALUE_FROM" precision="16" scale="3" />
+        </property>
+        <property name="cstValueTo" type="big_decimal">
+            <column name="CST_VALUE_TO" precision="16" scale="3" />
+        </property>
+        <property name="cstUserCode" type="java.lang.Short">
+            <column name="CST_USER_CODE" precision="4" scale="0" />
+        </property>
+        <property name="cstSitypeCode" type="java.lang.Byte">
+            <column name="CST_SITYPE_CODE" precision="2" scale="0" />
+        </property>
+        <property name="cstPreparedBy" type="java.lang.Integer">
+            <column name="CST_PREPARED_BY" precision="8" scale="0" />
+        </property>
+        <property name="cstPreparedDt" type="date">
+            <column name="CST_PREPARED_DT" length="7" />
+        </property>
+        <property name="cstModifiedBy" type="java.lang.Integer">
+            <column name="CST_MODIFIED_BY" precision="8" scale="0" />
+        </property>
+        <property name="cstModifiedDt" type="date">
+            <column name="CST_MODIFIED_DT" length="7" />
+        </property>
+        <property name="cstStatus" type="java.lang.Integer">
+            <column name="CST_STATUS" precision="5" scale="0" />
+        </property>
+    </class>
+</hibernate-mapping>

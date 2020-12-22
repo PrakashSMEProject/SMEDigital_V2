@@ -1,0 +1,183 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Jul 10, 2012 6:17:09 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.rsaame.pas.dao.model.TTrnMarineDetailQuo" table="T_TRN_MARINE_DETAIL">
+        <composite-id name="id" class="com.rsaame.pas.dao.model.TTrnMarineDetailQuoId">
+            <key-property name="mdPolicyId" type="long">
+                <column name="MD_POLICY_ID" precision="16" scale="0" />
+            </key-property>
+            <key-property name="mdEndtId" type="long">
+                <column name="MD_ENDT_ID" precision="16" scale="0" />
+            </key-property>
+            <key-property name="mdDeclarationId" type="long">
+                <column name="MD_DECLARATION_ID" precision="12" scale="0" />
+            </key-property>
+            <key-property name="mdSerialNo" type="int">
+                <column name="MD_SERIAL_NO" precision="5" scale="0" />
+            </key-property>
+             <key-property name="mdCommodityId" type="long">
+            	<column name="MD_COMMODITY_ID" precision="12" scale="0" not-null="true" />
+        	</key-property>
+        	<key-property name="mdValidityStartDate" type="java.sql.Timestamp">
+            	<column name="MD_VALIDITY_START_DATE" length="7" not-null="true" />
+        	</key-property>
+        </composite-id>
+        <!-- <property name="mdCommodityId" type="long">
+            <column name="MD_COMMODITY_ID" precision="12" scale="0" not-null="true">
+                <comment>MD_COMMODITY_ID</comment>
+            </column>
+        </property> -->
+        <property name="mdCommodityGroupCode" type="java.lang.Integer">
+            <column name="MD_COMMODITY_GROUP_CODE" precision="5" scale="0">
+                <comment>MD_COMMODITY_GROUP_CODE</comment>
+            </column>
+        </property>
+        <property name="mdCommodityCode" type="java.lang.Integer">
+            <column name="MD_COMMODITY_CODE" precision="6" scale="0">
+                <comment>MD_COMMODITY_CODE</comment>
+            </column>
+        </property>
+        <property name="mdACommodityDesc" type="string">
+            <column name="MD_A_COMMODITY_DESC" length="300">
+                <comment>MD_A_COMMODITY_DESC</comment>
+            </column>
+        </property>
+        <property name="mdECommodityDesc" type="string">
+            <column name="MD_E_COMMODITY_DESC" length="300">
+                <comment>MD_E_COMMODITY_DESC</comment>
+            </column>
+        </property>
+        <property name="mdSumInsured" type="big_decimal">
+            <column name="MD_SUM_INSURED" precision="20" scale="3">
+                <comment>MD_SUM_INSURED</comment>
+            </column>
+        </property>
+        <property name="mdFcSumInsured" type="big_decimal">
+            <column name="MD_FC_SUM_INSURED" precision="20" scale="3">
+                <comment>MD_FC_SUM_INSURED</comment>
+            </column>
+        </property>
+        <property name="mdSumInsuredLoading" type="big_decimal">
+            <column name="MD_SUM_INSURED_LOADING" precision="4">
+                <comment>MD_SUM_INSURED_LOADING</comment>
+            </column>
+        </property>
+        <property name="mdAddlLoading" type="big_decimal">
+            <column name="MD_ADDL_LOADING" precision="4">
+                <comment>MD_ADDL_LOADING</comment>
+            </column>
+        </property>
+        <property name="mdPackingType" type="java.lang.Integer">
+            <column name="MD_PACKING_TYPE" precision="5" scale="0">
+                <comment>MD_PACKING_TYPE</comment>
+            </column>
+        </property>
+        <property name="mdAPackingDesc" type="string">
+            <column name="MD_A_PACKING_DESC" length="100">
+                <comment>MD_A_PACKING_DESC</comment>
+            </column>
+        </property>
+        <property name="mdEPackingDesc" type="string">
+            <column name="MD_E_PACKING_DESC" length="100">
+                <comment>MD_E_PACKING_DESC</comment>
+            </column>
+        </property>
+        <property name="mdPackingNo" type="string">
+            <column name="MD_PACKING_NO" length="30">
+                <comment>MD_PACKING_NO</comment>
+            </column>
+        </property>
+        <property name="mdNoOfPackages" type="java.lang.Integer">
+            <column name="MD_NO_OF_PACKAGES" precision="8" scale="0">
+                <comment>MD_NO_OF_PACKAGES</comment>
+            </column>
+        </property>
+        <property name="mdAContainerNo" type="string">
+            <column name="MD_A_CONTAINER_NO" length="40">
+                <comment>MD_A_CONTAINER_NO</comment>
+            </column>
+        </property>
+        <property name="mdEContainerNo" type="string">
+            <column name="MD_E_CONTAINER_NO" length="40">
+                <comment>MD_E_CONTAINER_NO</comment>
+            </column>
+        </property>
+        <property name="mdMiInvoiceId" type="java.lang.Long">
+            <column name="MD_MI_INVOICE_ID" precision="12" scale="0">
+                <comment>MD_MI_INVOICE_ID</comment>
+            </column>
+        </property>
+        <property name="mdGeoCode" type="java.lang.Short">
+            <column name="MD_GEO_CODE" precision="3" scale="0">
+                <comment>MD_GEO_CODE</comment>
+            </column>
+        </property>
+        <property name="mdBasicRiskCode" type="java.lang.Integer">
+            <column name="MD_BASIC_RISK_CODE" precision="5" scale="0">
+                <comment>MD_BASIC_RISK_CODE</comment>
+            </column>
+        </property>
+        <property name="mdRiskCode" type="java.lang.Integer">
+            <column name="MD_RISK_CODE" precision="5" scale="0">
+                <comment>MD_RISK_CODE</comment>
+            </column>
+        </property>
+        <property name="mdRiRskCode" type="java.lang.Integer">
+            <column name="MD_RI_RSK_CODE" precision="5" scale="0">
+                <comment>MD_RI_RSK_CODE</comment>
+            </column>
+        </property>
+        <property name="mdValidityExpiryDate" type="java.sql.Timestamp">
+            <column name="MD_VALIDITY_EXPIRY_DATE" length="7" not-null="true">
+                <comment>MD_VALIDITY_EXPIRY_DATE</comment>
+            </column>
+        </property>
+        <property name="mdStatus" type="java.lang.Byte">
+            <column name="MD_STATUS" precision="2" scale="0">
+                <comment>MD_STATUS</comment>
+            </column>
+        </property>
+        <property name="mdValuationBasis" type="java.lang.Byte">
+            <column name="MD_VALUATION_BASIS" precision="2" scale="0">
+                <comment>MD_VALUATION_BASIS</comment>
+            </column>
+        </property>
+        <property name="mdPreparedBy" type="java.lang.Integer">
+            <column name="MD_PREPARED_BY" precision="8" scale="0">
+                <comment>MD_PREPARED_BY</comment>
+            </column>
+        </property>
+        <property name="mdPreparedDt" type="java.sql.Timestamp">
+            <column name="MD_PREPARED_DT" length="7">
+                <comment>MD_PREPARED_DT</comment>
+            </column>
+        </property>
+        <property name="mdModifiedBy" type="java.lang.Integer">
+            <column name="MD_MODIFIED_BY" precision="8" scale="0">
+                <comment>MD_MODIFIED_BY</comment>
+            </column>
+        </property>
+        <property name="mdModifiedDt" type="java.sql.Timestamp">
+            <column name="MD_MODIFIED_DT" length="7">
+                <comment>MD_MODIFIED_DT</comment>
+            </column>
+        </property>
+        <property name="mdStartDate" type="java.sql.Timestamp">
+            <column name="MD_START_DATE" length="7" />
+        </property>
+        <property name="mdEndDate" type="java.sql.Timestamp">
+            <column name="MD_END_DATE" length="7" />
+        </property>
+        <property name="mdCargoType" type="string">
+            <column name="MD_CARGO_TYPE" length="60" />
+        </property>
+        <property name="mdEstAnnualSi" type="java.lang.Long">
+            <column name="MD_EST_ANNUAL_SI" precision="15" scale="0" />
+        </property>
+        <property name="mdSiIndicator" type="java.lang.Integer">
+            <column name="MD_SI_INDICATOR" precision="1" scale="0" />
+        </property>
+    </class>
+</hibernate-mapping>

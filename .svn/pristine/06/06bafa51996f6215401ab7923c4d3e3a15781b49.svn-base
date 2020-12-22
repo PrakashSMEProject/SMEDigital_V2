@@ -1,0 +1,76 @@
+<taglib>
+	<tlib-version>1.0</tlib-version>
+	<jsp-version>1.2</jsp-version>
+	<short-name>Risk Cover Details Tag</short-name>
+	<!-- Tag specifies how you are going to reference the tag library from the 
+		JSP page -->
+	<uri>http://www.rsa.com/riskcovertag</uri>
+	<tag>
+		<description>Risk cover tag helps in generating dynamic risk cover
+			page based on the DB configuration in scheme-tariff table
+		</description>
+		<name>RiskCoverTag</name>
+		<tag-class>com.rsaame.pas.b2c.taglib.handler.RiskCoverTagHandler
+		</tag-class>
+		<body-content>empty</body-content>
+
+		<attribute>
+			<name>scheme</name>
+			<required>false</required>
+			<description>Describes the scheme code for which cover needs to be
+				displayed on JSP</description>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>tariff</name>
+			<required>false</required>
+			<description>Describes the tariff code for which cover needs to be
+				displayed on JSP</description>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>policyType</name>
+			<required>true</required>
+			<description>Describes the policy type for which cover needs to be
+				displayed on JSP</description>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>coverCode</name>
+			<required>false</required>
+			<description>Describes the cover code for which cover needs to be
+				displayed on JSP. If not specified, all covers will be displayed for
+				the specified scheme and tariff</description>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>excludeCoverCode</name>
+			<required>false</required>
+			<description>Describes the cover code for which cover needs not to be
+				displayed on JSP. If not specified, all covers will be displayed for
+				the specified scheme and tariff</description>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>policyId</name>
+			<required>false</required>
+			<description>Describes the policy id for the particular quote or policy.
+				If scheme and tariff not provided, it will be fetched from DB based on policy id and endorsement id</description>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>endtId</name>
+			<required>false</required>
+			<description>Describes the policy id for the particular quote or policy.
+				If scheme and tariff not provided, it will be fetched from DB based on policy id and endorsement id</description>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>docCode</name>
+			<required>false</required>
+			<description>Describes the document code for the particular quote or policy.
+				If it is not provided, it will be fetched from DB</description>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+</taglib>

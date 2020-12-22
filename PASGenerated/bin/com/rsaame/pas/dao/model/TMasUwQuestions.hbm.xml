@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Jan 4, 2013 3:00:53 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.rsaame.pas.dao.model.TMasUwQuestions" table="T_MAS_UW_QUESTIONS">
+        <id name="uwqCode" type="short">
+            <column name="UWQ_CODE" precision="4" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <property name="uwqSecId" type="short">
+            <column name="UWQ_SEC_ID" precision="4" scale="0" not-null="true" />
+        </property>
+        <property name="uwqSecPtCode" type="int">
+            <column name="UWQ_SEC_PT_CODE" precision="5" scale="0" not-null="true" />
+        </property>
+        <property name="uwqADescription" type="string">
+            <column name="UWQ_A_DESCRIPTION" length="2000" />
+        </property>
+        <property name="uwqEDescription" type="string">
+            <column name="UWQ_E_DESCRIPTION" length="2000" />
+        </property>
+        <property name="uwqDefAnswer" type="string">
+            <column name="UWQ_DEF_ANSWER" length="500" />
+        </property>
+        <property name="uwqPreparedBy" type="java.lang.Integer">
+            <column name="UWQ_PREPARED_BY" precision="8" scale="0" />
+        </property>
+        <property name="uwqPreparedDt" type="date">
+            <column name="UWQ_PREPARED_DT" length="7" />
+        </property>
+        <property name="uwqModifiedBy" type="java.lang.Integer">
+            <column name="UWQ_MODIFIED_BY" precision="8" scale="0" />
+        </property>
+        <property name="uwqModifiedDt" type="date">
+            <column name="UWQ_MODIFIED_DT" length="7" />
+        </property>
+    </class>
+</hibernate-mapping>

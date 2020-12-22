@@ -1,0 +1,59 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping>
+	
+
+	<class name="com.rsaame.pas.dao.model.TMasCurrency" table="T_MAS_CURRENCY">
+
+		<id name="code" type="java.lang.Integer" column="CUR_CODE">
+
+			<generator class="assigned" />
+		</id>
+
+		<property name="arabicDesc" type="java.lang.String" column="CUR_A_DESC"
+			length="60" />
+		<property name="engDesc" type="java.lang.String" column="CUR_E_DESC"
+			length="60" />
+		<property name="arabicShortDesc" type="java.lang.String"
+			column="CUR_A_SHORT_DESC" length="15" />
+		<property name="engShortDesc" type="java.lang.String" column="CUR_E_SHORT_DESC"
+			length="15" />
+		<property name="cty" type="java.lang.Integer" column="CUR_CTY"
+			length="4" />
+		<property name="exchangeRate" type="java.math.BigDecimal"
+			column="CUR_EXCHANGE_RATE" length="12" />
+		<property name="minEDesc" type="java.lang.String" column="CUR_MIN_E_DESC"
+			length="30" />
+		<property name="minADesc" type="java.lang.String" column="CUR_MIN_A_DESC"
+			length="30" />
+		<property name="minConvFactor" type="java.lang.Integer"
+			column="CUR_MIN_CONV_FACTOR" length="5" />
+		<!-- property name="preparedBy" type="Employee" column="CUR_PREPARED_BY" 
+			length="8" /> -->
+		<property name="preparedDt" type="java.sql.Timestamp" column="CUR_PREPARED_DT"
+			length="7" />
+		<!-- property name="modifiedBy" type="Employee" column="CUR_MODIFIED_BY" 
+			length="8" /> -->
+		<property name="modifiedDt" type="java.sql.Timestamp" column="CUR_MODIFIED_DT"
+			length="7" />
+
+		 <!-- Associations -->
+		<!--
+		<many-to-one name="preparedBy" class="com.rsaame.kaizen.admin.model.Employee">
+			<column name="CUR_PREPARED_BY" />
+
+		</many-to-one>
+		<many-to-one name="modifiedBy" class="com.rsaame.kaizen.admin.model.Employee">
+			<column name="CUR_MODIFIED_BY" />
+
+		</many-to-one> -->
+	</class>
+	
+	<query name="getCurrencyList">
+ 	 from TMasCurrency curr where curr.code=:identifier
+ 	 </query>
+ 	 
+</hibernate-mapping>
